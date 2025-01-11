@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Nenix - Business & Agency HTML5 Template</title>
+    <meta name="description" content=">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/assets/css/fontawesome-6-free.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/aos.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+    <!-- <link rel="stylesheet" href="/assets/css/vendor/plugins.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css"> -->
+
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+    <!-- Preloader Start  -->
+    <!--<div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>-->
+    <!-- Preloader End  -->
+
+    {%include 'partials/_header.html' %}
+
+    <div class="body-overlay"></div>
+
+    {{ content | safe  }}
+
+    {% include 'partials/_cta.html' %}
+
+    {% include 'partials/_footer.html' %}
+
+    <!-- back to top start -->
+    <div class="go-top-area">
+        <div class="go-top-wrap">
+            <div class="go-top-btn-wrap">
+                <div class="go-top go-top-btn">
+                    <i class="fa-solid fa-angles-up"></i>
+                    <i class="fa-solid fa-angles-up"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- back to top end -->
+
+</div>
+
+<!-- JS
+============================================ -->
+<script src=/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="/assets/js/plugins/popper.min.js"></script>
+<script src="/assets/js/plugins/bootstrap.min.js"></script>
+
+<!-- Plugins JS -->
+<script src="/assets/js/plugins/meanmenu.js"></script>
+<script src="/assets/js/plugins/swiper-bundle.min.js"></script>
+<script src="/assets/js/plugins/aos.js"></script>
+<script src="/assets/js/plugins/wow.js"></script>
+<script src="/assets/js/plugins/waypoints.min.js"></script>
+<script src="/assets/js/plugins/gsap.js"></script>
+<script src="/assets/js/plugins/jquery.counterup.min.js"></script>
+<script src="/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+
+<!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+
+<!-- Main JS -->
+<script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>
