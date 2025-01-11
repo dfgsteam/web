@@ -1,0 +1,93 @@
+/*--
+/*  14 - Process CSS
+/*----------------------------------------*/
+
+.nenix-process-section {
+
+    & .process-wrap {
+        position: relative;
+        margin-bottom: -150px;
+        z-index: 1;
+    }
+
+    & .section-title {
+        margin: 0;
+    }
+
+    & .process-desc {
+        padding-left: 205px;
+        @media #{$laptop-device}  {
+            padding-left: 120px;
+        }
+        @media #{$desktop-device} {
+            padding-left: 50px;
+        }
+        @media #{$tablet-device} {
+            padding-left: 0;
+            margin-top: 25px;
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+            color: #55527C;
+        }
+    }
+
+    & .process-content-wrap {
+        padding-top: 20px;
+    }
+}
+
+.process-item {
+    background: $white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding: 40px 40px 35px;
+    margin-top: 30px;
+
+    & .number {
+        font-size: 26px;
+        line-height: 32px;
+        font-family: $body-font;
+        font-weight: 400;
+        letter-spacing: -0.8px;
+        color: rgba($heading-color3, 0.2);
+    }
+
+    & .title {
+        font-size: 26px;
+        line-height: 32px;
+        font-family: $body-font;
+        font-weight: 400;
+        letter-spacing: -0.8px;
+        color: $heading-color3;
+        margin-top: 5px;
+    }
+
+    & p{
+        font-size: 18px;
+        line-height: 30px;
+        color: #646464;
+        margin-top: 5px;
+    }
+
+    & .read-more {
+        font-size: 14px;
+        line-height: 1;
+        font-family: $heading-font;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+        color: $heading-color3;
+        margin-top: 30px;
+
+        & i {
+            margin-left: 5px;
+        }
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}

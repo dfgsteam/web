@@ -1,0 +1,109 @@
+/*--
+/*  18 - Contact CSS
+/*----------------------------------------*/
+
+.contact-info-wrap {
+    background: #FFF5F6;
+    border-radius: 20px;
+    padding: 60px;
+    @media #{$desktop-device} {
+        padding: 45px;
+    }
+
+    & .section-title {
+
+        & p {
+            color: $heading-color3;
+        }
+    }
+
+    & .contact-info-inner-wrap {
+        border-top: 1px solid #B4B2C5;
+        padding-top: 10px;
+        margin-top: 30px;
+    }
+
+    & .single-contact-info {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        margin-top: 20px;
+
+        & .info-icon {
+
+            & i {
+                display: inline-block;
+                color: $primary;
+                font-size: 18px;
+            }
+        }
+
+        & .info-text {
+            flex: 1;
+            font-size: 18px;
+            line-height: 30px;
+            font-family: $heading-font;
+            font-weight: 400;
+            margin-left: 15px;
+            color: $heading-color3;
+        }
+        
+    }
+}
+
+
+.contact-form-wrap {
+    margin-top: 0;
+    margin-left: 15px;
+    @media #{$desktop-device} {
+        padding: 45px;
+    }
+    @media #{$tablet-device} {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    & .contact-form-inner-wrap {
+        margin-top: 15px;
+    }
+
+    & .post-input {
+        
+        & input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+            border: 2px solid #B4B2C5;
+            border-radius: 50px;
+        }
+        & textarea {
+            border: 2px solid #B4B2C5;
+            border-radius: 30px;
+        }
+        
+    }
+
+    & .form-btn {
+        background: $primary;
+        color: $white;
+
+        &:hover {
+            background: $secondary;
+            color: $heading-color3;
+        }
+    }
+}
+
+// Contact Map
+.contact-map-section {
+
+    & .contact-map-wrap {
+    
+        & iframe {
+            height: 570px;
+            width: 100%;
+            border-radius: 20px;
+            filter: brightness( 100% ) contrast( 100% ) saturate( 0% ) blur( 0px ) hue-rotate( 0deg );
+            @media #{$tablet-device} {
+                height: 450px;
+            }
+        }
+    }
+}

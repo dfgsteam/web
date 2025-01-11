@@ -1,0 +1,294 @@
+/*--
+/*  13 - Features CSS
+/*----------------------------------------*/
+
+.features-wrap {
+    margin-top: -30px;
+}
+
+.features-item {
+    background: $white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding: 55px 40px 65px;
+    margin-top: 30px;
+    transition: $transition-default;
+
+    & .features-icon {
+
+        & svg {
+            fill: #EA4C89;
+            backface-visibility: hidden;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+        }
+    }
+
+    & .features-content {
+
+        & .number {
+            font-size: 160px;
+            line-height: 0.6;
+            color: rgba(#B4B2C5, 0.3);
+            margin-top: 55px;
+            @media #{$desktop-device} {
+                font-size: 120px;
+            }
+            @media #{$large-mobile} {
+                font-size: 90px;
+            }
+        }
+
+        & .title {
+            font-size: 26px;
+            line-height: 32px;
+            font-family: $body-font;
+            font-weight: 400;
+            color: $heading-color3;
+            letter-spacing: -0.8px;
+            margin-top: 70px;
+            @media #{$desktop-device} {
+                margin-top: 45px;
+            }
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+            margin-top: 15px;
+        }
+    }
+
+    &:hover {
+        background: #FFF5F6;
+
+        & .features-icon {
+
+            & svg {
+                transform: translateY(-5px) translate3d(0, -3px, 0);
+            }
+        }
+    }
+}
+
+.nenix-features-section-02 {
+
+    & .section-title {
+        margin: 0;
+    }
+
+    & .features-content {
+
+        & .text {
+            margin-top: 25px;
+        }
+
+        & .features-list-wrap {
+            padding-top: 0;
+
+            & .features-list-item {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                
+                & .features-left {
+
+                    & .number {
+                        display: inline-block;
+                        width: 50px;
+                        height: 50px;
+                        line-height: 50px;
+                        background: #FFF5F6;
+                        border-radius: 50%;
+                        text-align: center;
+                        font-family: $heading-font;
+                        font-weight: 600;
+                        font-size: 18px;
+                        color: $heading-color3;
+                    }
+                }
+
+
+                & .features-right {
+                    flex: 1;
+                    margin-left: 20px;
+
+                    & p {
+                        font-size: 26px;
+                        line-height: 32px;
+                        letter-spacing: -0.8px;
+                        color: $heading-color3;
+                    }
+                }
+            }
+        }
+    }
+
+    & .features-img-wrap {
+        position: relative;
+
+
+        & .shape-2 {
+            position: absolute;
+            left: 6%;
+            bottom: 20%;
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            background: $white;
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        & .shape-3 {
+            position: absolute;
+            right: 2%;
+            top: 19%;
+            z-index: 2;
+        }
+
+        & .rating-wrap {
+            display: inline-block;
+            position: absolute;
+            right: -2%;
+            bottom: 16%;
+            background: $heading-color3;
+            border-radius: 13px;
+            padding: 15px 15px;
+            z-index: 2;
+
+            & .rating{
+
+                & span {
+                    display: inline-block;
+                    font-size: 20px;
+                    color: $white;
+                    margin-left: -5px;
+                }
+                
+                &::before{
+                    font-size: 20px;
+                    letter-spacing: 8px;
+                }
+            
+                & .rating-active{
+            
+                    &::before{
+                        font-size: 20px;
+                        color: $white;
+                        letter-spacing: 8px;
+                    }
+                }
+            }
+        }
+
+        & .image {
+            position: relative;
+            text-align: right;
+            z-index: 1;
+        }
+    }
+}
+
+.nenix-features-section-02 {
+    @media #{$tablet-device} {
+        & .features-img-wrap {
+            margin-top: 35px;
+    
+            & .shape-3 {
+                right: 10%;
+            }
+    
+            & .rating-wrap {
+                right: 9%;
+            }
+    
+            & .image {
+                text-align: center;
+            }
+        }
+    }
+    @media #{$large-mobile} {
+        & .features-img-wrap {
+    
+            & .shape-3 {
+                right: -3%;
+            }
+    
+            & .rating-wrap {
+                right: -1%;
+            }
+        }
+    }
+    @media #{$extra-small-mobile} {
+        & .features-img-wrap {
+    
+            & .shape-2 {
+                left: 1%;
+                bottom: 5%;
+            }
+            & .shape-3 {
+                
+                & img {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+// Service Details Page
+
+.nenix-features-section-03 {
+    padding-top: 25px;
+}
+
+.features-item-02 {
+    background: #FFF5F6;
+    border-radius: 20px;
+    padding: 50px 60px 45px;
+    margin-top: 30px;
+    transition: $transition-default;
+    @media #{$desktop-device} {
+        padding: 50px 35px 45px;
+    }
+
+    & .features-content {
+
+        & .number {
+            font-size: 64px;
+            line-height: 1;
+            color: $primary;
+        }
+
+        & .title {
+            font-size: 26px;
+            line-height: 32px;
+            font-family: $body-font;
+            font-weight: 400;
+            color: $heading-color3;
+            letter-spacing: -0.8px;
+            margin-top: 35px;
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+            margin-top: 10px;
+            color: #55527C;
+        }
+    }
+
+    &:hover {
+        background: #FFF5F6;
+
+        & .features-icon {
+
+            & svg {
+                transform: translateY(-5px) translate3d(0, -3px, 0);
+            }
+        }
+    }
+}

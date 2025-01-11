@@ -1,0 +1,254 @@
+/*--
+/*  12 - Cta CSS
+/*----------------------------------------*/
+
+.nenix-cta-section {
+
+    &.theme-bg {
+        background: #FFF5F6;
+    }
+
+    & .cta-wrap {
+        position: relative;
+        background: #FFF5F6;
+        border-radius: 20px;
+        padding: 70px 80px 55px;
+        margin-bottom: -130px;
+        z-index: 2;
+
+        &.white-bg {
+            background: $white;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+        }
+
+        & .cta-left {
+            padding-right: 85px;
+
+            & .title {
+                font-size: 64px;
+                line-height: 1;
+                letter-spacing: -2px;
+                color: $heading-color3;
+            }
+
+            & p {
+                font-size: 18px;
+                line-height: 30px;
+                color: $heading-color3;
+                margin-top: 18px;
+            }
+        }
+
+        & .cta-right {
+            text-align: right;
+
+            & .btn {
+                height: 52px;
+                line-height: 50px;
+                font-size: 14px;
+                font-weight: 700;
+                border: 1px solid $primary;
+                font-family: $heading-font;
+                letter-spacing: 0.3px;
+
+                &:hover {
+                    border: 1px solid transparent;
+                }
+            }
+        }
+    }
+}
+
+.nenix-cta-section {
+    @media #{$laptop-device} {
+        & .cta-wrap {
+            padding: 70px 70px 55px;
+    
+            & .cta-left {
+                padding-right: 0;
+    
+                & .title {
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+    @media #{$tablet-device} {
+        & .cta-wrap {
+            padding: 70px 70px 55px;
+    
+            & .cta-left {
+                text-align: center;
+            }
+            & .cta-right {
+                text-align: center;
+                margin-top: 30px;
+            }
+        }
+    }
+    @media #{$large-mobile} {
+        & .cta-wrap {
+            padding: 60px 45px 55px;
+    
+            & .cta-left {
+    
+                & .title {
+                    font-size: 42px;
+                }
+    
+                & p {
+                    font-size: 16px;
+                    line-height: 28px;
+                }
+            }
+        }
+    }
+    @media #{$small-mobile} {
+        & .cta-wrap {
+            padding: 60px 35px 55px;
+    
+            & .cta-left {
+    
+                & .title {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+}
+
+// Home Style Two
+
+.nenix-cta-section-02 {
+
+    & .cta-wrap {
+        position: relative;
+        background: $white;
+        box-shadow: 0px 0px 15px -8px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        padding: 70px 80px 55px;
+        margin-bottom: -175px;
+        z-index: 2;
+
+        & .cta-image {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: -55px;
+            margin-top: -150px;
+            margin-left: -30px;
+            z-index: 1;
+        }
+
+        & .cta-content {
+
+            & .title {
+                font-size: 64px;
+                line-height: 1;
+                letter-spacing: -2px;
+                color: $heading-color3;
+            }
+
+            & p {
+                font-size: 18px;
+                line-height: 30px;
+                color: $heading-color3;
+                margin-top: 30px;
+            }
+
+            & .btn {
+                height: 52px;
+                line-height: 50px;
+                font-size: 14px;
+                font-weight: 700;
+                border: 0;
+                background: $heading-color3;
+                font-family: $heading-font;
+                letter-spacing: 0.3px;
+                color: $white;
+                margin-top: 30px;
+
+                &:hover {
+                    background: $primary;                }
+            }
+        }
+    }
+}
+
+.nenix-cta-section-02 {
+    @media #{$laptop-device} {
+        & .cta-wrap {
+
+            & .cta-content {
+
+                & .title {
+                    font-size: 52px;
+                }
+            }
+
+        }
+    }
+    @media #{$desktop-device} {
+
+        & .cta-wrap {
+            padding: 50px 80px 55px;
+
+            & .cta-image {
+                margin-bottom: -127px;
+            }
+
+            & .cta-content {
+
+                & .title {
+                    font-size: 44px;
+                }
+            }
+
+        }
+        
+    }
+    @media #{$tablet-device} {
+
+        & .cta-wrap {
+            padding: 55px 60px 70px;
+
+            & .cta-image {
+                text-align: center;
+                margin-bottom: 0;
+                margin-top: 0;
+                margin-top: 0;
+            }
+
+            & .cta-content {
+                text-align: center;
+                margin-top: 40px;
+            }
+
+        }
+        
+    }
+    @media #{$large-mobile} {
+        & .cta-wrap {
+            
+            & .cta-content {
+
+                & .title {
+                    font-size: 36px;
+                }
+            }
+
+        }
+    }
+    @media #{$small-mobile} {
+        & .cta-wrap {
+            padding: 55px 35px 70px;
+            
+            & .cta-content {
+
+                & .title {
+                    font-size: 30px;
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,55 @@
+/*--
+/*  20 - 404 CSS
+/*----------------------------------------*/
+
+/* 404 page */
+
+.error-wrap {
+    margin-top: -20px;
+}
+
+.error-404-title {
+	font-size: 180px;
+	line-height: 1;
+	font-weight: 700;
+    color: $heading-color;
+    @media #{$tablet-device} {
+        font-size: 150px;
+    }
+    @media #{$small-mobile} {
+        font-size: 110px;
+    }
+}
+
+.error-content {
+	
+    & .error-title {
+        font-size: 35px;
+        color: $heading-color;
+        @media #{$small-mobile} {
+            font-size: 25px;
+        }
+     }
+}
+.error-content {
+    
+    & p {
+        font-size: 18px;
+        line-height: 28px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        padding: 0 70px;
+        @media #{$small-mobile} {
+            font-size: 16px;
+            padding: 0 0;
+            margin-top: 10px;
+        }
+    }
+}
+
+.error-content {
+
+    & .btn {
+        padding: 0 40px;
+    }
+}

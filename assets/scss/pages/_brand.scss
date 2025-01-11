@@ -1,0 +1,48 @@
+/*--
+/*  12 - Brand CSS
+/*----------------------------------------*/
+
+.nenix-brand-section {
+    background: #D9F4FF;
+    padding-top: 210px;
+
+    & .brand-wrapper {
+        border-bottom: 1px solid rgba($heading-color3, 0.2);
+        padding-bottom: 50px;
+    }
+}
+
+// Home Style Two
+
+.nenix-brand-section-02 {
+    padding-bottom: 200px;
+    @media #{$desktop-device} {
+        padding-bottom: 120px;
+    }
+    @media #{$tablet-device} {
+        padding-bottom: 80px;
+    }
+    @media #{$large-mobile} {
+        padding-bottom: 60px;
+    }
+}
+
+
+.nenix-brand-area-03 {
+
+    & .section-title {
+        padding-bottom: 50px;
+
+        & .brand-title {
+            font-size: 18px;
+            line-height: 30px;
+            font-family: $body-font;
+            font-weight: 400;
+            color: #1C1E26;
+        }
+    }
+
+    & .tp-brand-wrapper-02 {
+        padding-top: 50px;
+    }
+}

@@ -1,0 +1,91 @@
+/*--
+/*  08 - Faq CSS
+/*----------------------------------------*/
+
+.nenix-faq-section {
+
+    & .faq-content-wrap {
+        padding-top: 25px;
+        @media #{$tablet-device} {
+            padding-top: 10px;
+        }
+    }
+}
+// Faq accordion
+
+.faq-accordion {
+    padding-top: 15px;
+
+    & .accordion-item {
+        border: 0;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 25px;
+        
+
+        & .accordion-button {
+            padding: 20px 35px;
+    
+            & .title {
+                font-size: 26px;
+                line-height: 32px;
+                color: $heading-color3;
+                font-family: $body-font;
+                display: inline-block;
+                font-weight: 400;
+                position: relative;
+                z-index: 1;
+            }
+    
+            &::after {
+                position: absolute;
+                content: "\f16c";
+                font-family: "flaticon";
+                border: none;
+                font-size: 14px;
+                font-weight: 500;
+                text-align: center;
+                border-radius: 50%;
+                color: $heading-color3;
+                background: none;
+                right: 30px;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: all .3s ease-out 0s; 
+            }
+        }
+    
+        & .accordion-body {
+            font-size: 18px;
+            line-height: 30px;
+            padding: 25px 35px;
+            padding-right: 160px;
+            padding-top: 5px;
+            position: relative;
+            color: $heading-color3;
+            @media #{$tablet-device} {
+                padding-right: 70px;
+            }
+            @media #{$small-mobile} {
+                padding-right: 35px;
+            }
+        }
+    
+        & .accordion-button:focus {
+            box-shadow: none;
+        }
+    
+        & .accordion-button:not(.collapsed) {
+            background-color: $white;
+            box-shadow: none;
+    
+            &::after {
+                position: absolute;
+                border: none;
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+

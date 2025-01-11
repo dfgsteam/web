@@ -1,0 +1,172 @@
+/*--
+/*  15 - Service Details CSS
+/*----------------------------------------*/
+
+.nenix-service-details {
+
+    & .service-details-img {
+
+        & img {
+            border-radius: 20px;
+        }
+    }
+
+    & .service-details-content-wrap {
+        padding-top: 15px;
+
+        & .service-details-inner-content {
+
+            &.inner-content-02 {
+                padding-top: 15px;
+            }
+
+            & .service-details-content {
+                margin-top: 25px;
+
+                & .title {
+                    font-size: 64px;
+                    line-height: 1.1;
+                    letter-spacing: -2px;
+                    color: $heading-color3;
+                    margin-bottom: 20px;
+                }
+
+                & p {
+                    font-size: 18px;
+                    line-height: 30px;
+                    color: #55527C;
+                    margin-bottom: 20px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            & .service-details-inner-img {
+                margin-top: 25px;
+
+                & img {
+                    border-radius: 20px;
+                }
+            }
+
+        }
+    }
+}
+
+.nenix-service-details {
+    @media #{$desktop-device} {
+        & .service-details-content-wrap {
+    
+            & .service-details-inner-content {
+    
+                & .service-details-content {
+    
+                    & .title {
+                        font-size: 48px;
+                    }
+                }
+            }
+        }
+    }
+    @media #{$large-mobile} {
+        & .service-details-content-wrap {
+    
+            & .service-details-inner-content {
+    
+                & .service-details-content {
+    
+                    & .title {
+                        font-size: 36px;
+                    }
+                }
+            }
+        }
+    }
+    @media #{$small-mobile} {
+        & .service-details-content-wrap {
+    
+            & .service-details-inner-content {
+    
+                & .service-details-content {
+    
+                    & .title {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nenix-service-section-03 {
+    background: #FFF5F6;
+
+    & .section-title {
+        @media #{$tablet-device} {
+            text-align: center;
+        }
+    }
+
+    & .service-desc {
+        padding-left: 205px;
+        @media #{$desktop-device} {
+            padding-left: 0;
+        }
+        @media #{$tablet-device} {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+            color: #55527C;
+        }
+    }
+
+    & .service-content-wrap {
+        padding-top: 15px;
+    }
+}
+
+.service-item-03 {
+    background: $white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 30px;
+    transition: $transition-default;
+
+    & .service-content {
+
+        & .title {
+            font-size: 26px;
+            line-height: 32px;
+            font-family: $body-font;
+            font-weight: 400;
+            color: $heading-color3;
+            margin-top: 20px;
+        }
+
+        & svg {
+            fill: $primary;
+            backface-visibility: hidden;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+
+            & path {
+                fill: $primary;
+            }
+        }
+    }
+
+    &:hover {
+        border: 1px solid $primary;
+
+        & svg {
+            transform: translateY(-5px) translate3d(0, -3px, 0);
+        }
+    }
+}

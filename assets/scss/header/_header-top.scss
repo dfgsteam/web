@@ -1,0 +1,299 @@
+/*--
+/*  2.1 - Header Top CSS
+/*----------------------------------------*/
+
+//  Header Section
+.header-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: $white;
+    box-shadow: 0px 0px 16px 0px rgba($black, 0.07);
+    width: 100%;
+    z-index: 999;
+}
+
+
+// Header Wrap
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Main Menu
+
+.main-menu {
+
+    & ul{
+        & li{
+            display: inline-block;
+            margin-right: 40px;
+            position: relative;
+            @media #{$desktop-device} {
+                margin-right: 22px;
+            }
+
+            &:last-child{
+                margin-right: 0;
+            }
+            &.has-dropdown{
+                & > a{
+                    padding-right: 14px;
+                    &::after{
+                        display: inline-block;
+                        content: '\f16c';
+                        transform: translateY(-1px);
+                        margin-left: 6px;
+                        font-size: 10px;
+                        color: $heading-color;
+                        font-family: "flaticon";
+                    }
+                }
+            }
+            & a{
+                color: $heading-color3;
+                font-size: 16px;
+                line-height: 1.5;
+                font-family: $body-font;
+                font-weight: 500;
+                padding: 35px 0;
+                display: inline-block;
+                transition: .3s;
+            }
+            &.active-menu {
+
+                & > a {
+                    color: $primary;
+
+                    &::after{
+                        color: $primary;
+                    }
+                }
+            }
+            &:hover > a{
+                color: $primary;
+                &::after{
+                    color: $primary;
+                }
+            }
+            
+            &:hover .sub-menu {
+                visibility: visible;
+                opacity: 1;
+                top: 100%;
+            }
+            & .sub-menu{
+                position: absolute;
+                left: 0;
+                top: 110%;
+                min-width: 220px;
+                background-color: $white;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 99;
+                box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
+                padding: 20px 0px 15px;
+                transition: 0.3s;
+                border-top: 4px solid $primary;
+                & li{
+                    margin: 0;
+                    padding: 0;
+                    display: inline;
+                    position: relative;
+                    width: 100%;
+                    display: block;
+                    & a{
+                        font-size: 16px;
+                        font-weight: 500;
+                        display: block;
+                        padding: 7px 25px;
+                        transition: 0.3s;
+                        color: #031628;
+                        text-transform: capitalize;
+                    }
+                    &.has-dropdown {
+
+                        & > a::after {                          
+                            position: absolute;
+                            top: 50%;
+                            right: 25px;
+                            transform: translateY(-50%) rotate(-90deg);
+                        }
+                    }
+                    &.active {
+                        & > a {
+                            color: $primary;
+                        }
+                    }
+                    &:hover > a{
+                        color: $primary;
+                    }
+                    & > .sub-menu{
+                        left: 110%;
+                        top: 0;
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                    &:hover{
+                        
+                        & > .sub-menu {
+                            left: 100%;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            &.menu-last {
+
+                & .sub-menu {
+                    left: auto;
+                    right: 0;
+                    
+                    & li {
+
+                        & > .sub-menu {
+                            left: auto;
+                            right: 100%;
+                            opacity: 0;
+                            visibility: hidden; 
+                        }
+
+                        &:hover {
+
+                            & > .sub-menu {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-top-section {
+    background: $secondary;
+}
+
+.header-top-wrapper  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+
+    & .header-top-info  {
+
+        & ul {
+
+            & li {
+                display: inline-block;
+                font-size: 18px;
+                line-height: 30px;
+                color: $heading-color3;
+                position: relative;
+
+                & i {
+                    font-size: 18px;
+                    color: $heading-color3;
+                    position: relative;
+                    top: 1px;
+                    margin-right: 7px;
+                }
+
+                & + li {
+                    margin-left: 40px;
+                }
+            }
+        }
+    }
+    & .header-social {
+
+        & ul {
+
+            & li {
+                display: inline-block;
+                
+                & + li {
+                    margin-left: 20px;
+                }
+
+                & a {
+                    display: inline-block;
+                    font-size: 18px;
+                    color: $heading-color3;
+
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-bottom-section {
+    @media #{$tablet-device} {
+        padding: 15px 0;
+    }
+}
+
+.header-btn  {
+
+    & .btn {
+        height: 52px;
+        line-height: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        border: 1px solid #B4B2C5;
+        font-family: $heading-font;
+        letter-spacing: 0.3px;
+
+        &:hover {
+            border: 1px solid transparent;
+        }
+    }
+}
+
+
+// Home Style Three
+
+.header-section-03 {
+    position: inherit;
+
+    & .header-top-section {
+        background: transparent;
+        border-bottom: 1px solid #B4B2C5;
+    }
+
+}
+
+.header-section-04 {
+    position: inherit;
+}
+
+
+// Sticky Header
+.header-sticky{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: $white;
+    box-shadow: 0px 0px 16px 0px rgba($black, 0.07);
+    animation: header-sticky 1s;
+    z-index: 99;
+}
+
+
+
+@keyframes header-sticky {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+

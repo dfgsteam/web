@@ -1,0 +1,181 @@
+/*--
+/*  15 - Choose Us CSS
+/*----------------------------------------*/
+
+.nenix-choose-us-section {
+
+    & .choose-us-content {
+
+        & .section-title {
+            margin: 0;
+        }
+
+        & .text {
+            font-size: 18px;
+            line-height: 30px;
+            color: #55527C;
+            margin-top: 30px;
+            padding-right: 70px;
+        }
+        
+        & .choose-us-list-wrap {
+            padding-top: 15px;
+
+            & .choose-us-list-item {
+                display: flex;
+                margin-top: 20px;
+
+                & .choose-us-icon {
+                    font-size: 16px;
+                    color: $primary;
+                }
+
+                & .choose-us-list-content {
+                    flex: 1;
+                    margin-left: 15px;
+
+                    & .title {
+                        font-size: 26px;
+                        line-height: 32px;
+                        font-family: $body-font;
+                        font-weight: 400;
+                        color: $heading-color3;
+                    }
+                }
+
+            }
+        }
+
+        & .btn {
+            margin-top: 50px;
+        }
+
+    }
+
+    & .choose-us-img-wrap {
+        position: relative;
+        z-index: 1;
+
+        & .image-content {
+            position: absolute;
+            left: 6%;
+            top: 37%;
+            background: $white;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            padding: 20px 25px;
+          
+
+            & .image-text {
+                flex: 1;
+                text-align: left;
+
+                & .number {
+                    font-size: 54px;
+                    line-height: 64px;
+                    color: $heading-color3;
+                }
+
+                & span {
+                    display: inline-block;
+                    font-size: 18px;
+                    line-height: 30px;
+                    font-family: $heading-font;
+                    font-weight: 600;
+                    color: #55527C;
+                }
+            }
+
+            &.content-2 {
+                position: absolute;
+                right: 3%;
+                top: auto;
+                left: auto;
+                bottom: 7%;
+                padding-right: 60px;
+            }
+        }
+
+    }
+
+    & .choose-us-img {
+        text-align: right;
+
+
+        & img {
+            border-radius: 20px;
+        }
+    }
+}
+
+.nenix-choose-us-section {
+    @media #{$desktop-device} {
+        & .choose-us-img-wrap {
+    
+            & .image-content {
+                left: -9%;
+                top: 37%;
+
+                & .image-text {
+    
+                    & .number {
+                        font-size: 44px;
+                        line-height: 54px;
+                    }
+    
+                    & span {
+                        font-size: 16px;
+                        line-height: 28px;
+                    }
+                }
+    
+                &.content-2 {
+                    right: 1%;
+                    padding-right: 45px;
+                }
+            }
+    
+        }
+    }
+    @media #{$tablet-device} {
+        & .choose-us-img-wrap {
+            margin-top: 40px;
+
+            & .image-content {
+                left: 11%;
+    
+                &.content-2 {
+                    right: 15%;
+                }
+            }
+        }
+        & .choose-us-img {
+            text-align: center;
+        }
+    }
+    @media #{$large-mobile} {
+        & .choose-us-img-wrap {
+
+            & .image-content {
+                left: 5%;
+    
+                &.content-2 {
+                    right: 7%;
+                }
+            }
+        }
+    }
+    @media #{$extra-small-mobile}{
+        & .choose-us-img-wrap {
+
+            & .image-content {
+                left: 0;
+    
+                &.content-2 {
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,239 @@
+/*--
+/*  06 - Service CSS
+/*----------------------------------------*/
+
+.nenix-service-section {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #FFF5F6;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        width: 50%;
+        height: 82%;
+        z-index: -1;
+    }
+    
+
+    & .section-title {
+        margin: 0;
+    }
+
+    & .service-content-wrap {
+        padding-top: 20px;
+    }
+}
+
+.service-item {
+    background: $white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 60px 40px 65px;
+    margin-top: 30px;
+    transition: $transition-default;
+    @media #{$desktop-device} {
+        padding: 55px 35px 60px;
+    }
+
+    & .service-icon {
+
+        & svg {
+            fill: #130F49;
+            backface-visibility: hidden;
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.3s cubic-bezier(0.21, 0.6, 0.44, 2.18);
+        }
+    }
+
+    & .service-content {
+
+        & .title {
+            font-size: 26px;
+            line-height: 32px;
+            font-family: $body-font;
+            font-weight: 400;
+            color: $heading-color3;
+            margin-top: 25px;
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+            margin-top: 15px;
+        }
+
+        & .read-more {
+            font-size: 14px;
+            line-height: 1;
+            font-family: $heading-font;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+            color: $heading-color3;
+            margin-top: 25px;
+
+            & i {
+                margin-left: 5px;
+            }
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    &:hover {
+        border: 1px solid $primary;
+
+        & .service-icon {
+
+            & svg {
+                transform: translateY(-5px) translate3d(0, -3px, 0);
+            }
+        }
+    }
+}
+
+// Home Style Three
+
+.nenix-service-section-02 {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #FFF5F6;
+        width: 100%;
+        height: 80%;
+        z-index: -1;
+    }
+    & .section-title {
+        margin: 0;
+    }
+
+    & .service-btn {
+        text-align: right;
+        @media #{$tablet-device} {
+            text-align: left;
+            margin-top: 30px;
+        }
+    }
+
+    & .service-content-wrap {
+        padding-top: 35px;
+        @media #{$large-mobile} {
+            padding-top: 20px;
+        }
+    }
+}
+
+.service-item-02 {
+    background: $white;
+    box-shadow: 0px 15px 40px 10px rgba(#FFF5F6, 1);
+    border: 1px solid transparent;
+    padding: 45px 40px 40px;
+    margin-top: 60px;
+    transition: $transition-default;
+    @media #{$desktop-device} {
+        padding: 55px 35px 60px;
+        margin-top: 30px;
+    }
+
+    &.item-02 {
+        margin-top: 20px;
+        @media #{$desktop-device} {
+            padding: 55px 35px 60px;
+            margin-top: 30px;
+        }
+    }
+
+    & .service-title-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        & .title {
+            font-size: 26px;
+            line-height: 32px;
+            font-family: $body-font;
+            font-weight: 400;
+            color: $heading-color3;
+        }
+
+        & .service-icon {
+
+            & svg {
+                fill: rgba($heading-color3, 0.1);
+                transition: $transition-default;
+            }
+        }
+    }
+
+
+    & .service-content {
+        border-top: 1px solid #B4B2C5;
+        margin-top: 30px;
+        padding-top: 30px;
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+        }
+
+        & .btn {
+           margin-top: 60px; 
+        }
+    }
+
+    &:hover {
+        border: 1px solid $primary;
+
+        & .service-icon {
+
+            & svg {
+                fill: $primary;
+            }
+        }
+    }
+}
+
+// Service Page
+
+.nenix-service-section-04 {
+
+    & .service-wrap {
+        margin-top: -30px;
+    }
+
+    & .service-item {
+        box-shadow: none;
+        border: 0;
+    
+        & .service-icon {
+    
+            & svg {
+                fill: $primary;
+
+                & path {
+                    fill: $primary;
+                }
+            }
+        }
+    
+    
+        &:hover {
+            background: #FFF5F6;
+        }
+    }
+}

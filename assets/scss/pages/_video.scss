@@ -1,0 +1,68 @@
+/*--
+/*  19 - Video CSS
+/*----------------------------------------*/
+
+.nenix-video-wrap {
+	margin-top: -85px;
+	position: relative;
+	z-index: 2;
+}
+
+// Video Play
+.video-play {
+    position: relative;
+    text-align: right;
+
+    & .shape-1 {
+        position: relative;
+        border-radius: 50%;
+        @media #{$tablet-device} {
+            width: 160px;
+        }
+        @media #{$extra-small-mobile} {
+            width: 130px;
+        }
+    }
+    
+    & a {
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+        line-height: 45px;
+        text-align: center;
+        border: 1px solid $white;
+        font-size: 14px;
+        color: $white;
+        border-radius: 50%;
+        transition: $transition-default;
+        position: absolute;
+        right: 11.5%;       
+        top: 36%;
+        z-index: 5;
+        @media #{$laptop-device} {
+            right: 13.5%;
+        }
+        @media #{$desktop-device} {
+            right: 16.5%;
+        }
+        @media #{$tablet-device} {
+            right: 8.5%;
+        }
+        @media #{$large-mobile} {
+            right: 11.5%;
+        }
+        @media #{$extra-small-mobile} {
+            right: 12.5%;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        &:hover {
+            border: 1px solid transparent;
+            background: $white;
+            color: $primary;
+        }
+    }
+
+}

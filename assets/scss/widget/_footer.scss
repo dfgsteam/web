@@ -1,0 +1,252 @@
+/*--
+/*  24.1 - Footer Widget CSS
+/*----------------------------------------*/
+
+// Footer Widget Area
+.footer-widget-wrap {
+    padding-top: 25px;
+    padding-bottom: 75px;
+}
+
+.footer-section-02 {
+
+    & .footer-wrap {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    & .footer-widget-wrap {
+        padding-top: 240px;
+        padding-bottom: 75px;
+    }
+}
+
+
+// Footer Widget
+.footer-widget {
+    margin-top: 30px;
+
+    &.footer-widget-2,
+    &.footer-widget-3 {
+        padding-left: 40px;
+        @media #{$tablet-device} {
+            padding-left: 0px;
+        }
+    }
+}
+
+// Widget Info
+.widget-info {
+
+    &  ul {
+        
+
+        & li {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin-top: 20px;
+    
+            & .info-icon {
+
+                & i {
+                    display: inline-block;
+                    color: $heading-color3;
+                    font-size: 14px;
+                }
+            }
+    
+            & .info-text {
+                flex: 1;
+                font-size: 18px;
+                line-height: 30px;
+                font-family: $heading-font;
+                font-weight: 400;
+                margin-left: 15px;
+                color: $heading-color3;
+            }
+        }
+    }
+}
+
+.footer-search {
+    
+    & .footer-search-wrap {
+        max-width: 300px;
+        width: 100%;
+        position: relative;
+        margin-top: 20px;
+
+        & form {
+
+            & input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+                background-color: transparent;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 400;
+                color: #55527C;
+                border: 1px solid rgba(#55527C, 0.8);
+                border-radius: 5px;
+                padding-left: 20px;
+                padding-right: 60px;
+
+                @include placeholder{
+                    opacity: 0.9;
+                    font-size: 18px;
+                    color: #55527C;
+                    font-weight: 400;
+                }
+    
+            }
+
+            & button {
+                width: 60px;
+                height: 50px;
+                line-height: 50px;
+                background: $primary;
+                border: 0;
+                color: $white;
+                position: absolute;
+                right: 0;
+                top: 0;
+                font-size: 16px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+    
+        }
+    }
+}
+
+.footer-widget-about {
+    margin-top: 30px;
+
+    & p {
+        font-size: 18px;
+        line-height: 30px;
+        color: $heading-color3; 
+        margin-top: 22px;
+        @media #{$small-mobile} {
+            font-size: 16px;
+            line-height: 28px;
+        }
+    }
+}
+
+
+// Widget Title
+.footer-widget {
+
+   & .footer-widget-title{
+        font-size: 26px;
+        line-height: 32px;
+        font-family: $body-font;
+        font-weight: 500;
+        color: $heading-color3;
+        margin-bottom: 30px;
+    }
+
+}
+
+
+
+// Widget Link
+.footer-widget-link{
+
+    & ul{
+        & li{
+            margin-bottom: 8px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            & a{
+                font-size: 18px;
+                line-height: 30px;
+                color: $heading-color3;
+                transition: $transition-default;
+                @media #{$small-mobile} {
+                    font-size: 16px;
+                    line-height: 28px;
+                }
+             
+                &:hover {  
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+
+// Home Style Two
+.footer-section-02 {
+
+    & .footer-social {
+        text-align: left;
+
+        & ul {
+            margin-top: 20px;
+            & li {
+                display: inline-block;
+    
+                & + li {
+                    margin-left: 5px;
+                }
+                
+                & a {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 42px;
+                    text-align: center;
+                    border-radius: 50%;
+                    font-size: 16px;
+                    background: rgba(#B4B2C5, 0.3);
+                    color: $heading-color3;
+                    transition: $transition-default;
+    
+                    &:hover {
+                        background: $primary;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Home Style Three
+
+.footer-section-03 {
+
+    & .footer-widget-about {
+    
+        & p {
+            color: #55527C;
+        }
+    }
+
+    & .footer-widget-link{
+
+        & ul{
+            & li{
+    
+                & a{
+                    color: #55527C;
+                    transition: $transition-default;
+                 
+                    &:hover {  
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+
+    & .footer-copyright-area {
+        padding-bottom: 30px;
+    }
+}

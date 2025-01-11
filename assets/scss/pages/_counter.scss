@@ -1,0 +1,127 @@
+/*--
+/*  07 - Counter CSS
+/*----------------------------------------*/
+
+.counter-content-wrap {
+    padding-top: 25px;
+    @media #{$large-mobile} {
+        padding-top: 10px;
+    }
+}
+.counter-item {
+    padding-left: 85px;
+    margin-top: 30px;
+
+    & .counter-text {
+        padding-right: 110px;
+        @media #{$laptop-device} {
+            padding-right: 30px;
+        }
+
+        & span {
+            font-size: 78px;
+            line-height: 82px;
+            font-family: $heading-font;
+            font-weight: 700;
+            color: $heading-color3;
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+            color: $body-color;
+            margin-top: 5px;
+        }
+    }
+}
+
+.counter-item {
+    @media #{$desktop-device} {
+        padding-left: 60px;
+
+        & .counter-text {
+            padding-right: 0;
+    
+            & span {
+                font-size: 60px;
+                line-height: 65px;
+            }
+        }
+    }
+    @media #{$large-mobile} {
+        padding-left: 0;
+
+        & .counter-text {
+    
+            & span {
+                font-size: 48px;
+                line-height: 52px;
+            }
+
+            & p {
+                font-size: 16px;
+                line-height: 28px;
+            }
+        }
+    }
+}
+
+// Home Style Two
+
+.nenix-counter-section-02 {
+    background: #D9F4FF;
+
+    & .counter-wrap {
+        margin-top: -30px;
+    }
+
+}
+
+.counter-item-02 {
+    background: $white;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 35px 30px;
+    margin-top: 30px;
+    @media #{$laptop-device} {
+        padding: 35px 25px;
+    }
+
+    & .counter-img {
+
+        & svg {
+            fill: $heading-color3;
+        }
+    }
+
+    & .counter-text {
+        flex: 1;
+        margin-left: 20px;
+
+        & span {
+            font-size: 64px;
+            line-height: 1;
+            font-family: $heading-font;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            color: $heading-color3;
+            @media #{$laptop-device} {
+                font-size: 52px;
+            }
+            @media #{$large-mobile} {
+                font-size: 48px;
+            }
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 30px;
+            color: $heading-color3;
+            @media #{$laptop-device} {
+                font-size: 16px;
+                line-height: 28px;
+            }
+        }
+    }
+}
