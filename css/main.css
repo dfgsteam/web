@@ -10,6 +10,7 @@
                    radial-gradient(at 100% 100%, rgba(255, 45, 85, 0.15) 0%, transparent 50%),
                    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
     --glass-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+    --liquid-glow: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
     --sidebar-width: 240px;
 }
 
@@ -26,6 +27,7 @@
                        radial-gradient(at 100% 100%, rgba(255, 45, 85, 0.25) 0%, transparent 60%),
                        radial-gradient(at 50% 50%, rgba(255, 45, 85, 0.15) 0%, transparent 80%);
         --glass-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+        --liquid-glow: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
     }
 }
 
@@ -42,6 +44,7 @@ body.light-mode-active {
                    radial-gradient(at 100% 100%, rgba(255, 45, 85, 0.15) 0%, transparent 50%),
                    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
     --glass-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+    --liquid-glow: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 /* Manuelle Dark-Mode Overrides für den Toggle (falls System auf Light steht) */
@@ -57,6 +60,7 @@ body:not(.light-mode-active) {
                    radial-gradient(at 100% 100%, rgba(255, 45, 85, 0.25) 0%, transparent 60%),
                    radial-gradient(at 50% 50%, rgba(255, 45, 85, 0.15) 0%, transparent 80%);
     --glass-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --liquid-glow: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
 * {
@@ -87,6 +91,7 @@ body {
 }
 
 .window {
+    position: relative;
     width: 92%;
     max-width: 1200px;
     height: 85vh;
@@ -104,6 +109,26 @@ body {
     flex-direction: column;
     overflow: hidden;
     animation: windowAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.window::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
+    animation: liquidMove 20s linear infinite;
+}
+
+@keyframes liquidMove {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-10%, -10%) rotate(180deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
 }
 
 @keyframes windowAppear {
@@ -356,6 +381,7 @@ h2 {
 }
 
 .card {
+    position: relative;
     background: var(--glass-bg-gradient);
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
@@ -368,6 +394,24 @@ h2 {
     box-shadow: 
         0 8px 32px 0 rgba(0, 0, 0, 0.1),
         inset 0 1px 1px var(--glass-highlight);
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--liquid-glow);
+    transition: left 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card:hover::before {
+    left: 100%;
 }
 
 .card:hover {
@@ -398,6 +442,7 @@ h2 {
 }
 
 .skill-item {
+    position: relative;
     background: var(--glass-bg-gradient);
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
@@ -412,6 +457,24 @@ h2 {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
     box-shadow: inset 0 1px 1px var(--glass-highlight);
+    overflow: hidden;
+}
+
+.skill-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--liquid-glow);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.skill-item:hover::before {
+    left: 100%;
 }
 
 .skill-item:hover {
