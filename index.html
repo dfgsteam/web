@@ -13,14 +13,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://julius-hunold.de/">
     <meta property="og:title" content="Julius Hunold - Webentwickler für Webapps">
-    <meta property="og:description" content="Spezialist für maßgeschneiderte Web-Applikationen mit PHP & Python. Entdecken Sie mein Portfolio und meine Projekte.">
+    <meta property="og:description" content="Spezialist für maßgeschneiderte Web-Applikationen mit PHP & Python. Entdecken Sie mein Portfolio und meine Projekte im modernen Liquid Glass Design.">
     <meta property="og:image" content="https://julius-hunold.de/images/avatar.png">
+    <meta property="og:locale" content="de_DE">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://julius-hunold.de/">
     <meta property="twitter:title" content="Julius Hunold - Webentwickler für Webapps">
-    <meta property="twitter:description" content="Spezialist für maßgeschneiderte Web-Applikationen mit PHP & Python. Entdecken Sie mein Portfolio und meine Projekte.">
+    <meta property="twitter:description" content="Spezialist für maßgeschneiderte Web-Applikationen mit PHP & Python. Entdecken Sie mein Portfolio und meine Projekte im modernen Liquid Glass Design.">
     <meta property="twitter:image" content="https://julius-hunold.de/images/avatar.png">
 
     <!-- Structured Data -->
@@ -32,8 +33,16 @@
       "url": "https://julius-hunold.de",
       "image": "https://julius-hunold.de/images/avatar.png",
       "jobTitle": "Webentwickler",
-      "alumniOf": "Georg-August-Universität Göttingen",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Georg-August-Universität Göttingen"
+      },
       "description": "Webentwickler spezialisiert auf Webapps mit PHP und Python.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sarstedt",
+        "addressCountry": "DE"
+      },
       "sameAs": [
         "https://github.com/dfgsteam",
         "https://www.linkedin.com/in/julius-hunold/",
@@ -104,11 +113,11 @@
                     </div>
                     
                     <div class="card">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                            <div><strong>Alter:</strong> <span id="display-age">21</span></div>
-                            <div><strong>E-Mail:</strong> <a href="mailto:info@julius-hunold.de" class="apple-link">info@julius-hunold.de</a></div>
-                            <div><strong>Telefon:</strong> Auf Anfrage</div>
-                            <div><strong>Ort:</strong> Sarstedt, Deutschland</div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+                            <div style="display: flex; align-items: center;"><i class="fas fa-calendar-alt" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>Alter:</strong>&nbsp;<span id="display-age">21</span></div>
+                            <div style="display: flex; align-items: center;"><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>E-Mail:</strong>&nbsp;<a href="mailto:info@julius-hunold.de" class="apple-link">info@julius-hunold.de</a></div>
+                            <div style="display: flex; align-items: center;"><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>Telefon:</strong>&nbsp;Auf Anfrage</div>
+                            <div style="display: flex; align-items: center;"><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>Ort:</strong>&nbsp;Sarstedt, Deutschland</div>
                         </div>
                     </div>
                 </section>
@@ -227,7 +236,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon" style="background: linear-gradient(135deg, #5e5086 0%, #453a62 100%);">
-                                <i class="fas fa-lambda"></i>
+                                <i class="fas fa-code-branch"></i>
                             </div>
                             <div class="skill-info">
                                 <div class="skill-name">Haskell</div>
@@ -245,7 +254,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon" style="background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);">
-                                <i class="fas fa-paint-brush"></i>
+                                <i class="fab fa-adobe"></i>
                             </div>
                             <div class="skill-info">
                                 <div class="skill-name">Photoshop</div>
@@ -254,11 +263,20 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-icon" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
-                                <i class="fas fa-file-excel"></i>
+                                <i class="fas fa-file-csv"></i>
                             </div>
                             <div class="skill-info">
                                 <div class="skill-name">MS Office</div>
                                 <div class="skill-level">Master</div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon" style="background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">WooCommerce</div>
+                                <div class="skill-level">Expert</div>
                             </div>
                         </div>
                         <div class="skill-item">
@@ -411,7 +429,7 @@
                                     <div class="list-item-title">Projektmanagementzertifikat</div>
                                     <div class="list-item-date">2026</div>
                                 </div>
-                                <p class="list-item-description">ZESS Uni Göttingen - Kompetenzen in Projektplanung, -steuerung, Teamführung und Risikomanagement.</p>
+                                <p class="list-item-description">Georg-August-Universität Göttingen - Kompetenzen in Projektplanung, -steuerung, Teamführung und Risikomanagement.</p>
                             </div>
                         </div>
                         <div class="list-item">
@@ -421,7 +439,7 @@
                                     <div class="list-item-title">Kommunikationszertifikat Rhetorik</div>
                                     <div class="list-item-date">2026</div>
                                 </div>
-                                <p class="list-item-description">ZESS Uni Göttingen - Ausbildung in freier Rede, Gesprächsführung, Verhandlungstechnik und Präsentationskompetenz.</p>
+                                <p class="list-item-description">Georg-August-Universität Göttingen - Ausbildung in freier Rede, Gesprächsführung, Verhandlungstechnik und Präsentationskompetenz.</p>
                             </div>
                         </div>
                         <div class="list-item">
@@ -431,7 +449,7 @@
                                     <div class="list-item-title">Beratungszertifikat</div>
                                     <div class="list-item-date">2026</div>
                                 </div>
-                                <p class="list-item-description">ZESS Uni Göttingen - Vermittlung von Beratungsmethoden, systemischem Coaching und Moderationstechniken.</p>
+                                <p class="list-item-description">Georg-August-Universität Göttingen - Vermittlung von Beratungsmethoden, systemischem Coaching und Moderationstechniken.</p>
                             </div>
                         </div>
                         <div class="list-item">
@@ -441,7 +459,7 @@
                                     <div class="list-item-title">UniCert II Englisch</div>
                                     <div class="list-item-date">2024</div>
                                 </div>
-                                <p class="list-item-description">ZESS Uni Göttingen - Niveau B2 des Gemeinsamen Europäischen Referenzrahmens.</p>
+                                <p class="list-item-description">Georg-August-Universität Göttingen - Niveau B2 des Gemeinsamen Europäischen Referenzrahmens.</p>
                             </div>
                         </div>
                         <div class="list-item">
@@ -460,20 +478,19 @@
                 <section id="contact" class="content-section" style="margin-bottom: 50px;">
                     <h2>Kontakt</h2>
                     <div class="card">
-                        <p>Haben Sie Fragen oder möchten Sie ein Projekt besprechen? Ich freue mich auf Ihre Nachricht.</p>
+                        <p style="margin-bottom: 24px;">Haben Sie Fragen oder möchten Sie ein Projekt besprechen? Ich freue mich auf Ihre Nachricht.</p>
                         
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px;">
                             <div>
-                                <h4 style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">Direktkontakt</h4>
-                                <a href="mailto:job@julius-hunold.de" class="apple-link" style="display: block; margin-bottom: 4px;">job@julius-hunold.de</a>
-                                <p style="font-size: 14px; margin: 0;">Telefon auf Anfrage</p>
+                                <h4 style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Direktkontakt</h4>
+                                <a href="mailto:info@julius-hunold.de" class="apple-link" style="display: flex; align-items: center; margin-bottom: 8px; font-size: 16px;"><i class="fas fa-envelope" style="margin-right: 10px; width: 18px; text-align: center;"></i> info@julius-hunold.de</a>
                             </div>
                             <div>
-                                <h4 style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">Social Media</h4>
-                                <div style="display: flex; gap: 12px;">
-                                    <a href="https://github.com/dfgsteam" target="_blank" class="apple-link">GitHub</a>
-                                    <a href="https://www.linkedin.com/in/julius-hunold/" target="_blank" class="apple-link">LinkedIn</a>
-                                    <a href="https://www.instagram.com/julius.hunold/" target="_blank" class="apple-link">Instagram</a>
+                                <h4 style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Social Media</h4>
+                                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                    <a href="https://github.com/dfgsteam" target="_blank" class="apple-link" title="GitHub Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;"><i class="fab fa-github" style="margin-right: 8px;"></i> GitHub</a>
+                                    <a href="https://www.linkedin.com/in/julius-hunold/" target="_blank" class="apple-link" title="LinkedIn Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;"><i class="fab fa-linkedin" style="margin-right: 8px;"></i> LinkedIn</a>
+                                    <a href="https://www.instagram.com/julius.hunold/" target="_blank" class="apple-link" title="Instagram Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;"><i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram</a>
                                 </div>
                             </div>
                         </div>
@@ -510,12 +527,17 @@
             }
 
             // Set initial visibility for all sections that might be in view
-            document.querySelectorAll('.content-section').forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    section.classList.add('visible');
-                }
-            });
+            setTimeout(() => {
+                document.querySelectorAll('.content-section').forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const contentContainer = document.querySelector('.content');
+                    const containerRect = contentContainer.getBoundingClientRect();
+                    
+                    if (rect.top < containerRect.bottom) {
+                        section.classList.add('visible');
+                    }
+                });
+            }, 100);
         });
 
         // Einfaches Script für Sidebar-Navigation
@@ -541,8 +563,8 @@
         // Intersection Observer für aktiven Nav-Punkt beim Scrollen
         const observerOptions = {
             root: document.querySelector('.content'),
-            threshold: 0.1, // Weiter reduziert für sehr kleine Sektionen
-            rootMargin: '0px 0px -20% 0px' // Weniger restriktiv, damit Sektionen früher sichtbar werden
+            threshold: 0.2, // Etwas erhöht für stabilere Erkennung
+            rootMargin: '-10% 0px -40% 0px' // Fokus auf den oberen mittleren Bereich
         };
 
         const observer = new IntersectionObserver((entries) => {

@@ -335,6 +335,10 @@ input:focus + .slider {
     border-top: 0.5px solid rgba(255, 255, 255, 0.3);
 }
 
+.sidebar-nav a:active {
+    transform: scale(0.98);
+}
+
 .sidebar-nav a i {
     display: inline-block;
     width: 20px;
@@ -488,16 +492,21 @@ h2 {
 }
 
 .skill-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 26px;
     color: white;
     margin-bottom: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-item:hover .skill-icon {
+    transform: scale(1.1) rotate(3deg);
 }
 
 .skill-info {
@@ -607,14 +616,31 @@ h2 {
 .apple-link {
     color: var(--accent);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid transparent;
 }
 
 .apple-link:hover {
     color: var(--accent);
     border-bottom: 1px solid var(--accent);
-    opacity: 0.8;
+    opacity: 0.7;
+}
+
+/* Custom Scrollbar - iOS Style */
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+.content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.content::-webkit-scrollbar-thumb {
+    background: rgba(150, 150, 150, 0.3);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+.content::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.5);
 }
 
 /* Blog Styles */
