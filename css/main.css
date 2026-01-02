@@ -214,7 +214,7 @@ body {
     margin: 0;
     color: var(--text-main);
     letter-spacing: -0.01em;
-    border: none; /* Reset eventueller Border-Styles von anderen h2 */
+    border: none; /* Reset eventueller Border-Styles von anderen Überschriften */
     padding: 0;
 }
 
@@ -349,6 +349,7 @@ input:focus + .slider {
 .content {
     flex: 1;
     padding: 40px;
+    padding-bottom: 300px; /* Erhöhtes Padding unten für besseres Scrolling zum Ende */
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -665,11 +666,12 @@ blockquote {
     .sidebar {
         width: 100%;
         height: auto;
-        padding: 10px;
+        padding: 10px 0;
         border-right: none;
         border-bottom: 1px solid var(--glass-border);
-        display: block;
-        overflow-x: auto;
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
     }
     .profile-section {
         display: flex;
@@ -688,13 +690,32 @@ blockquote {
         font-size: 17px;
         border: none;
         padding: 0;
+        margin: 0;
     }
     .profile-info {
         font-size: 11px;
-        margin-top: 2px;
+        margin: 0;
     }
-    .sidebar-nav { display: flex; gap: 10px; padding: 0 15px 10px 15px; }
+    .mode-switch-container {
+        margin-left: auto;
+        padding: 5px 10px;
+        background: transparent;
+        border: none;
+        backdrop-filter: none;
+    }
+    nav {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+    }
+    .sidebar-nav { 
+        display: flex; 
+        gap: 10px; 
+        padding: 5px 15px 10px 15px; 
+        margin: 0;
+        width: max-content;
+    }
     .sidebar-nav li { margin-bottom: 0; }
-    .sidebar-nav a { white-space: nowrap; }
-    .content { padding: 20px; }
+    .sidebar-nav a { white-space: nowrap; padding: 8px 12px; }
+    .content { padding: 20px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 }

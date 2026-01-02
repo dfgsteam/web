@@ -62,7 +62,7 @@
                 <div class="profile-section">
                     <img src="images/avatar.png" alt="Julius Hunold" class="profile-avatar">
                     <div class="profile-text">
-                        <h2 class="profile-name">Julius Hunold</h2>
+                        <h1 class="profile-name">Julius Hunold</h1>
                         <p class="profile-info">Webentwicklung, Software-Lösungen, IT-Consulting</p>
                     </div>
                     
@@ -96,7 +96,7 @@
                         <p>Webentwickler für Webapps</p>
                     </div>
                     
-                    <h1>Über mich</h1>
+                    <h2>Über mich</h2>
                     <div class="card">
                         <p>Als <strong>Webentwickler speziell für Webapps</strong> liegt mein Fokus auf der Arbeit mit <strong>PHP und Python</strong>. Aktuell studiere ich <strong>Angewandte Informatik</strong> an der Georg-August-Universität Göttingen und vertiefe mein Wissen parallel in den Bereichen <strong>Physik</strong> und <strong>Betriebswirtschaftslehre</strong>.</p>
                         <p>Guten Tag, mein Name ist Julius Hunold. Ich bin ein leidenschaftlicher Programmierer und entwickle maßgeschneiderte Applikationen, die komplexe Herausforderungen effizient lösen. Wie Sie in meiner <a href="#experience" class="apple-link">Arbeitserfahrung</a> sehen können, umfasst mein Spektrum die Realisierung moderner Web-Apps bei sgalinski sowie die Leitung technischer Projekte wie den Glasfaser NE4 Ausbau bei MD Telekom.</p>
@@ -105,10 +105,10 @@
                     
                     <div class="card">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                            <div><strong>Alter:</strong> 21</div>
+                            <div><strong>Alter:</strong> <span id="display-age">21</span></div>
                             <div><strong>E-Mail:</strong> <a href="mailto:info@julius-hunold.de" class="apple-link">info@julius-hunold.de</a></div>
                             <div><strong>Telefon:</strong> Auf Anfrage</div>
-                            <div><strong>Ort:</strong> Worbis, Deutschland</div>
+                            <div><strong>Ort:</strong> Sarstedt, Deutschland</div>
                         </div>
                     </div>
                 </section>
@@ -457,7 +457,7 @@
                     </div>
                 </section>
 
-                <section id="contact" class="content-section">
+                <section id="contact" class="content-section" style="margin-bottom: 50px;">
                     <h2>Kontakt</h2>
                     <div class="card">
                         <p>Haben Sie Fragen oder möchten Sie ein Projekt besprechen? Ich freue mich auf Ihre Nachricht.</p>
@@ -491,24 +491,58 @@
     </div>
 
     <script>
-        // Set initial visibility for first section
+        // Automatische Altersberechnung (24.09.2002)
+        function calculateAge(birthDate) {
+            const today = new Date();
+            const birth = new Date(birthDate);
+            let age = today.getFullYear() - birth.getFullYear();
+            const monthDiff = today.getMonth() - birth.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            const firstSection = document.querySelector('.content-section');
-            if (firstSection) firstSection.classList.add('visible');
+            const ageElement = document.getElementById('display-age');
+            if (ageElement) {
+                ageElement.textContent = calculateAge('2002-09-24');
+            }
+
+            // Set initial visibility for all sections that might be in view
+            document.querySelectorAll('.content-section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    section.classList.add('visible');
+                }
+            });
         });
 
         // Einfaches Script für Sidebar-Navigation
         document.querySelectorAll('.sidebar-nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
-                this.classList.add('active');
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const contentContainer = document.querySelector('.content');
+                    const isMobile = window.innerWidth <= 850;
+                    const offset = isMobile ? targetElement.offsetTop - 140 : targetElement.offsetTop - 20;
+                    
+                    contentContainer.scrollTo({
+                        top: offset,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
         
         // Intersection Observer für aktiven Nav-Punkt beim Scrollen
         const observerOptions = {
             root: document.querySelector('.content'),
-            threshold: 0.5
+            threshold: 0.1, // Weiter reduziert für sehr kleine Sektionen
+            rootMargin: '0px 0px -20% 0px' // Weniger restriktiv, damit Sektionen früher sichtbar werden
         };
 
         const observer = new IntersectionObserver((entries) => {
