@@ -66,7 +66,8 @@
             onclick="window.location.href = 'index.html'"
           ></div>
         </div>
-        <div class="window-title">Datenschutzerklärung</div>
+        <div class="window-title lang-de">Datenschutzerklärung</div>
+        <div class="window-title lang-en">Privacy Policy</div>
       </div>
 
       <div class="main-container">
@@ -79,8 +80,11 @@
             />
             <div class="profile-text">
               <h1 class="profile-name">Julius Hunold</h1>
-              <p class="profile-info">
+              <p class="profile-info lang-de">
                 Webentwicklung, Software-Lösungen, IT-Consulting
+              </p>
+              <p class="profile-info lang-en">
+                Web Development, Software Solutions, IT Consulting
               </p>
             </div>
 
@@ -91,47 +95,52 @@
                 <span class="slider"></span>
               </label>
             </div>
+
+            <div class="language-switch">
+                <button class="lang-btn active" data-lang="de">DE</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
           </div>
           <nav>
             <ul class="sidebar-nav">
               <li>
                 <a href="index.html#about"
-                  ><i class="fas fa-user"></i>Über mich</a
+                  ><i class="fas fa-user"></i><span class="lang-de">Über mich</span><span class="lang-en">About Me</span></a
                 >
               </li>
               <li>
                 <a href="index.html#projects"
-                  ><i class="fas fa-project-diagram"></i>Projekte</a
+                  ><i class="fas fa-project-diagram"></i><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a
                 >
               </li>
               <li>
                 <a href="index.html#skills"
-                  ><i class="fas fa-tools"></i>Skills</a
+                  ><i class="fas fa-tools"></i><span class="lang-de">Skills</span><span class="lang-en">Skills</span></a
                 >
               </li>
               <li>
                 <a href="index.html#experience"
-                  ><i class="fas fa-briefcase"></i>Erfahrung</a
+                  ><i class="fas fa-briefcase"></i><span class="lang-de">Erfahrung</span><span class="lang-en">Experience</span></a
                 >
               </li>
               <li>
                 <a href="index.html#honorary"
-                  ><i class="fas fa-hands-helping"></i>Ehrenamt</a
+                  ><i class="fas fa-hands-helping"></i><span class="lang-de">Ehrenamt</span><span class="lang-en">Volunteering</span></a
                 >
               </li>
               <li>
                 <a href="index.html#education"
-                  ><i class="fas fa-graduation-cap"></i>Bildung</a
+                  ><i class="fas fa-graduation-cap"></i><span class="lang-de">Bildung</span><span class="lang-en">Education</span></a
                 >
               </li>
               <li>
                 <a href="index.html#education_extra"
-                  ><i class="fas fa-certificate"></i>Zertifikate</a
+                  ><i class="fas fa-certificate"></i><span class="lang-de">Zertifikate</span><span class="lang-en">Certificates</span></a
                 >
               </li>
               <li>
                 <a href="index.html#contact"
-                  ><i class="fas fa-envelope"></i>Kontakt</a
+                  ><i class="fas fa-envelope"></i><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a
                 >
               </li>
             </ul>
@@ -141,16 +150,23 @@
         <main class="content">
           <div class="container-800">
             <a href="index.html" class="back-button">
-              <i class="fas fa-chevron-left"> </i> Zurück zur Startseite
+              <i class="fas fa-chevron-left"> </i> 
+              <span class="lang-de">Zurück zur Startseite</span>
+              <span class="lang-en">Back to Home</span>
             </a>
 
             <header class="blog-header">
-              <h1>Datenschutzerklärung</h1>
+              <h1 class="lang-de">Datenschutzerklärung</h1>
+              <h1 class="lang-en">Privacy Policy</h1>
             </header>
 
             <div class="card blog-post-card">
               <div class="legal-content">
-                <h2 id="m716" class="first-heading">Präambel</h2>
+                <div class="lang-en">
+                    <p><em>The privacy policy is only available in German.</em></p>
+                </div>
+                <div class="lang-de">
+                    <h2 id="m716" class="first-heading">Präambel</h2>
               <p>
                 Mit der folgenden Datenschutzerklärung möchten wir Sie darüber
                 aufklären, welche Arten Ihrer personenbezogenen Daten
@@ -2250,24 +2266,24 @@
                   Regelfall Cookies und Web-Beacons eingesetzt.
                 </li>
               </ul>
-              <p class="seal">
-                <a
-                  href="https://datenschutz-generator.de/"
-                  title="Rechtstext von Dr. Schwenke - für weitere Informationen bitte anklicken."
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  >Erstellt mit kostenlosem Datenschutz-Generator.de von Dr.
-                  Thomas Schwenke</a
-                >
-              </p>
+                </div>
+                <p class="seal">
+                  <a
+                    href="https://datenschutz-generator.de/"
+                    title="Rechtstext von Dr. Schwenke - für weitere Informationen bitte anklicken."
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    ><span class="lang-de">Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke</span><span class="lang-en">Created with the free Datenschutz-Generator.de by Dr. Thomas Schwenke</span></a
+                  >
+                </p>
+              </div>
             </div>
-          </div>
 
           <footer class="blog-footer">
             <p class="blog-footer-text">
               &copy; 2026 Julius Hunold |
-              <a href="impressum.html" class="apple-link">Impressum</a> |
-              <a href="datenschutz.html" class="apple-link">Datenschutz</a>
+              <a href="impressum.html" class="apple-link"><span class="lang-de">Impressum</span><span class="lang-en">Legal Notice</span></a> |
+              <a href="datenschutz.html" class="apple-link"><span class="lang-de">Datenschutz</span><span class="lang-en">Privacy Policy</span></a>
             </p>
           </footer>
           </div>

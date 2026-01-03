@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voltampere Expose - Julius Hunold | Web- & App-Entwicklung</title>
-    <meta name="description" content="Entwicklung einer webbasierten Anwendung zur Erstellung von PV-Exposés, Netzvoranfragen sowie Wirtschaftlichkeits- und Peak-Shaving-Berechnungen mit intuitiver Bedienoberfläche.">
+    <title class="lang-de">Voltampere Expose - Julius Hunold | Web- & App-Entwicklung</title>
+    <title class="lang-en">Voltampere Expose - Julius Hunold | Web- & App-Development</title>
+    <meta name="description" content="Entwicklung einer webbasierten Anwendung zur Erstellung von PV-Exposés, Netzvoranfragen sowie Wirtschaftlichkeits- und Peak-Shaving-Berechnungen mit intuitiver Bedienoberfläche." class="lang-de">
+    <meta name="description" content="Development of a web-based application for creating PV exposés, grid inquiries, and profitability and peak shaving calculations with an intuitive user interface." class="lang-en">
     <link rel="stylesheet" href="../css/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
@@ -30,7 +32,8 @@
                 <div class="traffic-light minimize" onclick="window.location.href='../index.html'"></div>
                 <div class="traffic-light maximize" onclick="window.location.href='../index.html'"></div>
             </div>
-            <div class="window-title">Projekt Details</div>
+            <div class="window-title lang-de">Projekt Details</div>
+            <div class="window-title lang-en">Project Details</div>
         </div>
 
         <div class="main-container">
@@ -39,7 +42,8 @@
                     <img src="../images/avatar.png" alt="Julius Hunold" class="profile-avatar">
                     <div class="profile-text">
                         <h1 class="profile-name">Julius Hunold</h1>
-                        <p class="profile-info">Webentwicklung, Software-Lösungen, IT-Consulting</p>
+                        <p class="profile-info lang-de">Webentwicklung, Software-Lösungen, IT-Consulting</p>
+                        <p class="profile-info lang-en">Web Development, Software Solutions, IT Consulting</p>
                     </div>
                     
                     <div class="mode-switch-container">
@@ -49,70 +53,94 @@
                             <span class="slider"></span>
                         </label>
                     </div>
+
+                    <div class="language-switch">
+                        <button class="lang-btn active" data-lang="de">DE</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
                 </div>
                 <nav>
                     <ul class="sidebar-nav">
-                        <li><a href="../index.html#about"><i class="fas fa-user"></i>Über mich</a></li>
-                        <li><a href="../index.html#projects"><i class="fas fa-project-diagram"></i>Projekte</a></li>
-                        <li><a href="../index.html#skills"><i class="fas fa-tools"></i>Skills</a></li>
-                        <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i>Erfahrung</a></li>
-                        <li><a href="../index.html#honorary"><i class="fas fa-hands-helping"></i>Ehrenamt</a></li>
-                        <li><a href="../index.html#education"><i class="fas fa-graduation-cap"></i>Bildung</a></li>
-                        <li><a href="../index.html#education_extra"><i class="fas fa-certificate"></i>Zertifikate</a></li>
-                        <li><a href="../index.html#contact"><i class="fas fa-envelope"></i>Kontakt</a></li>
+                        <li><a href="../index.html#about"><i class="fas fa-user"></i><span class="lang-de">Über mich</span><span class="lang-en">About Me</span></a></li>
+                        <li><a href="../index.html#projects"><i class="fas fa-project-diagram"></i><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a></li>
+                        <li><a href="../index.html#skills"><i class="fas fa-tools"></i><span class="lang-de">Skills</span><span class="lang-en">Skills</span></a></li>
+                        <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i><span class="lang-de">Erfahrung</span><span class="lang-en">Experience</span></a></li>
+                        <li><a href="../index.html#honorary"><i class="fas fa-hands-helping"></i><span class="lang-de">Ehrenamt</span><span class="lang-en">Volunteering</span></a></li>
+                        <li><a href="../index.html#education"><i class="fas fa-graduation-cap"></i><span class="lang-de">Bildung</span><span class="lang-en">Education</span></a></li>
+                        <li><a href="../index.html#education_extra"><i class="fas fa-certificate"></i><span class="lang-de">Zertifikate</span><span class="lang-en">Certificates</span></a></li>
+                        <li><a href="../index.html#contact"><i class="fas fa-envelope"></i><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
                     </ul>
                 </nav>
             </aside>
 
             <main class="content">
                 <a href="../index.html#projects" class="back-button">
-                    <i class="fas fa-chevron-left"></i> Zurück zu Projekten
+                    <i class="fas fa-chevron-left"></i>
+                    <span class="lang-de">Zurück zu Projekten</span>
+                    <span class="lang-en">Back to Projects</span>
                 </a>
 
                 <article class="blog-post">
                     <header class="blog-header">
                         <h1>Voltampere Expose</h1>
                         <div class="blog-meta">
-                            <span><i class="far fa-calendar-alt"></i> 2026 – heute</span> |
-                            <span><i class="far fa-folder"></i> Custom Webapp / Vertriebs- und Planungsunterstützung</span>
+                            <span><i class="far fa-calendar-alt"></i> <span class="lang-de">2026 – heute</span><span class="lang-en">2026 – present</span></span> |
+                            <span class="lang-de"><i class="far fa-folder"></i> Custom Webapp / Vertriebs- und Planungsunterstützung</span>
+                            <span class="lang-en"><i class="far fa-folder"></i> Custom Web App / Sales and Planning Support</span>
                         </div>
                     </header>
 
                     <div class="card blog-post-card">
                         <div class="blog-content">
-                            <p>Entwicklung einer webbasierten Anwendung zur Erstellung von PV-Exposés, Netzvoranfragen sowie Wirtschaftlichkeits- und Peak-Shaving-Berechnungen mit intuitiver Bedienoberfläche.</p>
+                            <p class="lang-de">Entwicklung einer webbasierten Anwendung zur Erstellung von PV-Exposés, Netzvoranfragen sowie Wirtschaftlichkeits- und Peak-Shaving-Berechnungen mit intuitiver Bedienoberfläche.</p>
+                            <p class="lang-en">Development of a web-based application for creating PV exposés, grid inquiries, and profitability and peak shaving calculations with an intuitive user interface.</p>
 
                             <div class="blog-image-placeholder">
-                                <span>[ Platzhalter ]</span>
+                                <span class="lang-de">[ Projektscreenshots können ergänzt werden ]</span>
+                                <span class="lang-en">[ Project screenshots can be added ]</span>
                             </div>
 
-                            <h2>Ausgangssituation & Anforderungen</h2>
-                            <p>Für Photovoltaikprojekte mussten Exposés, Wirtschaftlichkeitsberechnungen und Netzvoranfragen bisher mit hohem bürokratischem und administrativem Aufwand erstellt werden. Mehrere getrennte Tools und manuelle Arbeitsschritte führten zu Zeitverlust und Medienbrüchen. Ein zentrales Ziel war daher, die Büroarbeit deutlich zu minimieren und Prozesse weitgehend zu automatisieren.</p>
+                            <h2 class="lang-de">Ausgangssituation & Anforderungen</h2>
+                            <h2 class="lang-en">Initial Situation & Requirements</h2>
+                            <p class="lang-de">Für Photovoltaikprojekte mussten Exposés, Wirtschaftlichkeitsberechnungen und Netzvoranfragen bisher mit hohem bürokratischem und administrativem Aufwand erstellt werden. Mehrere getrennte Tools und manuelle Arbeitsschritte führten zu Zeitverlust und Medienbrüchen. Ein zentrales Ziel war daher, die Büroarbeit deutlich zu minimieren und Prozesse weitgehend zu automatisieren.</p>
+                            <p class="lang-en">For photovoltaic projects, exposés, profitability calculations, and grid inquiries previously had to be created with high bureaucratic and administrative effort. Several separate tools and manual steps led to lost time and media breaks. A central goal was therefore to significantly minimize office work and largely automate processes.</p>
 
-                            <h2>Lösung & Umsetzung</h2>
-                            <p><strong>Technologien:</strong> Flask (Python), JavaScript, jQuery, NGINX</p>
-                            <p><strong>Hosting:</strong> eigenes Hosting</p>
-                            <p><strong>Funktionale Schwerpunkte:</strong></p>
+                            <h2 class="lang-de">Lösung & Umsetzung</h2>
+                            <h2 class="lang-en">Solution & Implementation</h2>
+                            <p><strong><span class="lang-de">Technologien:</span><span class="lang-en">Technologies:</span></strong> Flask (Python), JavaScript, jQuery, NGINX</p>
+                            <p><strong>Hosting:</strong> <span class="lang-de">eigenes Hosting</span><span class="lang-en">Custom hosting</span></p>
+                            <p><strong><span class="lang-de">Funktionale Schwerpunkte:</span><span class="lang-en">Functional Focus:</span></strong></p>
                             <ul>
-                                <li>Erstellung professioneller PV-Exposés</li>
-                                <li>Unterstützung und Vorbereitung von Netzvoranfragen</li>
-                                <li>Wirtschaftlichkeits- und Amortisationsberechnungen</li>
-                                <li>Peak-Shaving-Analysen</li>
-                                <li>einfache Kostenkalkulation für Projekte</li>
+                                <li class="lang-de">Erstellung professioneller PV-Exposés</li>
+                                <li class="lang-en">Creation of professional PV exposés</li>
+                                <li class="lang-de">Unterstützung und Vorbereitung von Netzvoranfragen</li>
+                                <li class="lang-en">Support and preparation of grid inquiries</li>
+                                <li class="lang-de">Wirtschaftlichkeits- und Amortisationsberechnungen</li>
+                                <li class="lang-en">Profitability and amortization calculations</li>
+                                <li class="lang-de">Peak-Shaving-Analysen</li>
+                                <li class="lang-en">Peak shaving analyses</li>
+                                <li class="lang-de">einfache Kostenkalkulation für Projekte</li>
+                                <li class="lang-en">Simple cost calculation for projects</li>
                             </ul>
-                            <p><strong>Systemeigenschaften:</strong></p>
+                            <p><strong><span class="lang-de">Systemeigenschaften:</span><span class="lang-en">System Properties:</span></strong></p>
                             <ul>
-                                <li>Login- und Benutzerverwaltungssystem</li>
-                                <li>intuitive Bedienung mit klaren Prozessschritten</li>
-                                <li>zentrale Bündelung aller Informationen in einem System</li>
+                                <li class="lang-de">Login- und Benutzerverwaltungssystem</li>
+                                <li class="lang-en">Login and user management system</li>
+                                <li class="lang-de">intuitive Bedienung mit klaren Prozessschritten</li>
+                                <li class="lang-en">Intuitive operation with clear process steps</li>
+                                <li class="lang-de">zentrale Bündelung aller Informationen in einem System</li>
+                                <li class="lang-en">Central bundling of all information in one system</li>
                             </ul>
 
                             <blockquote>
-                                "Weniger Büro – mehr Projekt: Photovoltaikprozesse digital und schlank."
+                                <span class="lang-de">"Weniger Büro – mehr Projekt: Photovoltaikprozesse digital und schlank."</span>
+                                <span class="lang-en">"Less office – more project: photovoltaic processes digital and lean."</span>
                             </blockquote>
 
-                            <h2>Ergebnis / Nutzen</h2>
-                            <p>Die Anwendung reduziert den bürokratischen Aufwand erheblich: Exposés, Berechnungen und Anfragen werden automatisiert erstellt und zentral verwaltet. Manuelle Büroarbeit wird minimiert, Bearbeitungszeiten verkürzt und die Qualität der Unterlagen vereinheitlicht. Planung, Vertrieb und technische Bewertung von PV-Projekten erfolgen damit effizient aus einem System heraus.</p>
+                            <h2 class="lang-de">Ergebnis / Nutzen</h2>
+                            <h2 class="lang-en">Result / Benefit</h2>
+                            <p class="lang-de">Die Anwendung reduziert den bürokratischen Aufwand erheblich: Exposés, Berechnungen und Anfragen werden automatisiert erstellt und zentral verwaltet. Manuelle Büroarbeit wird minimiert, Bearbeitungszeiten verkürzt und die Qualität der Unterlagen vereinheitlicht. Planung, Vertrieb und technische Bewertung von PV-Projekten erfolgen damit effizient aus einem System heraus.</p>
+                            <p class="lang-en">The application significantly reduces bureaucratic effort: exposés, calculations, and inquiries are automatically created and centrally managed. Manual office work is minimized, processing times shortened, and the quality of documents standardized. Planning, sales, and technical evaluation of PV projects thus take place efficiently from one system.</p>
                         </div>
                     </div>
                 </article>
@@ -120,8 +148,8 @@
                 <footer class="blog-footer">
                     <p class="blog-footer-text">
                         &copy; 2026 Julius Hunold |
-                        <a href="../impressum.html" class="apple-link">Impressum</a> |
-                        <a href="../datenschutz.html" class="apple-link">Datenschutz</a>
+                        <a href="../impressum.html" class="apple-link"><span class="lang-de">Impressum</span><span class="lang-en">Legal Notice</span></a> |
+                        <a href="../datenschutz.html" class="apple-link"><span class="lang-de">Datenschutz</span><span class="lang-en">Privacy Policy</span></a>
                     </p>
                 </footer>
             </main>

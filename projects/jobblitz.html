@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jobblitz - Julius Hunold | Web- & App-Entwicklung</title>
-    <meta name="description" content="Laufende Weiterentwicklung einer bestehenden Online-Plattform inklusive Wartung, Implementierung neuer Funktionen und technischer Integration externer Dienste.">
+    <title class="lang-de">Jobblitz - Julius Hunold | Web- & App-Entwicklung</title>
+    <title class="lang-en">Jobblitz - Julius Hunold | Web- & App-Development</title>
+    <meta name="description" content="Laufende Weiterentwicklung einer bestehenden Online-Plattform inklusive Wartung, Implementierung neuer Funktionen und technischer Integration externer Dienste." class="lang-de">
+    <meta name="description" content="Ongoing development of an existing online platform including maintenance, implementation of new functions, and technical integration of external services." class="lang-en">
     <link rel="stylesheet" href="../css/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
@@ -30,7 +32,8 @@
                 <div class="traffic-light minimize" onclick="window.location.href='../index.html'"></div>
                 <div class="traffic-light maximize" onclick="window.location.href='../index.html'"></div>
             </div>
-            <div class="window-title">Projekt Details</div>
+            <div class="window-title lang-de">Projekt Details</div>
+            <div class="window-title lang-en">Project Details</div>
         </div>
 
         <div class="main-container">
@@ -39,7 +42,8 @@
                     <img src="../images/avatar.png" alt="Julius Hunold" class="profile-avatar">
                     <div class="profile-text">
                         <h1 class="profile-name">Julius Hunold</h1>
-                        <p class="profile-info">Webentwicklung, Software-Lösungen, IT-Consulting</p>
+                        <p class="profile-info lang-de">Webentwicklung, Software-Lösungen, IT-Consulting</p>
+                        <p class="profile-info lang-en">Web Development, Software Solutions, IT Consulting</p>
                     </div>
                     
                     <div class="mode-switch-container">
@@ -49,65 +53,88 @@
                             <span class="slider"></span>
                         </label>
                     </div>
+
+                    <div class="language-switch">
+                        <button class="lang-btn active" data-lang="de">DE</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
                 </div>
                 <nav>
                     <ul class="sidebar-nav">
-                        <li><a href="../index.html#about"><i class="fas fa-user"></i>Über mich</a></li>
-                        <li><a href="../index.html#projects"><i class="fas fa-project-diagram"></i>Projekte</a></li>
-                        <li><a href="../index.html#skills"><i class="fas fa-tools"></i>Skills</a></li>
-                        <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i>Erfahrung</a></li>
-                        <li><a href="../index.html#honorary"><i class="fas fa-hands-helping"></i>Ehrenamt</a></li>
-                        <li><a href="../index.html#education"><i class="fas fa-graduation-cap"></i>Bildung</a></li>
-                        <li><a href="../index.html#education_extra"><i class="fas fa-certificate"></i>Zertifikate</a></li>
-                        <li><a href="../index.html#contact"><i class="fas fa-envelope"></i>Kontakt</a></li>
+                        <li><a href="../index.html#about"><i class="fas fa-user"></i><span class="lang-de">Über mich</span><span class="lang-en">About Me</span></a></li>
+                        <li><a href="../index.html#projects"><i class="fas fa-project-diagram"></i><span class="lang-de">Projekte</span><span class="lang-en">Projects</span></a></li>
+                        <li><a href="../index.html#skills"><i class="fas fa-tools"></i><span class="lang-de">Skills</span><span class="lang-en">Skills</span></a></li>
+                        <li><a href="../index.html#experience"><i class="fas fa-briefcase"></i><span class="lang-de">Erfahrung</span><span class="lang-en">Experience</span></a></li>
+                        <li><a href="../index.html#honorary"><i class="fas fa-hands-helping"></i><span class="lang-de">Ehrenamt</span><span class="lang-en">Volunteering</span></a></li>
+                        <li><a href="../index.html#education"><i class="fas fa-graduation-cap"></i><span class="lang-de">Bildung</span><span class="lang-en">Education</span></a></li>
+                        <li><a href="../index.html#education_extra"><i class="fas fa-certificate"></i><span class="lang-de">Zertifikate</span><span class="lang-en">Certificates</span></a></li>
+                        <li><a href="../index.html#contact"><i class="fas fa-envelope"></i><span class="lang-de">Kontakt</span><span class="lang-en">Contact</span></a></li>
                     </ul>
                 </nav>
             </aside>
 
             <main class="content">
                 <a href="../index.html#projects" class="back-button">
-                    <i class="fas fa-chevron-left"></i> Zurück zu Projekten
+                    <i class="fas fa-chevron-left"></i> 
+                    <span class="lang-de">Zurück zu Projekten</span>
+                    <span class="lang-en">Back to Projects</span>
                 </a>
 
                 <article class="blog-post">
                     <header class="blog-header">
-                        <h1>Jobblitz</h1>
+                        <h1 class="lang-de">Jobblitz</h1>
+                        <h1 class="lang-en">Jobblitz</h1>
                         <div class="blog-meta">
-                            <span><i class="far fa-calendar-alt"></i> seit Mitte 2024</span> |
-                            <span><i class="far fa-folder"></i> Weiterentwicklung & Feature-Implementierung bestehender Webplattform</span>
+                            <span><i class="far fa-calendar-alt"></i> <span class="lang-de">seit Mitte 2024</span><span class="lang-en">since mid-2024</span></span> |
+                            <span class="lang-de"><i class="far fa-folder"></i> Weiterentwicklung & Feature-Implementierung bestehender Webplattform</span>
+                            <span class="lang-en"><i class="far fa-folder"></i> Further Development & Feature Implementation of Existing Web Platform</span>
                         </div>
                     </header>
 
                     <div class="card blog-post-card">
                         <div class="blog-content">
-                            <p>Laufende Weiterentwicklung einer bestehenden Online-Plattform inklusive Wartung, Implementierung neuer Funktionen und technischer Integration externer Dienste.</p>
+                            <p class="lang-de">Laufende Weiterentwicklung einer bestehenden Online-Plattform inklusive Wartung, Implementierung neuer Funktionen und technischer Integration externer Dienste.</p>
+                            <p class="lang-en">Ongoing development of an existing online platform including maintenance, implementation of new functions, and technical integration of external services.</p>
 
                             <div class="blog-image-placeholder">
-                                <span>[ Platzhalter ]</span>
+                                <span class="lang-de">[ Projektscreenshots können ergänzt werden ]</span>
+                                <span class="lang-en">[ Project screenshots can be added ]</span>
                             </div>
 
-                            <h2>Ausgangssituation & Anforderungen</h2>
-                            <p>Die Plattform „jobblitz“ befindet sich im laufenden Betrieb und wird kontinuierlich funktional erweitert. Ziel ist die stabile Wartung, die Einführung neuer Features für bestehende und neue Produktlinien sowie die Integration zusätzlicher Systeme und Schnittstellen. Zusätzlich sollte die bestehende Codebasis fortlaufend modernisiert und qualitativ verbessert werden, ohne den laufenden Betrieb zu beeinträchtigen.</p>
+                            <h2 class="lang-de">Ausgangssituation & Anforderungen</h2>
+                            <h2 class="lang-en">Initial Situation & Requirements</h2>
+                            <p class="lang-de">Die Plattform „jobblitz“ befindet sich im laufenden Betrieb und wird kontinuierlich funktional erweitert. Ziel ist die stabile Wartung, die Einführung neuer Features für bestehende und neue Produktlinien sowie die Integration zusätzlicher Systeme und Schnittstellen. Zusätzlich sollte die bestehende Codebasis fortlaufend modernisiert und qualitativ verbessert werden, ohne den laufenden Betrieb zu beeinträchtigen.</p>
+                            <p class="lang-en">The "jobblitz" platform is in operation and is continuously being expanded functionally. The goal is stable maintenance, the introduction of new features for existing and new product lines, and the integration of additional systems and interfaces. In addition, the existing code base should be continuously modernized and improved in quality without affecting ongoing operations.</p>
 
-                            <h2>Lösung & Umsetzung</h2>
-                            <p><strong>Technologien:</strong> Symfony als Hauptframework, Betrieb über NGINX</p>
-                            <p><strong>Tätigkeitsschwerpunkte:</strong></p>
+                            <h2 class="lang-de">Lösung & Umsetzung</h2>
+                            <h2 class="lang-en">Solution & Implementation</h2>
+                            <p><strong><span class="lang-de">Technologien:</span><span class="lang-en">Technologies:</span></strong> Symfony <span class="lang-de">als Hauptframework, Betrieb über</span><span class="lang-en">as main framework, operation via</span> NGINX</p>
+                            <p><strong><span class="lang-de">Tätigkeitsschwerpunkte:</span><span class="lang-en">Key Tasks:</span></strong></p>
                             <ul>
-                                <li>kontinuierliche Wartung und Fehlerbehebung im laufenden System</li>
-                                <li>Implementierung neuer Funktionen und Module für neue Produkte</li>
-                                <li>Integration externer Services und APIs</li>
-                                <li>Einbindung von CleverPush als Benachrichtigungssystem</li>
-                                <li>Überarbeitung und Erweiterung von Frontend-Komponenten und Designs</li>
-                                <li>kontinuierliche Verbesserung und Refaktorierung der bestehenden Codebasis</li>
+                                <li class="lang-de">kontinuierliche Wartung und Fehlerbehebung im laufenden System</li>
+                                <li class="lang-en">Continuous maintenance and bug fixing in the live system</li>
+                                <li class="lang-de">Implementierung neuer Funktionen und Module für neue Produkte</li>
+                                <li class="lang-en">Implementation of new functions and modules for new products</li>
+                                <li class="lang-de">Integration externer Services und APIs</li>
+                                <li class="lang-en">Integration of external services and APIs</li>
+                                <li class="lang-de">Einbindung von CleverPush als Benachrichtigungssystem</li>
+                                <li class="lang-en">Integration of CleverPush as a notification system</li>
+                                <li class="lang-de">Überarbeitung und Erweiterung von Frontend-Komponenten und Designs</li>
+                                <li class="lang-en">Redesign and expansion of frontend components and designs</li>
+                                <li class="lang-de">kontinuierliche Verbesserung und Refaktorierung der bestehenden Codebasis</li>
+                                <li class="lang-en">Continuous improvement and refactoring of the existing code base</li>
                             </ul>
-                            <p><strong>Arbeitsweise:</strong> enge Abstimmung mit dem Entwicklungsteam, iterative Umsetzung in der bestehenden Codebasis, Berücksichtigung von Performance, Usability, Wartbarkeit und Skalierbarkeit.</p>
+                            <p><strong><span class="lang-de">Arbeitsweise:</span><span class="lang-en">Working Method:</span></strong> <span class="lang-de">enge Abstimmung mit dem Entwicklungsteam, iterative Umsetzung in der bestehenden Codebasis, Berücksichtigung von Performance, Usability, Wartbarkeit und Skalierbarkeit.</span><span class="lang-en">Close coordination with the development team, iterative implementation in the existing code base, consideration of performance, usability, maintainability, and scalability.</span></p>
 
                             <blockquote>
-                                "Evolution statt Stillstand – laufende Weiterentwicklung einer produktiven Plattform."
+                                <span class="lang-de">"Evolution statt Stillstand – laufende Weiterentwicklung einer produktiven Plattform."</span>
+                                <span class="lang-en">"Evolution instead of stagnation – ongoing development of a productive platform."</span>
                             </blockquote>
 
-                            <h2>Ergebnis</h2>
-                            <p>Die Plattform wird technisch aktuell gehalten, Funktionsumfang und Produktangebot werden sukzessive erweitert und Benutzererlebnis sowie Systemstabilität werden nachhaltig verbessert. Gleichzeitig wird die bestehende Codebasis strukturell modernisiert und langfristig wartungsfreundlicher gestaltet.</p>
+                            <h2 class="lang-de">Ergebnis</h2>
+                            <h2 class="lang-en">Result</h2>
+                            <p class="lang-de">Die Plattform wird technisch aktuell gehalten, Funktionsumfang und Produktangebot werden sukzessive erweitert und Benutzererlebnis sowie Systemstabilität werden nachhaltig verbessert. Gleichzeitig wird die bestehende Codebasis strukturell modernisiert und langfristig wartungsfreundlicher gestaltet.</p>
+                            <p class="lang-en">The platform is kept technically up-to-date, the range of functions and product offerings are successively expanded, and the user experience and system stability are sustainably improved. At the same time, the existing code base is structurally modernized and made more maintenance-friendly in the long term.</p>
                         </div>
                     </div>
                 </article>
@@ -115,8 +142,8 @@
                 <footer class="blog-footer">
                     <p class="blog-footer-text">
                         &copy; 2026 Julius Hunold |
-                        <a href="../impressum.html" class="apple-link">Impressum</a> |
-                        <a href="../datenschutz.html" class="apple-link">Datenschutz</a>
+                        <a href="../impressum.html" class="apple-link"><span class="lang-de">Impressum</span><span class="lang-en">Legal Notice</span></a> |
+                        <a href="../datenschutz.html" class="apple-link"><span class="lang-de">Datenschutz</span><span class="lang-en">Privacy Policy</span></a>
                     </p>
                 </footer>
             </main>

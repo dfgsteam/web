@@ -199,14 +199,14 @@ body {
 }
 
 .profile-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    //border-radius: 50%;
     margin: 0 auto 12px auto;
     object-fit: cover;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    //box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     display: block;
-    border: 2px solid var(--glass-highlight);
+    //border: 2px solid var(--glass-highlight);
 }
 
 .profile-name {
@@ -812,7 +812,47 @@ blockquote {
     100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Index/Profile Specific Styles */
+/* Language Switching */
+html[lang="en"] .lang-de {
+    display: none !important;
+}
+
+html[lang="de"] .lang-en {
+    display: none !important;
+}
+
+/* Language Switcher UI */
+.language-switch {
+    display: flex;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 12px;
+    border: 0.5px solid var(--glass-border);
+    margin-top: 10px;
+}
+
+.lang-btn {
+    flex: 1;
+    padding: 6px 0;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.lang-btn.active {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 45, 85, 0.2);
+}
+
+/* Profile Specific Styles */
 .profile-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

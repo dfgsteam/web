@@ -12,6 +12,44 @@ document.addEventListener('DOMContentLoaded', () => {
         displayAge.textContent = age;
     }
 
+    // Language Toggle Funktionalität
+    const langButtons = document.querySelectorAll('.lang-btn');
+    
+    const setLanguage = (lang) => {
+        document.documentElement.setAttribute('lang', lang);
+        localStorage.setItem('language', lang);
+        
+        langButtons.forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Browsertitel aktualisieren
+        const deTitle = document.querySelector('title.lang-de');
+        const enTitle = document.querySelector('title.lang-en');
+        if (deTitle && enTitle) {
+            document.title = (lang === 'de') ? deTitle.textContent : enTitle.textContent;
+        }
+    };
+
+    // Initial Language Setup
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) {
+        setLanguage(savedLanguage);
+    } else {
+        const browserLang = navigator.language.split('-')[0];
+        setLanguage(browserLang === 'de' ? 'de' : 'en');
+    }
+
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.getAttribute('data-lang'));
+        });
+    });
+
     // Dark Mode Toggle Funktionalität
     const darkModeToggle = document.getElementById("dark-mode-toggle");
     if (darkModeToggle) {
