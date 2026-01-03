@@ -36,47 +36,16 @@
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="../images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="../images/android-chrome-512x512.png">
-    <style>
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 20px;
-            transition: opacity 0.2s;
-        }
-        .back-button:hover {
-            opacity: 0.7;
-        }
-        .back-button i {
-            margin-right: 8px;
-        }
-        .blog-header {
-            margin-bottom: 30px;
-        }
-        .blog-meta {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-top: 8px;
-        }
-        .blog-content img {
-            width: 100%;
-            border-radius: 16px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .blog-content h2 {
-            margin-top: 30px;
-            font-size: 24px;
-        }
-        .blog-content p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-    </style>
 </head>
 <body>
+    <!-- Hintergrund-Blasen für Liquid Glass Design -->
+    <div class="bubbles-container">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+    </div>
+
     <div class="window">
         <div class="titlebar">
             <div class="traffic-lights">
@@ -88,7 +57,7 @@
         </div>
         
         <div class="main-container">
-            <main class="content" style="padding: 40px; max-width: 900px; margin: 0 auto; overflow-y: auto;">
+            <main class="content">
                 <a href="../index.html#projects" class="back-button">
                     <i class="fas fa-chevron-left"></i> Zurück zu Projekten
                 </a>
@@ -102,12 +71,12 @@
                         </div>
                     </header>
 
-                    <div class="card" style="padding: 30px;">
+                    <div class="card blog-post-card">
                         <div class="blog-content">
                             <p>Dies ist eine Vorlage für deine Projektberichte oder Blog-Einträge im modernen Liquid Glass Design. Hier kannst du detailliert über deine Arbeit schreiben, Herausforderungen beschreiben und Ergebnisse präsentieren.</p>
                             
-                            <div style="background: rgba(0,0,0,0.05); height: 300px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 20px 0;">
-                                <span style="color: var(--text-secondary);">[ Beispielbild für das Projekt ]</span>
+                            <div class="blog-image-placeholder">
+                                <span>[ Beispielbild für das Projekt ]</span>
                             </div>
 
                             <h2>Herausforderung</h2>
@@ -126,8 +95,12 @@
                     </div>
                 </article>
                 
-                <footer style="margin-top: 50px; text-align: center; padding-bottom: 40px;">
-                    <p style="color: var(--text-secondary); font-size: 13px;">&copy; 2026 Julius Hunold - Liquid Glass Design</p>
+                <footer class="blog-footer">
+                    <p class="blog-footer-text">
+                        &copy; 2026 Julius Hunold | 
+                        <a href="../impressum.html" class="apple-link">Impressum</a> | 
+                        <a href="../datenschutz.html" class="apple-link">Datenschutz</a>
+                    </p>
                 </footer>
             </main>
         </div>

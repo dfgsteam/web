@@ -61,6 +61,14 @@
     <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
 </head>
 <body>
+    <!-- Hintergrund-Blasen für Liquid Glass Design -->
+    <div class="bubbles-container">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+    </div>
+
     <div class="window">
         <div class="titlebar">
             <div class="traffic-lights">
@@ -104,7 +112,7 @@
             
             <main class="content">
                 <section id="about" class="content-section">
-                    <div class="avatar-container" style="display: none;">
+                    <div class="avatar-container hidden">
                         <img src="images/avatar.png" alt="Julius Hunold" class="avatar-img">
                         <h1>Julius Hunold</h1>
                         <p>Webentwickler für Webapps</p>
@@ -112,17 +120,17 @@
                     
                     <h2>Über mich</h2>
                     <div class="card">
-                        <p>Als <strong>Webentwickler speziell für Webapps</strong> liegt mein Fokus auf der Arbeit mit <strong>PHP und Python</strong>. Aktuell studiere ich <strong>Angewandte Informatik</strong> an der Georg-August-Universität Göttingen und vertiefe mein Wissen parallel in den Bereichen <strong>Physik</strong> und <strong>Betriebswirtschaftslehre</strong>.</p>
                         <p>Guten Tag, mein Name ist Julius Hunold. Ich bin ein leidenschaftlicher Programmierer und entwickle maßgeschneiderte Applikationen, die komplexe Herausforderungen effizient lösen. Wie Sie in meiner <a href="#experience" class="apple-link">Arbeitserfahrung</a> sehen können, umfasst mein Spektrum die Realisierung moderner Web-Apps bei sgalinski sowie die Leitung technischer Projekte wie den Glasfaser NE4 Ausbau bei MD Telekom.</p>
+                        <p>Als <strong>Webentwickler speziell für Webapps</strong> liegt mein Fokus auf der Arbeit mit <strong>PHP und Python</strong>. Aktuell studiere ich <strong>Angewandte Informatik</strong> an der Georg-August-Universität Göttingen und vertiefe mein Wissen parallel in den Bereichen <strong>Physik</strong> und <strong>Betriebswirtschaftslehre</strong>.</p>
                         <p>Neben technischen Projekten und meinen <a href="#projects" class="apple-link">aktuellen Web-Applikationen</a> engagiere ich mich in meiner Freizeit stark in der <a href="#honorary" class="apple-link">ehrenamtlichen Arbeit</a>, unter anderem in der Finanzleitung der Schönstatt Mannesjugend.</p>
                     </div>
                     
                     <div class="card">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
-                            <div style="display: flex; align-items: center;"><i class="fas fa-calendar-alt" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>Alter:</strong>&nbsp;<span id="display-age">21</span></div>
-                            <div style="display: flex; align-items: center;"><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>E-Mail:</strong>&nbsp;<a href="mailto:info@julius-hunold.de" class="apple-link">info@julius-hunold.de</a></div>
-                            <div style="display: flex; align-items: center;"><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>Telefon:</strong>&nbsp;Auf Anfrage</div>
-                            <div style="display: flex; align-items: center;"><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent); opacity: 0.8; width: 16px; text-align: center;"></i><strong>Ort:</strong>&nbsp;Sarstedt, Deutschland</div>
+                        <div class="profile-info-grid">
+                            <div class="profile-info-item"><i class="fas fa-calendar-alt"></i><strong>Alter:</strong>&nbsp;<span id="display-age">21</span></div>
+                            <div class="profile-info-item"><i class="fas fa-envelope"></i><strong>E-Mail:</strong>&nbsp;<a href="mailto:info@julius-hunold.de" class="apple-link">info@julius-hunold.de</a></div>
+                            <div class="profile-info-item"><i class="fas fa-phone"></i><strong>Telefon:</strong>&nbsp;Auf Anfrage</div>
+                            <div class="profile-info-item"><i class="fas fa-map-marker-alt"></i><strong>Ort:</strong>&nbsp;Sarstedt, Deutschland</div>
                         </div>
                     </div>
                 </section>
@@ -130,8 +138,8 @@
                 <section id="projects" class="content-section">
                     <h2>Projekte</h2>
                     
-                    <h3 style="font-size: 20px; margin-bottom: 15px; opacity: 0.8;">Kunden & Selbstständigkeit</h3>
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <h3 class="timeline-section-title">Kunden & Selbstständigkeit</h3>
+                    <div class="grid-1col">
                         <a href="projects/blog-template.html" class="card-link">
                             <div class="card">
                                 <span class="project-tag">E-Commerce</span>
@@ -151,8 +159,8 @@
                         </a>
                     </div>
 
-                    <h3 style="font-size: 20px; margin: 30px 0 15px 0; opacity: 0.8;">Berufliche Arbeit</h3>
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <h3 class="timeline-section-title mt-large">Berufliche Arbeit</h3>
+                    <div class="grid-1col">
                         <a href="projects/blog-template.html" class="card-link">
                             <div class="card">
                                 <span class="project-tag">Web Development</span>
@@ -512,6 +520,14 @@
                         </div>
                     </div>
                 </section>
+
+                <footer class="blog-footer">
+                    <p class="blog-footer-text">
+                        &copy; 2026 Julius Hunold |
+                        <a href="impressum.html" class="apple-link">Impressum</a> |
+                        <a href="datenschutz.html" class="apple-link">Datenschutz</a>
+                    </p>
+                </footer>
             </main>
         </div>
     </div>
