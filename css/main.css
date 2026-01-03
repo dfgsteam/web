@@ -96,8 +96,8 @@ body {
     max-width: 1200px;
     height: 85vh;
     background: var(--glass-bg-gradient);
-    backdrop-filter: blur(50px) saturate(200%);
-    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    backdrop-filter: blur(15px) saturate(200%);
+    -webkit-backdrop-filter: blur(15px) saturate(200%);
     border: 0.5px solid var(--glass-border);
     border-top: 1px solid var(--glass-highlight);
     border-left: 1px solid var(--glass-highlight);
@@ -123,6 +123,7 @@ body {
     pointer-events: none;
     z-index: 1;
     animation: liquidMove 20s linear infinite;
+    will-change: transform;
 }
 
 @keyframes liquidMove {
@@ -142,8 +143,8 @@ body {
     align-items: center;
     padding: 0 20px;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
     border-bottom: 0.5px solid var(--glass-border);
     z-index: 10;
 }
@@ -181,8 +182,8 @@ body {
 .sidebar {
     width: var(--sidebar-width);
     background: var(--glass-bg-gradient);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-right: 0.5px solid var(--glass-border);
     padding: 20px 15px;
     overflow-y: auto;
@@ -355,20 +356,11 @@ input:focus + .slider {
     padding: 40px;
     padding-bottom: 300px; /* Erhöhtes Padding unten für besseres Scrolling zum Ende */
     overflow-y: auto;
-    scroll-behavior: smooth;
 }
 
 .content-section {
     max-width: 800px;
     margin: 0 auto 100px auto;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.content-section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 h1 {
@@ -388,18 +380,19 @@ h2 {
 .card {
     position: relative;
     background: var(--glass-bg-gradient);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
     border: 0.5px solid var(--glass-border);
     border-top: 1px solid var(--glass-highlight);
     border-radius: 24px;
     padding: 24px;
-    //margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 
         0 8px 32px 0 rgba(0, 0, 0, 0.1),
         inset 0 1px 1px var(--glass-highlight);
     overflow: hidden;
+    will-change: transform;
 }
 
 .card::before {
@@ -413,6 +406,7 @@ h2 {
     transition: left 0.6s ease;
     pointer-events: none;
     z-index: 1;
+    will-change: left;
 }
 
 .card:hover::before {
@@ -449,8 +443,8 @@ h2 {
 .skill-item {
     position: relative;
     background: var(--glass-bg-gradient);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
     border: 0.5px solid var(--glass-border);
     border-top: 1px solid var(--glass-highlight);
     border-radius: 22px;
@@ -463,6 +457,7 @@ h2 {
     cursor: default;
     box-shadow: inset 0 1px 1px var(--glass-highlight);
     overflow: hidden;
+    will-change: transform;
 }
 
 .skill-item::before {
@@ -476,6 +471,7 @@ h2 {
     transition: left 0.5s ease;
     pointer-events: none;
     z-index: 1;
+    will-change: left;
 }
 
 .skill-item:hover::before {
@@ -537,8 +533,8 @@ h2 {
 /* Apple Grouped List Style */
 .grouped-list {
     background: var(--glass-bg-gradient);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
     border: 0.5px solid var(--glass-border);
     border-top: 1px solid var(--glass-highlight);
     border-radius: 24px;
@@ -765,6 +761,7 @@ blockquote {
     opacity: 0.15;
     filter: blur(80px);
     animation: bubbleMove 25s infinite alternate ease-in-out;
+    will-change: transform;
 }
 
 .bubble-1 {
