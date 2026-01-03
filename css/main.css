@@ -415,7 +415,7 @@ h2 {
 
 .card:hover {
     background: rgba(255, 255, 255, 0.12);
-    transform: translateY(-6px) scale(1.015);
+    /* transform: translateY(-6px) scale(1.015); -- Deaktiviert für statische Karten */
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
     border-color: var(--glass-highlight);
 }
@@ -479,7 +479,7 @@ h2 {
 }
 
 .skill-item:hover {
-    transform: translateY(-8px) scale(1.03);
+    /* transform: translateY(-8px) scale(1.03); -- Deaktiviert für statische Elemente */
     background: rgba(255, 255, 255, 0.15);
     border-color: var(--glass-highlight);
     box-shadow: 
@@ -972,17 +972,6 @@ blockquote {
     padding: 30px !important;
 }
 
-/* Deaktiviert den Hover-Effekt für statische Inhaltskarten (z.B. Datenschutz, Blog) */
-.blog-post-card:hover {
-    transform: none !important;
-    background: var(--glass-bg-gradient) !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 1px var(--glass-highlight) !important;
-    border-color: var(--glass-border) !important;
-}
-
-.blog-post-card:hover::before {
-    display: none;
-}
 
 .blog-header {
     margin-bottom: 30px;
