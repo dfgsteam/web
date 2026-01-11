@@ -93,24 +93,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Smooth Scrolling für Index-Links (z.B. Datenschutz)
-    document.querySelectorAll(".index-link").forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
+    // Smooth Scrolling für interne Links (verhindert das Verschieben des Fensters)
+    const handleInternalLinkClick = (e, anchor) => {
+        const href = anchor.getAttribute("href");
+        if (href && href.startsWith("#") && href.length > 1) {
+            const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
+                e.preventDefault();
+                const contentContainer = document.querySelector(".content");
+                if (contentContainer) {
+                    const behavior = document.body.classList.contains('a11y-mode') ? 'auto' : 'smooth';
+                    contentContainer.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: behavior,
+                    });
+                    
+                    // Viewport-Verschiebung verhindern/korrigieren
+                    window.scrollTo(0, 0);
+                    
+                    // Bei mobiler Navigation: Nach Klick ggf. URL-Fragment aktualisieren ohne Scroll-Sprung
+                    history.pushState(null, null, href);
+                }
+            }
+        }
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+            handleInternalLinkClick(e, this);
+        });
+    });
+
+    // Fix für URL-Hashes beim Laden (verhindert das Verschieben des Fensters beim Direktaufruf)
+    if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            // Kurze Verzögerung, um den Standard-Browser-Sprung abzufangen
+            setTimeout(() => {
+                window.scrollTo(0, 0);
                 const contentContainer = document.querySelector(".content");
                 if (contentContainer) {
                     contentContainer.scrollTo({
                         top: targetElement.offsetTop - 20,
-                        behavior: "auto",
+                        behavior: "auto"
                     });
                 }
-            }
-        });
-    });
+            }, 50);
+        }
+    }
 
     // Sidebar Active Link Highlight
     const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
