@@ -2,7 +2,7 @@
   "name": "Julius Hunold - Webentwickler Portfolio",
   "short_name": "JH Portfolio",
   "description": "Portfolio und Lebenslauf von Julius Hunold - Webentwickler für Webapps.",
-  "start_url": "/index.html",
+  "start_url": "/index",
   "display": "standalone",
   "background_color": "#f5f7fa",
   "theme_color": "#ff2d55",
