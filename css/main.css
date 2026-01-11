@@ -867,10 +867,22 @@ html[lang="de"] .lang-en {
 }
 
 /* Profile Specific Styles */
-.profile-info-grid {
+.profile-info-grid,
+.contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.profile-info-grid {
     gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .profile-info-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .profile-info-item {
