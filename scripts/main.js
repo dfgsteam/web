@@ -226,7 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         backToTopBtn.addEventListener('click', () => {
-            contentArea.scrollTo({ top: 0, behavior: 'smooth' });
+            const behavior = document.body.classList.contains('a11y-mode') ? 'auto' : 'smooth';
+            contentArea.scrollTo({ top: 0, behavior: behavior });
         });
     }
 
