@@ -27,11 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Browsertitel aktualisieren
-        const deTitle = document.querySelector('title.lang-de');
-        const enTitle = document.querySelector('title.lang-en');
-        if (deTitle && enTitle) {
-            document.title = (lang === 'de') ? deTitle.textContent : enTitle.textContent;
+        // Browsertitel und Meta-Description aktualisieren
+        const translationElement = document.getElementById('translations');
+        if (translationElement) {
+            try {
+                const translations = JSON.parse(translationElement.textContent);
+                if (translations[lang]) {
+                    document.title = translations[lang].title;
+                    const metaDesc = document.querySelector('meta[name="description"]');
+                    if (metaDesc) {
+                        metaDesc.setAttribute('content', translations[lang].description);
+                    }
+                }
+            } catch (e) {
+                console.error("Error parsing translations", e);
+            }
+        } else {
+            // Fallback für altes Format
+            const deTitle = document.querySelector('title.lang-de');
+            const enTitle = document.querySelector('title.lang-en');
+            if (deTitle && enTitle) {
+                document.title = (lang === 'de') ? deTitle.textContent : enTitle.textContent;
+            }
         }
     };
 
