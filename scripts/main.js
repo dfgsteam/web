@@ -110,7 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        content.addEventListener('scroll', updateActiveLink);
+        let ticking = false;
+        content.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateActiveLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
         updateActiveLink(); // Initial call
     }
 

@@ -249,6 +249,8 @@ body {
 .content-section {
     max-width: 800px;
     margin: 0 auto 100px auto;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
 }
 
 h1 {

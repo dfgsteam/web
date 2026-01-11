@@ -57,6 +57,9 @@
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="../images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="../images/android-chrome-512x512.png">
+    <!-- Performance Optimizations -->
+    <link rel="preload" href="../css/main.css" as="style">
+    <link rel="preload" href="../css/font-awesome/css/all.min.css" as="style">
 </head>
 <body>
     <!-- Hintergrund-Blasen für Liquid Glass Design -->
@@ -81,7 +84,7 @@
         <div class="main-container">
             <aside class="sidebar">
                 <div class="profile-section">
-                    <img src="../images/avatar.png" alt="Julius Hunold" class="profile-avatar">
+                    <img src="../images/avatar.png" alt="Julius Hunold" class="profile-avatar" fetchpriority="high" decoding="async">
                     <div class="profile-text">
                         <h1 class="profile-name">Julius Hunold</h1>
                         <p class="profile-info lang-de">Webentwicklung, Software-Lösungen, IT-Consulting</p>
