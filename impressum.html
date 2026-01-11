@@ -64,6 +64,8 @@
       <!-- Performance Optimizations -->
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="css/font-awesome/css/all.min.css" as="style">
+    <meta name="theme-color" content="#ff2d55">
+    <link rel="manifest" href="manifest.json">
 </head>
   <body>
     <!-- Hintergrund-Blasen für Liquid Glass Design -->
@@ -116,8 +118,8 @@
 
 
             <div class="language-switch">
-                <button class="lang-btn active" data-lang="de">DE</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="de" aria-label="Sprache auf Deutsch umstellen">DE</button>
+                <button class="lang-btn" data-lang="en" aria-label="Switch language to English">EN</button>
             </div>
           </div>
           <nav>
@@ -166,7 +168,16 @@
           </nav>
         </aside>
 
-        <main class="content">
+                    <main class="content">
+                <!-- Nur für den Druck sichtbare Header-Informationen -->
+                <div class="profile-section-print" style="display: none;">
+                    <h1 style="margin: 0;">Julius Hunold</h1>
+                    <p style="font-size: 16pt; color: #515154; margin: 5px 0;">Webentwicklung, Software-Lösungen, IT-Consulting</p>
+                    <p style="margin: 10px 0;">
+                        <i class="fas fa-envelope"></i> info@julius-hunold.de | 
+                        <i class="fas fa-globe"></i> https://julius-hunold.de
+                    </p>
+                </div>
           <div class="container-800">
             <a href="index.html" class="back-button">
               <i class="fas fa-chevron-left"></i> 

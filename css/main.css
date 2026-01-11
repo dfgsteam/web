@@ -228,6 +228,15 @@ body {
     transform: scale(0.98);
 }
 
+.sidebar-nav a:focus-visible,
+.lang-btn:focus-visible,
+.apple-link:focus-visible,
+.index-link:focus-visible,
+.card-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 .sidebar-nav a i {
     display: inline-block;
     width: 20px;
@@ -947,4 +956,77 @@ html[lang="de"] .lang-en {
 .blog-footer-text {
     color: var(--text-secondary);
     font-size: 13px;
+}
+
+/* --- Print Styles --- */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+        height: auto;
+        overflow: visible;
+    }
+
+    .bubbles-container, .titlebar, .sidebar, .back-button, .language-switch, .blog-footer, .traffic-lights {
+        display: none !important;
+    }
+
+    .window {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        border: none;
+        box-shadow: none;
+        background: white !important;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        overflow: visible;
+        display: block;
+    }
+
+    .main-container {
+        display: block;
+    }
+
+    .content {
+        padding: 0;
+        overflow: visible;
+        height: auto;
+    }
+
+    .content-section {
+        margin-bottom: 30px;
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+
+    .card, .skill-item, .grouped-list, .index-link {
+        border: 1px solid #ccc !important;
+        background: white !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+    }
+
+    .apple-link {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+
+    /* Print specific info for URLs */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+
+    h1 { font-size: 24pt; }
+    h2 { font-size: 18pt; margin-top: 20px; border-bottom: 1pt solid #ccc; }
+    h3 { font-size: 14pt; }
+
+    /* Show profile info in a structured way for print since sidebar is gone */
+    .profile-section-print {
+        display: block !important;
+        margin-bottom: 40px;
+        border-bottom: 2pt solid var(--accent);
+        padding-bottom: 20px;
+    }
 }

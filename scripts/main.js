@@ -123,4 +123,18 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveLink(); // Initial call
     }
 
+    // Service Worker Registration for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            const swPath = window.location.pathname.includes('/projects/') ? '../sw.js' : 'sw.js';
+            navigator.serviceWorker.register(swPath)
+                .then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                })
+                .catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+        });
+    }
+
 });
