@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Alter berechnen
     const displayAge = document.getElementById('display-age');
     if (displayAge) {
-        const birthDate = new Date(2004, 8, 30); // 30. September 2004
+        const birthDate = new Date(2002, 8, 24); // 24. September 2002
         const today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
         const m = today.getMonth() - birthDate.getMonth();
