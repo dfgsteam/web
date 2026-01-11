@@ -50,55 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Dark Mode Toggle Funktionalität
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
-    if (darkModeToggle) {
-        const modeLabel = darkModeToggle.parentElement.previousElementSibling;
-
-        const applyLightTheme = () => {
-            document.body.classList.add("light-mode-active");
-            if (modeLabel) modeLabel.innerHTML = '<i class="fas fa-sun"></i>';
-        };
-
-        const removeLightTheme = () => {
-            document.body.classList.remove("light-mode-active");
-            if (modeLabel) modeLabel.innerHTML = '<i class="fas fa-moon"></i>';
-        };
-
-        // Überprüfe gespeichertes Theme oder Systemeinstellung
-        const currentTheme = localStorage.getItem("theme");
-        if (currentTheme) {
-            document.documentElement.setAttribute("data-theme", currentTheme);
-            if (currentTheme === "light") {
-                darkModeToggle.checked = false;
-                applyLightTheme();
-            } else {
-                darkModeToggle.checked = true;
-                removeLightTheme();
-            }
-        } else {
-            if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
-                darkModeToggle.checked = false;
-                applyLightTheme();
-            } else {
-                darkModeToggle.checked = true;
-                removeLightTheme();
-            }
-        }
-
-        darkModeToggle.addEventListener("change", function () {
-            if (this.checked) {
-                document.documentElement.setAttribute("data-theme", "dark");
-                localStorage.setItem("theme", "dark");
-                removeLightTheme();
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                localStorage.setItem("theme", "light");
-                applyLightTheme();
-            }
-        });
-    }
-
     // Smooth Scrolling für Index-Links (z.B. Datenschutz)
     document.querySelectorAll(".index-link").forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
