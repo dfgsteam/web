@@ -66,6 +66,28 @@
     <link rel="preload" href="css/font-awesome/css/all.min.css" as="style">
     <meta name="theme-color" content="#ff2d55">
     <link rel="manifest" href="manifest.json">
+
+    <!-- Breadcrumbs Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://julius-hunold.de/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Impressum",
+      "item": "https://julius-hunold.de/impressum.html"
+    }
+  ]
+}
+    </script>
 </head>
   <body>
     <!-- Hintergrund-Blasen für Liquid Glass Design -->
@@ -120,6 +142,14 @@
             <div class="language-switch">
                 <button class="lang-btn active" data-lang="de" aria-label="Sprache auf Deutsch umstellen">DE</button>
                 <button class="lang-btn" data-lang="en" aria-label="Switch language to English">EN</button>
+            </div>
+
+            <div class="a11y-switch">
+                <button class="a11y-btn" aria-label="Barrierefreiheit-Modus umschalten">
+                    <i class="fas fa-universal-access"></i>
+                    <span class="lang-de">Barrierefreiheit</span>
+                    <span class="lang-en">Accessibility</span>
+                </button>
             </div>
           </div>
           <nav>
@@ -202,7 +232,7 @@
                     <p>31157 Sarstedt</p>
     
                     <h2 id="m56">Kontaktmöglichkeiten</h2>
-                    <p>E-Mail-Adresse: info@julius-hunold.de</p>
+                    <div>E-Mail-Adresse: <div class="email-container"><a href="#" class="apple-link email-link" data-user="info" data-domain="julius-hunold.de"><span class="email-text">info [at] julius-hunold.de</span></a><button class="copy-btn" title="E-Mail kopieren" aria-label="E-Mail kopieren"><i class="far fa-copy"></i></button></div></div>
     
                     <h2 id="m58">Angaben zum Unternehmen</h2>
                     <h2 id="m174">Verbraucherstreitbeilegung</h2>

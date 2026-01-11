@@ -66,6 +66,28 @@
     <link rel="preload" href="css/font-awesome/css/all.min.css" as="style">
     <meta name="theme-color" content="#ff2d55">
     <link rel="manifest" href="manifest.json">
+
+    <!-- Breadcrumbs Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://julius-hunold.de/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Datenschutzerklärung",
+      "item": "https://julius-hunold.de/datenschutz.html"
+    }
+  ]
+}
+    </script>
 </head>
   <body>
     <!-- Hintergrund-Blasen für Liquid Glass Design -->
@@ -120,6 +142,14 @@
             <div class="language-switch">
                 <button class="lang-btn active" data-lang="de" aria-label="Sprache auf Deutsch umstellen">DE</button>
                 <button class="lang-btn" data-lang="en" aria-label="Switch language to English">EN</button>
+            </div>
+
+            <div class="a11y-switch">
+                <button class="a11y-btn" aria-label="Barrierefreiheit-Modus umschalten">
+                    <i class="fas fa-universal-access"></i>
+                    <span class="lang-de">Barrierefreiheit</span>
+                    <span class="lang-en">Accessibility</span>
+                </button>
             </div>
           </div>
           <nav>
@@ -215,12 +245,10 @@
               <h2 id="m3">Verantwortlicher</h2>
               <p>Julius Hunold<br />Hiratastr. 6b<br />31157 Sarstedt</p>
               <p>Vertretungsberechtigte Personen: Julius Hunold</p>
-              <p>
+              <div>
                 E-Mail-Adresse:
-                <a href="mailto:info@julius-hunold.de" class="apple-link"
-                  >info@julius-hunold.de</a
-                >
-              </p>
+                <div class="email-container"><a href="#" class="apple-link email-link" data-user="info" data-domain="julius-hunold.de"><span class="email-text">info [at] julius-hunold.de</span></a><button class="copy-btn" title="E-Mail kopieren" aria-label="E-Mail kopieren"><i class="far fa-copy"></i></button></div>
+              </div>
 
               <h2 id="mOverview">Übersicht der Verarbeitungen</h2>
               <p>
@@ -443,7 +471,7 @@
                 DPF und eine Liste der zertifizierten Unternehmen finden Sie auf
                 der Website des US-Handelsministeriums unter
                 <a href="https://www.dataprivacyframework.gov/" target="_blank"
-                  >https://www.dataprivacyframework.gov/</a
+                   rel="noopener noreferrer">https://www.dataprivacyframework.gov/</a
                 >
                 (in englischer Sprache).
               </p>
@@ -454,10 +482,9 @@
                 gesetzlich erforderliche Übermittlungen. Informationen zu
                 Drittlandtransfers und geltenden Angemessenheitsbeschlüssen
                 können Sie dem Informationsangebot der EU-Kommission entnehmen:
-                <a
-                  href="https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en?prefLang=de"
+                <a href="https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en?prefLang=de"
                   target="_blank"
-                  >https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en?prefLang=de.</a
+                   rel="noopener noreferrer">https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection_en?prefLang=de.</a
                 >
               </p>
 
@@ -1281,42 +1308,36 @@
                     1 S. 1 lit. a) DSGVO);
                   </span>
                   <strong>Website:</strong>
-                  <a
-                    href="https://marketingplatform.google.com/intl/de/about/analytics/"
+                  <a href="https://marketingplatform.google.com/intl/de/about/analytics/"
                     target="_blank"
-                    >https://marketingplatform.google.com/intl/de/about/analytics/</a
+                     rel="noopener noreferrer">https://marketingplatform.google.com/intl/de/about/analytics/</a
                   >; <strong>Sicherheitsmaßnahmen:</strong> IP-Masking
                   (Pseudonymisierung der IP-Adresse);
                   <strong>Datenschutzerklärung:</strong>
                   <a href="https://policies.google.com/privacy" target="_blank"
-                    >https://policies.google.com/privacy</a
+                     rel="noopener noreferrer">https://policies.google.com/privacy</a
                   >; <strong>Auftragsverarbeitungsvertrag:</strong>
-                  <a
-                    href="https://business.safety.google/adsprocessorterms/"
+                  <a href="https://business.safety.google/adsprocessorterms/"
                     target="_blank"
-                    >https://business.safety.google/adsprocessorterms/</a
+                     rel="noopener noreferrer">https://business.safety.google/adsprocessorterms/</a
                   >; <strong>Grundlage Drittlandtransfers:</strong> Data Privacy
-                  Framework (DPF), Standardvertragsklauseln (<a
-                    href="https://business.safety.google/adsprocessorterms"
+                  Framework (DPF), Standardvertragsklauseln (<a href="https://business.safety.google/adsprocessorterms"
                     target="_blank"
-                    >https://business.safety.google/adsprocessorterms</a
+                     rel="noopener noreferrer">https://business.safety.google/adsprocessorterms</a
                   >);
                   <strong>Widerspruchsmöglichkeit (Opt-Out):</strong>
                   Opt-Out-Plugin:
-                  <a
-                    href="https://tools.google.com/dlpage/gaoptout?hl=de"
+                  <a href="https://tools.google.com/dlpage/gaoptout?hl=de"
                     target="_blank"
-                    >https://tools.google.com/dlpage/gaoptout?hl=de</a
+                     rel="noopener noreferrer">https://tools.google.com/dlpage/gaoptout?hl=de</a
                   >, Einstellungen für die Darstellung von Werbeeinblendungen:
-                  <a
-                    href="https://myadcenter.google.com/personalizationoff"
+                  <a href="https://myadcenter.google.com/personalizationoff"
                     target="_blank"
-                    >https://myadcenter.google.com/personalizationoff</a
+                     rel="noopener noreferrer">https://myadcenter.google.com/personalizationoff</a
                   >. <strong>Weitere Informationen:</strong>
-                  <a
-                    href="https://business.safety.google/adsservices/"
+                  <a href="https://business.safety.google/adsservices/"
                     target="_blank"
-                    >https://business.safety.google/adsservices/</a
+                     rel="noopener noreferrer">https://business.safety.google/adsservices/</a
                   >
                   (Arten der Verarbeitung sowie der verarbeiteten Daten).
                 </li>
@@ -1415,25 +1436,25 @@
               <p>
                 a) Europa:
                 <a href="https://www.youronlinechoices.eu" target="_blank"
-                  >https://www.youronlinechoices.eu.</a
+                   rel="noopener noreferrer">https://www.youronlinechoices.eu.</a
                 >
               </p>
               <p>
                 b) Kanada:
                 <a href="https://youradchoices.ca/" target="_blank"
-                  >https://youradchoices.ca/.</a
+                   rel="noopener noreferrer">https://youradchoices.ca/.</a
                 >
               </p>
               <p>
                 c) USA:
                 <a href="https://optout.aboutads.info/" target="_blank"
-                  >https://optout.aboutads.info/.</a
+                   rel="noopener noreferrer">https://optout.aboutads.info/.</a
                 >
               </p>
               <p>
                 d) Gebietsübergreifend:
                 <a href="https://optout.aboutads.info" target="_blank"
-                  >https://optout.aboutads.info.</a
+                   rel="noopener noreferrer">https://optout.aboutads.info.</a
                 >
               </p>
               <ul class="m-elements">
@@ -1681,12 +1702,11 @@
                   </span>
                   <strong>Website:</strong>
                   <a href="https://www.instagram.com" target="_blank"
-                    >https://www.instagram.com</a
+                     rel="noopener noreferrer">https://www.instagram.com</a
                   >; <strong>Datenschutzerklärung:</strong>
-                  <a
-                    href="https://privacycenter.instagram.com/policy/"
+                  <a href="https://privacycenter.instagram.com/policy/"
                     target="_blank"
-                    >https://privacycenter.instagram.com/policy/</a
+                     rel="noopener noreferrer">https://privacycenter.instagram.com/policy/</a
                   >. <strong>Grundlage Drittlandtransfers:</strong> Data Privacy
                   Framework (DPF).
                 </li>
@@ -1701,27 +1721,24 @@
                   Geräteinformationen (z. B. IP-Adresse, Betriebssystem,
                   Browsertyp, Spracheinstellungen, Cookie-Daten). Näheres hierzu
                   findet sich in der Facebook-Datenrichtlinie:
-                  <a
-                    href="https://www.facebook.com/privacy/policy/"
+                  <a href="https://www.facebook.com/privacy/policy/"
                     target="_blank"
-                    >https://www.facebook.com/privacy/policy/.</a
+                     rel="noopener noreferrer">https://www.facebook.com/privacy/policy/.</a
                   >
                   Facebook verwendet diese Daten auch, um uns über den Dienst
                   „Seiten-Insights" statistische Auswertungen bereitzustellen,
                   die Aufschluss darüber geben, wie Personen mit unserer Seite
                   und deren Inhalten interagieren. Grundlage hierfür ist eine
                   Vereinbarung mit Facebook („Informationen zu Seiten-Insights":
-                  <a
-                    href="https://www.facebook.com/legal/terms/page_controller_addendum"
+                  <a href="https://www.facebook.com/legal/terms/page_controller_addendum"
                     target="_blank"
-                    >https://www.facebook.com/legal/terms/page_controller_addendum</a
+                     rel="noopener noreferrer">https://www.facebook.com/legal/terms/page_controller_addendum</a
                   >), in der unter anderem Sicherheitsmaßnahmen sowie die
                   Wahrnehmung der Betroffenenrechte geregelt sind. Weitere
                   Hinweise finden sich hier:
-                  <a
-                    href="https://www.facebook.com/legal/terms/information_about_page_insights_data"
+                  <a href="https://www.facebook.com/legal/terms/information_about_page_insights_data"
                     target="_blank"
-                    >https://www.facebook.com/legal/terms/information_about_page_insights_data.</a
+                     rel="noopener noreferrer">https://www.facebook.com/legal/terms/information_about_page_insights_data.</a
                   >
                   Nutzer können Auskunfts- oder Löschungsanfragen daher direkt
                   an Facebook richten. Die Rechte der Nutzer (insbesondere
@@ -1740,17 +1757,15 @@
                   </span>
                   <strong>Website:</strong>
                   <a href="https://www.facebook.com" target="_blank"
-                    >https://www.facebook.com</a
+                     rel="noopener noreferrer">https://www.facebook.com</a
                   >; <strong>Datenschutzerklärung:</strong>
-                  <a
-                    href="https://www.facebook.com/privacy/policy/"
+                  <a href="https://www.facebook.com/privacy/policy/"
                     target="_blank"
-                    >https://www.facebook.com/privacy/policy/</a
+                     rel="noopener noreferrer">https://www.facebook.com/privacy/policy/</a
                   >. <strong>Grundlage Drittlandtransfers:</strong> Data Privacy
-                  Framework (DPF), Standardvertragsklauseln (<a
-                    href="https://www.facebook.com/legal/EU_data_transfer_addendum"
+                  Framework (DPF), Standardvertragsklauseln (<a href="https://www.facebook.com/legal/EU_data_transfer_addendum"
                     target="_blank"
-                    >https://www.facebook.com/legal/EU_data_transfer_addendum</a
+                     rel="noopener noreferrer">https://www.facebook.com/legal/EU_data_transfer_addendum</a
                   >).
                 </li>
                 <li>
@@ -1770,18 +1785,16 @@
                   Datenschutzinformationen zur Verarbeitung von Nutzerdaten
                   durch LinkedIn können den Datenschutzhinweisen von LinkedIn
                   entnommen werden:
-                  <a
-                    href="https://www.linkedin.com/legal/privacy-policy"
+                  <a href="https://www.linkedin.com/legal/privacy-policy"
                     target="_blank"
-                    >https://www.linkedin.com/legal/privacy-policy.</a
+                     rel="noopener noreferrer">https://www.linkedin.com/legal/privacy-policy.</a
                   >
                   <br />Wir haben mit LinkedIn Irland eine spezielle
                   Vereinbarung geschlossen („Page Insights Joint Controller
                   Addendum",
-                  <a
-                    href="https://legal.linkedin.com/pages-joint-controller-addendum"
+                  <a href="https://legal.linkedin.com/pages-joint-controller-addendum"
                     target="_blank"
-                    >https://legal.linkedin.com/pages-joint-controller-addendum</a
+                     rel="noopener noreferrer">https://legal.linkedin.com/pages-joint-controller-addendum</a
                   >), in der insbesondere geregelt wird, welche
                   Sicherheitsmaßnahmen LinkedIn beachten muss und in der
                   LinkedIn sich bereit erklärt hat, die Rechte der Betroffenen
@@ -1805,22 +1818,19 @@
                   </span>
                   <strong>Website:</strong>
                   <a href="https://www.linkedin.com" target="_blank"
-                    >https://www.linkedin.com</a
+                     rel="noopener noreferrer">https://www.linkedin.com</a
                   >; <strong>Datenschutzerklärung:</strong>
-                  <a
-                    href="https://www.linkedin.com/legal/privacy-policy"
+                  <a href="https://www.linkedin.com/legal/privacy-policy"
                     target="_blank"
-                    >https://www.linkedin.com/legal/privacy-policy</a
+                     rel="noopener noreferrer">https://www.linkedin.com/legal/privacy-policy</a
                   >; <strong>Grundlage Drittlandtransfers:</strong> Data Privacy
-                  Framework (DPF), Standardvertragsklauseln (<a
-                    href="https://legal.linkedin.com/dpa"
+                  Framework (DPF), Standardvertragsklauseln (<a href="https://legal.linkedin.com/dpa"
                     target="_blank"
-                    >https://legal.linkedin.com/dpa</a
+                     rel="noopener noreferrer">https://legal.linkedin.com/dpa</a
                   >). <strong>Widerspruchsmöglichkeit (Opt-Out):</strong>
-                  <a
-                    href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out"
+                  <a href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out"
                     target="_blank"
-                    >https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out</a
+                     rel="noopener noreferrer">https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out</a
                   >.
                 </li>
                 <li>
@@ -1833,10 +1843,10 @@
                     (Art. 6 Abs. 1 S. 1 lit. f) DSGVO);
                   </span>
                   <strong>Website:</strong>
-                  <a href="https://x.com" target="_blank">https://x.com</a>.
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer">https://x.com</a>.
                   <strong>Datenschutzerklärung:</strong>
                   <a href="https://x.com/de/privacy" target="_blank"
-                    >https://x.com/de/privacy</a
+                     rel="noopener noreferrer">https://x.com/de/privacy</a
                   >.
                 </li>
                 <li>
@@ -1849,12 +1859,11 @@
                   </span>
                   <strong>Website:</strong>
                   <a href="https://www.xing.com/" target="_blank"
-                    >https://www.xing.com/</a
+                     rel="noopener noreferrer">https://www.xing.com/</a
                   >. <strong>Datenschutzerklärung:</strong>
-                  <a
-                    href="https://privacy.xing.com/de/datenschutzerklaerung"
+                  <a href="https://privacy.xing.com/de/datenschutzerklaerung"
                     target="_blank"
-                    >https://privacy.xing.com/de/datenschutzerklaerung</a
+                     rel="noopener noreferrer">https://privacy.xing.com/de/datenschutzerklaerung</a
                   >.
                 </li>
               </ul>
@@ -1997,16 +2006,15 @@
                   </span>
                   <strong>Website:</strong>
                   <a href="https://fonts.google.com/" target="_blank"
-                    >https://fonts.google.com/</a
+                     rel="noopener noreferrer">https://fonts.google.com/</a
                   >; <strong>Datenschutzerklärung:</strong>
                   <a href="https://policies.google.com/privacy" target="_blank"
-                    >https://policies.google.com/privacy</a
+                     rel="noopener noreferrer">https://policies.google.com/privacy</a
                   >; <strong>Grundlage Drittlandtransfers:</strong> Data Privacy
                   Framework (DPF). <strong>Weitere Informationen:</strong>
-                  <a
-                    href="https://developers.google.com/fonts/faq/privacy?hl=de"
+                  <a href="https://developers.google.com/fonts/faq/privacy?hl=de"
                     target="_blank"
-                    >https://developers.google.com/fonts/faq/privacy?hl=de</a
+                     rel="noopener noreferrer">https://developers.google.com/fonts/faq/privacy?hl=de</a
                   >.
                 </li>
                 <li>
@@ -2022,10 +2030,10 @@
                   </span>
                   <strong>Website:</strong>
                   <a href="https://mapsplatform.google.com/" target="_blank"
-                    >https://mapsplatform.google.com/</a
+                     rel="noopener noreferrer">https://mapsplatform.google.com/</a
                   >; <strong>Datenschutzerklärung:</strong>
                   <a href="https://policies.google.com/privacy" target="_blank"
-                    >https://policies.google.com/privacy</a
+                     rel="noopener noreferrer">https://policies.google.com/privacy</a
                   >. <strong>Grundlage Drittlandtransfers:</strong> Data Privacy
                   Framework (DPF).
                 </li>

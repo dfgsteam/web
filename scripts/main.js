@@ -67,6 +67,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Accessibility Mode Funktionalität
+    const a11yButtons = document.querySelectorAll('.a11y-btn');
+    
+    const setA11yMode = (enabled) => {
+        if (enabled) {
+            document.body.classList.add('a11y-mode');
+            localStorage.setItem('a11y-mode', 'true');
+        } else {
+            document.body.classList.remove('a11y-mode');
+            localStorage.setItem('a11y-mode', 'false');
+        }
+    };
+
+    // Initial A11y Setup
+    const savedA11y = localStorage.getItem('a11y-mode');
+    if (savedA11y === 'true') {
+        setA11yMode(true);
+    }
+
+    a11yButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isEnabled = document.body.classList.contains('a11y-mode');
+            setA11yMode(!isEnabled);
+        });
+    });
+
     // Smooth Scrolling für Index-Links (z.B. Datenschutz)
     document.querySelectorAll(".index-link").forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -137,4 +163,77 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Email Protection
+    const decodeEmails = () => {
+        document.querySelectorAll('.email-link').forEach(link => {
+            const user = link.getAttribute('data-user');
+            const domain = link.getAttribute('data-domain');
+            if (user && domain) {
+                const email = `${user}@${domain}`;
+                link.href = `mailto:${email}`;
+                const textSpan = link.querySelector('.email-text');
+                if (textSpan) textSpan.textContent = email;
+                
+                // Update copy button if it's in the same container
+                const container = link.closest('.email-container');
+                if (container) {
+                    const copyBtn = container.querySelector('.copy-btn');
+                    if (copyBtn) copyBtn.setAttribute('data-copy', email);
+                }
+            }
+        });
+    };
+    decodeEmails();
+
+    // Copy to Clipboard
+    const showCopyFeedback = () => {
+        let feedback = document.querySelector('.copy-feedback');
+        if (!feedback) {
+            feedback = document.createElement('div');
+            feedback.className = 'copy-feedback';
+            feedback.innerHTML = '<span class="lang-de">In die Zwischenablage kopiert!</span><span class="lang-en">Copied to clipboard!</span>';
+            document.body.appendChild(feedback);
+        }
+        feedback.classList.add('show');
+        setTimeout(() => feedback.classList.remove('show'), 2000);
+    };
+
+    document.addEventListener('click', (e) => {
+        const copyBtn = e.target.closest('.copy-btn');
+        if (copyBtn) {
+            const text = copyBtn.getAttribute('data-copy');
+            if (text) {
+                navigator.clipboard.writeText(text).then(showCopyFeedback);
+            }
+        }
+    });
+
+    // Back to Top Button
+    const contentArea = document.querySelector('.content');
+    if (contentArea) {
+        const backToTopBtn = document.createElement('button');
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+        backToTopBtn.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(backToTopBtn);
+
+        contentArea.addEventListener('scroll', () => {
+            if (contentArea.scrollTop > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            contentArea.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // External Links security
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        if (!link.rel) {
+            link.rel = 'noopener noreferrer';
+        }
+    });
 });

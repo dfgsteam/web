@@ -84,6 +84,22 @@
     <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
     <meta name="theme-color" content="#ff2d55">
     <link rel="manifest" href="manifest.json">
+
+    <!-- Breadcrumbs Structured Data -->
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://julius-hunold.de/"
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <!-- Hintergrund-Blasen für Liquid Glass Design -->
@@ -118,6 +134,14 @@
                     <div class="language-switch">
                         <button class="lang-btn active" data-lang="de" aria-label="Sprache auf Deutsch umstellen">DE</button>
                         <button class="lang-btn" data-lang="en" aria-label="Switch language to English">EN</button>
+                    </div>
+
+                    <div class="a11y-switch">
+                        <button class="a11y-btn" aria-label="Barrierefreiheit-Modus umschalten">
+                            <i class="fas fa-universal-access"></i>
+                            <span class="lang-de">Barrierefreiheit</span>
+                            <span class="lang-en">Accessibility</span>
+                        </button>
                     </div>
                 </div>
                 <nav>
@@ -171,7 +195,7 @@
                     <div class="card" style="margin-top: 2rem;">
                         <div class="profile-info-grid">
                             <div class="profile-info-item"><i class="fas fa-calendar-alt"></i><strong><span class="lang-de">Alter:</span><span class="lang-en">Age:</span></strong>&nbsp;<span id="display-age">21</span></div>
-                            <div class="profile-info-item"><i class="fas fa-envelope"></i><strong>E-Mail:</strong>&nbsp;<a href="mailto:info@julius-hunold.de" class="apple-link">info@julius-hunold.de</a></div>
+                            <div class="profile-info-item"><i class="fas fa-envelope"></i><strong>E-Mail:</strong>&nbsp;<div class="email-container"><a href="#" class="apple-link email-link" data-user="info" data-domain="julius-hunold.de"><span class="email-text">info [at] julius-hunold.de</span></a><button class="copy-btn" title="E-Mail kopieren" aria-label="E-Mail kopieren"><i class="far fa-copy"></i></button></div></div>
                             <div class="profile-info-item"><i class="fas fa-phone"></i><strong><span class="lang-de">Telefon:</span><span class="lang-en">Phone:</span></strong>&nbsp;<span class="lang-de">Auf Anfrage</span><span class="lang-en">On request</span></div>
                             <div class="profile-info-item"><i class="fas fa-map-marker-alt"></i><strong><span class="lang-de">Ort:</span><span class="lang-en">Location:</span></strong>&nbsp;Sarstedt, <span class="lang-de">Deutschland</span><span class="lang-en">Germany</span></div>
                         </div>
@@ -649,14 +673,14 @@
                             <div>
                                 <h4 class="lang-de" style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Direktkontakt</h4>
                                 <h4 class="lang-en" style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Direct Contact</h4>
-                                <a href="mailto:info@julius-hunold.de" class="apple-link" style="display: flex; align-items: center; margin-bottom: 8px; font-size: 16px;"><i class="fas fa-envelope" style="margin-right: 10px; width: 18px; text-align: center;"></i> info@julius-hunold.de</a>
+                                <div class="email-container" style="margin-bottom: 8px;"><a href="#" class="apple-link email-link" data-user="info" data-domain="julius-hunold.de" style="display: flex; align-items: center; font-size: 16px;"><i class="fas fa-envelope" style="margin-right: 10px; width: 18px; text-align: center;"></i> <span class="email-text">info [at] julius-hunold.de</span></a><button class="copy-btn" title="E-Mail kopieren" aria-label="E-Mail kopieren"><i class="far fa-copy"></i></button></div>
                             </div>
                             <div>
                                 <h4 style="font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Social Media</h4>
                                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                                    <a href="https://github.com/dfgsteam" target="_blank" class="apple-link" title="GitHub Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;"><i class="fab fa-github" style="margin-right: 8px;"></i> GitHub</a>
-                                    <a href="https://de.linkedin.com/in/julius-hunold-b3a669151" target="_blank" class="apple-link" title="LinkedIn Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;"><i class="fab fa-linkedin" style="margin-right: 8px;"></i> LinkedIn</a>
-                                    <a href="https://www.instagram.com/julius.hunold/" target="_blank" class="apple-link" title="Instagram Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;"><i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram</a>
+                                    <a href="https://github.com/dfgsteam" target="_blank" class="apple-link" title="GitHub Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;" rel="noopener noreferrer"><i class="fab fa-github" style="margin-right: 8px;"></i> GitHub</a>
+                                    <a href="https://de.linkedin.com/in/julius-hunold-b3a669151" target="_blank" class="apple-link" title="LinkedIn Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;" rel="noopener noreferrer"><i class="fab fa-linkedin" style="margin-right: 8px;"></i> LinkedIn</a>
+                                    <a href="https://www.instagram.com/julius.hunold/" target="_blank" class="apple-link" title="Instagram Profil von Julius Hunold" style="font-size: 16px; display: flex; align-items: center;" rel="noopener noreferrer"><i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram</a>
                                 </div>
                             </div>
                         </div>
@@ -666,7 +690,7 @@
                         </div>
 
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 0.5px solid var(--glass-border);">
-                            <a href="lebenslauf_julius-hunold2024_web.pdf" target="_blank" class="apple-link" style="display: inline-flex; align-items: center; font-weight: 600;">
+                            <a href="lebenslauf_julius-hunold2024_web.pdf" target="_blank" class="apple-link" style="display: inline-flex; align-items: center; font-weight: 600;" rel="noopener noreferrer">
                                 <i class="fas fa-file-pdf" style="margin-right: 8px; display: inline;"></i>
                                 <span class="lang-de">Lebenslauf als PDF herunterladen</span>
                                 <span class="lang-en">Download CV as PDF</span>
