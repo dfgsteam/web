@@ -28,12 +28,12 @@ const { t, lang, projects } = Astro.props;
   <div data-horizontal>
     <div
       data-horizontal-track
-      class="flex flex-col gap-10 px-6 sm:px-10 md:flex-row md:gap-8 md:px-16 md:will-change-transform"
+      class="flex flex-col gap-10 px-6 sm:px-10 md:flex-row md:items-stretch md:gap-10 md:px-20 md:will-change-transform"
     >
       {
         projects.map((project, i) => (
           <div
-            class="w-full shrink-0 md:w-[80vw] lg:w-[62vw]"
+            class="w-full shrink-0 md:w-[46vw] lg:w-[30rem] xl:w-[32rem]"
             data-reveal="up"
             data-reveal-delay={i * 0.05}
           >

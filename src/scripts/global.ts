@@ -8,6 +8,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 let lenis: Lenis | null = null;
 let ctx: gsap.Context | null = null;
+let inited = false;
 
 function onRaf(time: number) {
   lenis?.raf(time * 1000);
@@ -254,6 +255,76 @@ function setupTextReveal() {
   });
 }
 
+function setupParallax() {
+  if (reduceMotion) return;
+  gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach((el) => {
+    const speed = Number(el.dataset.parallax ?? 15);
+    gsap.fromTo(
+      el,
+      { y: 0 },
+      {
+        y: () => -speed,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el.closest('section') ?? el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      },
+    );
+  });
+}
+
+function setupTilt() {
+  if (reduceMotion || !window.matchMedia('(pointer: fine)').matches) return;
+  document.querySelectorAll<HTMLElement>('[data-tilt]').forEach((card) => {
+    const max = 7;
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      gsap.to(card, {
+        rotateY: px * max,
+        rotateX: -py * max,
+        y: -6,
+        transformPerspective: 900,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotateX: 0,
+        rotateY: 0,
+        y: 0,
+        transformPerspective: 900,
+        duration: 0.6,
+        ease: 'elastic.out(1, 0.5)',
+      });
+    });
+  });
+}
+
+function setupProgress() {
+  const bar = document.querySelector<HTMLElement>('#scroll-progress');
+  if (!bar) return;
+  if (reduceMotion) return;
+  gsap.fromTo(
+    bar,
+    { scaleX: 0 },
+    {
+      scaleX: 1,
+      ease: 'none',
+      scrollTrigger: {
+        start: 0,
+        end: 'max',
+        scrub: 0.3,
+      },
+    },
+  );
+}
+
 function setupHero() {
   if (reduceMotion) return;
   const lines = gsap.utils.toArray<HTMLElement>('[data-hero-line]');
@@ -296,6 +367,8 @@ function setupMenu() {
 }
 
 function init() {
+  if (inited) return;
+  inited = true;
   createLenis();
   ctx = gsap.context(() => {
     setupCursor();
@@ -306,12 +379,16 @@ function init() {
     setupCounters();
     setupSkillBars();
     setupHorizontal();
+    setupParallax();
+    setupTilt();
+    setupProgress();
   });
   setupMenu();
   ScrollTrigger.refresh();
 }
 
 function destroy() {
+  inited = false;
   destroyLenis();
   ctx?.revert();
   ctx = null;
@@ -319,5 +396,11 @@ function destroy() {
 
 document.addEventListener('astro:before-swap', destroy);
 document.addEventListener('astro:page-load', init);
+
+if (document.readyState !== 'loading') {
+  init();
+} else {
+  document.addEventListener('DOMContentLoaded', init, { once: true });
+}
 
 export {};

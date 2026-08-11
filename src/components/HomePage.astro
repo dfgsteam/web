@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import type { Dict, Locale } from '../lib/i18n';
 import Hero from './sections/Hero.astro';
 import About from './sections/About.astro';
+import Marquee from './Marquee.astro';
 import ProjectsShowcase from './sections/ProjectsShowcase.astro';
 import Skills from './sections/Skills.astro';
 import CvSection from './sections/CvSection.astro';
@@ -15,10 +16,13 @@ interface Props {
 }
 
 const { t, lang, projects } = Astro.props;
+
+const marqueeItems = ['PHP', 'Python', 'SQL', 'JavaScript', 'Tailwind', 'WooCommerce', 'Linux', 'TYPO3', 'Java', 'C++', 'Laravel', 'MySQL'];
 ---
 
 <Hero t={t} lang={lang} />
 <About t={t} lang={lang} />
+<Marquee items={marqueeItems} />
 <ProjectsShowcase t={t} lang={lang} projects={projects} />
 <Skills t={t} lang={lang} />
 <CvSection t={t} lang={lang} />

@@ -40,6 +40,7 @@ const pagePath = Astro.props.path ?? Astro.url.pathname;
     <ClientRouter />
   </head>
   <body class="noise">
+    <div id="scroll-progress" class="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left scale-x-0 bg-gradient-to-r from-accent via-accent-2 to-amber-400" aria-hidden="true"></div>
     <div class="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-ring" aria-hidden="true"></div>
     <Nav t={t} lang={lang} />

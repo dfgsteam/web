@@ -1,0 +1,33 @@
+---
+interface Props {
+  items: string[];
+  speed?: string;
+}
+
+const { items, speed = '28s' } = Astro.props;
+---
+
+<div class="marquee overflow-hidden border-y border-line bg-surface py-5" data-reveal="up">
+  <div class="marquee-track" style={{ animationDuration: speed }}>
+    <ul class="flex items-center gap-10 pr-10">
+      {
+        items.map((item) => (
+          <li class="flex items-center gap-10">
+            <span class="text-lg font-semibold tracking-tight text-mute">{item}</span>
+            <span class="size-1.5 rounded-full bg-accent/60" aria-hidden="true"></span>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="flex items-center gap-10 pr-10" aria-hidden="true">
+      {
+        items.map((item) => (
+          <li class="flex items-center gap-10">
+            <span class="text-lg font-semibold tracking-tight text-mute">{item}</span>
+            <span class="size-1.5 rounded-full bg-accent/60" aria-hidden="true"></span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
