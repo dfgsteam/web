@@ -1,0 +1,94 @@
+---
+import type { Dict, Locale } from '../../lib/i18n';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="top" class="relative flex min-h-[100svh] items-center overflow-hidden pb-24 pt-32">
+  <div class="grid-backdrop absolute inset-0" aria-hidden="true"></div>
+  <div
+    class="absolute -top-40 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-accent/20 blur-[120px]"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-page relative z-10">
+    <div class="max-w-4xl">
+      <p
+        class="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-4 py-1.5 text-xs uppercase tracking-widest text-mute backdrop-blur-md"
+        data-reveal="up"
+        data-reveal-delay="0.1"
+      >
+        <span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+        {t.hero.eyebrow}
+      </p>
+
+      <h1 class="text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+        <span class="block overflow-hidden pb-1">
+          <span data-hero-line class="block will-change-transform">{t.hero.titleA}</span>
+        </span>
+        <span class="block overflow-hidden pb-2">
+          <span data-hero-line class="block will-change-transform text-gradient">
+            {t.hero.titleB}
+          </span>
+        </span>
+      </h1>
+
+      <p
+        class="mt-8 max-w-xl text-lg leading-relaxed text-mute"
+        data-reveal="up"
+        data-reveal-delay="0.5"
+      >
+        {t.hero.subtitle}
+      </p>
+
+      <div
+        class="mt-10 flex flex-wrap items-center gap-4"
+        data-reveal="up"
+        data-reveal-delay="0.65"
+      >
+        <Button href="#projekte" variant="primary" size="lg" icon="arrow">
+          {t.hero.primaryCta}
+        </Button>
+        <Button href="#kontakt" variant="outline" size="lg" icon="mail">
+          {t.hero.secondaryCta}
+        </Button>
+      </div>
+    </div>
+
+    <dl
+      class="mt-20 grid max-w-2xl grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-3"
+      data-reveal="up"
+      data-reveal-delay="0.8"
+    >
+      {
+        t.hero.stats.map((stat) => (
+          <div>
+            <dt class="order-2 mt-1 block text-sm text-mute">{stat.label}</dt>
+            <dd class="order-1 text-4xl font-semibold tracking-tight text-ink">
+              <span data-count data-count-value={stat.value}>0</span>
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <a
+    href="#about"
+    class="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-[11px] uppercase tracking-widest text-dim transition-colors hover:text-ink"
+    aria-label={t.hero.scrollHint}
+    data-reveal="up"
+    data-reveal-delay="1.1"
+  >
+    <span>{t.hero.scrollHint}</span>
+    <svg class="size-4 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6-6"></path>
+    </svg>
+  </a>
+</section>

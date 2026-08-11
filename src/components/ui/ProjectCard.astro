@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Dict, Locale } from '../../lib/i18n';
+import BrowserMockup from './BrowserMockup.astro';
+import StatusBadge from './StatusBadge.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  t: Dict;
+  lang: Locale;
+  index: number;
+}
+
+const { project, t, lang, index } = Astro.props;
+const { title, tagline, summary, tech, status, accentFrom, accentTo } = project.data;
+const slug = project.id.split('/').slice(1).join('/');
+const href = `${lang === 'de' ? '/projekte' : '/en/projekte'}/${slug}`;
+---
+
+<a
+  href={href}
+  class="group relative flex h-full flex-col gap-6 rounded-3xl border border-line bg-surface p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-[0_20px_60px_-20px_rgba(124,108,255,0.35)]"
+  aria-label={title}
+>
+  <div class="overflow-hidden rounded-xl">
+    <div class="transition-transform duration-500 group-hover:scale-[1.03]">
+      <BrowserMockup accentFrom={accentFrom} accentTo={accentTo} title={tagline} />
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between gap-3">
+    <h3 class="text-xl font-semibold tracking-tight text-ink">{title}</h3>
+    <StatusBadge status={status} t={t} />
+  </div>
+
+  <p class="-mt-3 text-sm text-mute">{summary}</p>
+
+  <ul class="flex flex-wrap gap-2">
+    {
+      tech.slice(0, 5).map((item) => (
+        <li class="rounded-full border border-line bg-elevated px-3 py-1 text-[11px] text-mute">
+          {item}
+        </li>
+      ))
+    }
+  </ul>
+
+  <span class="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-medium text-accent">
+    {t.projects.viewDetails}
+    <svg class="size-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+  <span class="sr-only">{index + 1}</span>
+</a>

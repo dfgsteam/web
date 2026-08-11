@@ -1,0 +1,24 @@
+---
+interface Props {
+  text: string;
+  className?: string;
+  as?: 'h2' | 'p' | 'span';
+}
+
+const { text, className = '', as = 'h2' } = Astro.props;
+const Tag = as;
+const words = text.split(' ');
+---
+
+<Tag class={className} data-text-reveal aria-label={text}>
+  {
+    words.map((word: string, i: number) => (
+      <span class="inline-block overflow-hidden pb-[0.12em] align-bottom">
+        <span class="tr-word-inner inline-block will-change-transform">
+          {word}
+          {i < words.length - 1 ? '\u00A0' : ''}
+        </span>
+      </span>
+    ))
+  }
+</Tag>

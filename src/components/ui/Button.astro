@@ -1,0 +1,49 @@
+---
+import { ArrowRight, Download, Mail } from '@lucide/astro';
+
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'ghost' | 'outline';
+  size?: 'md' | 'lg';
+  icon?: 'arrow' | 'download' | 'mail' | 'none';
+  magnetic?: boolean;
+  as?: string;
+}
+
+const {
+  href = '#',
+  variant = 'primary',
+  size = 'md',
+  icon = 'arrow',
+  magnetic = true,
+  as = 'a',
+} = Astro.props;
+
+const base = 'group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-300 select-none';
+
+const sizes: Record<string, string> = {
+  md: 'px-6 py-3 text-sm',
+  lg: 'px-8 py-4 text-base',
+};
+
+const variants: Record<string, string> = {
+  primary:
+    'bg-ink text-base hover:bg-white hover:shadow-[0_0_40px_rgba(124,108,255,0.35)]',
+  outline:
+    'border border-line text-ink hover:border-accent hover:bg-accent/10',
+  ghost: 'text-mute hover:text-ink',
+};
+
+const Tag = as;
+---
+
+<Tag href={href} class={`${base} ${sizes[size]} ${variants[variant]}`} data-magnetic={magnetic ? '' : undefined}>
+  <slot />
+  {icon === 'arrow' && (
+    <ArrowRight class="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+  )}
+  {icon === 'download' && (
+    <Download class="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+  )}
+  {icon === 'mail' && <Mail class="size-4" />}
+</Tag>

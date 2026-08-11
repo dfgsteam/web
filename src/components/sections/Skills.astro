@@ -1,0 +1,76 @@
+---
+import type { Dict, Locale } from '../../lib/i18n';
+import { skills, LEVEL_VALUE } from '../../data/skills';
+import type { SkillLevel } from '../../data/skills';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+
+const levelOrder: SkillLevel[] = ['master', 'expert', 'advanced', 'medium', 'beginner'];
+
+const barColor: Record<SkillLevel, string> = {
+  master: 'bg-gradient-to-r from-accent to-accent-2',
+  expert: 'bg-accent/80',
+  advanced: 'bg-accent/60',
+  medium: 'bg-accent/40',
+  beginner: 'bg-accent/25',
+};
+---
+
+<section id="skills" class="section-spacing border-t border-line">
+  <div class="container-page">
+    <div class="mb-16 max-w-3xl">
+      <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
+        {t.skills.label}
+      </p>
+      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        {t.skills.heading}
+      </h2>
+      <p class="mt-5 max-w-xl text-lg text-mute" data-reveal="up" data-reveal-delay="0.1">
+        {t.skills.subheading}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+      {
+        skills.map((skill, i) => (
+          <div
+            class="group rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/40"
+            data-reveal="up"
+            data-reveal-delay={(i % 3) * 0.08}
+          >
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-medium tracking-tight text-ink">{skill.name}</h3>
+              <span class="rounded-full bg-elevated px-2.5 py-1 text-[11px] uppercase tracking-wider text-mute">
+                {t.skills.levels[skill.level]}
+              </span>
+            </div>
+            <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-elevated">
+              <div
+                class={`h-full rounded-full ${barColor[skill.level]} origin-left transition-transform duration-700 ease-out group-hover:scale-x-105`}
+                data-skill-bar
+                data-level={skill.value}
+                style={{ transform: 'scaleX(0)' }}
+              ></div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal="up">
+      {
+        levelOrder.map((level) => (
+          <span class="inline-flex items-center gap-2 text-xs text-mute">
+            <span class={`size-2 rounded-full ${barColor[level]}`} aria-hidden="true"></span>
+            {t.skills.levels[level]}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>

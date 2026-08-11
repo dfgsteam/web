@@ -93,7 +93,7 @@ export const de = {
     certificates: 'Zertifikate',
     present: 'heute',
     download: 'CV als PDF',
-    work: [
+    workItems: [
       {
         role: 'Web Developer',
         company: 'sgalinski',
@@ -122,7 +122,7 @@ export const de = {
           'ERP- und Onlineshop-Setup, Websites inkl. Hosting, IT-Beratung und Training.',
       },
     ],
-    education: [
+    educationItems: [
       {
         degree: 'B.Sc. Business Administration',
         school: 'Uni Göttingen',
@@ -144,7 +144,7 @@ export const de = {
         period: '2019 – 2022',
       },
     ],
-    volunteer: [
+    volunteerItems: [
       {
         role: 'Media Team Leader',
         org: 'Schönstatt Mannesjugend',
@@ -156,7 +156,7 @@ export const de = {
         period: '2020 – heute',
       },
     ],
-    certificates: [
+    certificateItems: [
       {
         name: 'UniCert II Englisch (B2)',
         issuer: 'Uni Göttingen',

@@ -1,0 +1,83 @@
+---
+import { MapPin, Sparkles, Mail, Phone } from '@lucide/astro';
+import type { Dict, Locale } from '../../lib/i18n';
+import TextReveal from '../animations/TextReveal.astro';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t, lang } = Astro.props;
+
+const factIcons = {
+  'map-pin': MapPin,
+  sparkles: Sparkles,
+  mail: Mail,
+  phone: Phone,
+} as const;
+
+const factIcon = (name: string) => factIcons[name as keyof typeof factIcons] ?? Sparkles;
+---
+
+<section id="about" class="section-spacing relative">
+  <div class="container-page grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
+    <div class="lg:sticky lg:top-32 lg:self-start">
+      <p
+        class="mb-4 text-xs uppercase tracking-widest text-dim"
+        data-reveal="up"
+      >
+        {t.about.label}
+      </p>
+      <h2
+        class="mb-8 text-sm font-medium leading-relaxed text-mute"
+        data-reveal="up"
+        data-reveal-delay="0.1"
+      >
+        {t.about.cta}
+      </h2>
+
+      <ul class="space-y-4">
+        {
+          t.about.facts.map((fact, i) => {
+            const Icon = factIcon(fact.icon);
+            return (
+              <li
+                class="flex items-center gap-4 rounded-2xl border border-line bg-surface px-5 py-4"
+                data-reveal="up"
+                data-reveal-delay={0.05 * i}
+              >
+                <Icon class="size-5 text-accent" stroke-width={1.75} />
+                <span>
+                  <span class="block text-xs uppercase tracking-wider text-dim">{fact.label}</span>
+                  <span class="block text-sm font-medium text-ink">{fact.value}</span>
+                </span>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+
+    <div>
+      <TextReveal
+        text={t.about.heading}
+        className="text-balance text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl"
+      />
+
+      <div class="mt-10 space-y-5">
+        {
+          t.about.paragraphs.map((p, i) => (
+            <p
+              class="text-lg leading-relaxed text-mute"
+              data-reveal="up"
+              data-reveal-delay={0.08 * i}
+            >
+              {p}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

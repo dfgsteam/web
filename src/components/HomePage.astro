@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Dict, Locale } from '../lib/i18n';
+import Hero from './sections/Hero.astro';
+import About from './sections/About.astro';
+import ProjectsShowcase from './sections/ProjectsShowcase.astro';
+import Skills from './sections/Skills.astro';
+import CvSection from './sections/CvSection.astro';
+import Contact from './sections/Contact.astro';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+  projects: CollectionEntry<'projects'>[];
+}
+
+const { t, lang, projects } = Astro.props;
+---
+
+<Hero t={t} lang={lang} />
+<About t={t} lang={lang} />
+<ProjectsShowcase t={t} lang={lang} projects={projects} />
+<Skills t={t} lang={lang} />
+<CvSection t={t} lang={lang} />
+<Contact t={t} lang={lang} />

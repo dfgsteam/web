@@ -79,6 +79,27 @@ body {
   border-color: var(--color-line);
 }
 
+/* Prose for MDX detail content */
+.prose-detail > h3 {
+  @apply mt-10 mb-3 text-xl font-semibold tracking-tight;
+}
+.prose-detail > p {
+  @apply my-4 text-base leading-relaxed text-mute;
+}
+.prose-detail > ul {
+  @apply my-4 space-y-2 text-base leading-relaxed text-mute;
+}
+.prose-detail > ul li {
+  @apply relative pl-6;
+}
+.prose-detail > ul li::before {
+  content: '';
+  @apply absolute left-0 top-[0.6em] size-1.5 rounded-full bg-accent;
+}
+.prose-detail > strong {
+  @apply text-ink;
+}
+
 /* Reveal helpers (initial state is set by JS to avoid FOUC without JS) */
 [data-reveal] {
   opacity: 0;

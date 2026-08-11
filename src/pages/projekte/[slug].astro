@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectDetail from '../../components/ProjectDetail.astro';
+import { getDict } from '../../lib/i18n';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', ({ id }) => id.startsWith('de/'));
+  return projects.map((project) => ({
+    params: { slug: project.id.split('/').slice(1).join('/') },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const t = getDict();
+
+const allProjects = (await getCollection('projects', ({ id }) => id.startsWith('de/')))
+  .sort((a, b) => a.data.order - b.data.order);
+const related = allProjects.filter((p) => p.id !== project.id).slice(0, 3);
+
+const softwareJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.data.title,
+  description: project.data.summary,
+  creator: {
+    '@type': 'Person',
+    name: 'Julius Hunold',
+  },
+  datePublished: `${project.data.year}-01-01`,
+  keywords: project.data.tech.join(', '),
+};
+---
+
+<Layout
+  t={t}
+  lang="de"
+  title={`${project.data.title} – ${t.meta.title}`}
+  description={project.data.summary}
+  path={Astro.url.pathname}
+  jsonLd={[softwareJsonLd]}
+>
+  <ProjectDetail project={project} t={t} lang="de" related={related} />
+</Layout>

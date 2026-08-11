@@ -1,0 +1,139 @@
+---
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from '@lucide/astro';
+import type { Dict, Locale } from '../../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t, lang } = Astro.props;
+const email = 'info@julius-hunold.de';
+---
+
+<section id="kontakt" class="section-spacing border-t border-line">
+  <div class="container-page">
+    <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+      <div>
+        <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
+          {t.contact.label}
+        </p>
+        <h2 class="text-balance text-5xl font-semibold tracking-tight md:text-7xl" data-reveal="up">
+          {t.contact.heading}
+        </h2>
+        <p class="mt-6 max-w-md text-lg leading-relaxed text-mute" data-reveal="up" data-reveal-delay="0.1">
+          {t.contact.subheading}
+        </p>
+
+        <div class="mt-10 space-y-4" data-reveal="up" data-reveal-delay="0.2">
+          <a
+            href={`mailto:${email}`}
+            data-magnetic
+            class="flex items-center gap-4 rounded-2xl border border-line bg-surface px-6 py-5 transition-all duration-300 hover:border-accent/60 hover:bg-accent/5"
+          >
+            <Mail class="size-5 text-accent" stroke-width={1.75} />
+            <div>
+              <span class="block text-xs uppercase tracking-wider text-dim">{t.contact.emailCta}</span>
+              <span class="block font-medium text-ink">{email}</span>
+            </div>
+          </a>
+          <div class="flex items-center gap-4 rounded-2xl border border-line bg-surface px-6 py-5">
+            <MapPin class="size-5 text-accent" stroke-width={1.75} />
+            <div>
+              <span class="block text-xs uppercase tracking-wider text-dim">{t.contact.location}</span>
+              <span class="block font-medium text-ink">Sarstedt, Germany</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 px-6 py-4">
+            <span class="size-2 animate-pulse rounded-full bg-emerald-400" aria-hidden="true"></span>
+            <span class="text-sm text-emerald-300">{t.contact.availability}</span>
+          </div>
+        </div>
+      </div>
+
+      <form
+        id="contact-form"
+        class="rounded-3xl border border-line bg-surface p-8 md:p-10"
+        data-reveal="up"
+        data-reveal-delay="0.15"
+        data-sent={t.contact.form.sent}
+      >
+        <div class="space-y-6">
+          <div>
+            <label for="cf-name" class="mb-2 block text-xs uppercase tracking-wider text-dim">
+              {t.contact.form.name}
+            </label>
+            <input
+              id="cf-name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              class="w-full rounded-xl border border-line bg-base px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-dim focus:border-accent"
+            />
+          </div>
+          <div>
+            <label for="cf-email" class="mb-2 block text-xs uppercase tracking-wider text-dim">
+              {t.contact.form.email}
+            </label>
+            <input
+              id="cf-email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              class="w-full rounded-xl border border-line bg-base px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-dim focus:border-accent"
+            />
+          </div>
+          <div>
+            <label for="cf-message" class="mb-2 block text-xs uppercase tracking-wider text-dim">
+              {t.contact.form.message}
+            </label>
+            <textarea
+              id="cf-message"
+              name="message"
+              rows="5"
+              required
+              class="w-full resize-none rounded-xl border border-line bg-base px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-dim focus:border-accent"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-medium text-base transition-all duration-300 hover:bg-white hover:shadow-[0_0_40px_rgba(124,108,255,0.35)]"
+          >
+            <Send class="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+            {t.contact.form.submit}
+          </button>
+
+          <p id="cf-status" class="hidden items-center gap-2 text-sm text-emerald-400" role="status">
+            <CheckCircle2 class="size-4" />
+            <span></span>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('cf-status') as HTMLElement | null;
+  const statusText = status?.querySelector('span');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get('name') ?? '');
+    const email = String(data.get('email') ?? '');
+    const message = String(data.get('message') ?? '');
+    const subject = encodeURIComponent(`Kontakt von ${name} (${email})`);
+    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
+    window.location.href = `mailto:info@julius-hunold.de?subject=${subject}&body=${body}`;
+    if (status && statusText) {
+      statusText.textContent = form.dataset.sent ?? 'Danke!';
+      status.classList.remove('hidden');
+      status.classList.add('flex');
+    }
+  });
+</script>

@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Dict, Locale } from '../../lib/i18n';
+import ProjectCard from '../ui/ProjectCard.astro';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+  projects: CollectionEntry<'projects'>[];
+}
+
+const { t, lang, projects } = Astro.props;
+---
+
+<section id="projekte" class="section-spacing overflow-hidden">
+  <div class="container-page mb-16">
+    <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
+      {t.projects.label}
+    </p>
+    <h2 class="max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+      {t.projects.heading}
+    </h2>
+    <p class="mt-5 max-w-xl text-lg text-mute" data-reveal="up" data-reveal-delay="0.1">
+      {t.projects.subheading}
+    </p>
+  </div>
+
+  <div data-horizontal>
+    <div
+      data-horizontal-track
+      class="flex flex-col gap-10 px-6 sm:px-10 md:flex-row md:gap-8 md:px-16 md:will-change-transform"
+    >
+      {
+        projects.map((project, i) => (
+          <div class="w-full shrink-0 md:w-[80vw] lg:w-[62vw]">
+            <ProjectCard project={project} t={t} lang={lang} index={i} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

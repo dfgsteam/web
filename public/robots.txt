@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://julius-hunold.de/sitemap-index.xml

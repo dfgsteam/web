@@ -141,6 +141,23 @@ function setupReveal() {
   });
 }
 
+function setupSkillBars() {
+  const bars = gsap.utils.toArray<HTMLElement>('[data-skill-bar]');
+  bars.forEach((bar) => {
+    const level = Number(bar.dataset.level ?? 0) / 100;
+    if (reduceMotion) {
+      bar.style.transform = `scaleX(${level})`;
+      return;
+    }
+    gsap.to(bar, {
+      scaleX: level,
+      duration: 1.4,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: bar, start: 'top 88%', once: true },
+    });
+  });
+}
+
 function setupCounters() {
   if (reduceMotion) {
     document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
@@ -209,6 +226,50 @@ function setupHorizontal() {
   });
 }
 
+function setupTextReveal() {
+  const blocks = gsap.utils.toArray<HTMLElement>('[data-text-reveal]');
+  blocks.forEach((block) => {
+    if (reduceMotion) {
+      block.querySelectorAll('.tr-word-inner').forEach((el) => (el as HTMLElement).style.opacity = '1');
+      return;
+    }
+    const words = block.querySelectorAll<HTMLElement>('.tr-word-inner');
+    gsap.fromTo(
+      words,
+      { yPercent: 120, opacity: 0.1 },
+      {
+        yPercent: 0,
+        opacity: 1,
+        ease: 'none',
+        stagger: 0.06,
+        scrollTrigger: {
+          trigger: block,
+          start: 'top 80%',
+          end: 'bottom 55%',
+          scrub: 0.4,
+        },
+      },
+    );
+  });
+}
+
+function setupHero() {
+  if (reduceMotion) return;
+  const lines = gsap.utils.toArray<HTMLElement>('[data-hero-line]');
+  if (!lines.length) return;
+  gsap.fromTo(
+    lines,
+    { yPercent: 115 },
+    {
+      yPercent: 0,
+      duration: 1.1,
+      stagger: 0.14,
+      ease: 'power4.out',
+      delay: 0.2,
+    },
+  );
+}
+
 function setupMenu() {
   const toggle = document.querySelector('[data-menu-toggle]');
   const close = document.querySelector('[data-menu-close]');
@@ -238,8 +299,11 @@ function init() {
   ctx = gsap.context(() => {
     setupCursor();
     setupMagnetic();
+    setupHero();
     setupReveal();
+    setupTextReveal();
     setupCounters();
+    setupSkillBars();
     setupHorizontal();
   });
   setupMenu();

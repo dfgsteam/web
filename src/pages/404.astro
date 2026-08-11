@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import { getDict, getLang } from '../lib/i18n';
+
+const lang = getLang(Astro.url);
+const t = getDict(lang);
+---
+
+<Layout t={t} lang={lang} title={`404 – ${t.meta.title}`} description={t.meta.description} path={Astro.url.pathname}>
+  <section class="flex min-h-[100svh] items-center justify-center pb-24 pt-32">
+    <div class="container-page text-center">
+      <p class="mb-6 text-xs uppercase tracking-widest text-dim">404</p>
+      <h1 class="text-balance text-6xl font-semibold tracking-tight md:text-8xl">
+        <span class="text-gradient">404</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-md text-lg text-mute">
+        {lang === 'de'
+          ? 'Diese Seite existiert nicht (mehr).'
+          : 'This page does not exist (anymore).'}
+      </p>
+      <div class="mt-10 flex justify-center gap-4">
+        <Button href={lang === 'de' ? '/' : '/en'} icon="arrow">
+          {lang === 'de' ? 'Zur Startseite' : 'Back to home'}
+        </Button>
+        <Button href="#top" variant="outline" icon="none">
+          {lang === 'de' ? 'Kontakt' : 'Contact'}
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

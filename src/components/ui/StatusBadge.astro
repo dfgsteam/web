@@ -1,0 +1,27 @@
+---
+import type { Dict } from '../../lib/i18n';
+
+interface Props {
+  status: 'live' | 'client-project' | 'under-construction';
+  t: Dict;
+}
+
+const { status, t } = Astro.props;
+
+const styles: Record<string, string> = {
+  live: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+  'client-project': 'bg-sky-500/10 text-sky-400 border-sky-500/30',
+  'under-construction': 'bg-amber-500/10 text-amber-400 border-amber-500/30',
+};
+
+const dot: Record<string, string> = {
+  live: 'bg-emerald-400',
+  'client-project': 'bg-sky-400',
+  'under-construction': 'bg-amber-400',
+};
+---
+
+<span class={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide ${styles[status]}`}>
+  <span class={`size-1.5 rounded-full ${dot[status]}`} aria-hidden="true" />
+  {t.projects.status[status]}
+</span>
