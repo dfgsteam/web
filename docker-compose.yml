@@ -1,0 +1,14 @@
+# Referenz für den Deploy auf docker3/docker4.
+# Routing/TLS über eure bestehende Nginx Proxy Manager Instanz.
+services:
+  web:
+    image: ghcr.io/dfgsteam/web:latest
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:4180:80'
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

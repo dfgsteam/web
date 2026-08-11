@@ -114,6 +114,7 @@ function setupReveal() {
   const els = gsap.utils.toArray<HTMLElement>('[data-reveal]');
 
   els.forEach((el) => {
+    if (el.closest('[data-horizontal]')) return;
     const dir = el.dataset.reveal || 'up';
     const delay = Number(el.dataset.revealDelay ?? 0);
     const from = {

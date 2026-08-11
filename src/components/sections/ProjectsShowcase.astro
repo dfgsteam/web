@@ -32,7 +32,11 @@ const { t, lang, projects } = Astro.props;
     >
       {
         projects.map((project, i) => (
-          <div class="w-full shrink-0 md:w-[80vw] lg:w-[62vw]">
+          <div
+            class="w-full shrink-0 md:w-[80vw] lg:w-[62vw]"
+            data-reveal="up"
+            data-reveal-delay={i * 0.05}
+          >
             <ProjectCard project={project} t={t} lang={lang} index={i} />
           </div>
         ))
