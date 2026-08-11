@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+  path?: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  lang = 'de',
+  path = '/',
+  ogType = 'website',
+  jsonLd = [],
+} = Astro.props;
+
+const site = 'https://julius-hunold.de';
+const canonical = `${site}${path}`;
+const ogImage = '/og-default.jpg';
+const { pathname } = Astro.url;
+const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : `/en${pathname}`;
+---
+
+<meta name="description" content={description} />
+<meta name="keywords" content="Julius Hunold, Web Developer, PHP, Python, Web-Apps, Portfolio, Göttingen, Sarstedt" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="de" href={`${site}${pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : pathname}`} />
+<link rel="alternate" hreflang="en" href={`${site}${alternatePath}`} />
+<link rel="alternate" hreflang="x-default" href={`${site}${pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : pathname}`} />
+
+<!-- OpenGraph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'de_DE'} />
+<meta property="og:site_name" content="Julius Hunold" />
+<meta property="og:image" content={`${site}${ogImage}`} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={`${site}${ogImage}`} />
+
+{jsonLd.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}

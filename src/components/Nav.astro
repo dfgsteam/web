@@ -1,0 +1,111 @@
+---
+import { Menu, X, Languages } from '@lucide/astro';
+import type { Dict, Locale } from '../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t, lang } = Astro.props;
+const { pathname } = Astro.url;
+
+const links = [
+  { href: '#about', label: t.nav.about },
+  { href: '#projekte', label: t.nav.projects },
+  { href: '#skills', label: t.nav.skills },
+  { href: '#cv', label: t.nav.cv },
+  { href: '#kontakt', label: t.nav.contact },
+];
+
+const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : `/en${pathname}`;
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
+  id="site-header"
+>
+  <div class="container-page flex items-center justify-between py-4">
+    <a
+      href={lang === 'de' ? '/' : '/en'}
+      class="group relative z-10 flex items-center gap-3"
+      aria-label="Julius Hunold – Home"
+    >
+      <span
+        class="flex size-9 items-center justify-center rounded-xl border border-line bg-surface font-semibold tracking-tight text-ink transition-colors duration-300 group-hover:border-accent"
+        aria-hidden="true"
+      >
+        JH
+      </span>
+      <span class="hidden text-sm font-medium tracking-tight text-ink sm:block">
+        Julius Hunold
+      </span>
+    </a>
+
+    <nav
+      class="hidden items-center gap-8 rounded-full border border-line bg-surface/70 px-6 py-2.5 backdrop-blur-md md:flex"
+      aria-label="Hauptnavigation"
+    >
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm text-mute transition-colors duration-300 hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="relative z-10 flex items-center gap-2">
+      <a
+        href={alternatePath}
+        class="flex items-center gap-1.5 rounded-full border border-line px-3 py-2 text-xs font-medium text-mute transition-colors duration-300 hover:border-accent hover:text-ink"
+        aria-label="Switch language"
+      >
+        <Languages class="size-3.5" stroke-width={1.75} />
+        <span class="flex items-center gap-1">
+          <span class={lang === 'de' ? 'text-ink' : ''}>DE</span>
+          <span class="text-dim">/</span>
+          <span class={lang === 'en' ? 'text-ink' : ''}>EN</span>
+        </span>
+      </a>
+
+      <button
+        data-menu-toggle
+        class="flex size-10 items-center justify-center rounded-full border border-line text-ink md:hidden"
+        aria-label={t.nav.menu}
+        aria-expanded="false"
+      >
+        <Menu class="size-5" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  data-menu
+  aria-hidden="true"
+  class="fixed inset-0 z-40 hidden bg-base/95 backdrop-blur-xl md:hidden"
+>
+  <div class="container-page flex h-full flex-col justify-center gap-8 pt-20">
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="text-3xl font-semibold tracking-tight text-ink transition-colors hover:text-accent"
+        >
+          {link.label}
+        </a>
+      ))
+    }
+    <button
+      data-menu-close
+      class="mt-8 flex w-fit items-center gap-2 text-sm text-mute"
+    >
+      <X class="size-4" />
+      {t.nav.close}
+    </button>
+  </div>
+</div>

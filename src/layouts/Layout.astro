@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import '@fontsource-variable/inter';
+import { ClientRouter } from 'astro:transitions';
+import Seo from '../components/Seo.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import type { Dict, Locale } from '../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+  title?: string;
+  description?: string;
+  path?: string;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { t, lang, jsonLd = [] } = Astro.props;
+const pageTitle = Astro.props.title ?? t.meta.title;
+const pageDescription = Astro.props.description ?? t.meta.description;
+const pagePath = Astro.props.path ?? Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <Seo
+      title={pageTitle}
+      description={pageDescription}
+      lang={lang}
+      path={pagePath}
+      jsonLd={jsonLd}
+    />
+    <ClientRouter />
+  </head>
+  <body class="noise">
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <Nav t={t} lang={lang} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer t={t} lang={lang} />
+    <script>
+      import '../scripts/global.ts';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+---
+import { Mail, MapPin, ArrowUp } from '@lucide/astro';
+import type { Dict, Locale } from '../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t, lang } = Astro.props;
+const homeHref = lang === 'de' ? '/' : '/en';
+---
+
+<footer class="border-t border-line bg-base">
+  <div class="container-page flex flex-col gap-8 py-14 md:flex-row md:items-center md:justify-between">
+    <div class="flex flex-col gap-2">
+      <a href={homeHref} class="flex items-center gap-3">
+        <span class="flex size-9 items-center justify-center rounded-xl border border-line bg-surface font-semibold tracking-tight" aria-hidden="true">
+          JH
+        </span>
+        <span class="font-medium tracking-tight">Julius Hunold</span>
+      </a>
+      <p class="text-sm text-mute">
+        © {new Date().getFullYear()} Julius Hunold. {t.footer.rights}
+      </p>
+      <p class="text-xs text-dim">{t.footer.builtWith}</p>
+    </div>
+
+    <div class="flex flex-col gap-3 text-sm text-mute md:items-end">
+      <a href="mailto:info@julius-hunold.de" class="flex items-center gap-2 transition-colors hover:text-ink">
+        <Mail class="size-4" />
+        info@julius-hunold.de
+      </a>
+      <span class="flex items-center gap-2">
+        <MapPin class="size-4" />
+        {t.contact.location}
+      </span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="#top"
+        aria-label="Nach oben"
+        class="flex size-10 items-center justify-center rounded-full border border-line text-mute transition-colors hover:border-accent hover:text-ink"
+      >
+        <ArrowUp class="size-4" />
+      </a>
+    </div>
+  </div>
+</footer>
