@@ -37,9 +37,9 @@ const { t } = Astro.props;
       </p>
     </div>
 
-    <!-- HIGH-DENSITY WORDCLOUD2 CANVAS CONTAINER (wordcloud npm package with shape) -->
+    <!-- HIGH-DENSITY WORDCLOUD2 DOM CONTAINER (Inside-out scroll reveal) -->
     <div class="relative mx-auto w-full py-2 select-none text-center flex flex-col items-center justify-center min-h-[540px]" id="wordcloud-wrapper">
-      <canvas id="wordcloud-canvas" class="w-full max-w-7xl h-[540px] rounded-2xl pointer-events-auto transition-opacity duration-500 opacity-95"></canvas>
+      <div id="wordcloud-container" class="relative w-full max-w-7xl h-[540px] rounded-2xl pointer-events-auto overflow-hidden"></div>
 
       <!-- Bottom Profile Tag -->
       <div class="mt-4 flex items-center justify-center text-xs font-mono text-dim border-t border-line/40 pt-3 max-w-md mx-auto w-full">
@@ -188,83 +188,107 @@ const { t } = Astro.props;
     '#22d3ee', // Cyan light
   ];
 
-  function initScrollDrivenWordCloud() {
-    const canvas = document.querySelector<HTMLCanvasElement>('#wordcloud-canvas');
+  function initInsideOutScrollWordCloud() {
+    const container = document.querySelector<HTMLElement>('#wordcloud-container');
     const section = document.querySelector<HTMLElement>('#workstyle');
-    if (!canvas || !section) return;
+    if (!container || !section) return;
 
-    const container = canvas.parentElement;
-    if (!container) return;
+    // Clear existing DOM contents
+    container.innerHTML = '';
 
-    let lastWordCount = 0;
+    const width = Math.min(1280, container.clientWidth || window.innerWidth - 32);
+    const height = 540;
 
-    function renderCloudForCount(count: number) {
-      if (!canvas || !container) return;
+    container.style.width = `${width}px`;
+    container.style.height = `${height}px`;
 
-      const width = Math.min(1280, container.clientWidth || window.innerWidth - 32);
-      const height = 540;
+    let sortedSpans: HTMLElement[] = [];
 
-      canvas.width = width;
-      canvas.height = height;
+    // Render wordcloud once into DOM elements
+    WordCloud(container, {
+      list: fullWordList,
+      shape: 'circle',
+      gridSize: Math.round(8 * width / 1024),
+      weightFactor: function (size) {
+        return Math.pow(size, 1.2) * (width / 1100);
+      },
+      fontFamily: '"Inter Variable", Inter, system-ui, -apple-system, sans-serif',
+      color: function () {
+        return colors[Math.floor(Math.random() * colors.length)];
+      },
+      rotateRatio: 0.35,
+      rotationSteps: 2,
+      minRotation: -Math.PI / 2,
+      maxRotation: 0,
+      backgroundColor: 'transparent',
+      drawOutOfBound: false,
+      shrinkToFit: true,
+    });
 
-      const currentList = fullWordList.slice(0, count);
+    // Listen for completion event when wordcloud DOM elements are rendered
+    container.addEventListener('wordcloudstop', () => {
+      const centerX = width / 2;
+      const centerY = height / 2;
 
-      WordCloud(canvas, {
-        list: currentList,
-        shape: 'circle',
-        gridSize: Math.round(8 * width / 1024),
-        weightFactor: function (size) {
-          return Math.pow(size, 1.2) * (width / 1100);
-        },
-        fontFamily: '"Inter Variable", Inter, system-ui, -apple-system, sans-serif',
-        color: function () {
-          return colors[Math.floor(Math.random() * colors.length)];
-        },
-        rotateRatio: 0.35,
-        rotationSteps: 2,
-        minRotation: -Math.PI / 2,
-        maxRotation: 0,
-        backgroundColor: 'transparent',
-        drawOutOfBound: false,
-        shrinkToFit: true,
+      const spans = Array.from(container.querySelectorAll<HTMLElement>('span'));
+      
+      // Calculate distance from center for each word element
+      spans.forEach((span) => {
+        const left = parseFloat(span.style.left) || (span.offsetLeft + span.offsetWidth / 2);
+        const top = parseFloat(span.style.top) || (span.offsetTop + span.offsetHeight / 2);
+        const dx = left - centerX;
+        const dy = top - centerY;
+        const dist = Math.hypot(dx, dy);
+
+        span.dataset.distance = dist.toString();
+        span.style.transition = 'opacity 0.4s ease-out, filter 0.4s ease-out, transform 0.4s ease-out';
+        span.style.opacity = '0';
+        span.style.filter = 'blur(6px)';
+        span.style.transform = (span.style.transform || '') + ' scale(0.85)';
       });
-    }
+
+      // Sort spans by distance from center ascending (center words first, outer words last)
+      sortedSpans = spans.sort((a, b) => parseFloat(a.dataset.distance || '0') - parseFloat(b.dataset.distance || '0'));
+
+      updateScrollProgress();
+    });
 
     function updateScrollProgress() {
-      if (!section) return;
+      if (!section || !sortedSpans.length) return;
 
       const rect = section.getBoundingClientRect();
       const totalScrollableHeight = rect.height - window.innerHeight;
 
-      // Mobile or fallback: render full cloud immediately
+      // Mobile or fallback: reveal all immediately
       if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
-        if (lastWordCount !== fullWordList.length) {
-          lastWordCount = fullWordList.length;
-          renderCloudForCount(fullWordList.length);
-        }
+        sortedSpans.forEach((span) => {
+          span.style.opacity = '1';
+          span.style.filter = 'none';
+          span.style.transform = span.style.transform.replace(' scale(0.85)', '');
+        });
         return;
       }
 
       const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
-      // Progressive build: from min 12 terms up to all 120+ terms
-      const targetCount = Math.max(12, Math.floor(progress * fullWordList.length));
+      const activeCount = Math.floor(progress * (sortedSpans.length + 1));
 
-      // Re-render in steps of 6 words to avoid excessive redraws while keeping smooth progression
-      if (Math.abs(targetCount - lastWordCount) >= 6 || (progress >= 0.98 && lastWordCount !== fullWordList.length)) {
-        lastWordCount = targetCount;
-        renderCloudForCount(targetCount);
-      }
+      sortedSpans.forEach((span, idx) => {
+        if (idx < activeCount) {
+          span.style.opacity = '1';
+          span.style.filter = 'none';
+        } else {
+          span.style.opacity = '0';
+          span.style.filter = 'blur(6px)';
+        }
+      });
     }
 
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     window.addEventListener('resize', () => {
-      lastWordCount = 0;
-      updateScrollProgress();
+      initInsideOutScrollWordCloud();
     }, { passive: true });
-
-    updateScrollProgress();
   }
 
-  initScrollDrivenWordCloud();
-  document.addEventListener('astro:page-load', initScrollDrivenWordCloud);
+  initInsideOutScrollWordCloud();
+  document.addEventListener('astro:page-load', initInsideOutScrollWordCloud);
 </script>
