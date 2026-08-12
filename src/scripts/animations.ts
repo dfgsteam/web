@@ -407,6 +407,7 @@ function setupInfraFlowAnimation() {
   const laserBar = container.querySelector<HTMLElement>('[data-infra-laser-bar]');
   const latencyText = container.querySelector<HTMLElement>('[data-infra-latency-text]');
   const stepLabel = container.querySelector<HTMLElement>('[data-infra-step-label]');
+  const inspector = container.querySelector<HTMLElement>('[data-infra-packet-inspector]');
   if (!nodes.length || !laserBar) return;
 
   const labels = [
@@ -414,6 +415,50 @@ function setupInfraFlowAnimation() {
     '2. TLS Handshake & Nginx Proxy Manager (4ms)...',
     '3. Docker App Container Port-Routing :4180 (9ms)...',
     '4. Astro 7 SSG Engine Payload serviert (14ms 🚀)',
+  ];
+
+  const inspectorFeeds = [
+    `<p><span class="text-amber-400 font-bold">&gt; GET</span> / HTTP/2</p>
+     <p><span class="text-zinc-500">Host:</span> julius-hunold.de</p>
+     <p><span class="text-zinc-500">User-Agent:</span> Mozilla/5.0 (Macintosh)</p>
+     <p><span class="text-zinc-500">Accept:</span> text/html,application/xhtml+xml</p>`,
+
+    `<p><span class="text-sky-400 font-bold">* Connecting to docker3.infra:443...</span></p>
+     <p><span class="text-zinc-500">TLS Handshake:</span> TLSv1.3 / AES_256_GCM</p>
+     <p><span class="text-zinc-500">SSL Certificate:</span> Let's Encrypt (Valid)</p>
+     <p><span class="text-zinc-500">X-Forwarded-For:</span> 10.0.4.3 (Routed)</p>`,
+
+    `<p><span class="text-violet-400 font-bold">* Forwarding to container [julius-hunold-de-app]</span></p>
+     <p><span class="text-zinc-500">Target:</span> 10.0.4.3:4180 (healthy)</p>
+     <p><span class="text-zinc-500">Runtime:</span> Alpine Nginx Static Engine</p>
+     <p><span class="text-zinc-500">Subnet:</span> Isolated Docker Bridge</p>`,
+
+    `<p><span class="text-emerald-400 font-bold">&lt; HTTP/2 200 OK</span></p>
+     <p><span class="text-zinc-500">Content-Type:</span> text/html; charset=utf-8</p>
+     <p><span class="text-zinc-500">Content-Encoding:</span> br (Brotli)</p>
+     <p><span class="text-zinc-500">Strict-Transport-Security:</span> max-age=31536000</p>
+     <p><span class="text-emerald-400 font-semibold">Total Latency: 14ms (Fastest 99%) 🚀</span></p>`,
+  ];
+
+  const borderAccents = [
+    'rgba(245, 158, 11, 0.7)',
+    'rgba(14, 165, 233, 0.7)',
+    'rgba(139, 92, 246, 0.7)',
+    'rgba(16, 185, 129, 0.7)',
+  ];
+
+  const shadowAccents = [
+    '0 10px 30px -5px rgba(245, 158, 11, 0.3)',
+    '0 10px 30px -5px rgba(14, 165, 233, 0.3)',
+    '0 10px 30px -5px rgba(139, 92, 246, 0.3)',
+    '0 10px 30px -5px rgba(16, 185, 129, 0.3)',
+  ];
+
+  const dotBgClasses = [
+    'bg-amber-400 shadow-amber-500/50',
+    'bg-sky-400 shadow-sky-500/50',
+    'bg-violet-400 shadow-violet-500/50',
+    'bg-emerald-400 shadow-emerald-500/50',
   ];
 
   const tl = gsap.timeline({
@@ -435,19 +480,26 @@ function setupInfraFlowAnimation() {
     tl.to(
       node,
       {
-        scale: 1.04,
-        borderColor: 'rgba(139, 92, 246, 0.6)',
-        boxShadow: '0 10px 30px -5px rgba(139, 92, 246, 0.25)',
+        scale: 1.03,
+        borderColor: borderAccents[i],
+        boxShadow: shadowAccents[i],
         duration: 0.25,
         onStart: () => {
-          if (dot) dot.style.opacity = '1';
+          if (dot) {
+            dot.className = `size-3 rounded-full ${dotBgClasses[i]} opacity-100 transition-all duration-300 shadow-lg`;
+          }
           if (latencyText) latencyText.textContent = `${Math.round((i / (nodeCount - 1)) * 14)}ms`;
           if (stepLabel) stepLabel.textContent = labels[i];
+          if (inspector) inspector.innerHTML = inspectorFeeds[i];
         },
         onReverseComplete: () => {
-          if (dot && i > 0) dot.style.opacity = '0.4';
-          if (latencyText) latencyText.textContent = `${Math.round((Math.max(0, i - 1) / (nodeCount - 1)) * 14)}ms`;
-          if (stepLabel) stepLabel.textContent = labels[Math.max(0, i - 1)];
+          const prevIdx = Math.max(0, i - 1);
+          if (dot && i > 0) {
+            dot.className = `size-2.5 rounded-full bg-zinc-600 opacity-40 transition-all duration-300`;
+          }
+          if (latencyText) latencyText.textContent = `${Math.round((prevIdx / (nodeCount - 1)) * 14)}ms`;
+          if (stepLabel) stepLabel.textContent = labels[prevIdx];
+          if (inspector) inspector.innerHTML = inspectorFeeds[prevIdx];
         },
       },
       startProgress,
