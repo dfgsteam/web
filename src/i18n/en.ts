@@ -6,8 +6,8 @@ export const en: Dict = {
   meta: {
     title: 'Julius Hunold – Web Developer & Tech Project Manager',
     description:
-      'Passionate developer crafting custom web apps with PHP & Python. From modern web application development to technical project management – based in Sarstedt, Germany.',
-    keywords: 'Julius Hunold, Web Developer, PHP, Python, Web Apps, Portfolio',
+      'Bespoke web apps with PHP & Python, from the first idea to a live system. Web development and technical project management based in Sarstedt, Germany.',
+    keywords: 'Julius Hunold, Web Developer, PHP, Python, Web Apps, Portfolio, Project Management',
   },
   nav: {
     about: 'About',
@@ -26,11 +26,11 @@ export const en: Dict = {
       { label: 'Webdesign', url: 'https://hnld.de' },
       { label: 'Custom Apps', url: 'https://hunold24.de' },
     ],
-    titleA: 'I build web apps',
-    titleB: 'that simply work.',
-    titleHighlight: 'web apps',
+    titleA: 'I build software',
+    titleB: 'that actually delivers.',
+    titleHighlight: 'software',
     subtitle:
-      'Bespoke software with PHP & Python – from the first idea to a live system. Studying Applied Computer Science in Göttingen, working at the intersection of engineering and technical project management.',
+      'Bespoke web apps with PHP & Python – from concept to live system. Computer Science student in Göttingen, working at the intersection of engineering and technical project management.',
     primaryCta: 'View projects',
     secondaryCta: 'Get in touch',
     scrollHint: 'Scroll',
@@ -55,7 +55,7 @@ export const en: Dict = {
     label: 'About',
     heading: 'Code is the bridge between idea and reality.',
     paragraphs: [
-      'Passionate developer focused on bespoke web apps with PHP & Python – spanning everything from modern web application development at sgalinski to technical project management for the FTTH network rollout (NE4) at MD Telekom.',
+      'I build bespoke web apps with PHP & Python – spanning everything from modern web application development to technical project management for the FTTH network rollout (NE4).',
       'I study Applied Computer Science in Göttingen, deepening my skills in Physics and Business Administration along the way. That mix of technology, science and business shapes how I work: pragmatic, thoughtful, solution-driven.',
       'Outside of work I volunteer as a group leader and in the media team of Schönstatt Mannesjugend, where I have also been responsible for the finances for years.',
     ],
@@ -65,12 +65,12 @@ export const en: Dict = {
       { icon: 'mail', label: 'Email', value: 'info@julius-hunold.de' },
       { icon: 'phone', label: 'Phone', value: 'on request' },
     ],
-    cta: 'More about me',
+    cta: 'Learn more',
   },
   workstyle: {
     label: 'AECdisc® Behavioral Analysis & AI Workflows',
-    heading: 'Workstyle, Leadership & AI Engineering.',
-    subheading: 'In-depth behavioral potential analysis combined with future-proof, AI-assisted engineering processes.',
+    heading: 'Strengths at a glance.',
+    subheading: 'Behavioral potential analysis combined with AI-assisted engineering processes.',
   },
   projects: {
     label: 'Projects',
@@ -317,13 +317,13 @@ export const en: Dict = {
     label: 'Services & Inquiry',
     heading: 'From concept to production-ready software.',
     subheading:
-      'Scroll through the options – choose your scope and send a direct project inquiry.',
+      'Choose your scope and send a direct project inquiry – I will get back to you within 24 hours.',
     cards: [
       {
         tag: '01 // CUSTOM APPS',
         title: 'Custom Web Apps & APIs',
         description:
-          'High-performance software solutions with PHP (Laravel/TYPO3) & Python. From complex business logic to scalable REST APIs.',
+          'High-performance software with PHP (Laravel/TYPO3) & Python – from complex business logic to scalable REST APIs.',
         highlights: ['Laravel & Python Backend', 'Scalable Databases', 'REST / GraphQL APIs', 'Clean Code & Type Safety'],
         badge: 'High Performance',
       },
@@ -331,16 +331,16 @@ export const en: Dict = {
         tag: '02 // E-COMMERCE',
         title: 'E-Commerce & Shop Systems',
         description:
-          'Professional WooCommerce online shops with custom payment gateways, ERP synchronization, and automated inventory sync.',
+          'Professional WooCommerce shops with custom payment gateways, ERP synchronization, and automated inventory sync.',
         highlights: ['WooCommerce Customization', 'ERP & Inventory Sync', 'Payment Gateway Integration', 'Conversion Focus'],
         badge: 'Conversion Focused',
       },
       {
         tag: '03 // DEVOPS & INFRA',
-        title: 'IT Consulting & Infrastructure',
+        title: 'IT Infrastructure & Cloud Hosting',
         description:
-          'Setup of secure Linux servers, Docker environments, CI/CD pipelines, and automated backup & monitoring systems.',
-        highlights: ['Docker & Linux Server Setup', 'GitHub Actions CI/CD', 'SSL, Security & Nginx Proxy', 'IT Services & Hosting'],
+          'Secure Linux servers, Docker environments, CI/CD pipelines and automated backup & monitoring systems.',
+        highlights: ['Docker & Linux Server Setup', 'GitHub Actions CI/CD', 'SSL, Security & Nginx', 'Managed Hosting & IT'],
         badge: 'Self-Hosted',
       },
       {
@@ -348,7 +348,7 @@ export const en: Dict = {
         title: 'Ready for your next project?',
         description:
           'Select your scope and send me a direct message – I will get back to you within 24 hours.',
-        cta: 'Send Inquiry Now →',
+        cta: 'Send Inquiry →',
         badge: 'Direct & Fast',
       },
     ],
