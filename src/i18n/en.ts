@@ -348,5 +348,12 @@ export const en: Dict = {
       cta: 'Explore hunold24.de',
       highlights: ['Custom Software Apps', 'APIs & Data Pipelines', 'Docker & Cloud Infra'],
     },
+    ennery: {
+      tag: 'ennery · CleanTech Software',
+      title: 'Digital Energy Consulting Software & Audits',
+      subtitle: 'Specialized software solutions for energy consultants, building efficiency plans (iSFP), and CO₂ audits.',
+      cta: 'Explore ennery',
+      highlights: ['iSFP & Building Audits', 'CO₂ & Efficiency Calculator', 'Automated Audit Reports'],
+    },
   },
 };

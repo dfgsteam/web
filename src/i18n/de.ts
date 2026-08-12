@@ -346,6 +346,13 @@ export const de = {
       cta: 'hunold24.de entdecken',
       highlights: ['Custom Software-Apps', 'API-Schnittstellen & Data', 'Docker & Cloud Infra'],
     },
+    ennery: {
+      tag: 'ennery · CleanTech Software',
+      title: 'Digitale Energieberatungssoftware & Effizienz',
+      subtitle: 'Spezialisierte Softwarelösungen für Energieberater, energetische Sanierungsfahrpläne (iSFP) und Gebäude-Audits.',
+      cta: 'ennery entdecken',
+      highlights: ['iSFP & Sanierungsfahrpläne', 'CO₂- & Effizienz-Rechner', 'Automatisierte Audit-Berichte'],
+    },
   },
 };
 
