@@ -75,26 +75,26 @@ const skillIcons: Record<string, any> = {
           const Icon = skillIcons[skill.name] ?? CodeXml;
           return (
             <div
-              class="group rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/40"
+              class="group relative overflow-hidden rounded-2xl border border-line bg-surface p-6 pt-7 transition-colors duration-300 hover:border-accent/40"
               data-reveal="up"
               data-reveal-delay={(i % 3) * 0.08}
             >
+              <div class="absolute inset-x-0 top-0 h-1 bg-elevated">
+                <div
+                  class={`h-full origin-left ${barColor[skill.level]}`}
+                  data-skill-bar
+                  data-level={skill.value}
+                  style={{ transform: 'scaleX(0)' }}
+                ></div>
+              </div>
               <div class="flex items-center justify-between gap-3">
                 <h3 class="flex items-center gap-3 font-medium tracking-tight text-ink">
                   <Icon class="size-5 shrink-0 text-accent" stroke-width={1.75} />
                   {skill.name}
                 </h3>
-                <span class="rounded-full bg-elevated px-2.5 py-1 text-[11px] uppercase tracking-wider text-mute font-mono">
+                <span class="rounded-full bg-elevated px-2.5 py-1 text-[11px] uppercase tracking-wider text-mute">
                   {t.skills.levels[skill.level]}
                 </span>
-              </div>
-              <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-elevated">
-                <div
-                  class={`h-full rounded-full ${barColor[skill.level]} origin-left`}
-                  data-skill-bar
-                  data-level={skill.value}
-                  style="transform: scaleX(0); transform-origin: left;"
-                ></div>
               </div>
             </div>
           );
