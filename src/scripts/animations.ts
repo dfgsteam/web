@@ -488,6 +488,48 @@ function setupInfraFlowAnimation() {
   });
 }
 
+function setupCvTimeline() {
+  const container = document.querySelector<HTMLElement>('#cv');
+  if (!container || reduceMotion) return;
+
+  const lines = container.querySelectorAll<HTMLElement>('[data-cv-timeline]');
+  lines.forEach((line) => {
+    gsap.fromTo(
+      line,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: line.parentElement,
+          start: 'top 80%',
+          end: 'bottom 65%',
+          scrub: 0.4,
+        },
+      },
+    );
+  });
+
+  const dots = container.querySelectorAll<HTMLElement>('[data-cv-dot]');
+  dots.forEach((dot) => {
+    gsap.fromTo(
+      dot,
+      { scale: 0, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: 'back.out(2)',
+        scrollTrigger: {
+          trigger: dot,
+          start: 'top 85%',
+          once: true,
+        },
+      },
+    );
+  });
+}
+
 export function boot() {
   createLenis();
   ctx = gsap.context(() => {
@@ -501,6 +543,7 @@ export function boot() {
     setupHorizontal();
     setupServiceStack();
     setupInfraFlowAnimation();
+    setupCvTimeline();
     setupParallax();
     setupTilt();
     setupProgress();
