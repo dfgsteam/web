@@ -1,0 +1,170 @@
+---
+import { Sparkles, Brain, Cpu, ShieldCheck, Target, Zap, Award, Layers } from '@lucide/astro';
+import type { Dict, Locale } from '../../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="workstyle" class="section-spacing relative isolate overflow-hidden border-t border-line bg-surface/50">
+  <!-- Ambient Glow Orbs -->
+  <div class="glow glow--violet glow--float -right-32 top-10 h-[400px] w-[400px]" aria-hidden="true"></div>
+  <div class="glow glow--sky glow--float-slow -left-32 bottom-0 h-[380px] w-[380px]" aria-hidden="true"></div>
+
+  <div class="container-page relative">
+    <!-- Header -->
+    <div class="mb-12 max-w-3xl">
+      <p class="mb-3 text-xs uppercase tracking-widest text-accent font-mono" data-reveal="up">
+        {t.workstyle?.label ?? 'AECdisc® Potenzialanalyse & AI Workflows'}
+      </p>
+      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        {t.workstyle?.heading ?? 'Arbeitsweise, Führung & KI-Engineering.'}
+      </h2>
+      <p class="mt-4 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
+        {t.workstyle?.subheading ?? 'Fundierte Verhaltens- & Potenzialanalyse kombiniert mit zukunftssicheren, KI-gestützten Entwicklungsprozessen.'}
+      </p>
+    </div>
+
+    <!-- Main Grid: AECdisc Profiling & AI Engineering Cards -->
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+      
+      <!-- CARD 1: AECdisc Profiling Analysis (7 Spalten) -->
+      <div
+        class="lg:col-span-7 group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 md:p-8 shadow-xl transition-all duration-500 hover:border-accent/40 hover:shadow-accent/5"
+        data-reveal="up"
+      >
+        <!-- Background Ambient Glow -->
+        <div class="absolute -right-20 -top-20 size-60 rounded-full bg-accent/10 blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700"></div>
+
+        <div>
+          <!-- Header Tag & Title -->
+          <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+            <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent">
+              <Brain class="size-3.5" />
+              <span>AECdisc® Typ: MOTIVATOR (Pos. 12) & ORGANISATOR (Pos. 9)</span>
+            </div>
+            <span class="text-[11px] font-mono text-dim">Geprüfte Potenzialanalyse</span>
+          </div>
+
+          <h3 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+            Strukturierte Präzision & tatkräftige Innovation.
+          </h3>
+          <p class="mt-3 text-sm text-mute leading-relaxed">
+            Laut offizieller AECdisc® Potenzialanalyse zeichnet sich Julius durch die Synthese aus <strong>begeisterndem Enthusiasmus (Gelb 73%)</strong> und <strong>ergebnisorientierter Entschlusskraft (Rot 76%)</strong> aus – im beruflich angepassten Stil agiert er als strukturierter <strong>Organisator (Blau 72%)</strong>.
+          </p>
+
+          <!-- Key Metrics Grid -->
+          <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div class="rounded-2xl border border-line bg-base/80 p-3.5 text-center">
+              <span class="block text-2xl font-black text-accent font-mono">71 / 100</span>
+              <span class="block text-[11px] font-mono text-dim mt-0.5">Kognitives Motiv</span>
+            </div>
+            <div class="rounded-2xl border border-line bg-base/80 p-3.5 text-center">
+              <span class="block text-2xl font-black text-cyan-400 font-mono">76 %</span>
+              <span class="block text-[11px] font-mono text-dim mt-0.5">Rot (Tatkraft)</span>
+            </div>
+            <div class="rounded-2xl border border-line bg-base/80 p-3.5 text-center">
+              <span class="block text-2xl font-black text-amber-400 font-mono">73 %</span>
+              <span class="block text-[11px] font-mono text-dim mt-0.5">Gelb (Einfluss)</span>
+            </div>
+            <div class="rounded-2xl border border-line bg-base/80 p-3.5 text-center">
+              <span class="block text-2xl font-black text-purple-400 font-mono">77 %</span>
+              <span class="block text-[11px] font-mono text-dim mt-0.5">Führung & Dringlichkeit</span>
+            </div>
+          </div>
+
+          <!-- Feature Bullets -->
+          <ul class="mt-6 space-y-2.5 text-xs text-mute">
+            <li class="flex items-start gap-2">
+              <Target class="size-4 text-accent shrink-0 mt-0.5" />
+              <span><strong>Hoher Wissensdurst & Autodidaktik</strong> (Kognitiv 71): Schnelle Einarbeitung in komplexe Technologien & Vorliebe für wissenschaftlich fundierte Fakten.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <Zap class="size-4 text-cyan-400 shrink-0 mt-0.5" />
+              <span><strong>Pragmatische Zielorientierung</strong>: Herausforderungen werden ohne Leerlauf und mit klarem Blick für Ergebnisse direkt angepackt.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <Award class="size-4 text-purple-400 shrink-0 mt-0.5" />
+              <span><strong>Führung & Kommunikation</strong>: Starke Vermittlungskompetenz zwischen Entwicklerteams, Kunden und Projektpartnern.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-line/60 flex items-center justify-between text-xs font-mono text-dim">
+          <span>Persönlichkeitsprofil</span>
+          <span class="text-ink">Julius Hunold</span>
+        </div>
+      </div>
+
+      <!-- CARD 2: AI & Modern Software Engineering (5 Spalten) -->
+      <div
+        class="lg:col-span-5 group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-accent/40 bg-gradient-to-br from-surface via-surface to-accent/10 p-7 md:p-8 shadow-xl transition-all duration-500 hover:border-accent hover:shadow-accent/10"
+        data-reveal="up"
+        data-reveal-delay="0.15"
+      >
+        <!-- Background Ambient Glow -->
+        <div class="absolute -left-10 -bottom-10 size-48 rounded-full bg-accent/20 blur-3xl pointer-events-none group-hover:scale-150 transition-transform duration-700"></div>
+
+        <div>
+          <div class="mb-6 flex items-center justify-between gap-3">
+            <div class="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-mono text-accent">
+              <Sparkles class="size-3.5 text-accent animate-pulse" />
+              <span>AI-First Software Engineering</span>
+            </div>
+            <span class="text-[11px] font-mono text-accent">2026 Workflow</span>
+          </div>
+
+          <h3 class="text-2xl font-bold tracking-tight text-ink md:text-3xl">
+            Moderne KI als Produktivitäts-Turbine.
+          </h3>
+          <p class="mt-3 text-sm text-mute leading-relaxed">
+            KI ersetzt keinen durchdachten Code, sondern multipliziert die Entwicklungsgeschwindigkeit. Julius nutzt modernste LLM-Tools und KI-Schnittstellen für maximale Effizienz.
+          </p>
+
+          <!-- AI Feature Pillars -->
+          <div class="mt-6 space-y-3">
+            <div class="rounded-2xl border border-line bg-surface/80 p-4 transition-all hover:border-accent/30">
+              <div class="flex items-center gap-2.5 mb-1 text-ink font-bold text-sm">
+                <Cpu class="size-4 text-accent" />
+                <span>Prompt Engineering & Copilot Workflows</span>
+              </div>
+              <p class="text-xs text-mute">
+                Blitzschnelle Prototypen, automatisierte Test-Generierung, Code-Reviews und präzises Refactoring mit KI-Assistenten.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-line bg-surface/80 p-4 transition-all hover:border-accent/30">
+              <div class="flex items-center gap-2.5 mb-1 text-ink font-bold text-sm">
+                <Layers class="size-4 text-cyan-400" />
+                <span>LLM API-Integration & RAG</span>
+              </div>
+              <p class="text-xs text-mute">
+                Anbindung von OpenAI, Claude und Function Calling in bestehende Webanwendungen und Backend-Systeme.
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-line bg-surface/80 p-4 transition-all hover:border-accent/30">
+              <div class="flex items-center gap-2.5 mb-1 text-ink font-bold text-sm">
+                <ShieldCheck class="size-4 text-emerald-400" />
+                <span>Datenschutz & Lokale KI-Modelle</span>
+              </div>
+              <p class="text-xs text-mute">
+                Hosting und Einsatz von privaten Open-Source LLMs (Ollama) auf eigener Server-Infrastruktur für DSGVO-konforme Workflows.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-line/60 flex items-center justify-between text-xs font-mono text-dim">
+          <span>Produktivitäts-Engineering</span>
+          <span class="text-accent">High Performance</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

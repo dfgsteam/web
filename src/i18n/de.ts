@@ -65,6 +65,11 @@ export const de = {
     ],
     cta: 'Mehr über mich',
   },
+  workstyle: {
+    label: 'AECdisc® Potenzialanalyse & AI Workflows',
+    heading: 'Arbeitsweise, Führung & KI-Engineering.',
+    subheading: 'Fundierte Verhaltens- & Potenzialanalyse kombiniert mit zukunftssicheren, KI-gestützten Entwicklungsprozessen.',
+  },
   projects: {
     label: 'Projekte',
     heading: 'Ausgewählte Arbeit.',

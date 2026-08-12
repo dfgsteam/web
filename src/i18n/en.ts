@@ -67,6 +67,11 @@ export const en: Dict = {
     ],
     cta: 'More about me',
   },
+  workstyle: {
+    label: 'AECdisc® Behavioral Analysis & AI Workflows',
+    heading: 'Workstyle, Leadership & AI Engineering.',
+    subheading: 'In-depth behavioral potential analysis combined with future-proof, AI-assisted engineering processes.',
+  },
   projects: {
     label: 'Projects',
     heading: 'Selected work.',
