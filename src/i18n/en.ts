@@ -327,6 +327,7 @@ export const en: Dict = {
     openLinkedin: 'Open LinkedIn Profile',
   },
   contactRecruiter: {
+    vcardLabel: 'Business Contact & vCard',
     vcardBtn: 'vCard Contact (.vcf)',
     copyEmailBtn: 'Copy Email',
     copied: 'Copied to clipboard! ✓',

@@ -325,6 +325,7 @@ export const de = {
     openLinkedin: 'LinkedIn Profil öffnen',
   },
   contactRecruiter: {
+    vcardLabel: 'Visitenkarte & Kontaktdaten',
     vcardBtn: 'vCard Visitenkarte (.vcf)',
     copyEmailBtn: 'E-Mail kopieren',
     copied: 'In Zwischenablage kopiert! ✓',
