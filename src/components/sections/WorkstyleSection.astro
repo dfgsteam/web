@@ -10,36 +10,44 @@ interface Props {
 
 const { t } = Astro.props;
 
-// Authentic Chaotic Wordle Layout Parameters (Horizontal & Vertical mix, bold colors, tight packing)
+// Dense Organic Oval Cloud Array (Arranged from outer edges to central hero core)
 const cloudWords = [
-  { text: 'MOTIVATOR', size: 'text-4xl sm:text-6xl font-black', color: 'text-red-500', orient: 'rotate-0' },
-  { text: 'ORGANISATOR', size: 'text-3xl sm:text-5xl font-black', color: 'text-amber-400', orient: 'md:-rotate-90' },
-  { text: 'Tatkraft', size: 'text-2xl sm:text-4xl font-extrabold', color: 'text-emerald-400', orient: 'rotate-0' },
-  { text: 'Analytische Präzision', size: 'text-lg sm:text-2xl font-bold', color: 'text-cyan-400', orient: 'md:rotate-90' },
-  { text: 'Kognitiver Wissensdurst', size: 'text-xl sm:text-3xl font-black', color: 'text-purple-400', orient: 'rotate-0' },
-  { text: 'Entschlussfreude', size: 'text-2xl sm:text-4xl font-extrabold', color: 'text-red-400', orient: 'md:-rotate-6' },
-  { text: 'Autodidakt', size: 'text-xl sm:text-3xl font-black', color: 'text-indigo-400', orient: 'rotate-0' },
-  { text: 'Führungsstärke', size: 'text-3xl sm:text-5xl font-black', color: 'text-amber-500', orient: 'md:rotate-180 md:[writing-mode:vertical-lr]' },
-  { text: 'Begeisterung', size: 'text-lg sm:text-2xl font-bold', color: 'text-emerald-300', orient: 'rotate-0' },
-  { text: 'Eigeninitiative', size: 'text-2xl sm:text-4xl font-extrabold', color: 'text-cyan-300', orient: 'md:-rotate-90' },
-  { text: 'Ergebnisorientiert', size: 'text-3xl sm:text-5xl font-black', color: 'text-red-500', orient: 'rotate-0' },
-  { text: 'Prozessoptimierung', size: 'text-xs sm:text-sm font-mono', color: 'text-dim', orient: 'rotate-0' },
-  { text: 'Verlässlichkeit', size: 'text-xl sm:text-3xl font-extrabold', color: 'text-amber-300', orient: 'md:rotate-6' },
-  { text: 'Innovation', size: 'text-3xl sm:text-5xl font-black', color: 'text-purple-400', orient: 'rotate-0' },
-  { text: 'Aufgabenfokus', size: 'text-lg sm:text-2xl font-bold', color: 'text-emerald-400', orient: 'md:rotate-90' },
-  { text: 'Flexibilität', size: 'text-xl sm:text-3xl font-bold', color: 'text-cyan-400', orient: 'rotate-0' },
-  { text: 'Strukturierte Umsetzung', size: 'text-2xl sm:text-4xl font-black', color: 'text-red-400', orient: 'rotate-0' },
-  { text: 'Glasfaserausbau', size: 'text-sm sm:text-lg font-mono', color: 'text-dim', orient: 'md:-rotate-90' },
-  { text: 'Web-Apps', size: 'text-2xl sm:text-4xl font-black', color: 'text-amber-400', orient: 'rotate-0' },
-  { text: 'Python & PHP', size: 'text-xl sm:text-3xl font-extrabold', color: 'text-emerald-400', orient: 'md:rotate-6' },
-  { text: 'Weitblick', size: 'text-lg sm:text-2xl font-bold', color: 'text-indigo-400', orient: 'rotate-0' },
-  { text: 'Teamkoordination', size: 'text-xl sm:text-3xl font-black', color: 'text-purple-300', orient: 'rotate-0' },
+  // Outer Edge (Smaller Accent terms)
+  { text: 'Glasfaserausbau', size: 'text-sm md:text-base font-mono', color: 'text-dim', orient: 'md:-rotate-90' },
+  { text: 'Autodidaktik', size: 'text-lg md:text-2xl font-bold', color: 'text-indigo-400', orient: 'rotate-0' },
+  { text: 'Prozessoptimierung', size: 'text-xs md:text-sm font-mono', color: 'text-dim', orient: 'rotate-0' },
+  { text: 'Weitblick', size: 'text-base md:text-xl font-bold', color: 'text-cyan-300', orient: 'md:rotate-90' },
+  { text: 'Flexibilität', size: 'text-lg md:text-2xl font-semibold', color: 'text-purple-300', orient: 'rotate-0' },
+
+  // Inner Ring (Medium / Strong terms)
+  { text: 'Kognitiver Wissensdurst', size: 'text-xl md:text-3xl font-extrabold', color: 'text-purple-400', orient: 'rotate-0' },
+  { text: 'Entschlussfreude', size: 'text-2xl md:text-4xl font-extrabold', color: 'text-red-400', orient: 'md:-rotate-6' },
+  { text: 'Analytische Präzision', size: 'text-xl md:text-3xl font-bold', color: 'text-cyan-400', orient: 'md:rotate-90' },
+
+  // CORE CENTER HERO (Biggest, Boldest focal points of the cloud)
+  { text: 'MOTIVATOR', size: 'text-5xl md:text-7xl font-black tracking-tight', color: 'text-red-500', orient: 'rotate-0' },
+  { text: 'FÜHRUNGSSTÄRKE', size: 'text-4xl md:text-6xl font-black tracking-tight', color: 'text-amber-400', orient: 'md:-rotate-90' },
+  { text: 'ORGANISATOR', size: 'text-5xl md:text-7xl font-black tracking-tight', color: 'text-amber-500', orient: 'rotate-0' },
+  { text: 'TATKRAFT', size: 'text-4xl md:text-6xl font-black tracking-tight', color: 'text-emerald-400', orient: 'rotate-0' },
+
+  // Inner Ring (Secondary bold terms)
+  { text: 'Ergebnisorientiert', size: 'text-3xl md:text-5xl font-black', color: 'text-red-400', orient: 'rotate-0' },
+  { text: 'Eigeninitiative', size: 'text-2xl md:text-4xl font-extrabold', color: 'text-cyan-300', orient: 'md:-rotate-90' },
+  { text: 'Innovation', size: 'text-3xl md:text-5xl font-black', color: 'text-purple-400', orient: 'rotate-0' },
+  { text: 'Begeisterung', size: 'text-xl md:text-3xl font-bold', color: 'text-emerald-300', orient: 'rotate-0' },
+
+  // Outer Edge (Closing outer ring)
+  { text: 'Strukturierte Umsetzung', size: 'text-2xl md:text-4xl font-bold', color: 'text-red-400', orient: 'rotate-0' },
+  { text: 'Verlässlichkeit', size: 'text-lg md:text-2xl font-bold', color: 'text-amber-300', orient: 'md:rotate-6' },
+  { text: 'Python & PHP', size: 'text-lg md:text-2xl font-extrabold', color: 'text-emerald-400', orient: 'md:-rotate-90' },
+  { text: 'Aufgabenfokus', size: 'text-base md:text-xl font-bold', color: 'text-indigo-300', orient: 'rotate-0' },
+  { text: 'Web-Apps', size: 'text-xl md:text-3xl font-bold', color: 'text-cyan-400', orient: 'rotate-0' },
 ];
 ---
 
-<section id="workstyle" class="relative isolate border-t border-line md:min-h-[170vh]">
+<section id="workstyle" class="relative isolate border-t border-line md:min-h-[160vh]">
   <!-- Full-Width Parallax Scroll Background Image Overlay -->
-  <div class="absolute inset-0 z-0 overflow-hidden">
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <img
       src={PORTFOLIO_IMAGE}
       alt="Julius Hunold Arbeitsweise Background"
@@ -49,24 +57,23 @@ const cloudWords = [
     <div class="absolute inset-0 bg-gradient-to-b from-base via-base/90 to-base"></div>
   </div>
 
-  <!-- Ambient Glow Orbs -->
-  <div class="glow glow--violet glow--float -right-32 top-10 h-[450px] w-[450px]" aria-hidden="true"></div>
-  <div class="glow glow--sky glow--float-slow -left-32 bottom-0 h-[400px] w-[400px]" aria-hidden="true"></div>
+  <!-- Ambient Central Cloud Glow Orb -->
+  <div class="glow glow--violet glow--float left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] opacity-40 pointer-events-none" aria-hidden="true"></div>
 
   <!-- Sticky Content Wrapper -->
-  <div class="container-page relative z-10 section-spacing md:sticky md:top-16 md:py-16">
+  <div class="container-page relative z-10 section-spacing md:sticky md:top-16 md:py-12">
     <!-- Header -->
-    <div class="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <div class="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
           <Brain class="size-3.5 text-accent" />
-          <span>AECdisc® Stärken- & Potenzial-Collage</span>
+          <span>AECdisc® Stärken- & Potenzialwolke</span>
         </div>
         <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
-          Arbeitsweise & Wortwolke.
+          Arbeitsweise & Stärkenwolke.
         </h2>
-        <p class="mt-3 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
-          Scrolle nach unten, um die Stärken- & Potenzial-Collage Wort für Wort aufzubauen.
+        <p class="mt-2 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
+          Scrolle nach unten, um das Stärkenprofil Wort für Wort als dichte Wolke aufzubauen.
         </p>
       </div>
 
@@ -77,18 +84,15 @@ const cloudWords = [
       </div>
     </div>
 
-    <!-- Authentic Chaotic Wordle Collage Container -->
-    <div class="relative overflow-hidden rounded-3xl border border-accent/40 bg-gradient-to-br from-surface/95 via-surface/85 to-accent/10 p-6 md:p-12 shadow-2xl backdrop-blur-xl">
-      <!-- Background Glow -->
-      <div class="absolute -right-20 -bottom-20 size-80 rounded-full bg-accent/15 blur-3xl pointer-events-none"></div>
-
-      <!-- Chaotic Word Cloud Flex Layout -->
-      <div class="relative z-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:gap-x-6 md:gap-y-4 py-8 select-none text-center leading-none" id="workstyle-word-cloud">
+    <!-- FREELY FLOATING TIGHT DENSE OVAL CLOUD SILHOUETTE (No Card Box!) -->
+    <div class="relative mx-auto max-w-5xl py-8 md:py-12 select-none text-center">
+      <!-- Dense Interlocking Cloud Container -->
+      <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:gap-x-5 md:gap-y-3 leading-none" id="workstyle-word-cloud">
         {
           cloudWords.map((word, i) => (
             <span
               data-cloud-index={i}
-              class={`cloud-word inline-block ${word.size} ${word.color} ${word.orient} tracking-tight leading-none transition-all duration-700 ease-out cursor-default opacity-0 scale-75 translate-y-4 hover:scale-110 hover:z-30 hover:brightness-125`}
+              class={`cloud-word inline-block ${word.size} ${word.color} ${word.orient} tracking-tight leading-none transition-all duration-700 ease-out cursor-default opacity-0 scale-60 translate-y-6 hover:scale-110 hover:z-30 hover:brightness-125`}
             >
               {word.text}
             </span>
@@ -96,10 +100,11 @@ const cloudWords = [
         }
       </div>
 
-      <!-- Bottom Profile Footer Tag -->
-      <div class="relative z-10 mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-xs font-mono text-dim">
-        <span>Geprüftes Potenzialprofil</span>
-        <span class="text-ink">Julius Hunold · Motivator & Organisator</span>
+      <!-- Bottom Profile Subtitle Tag -->
+      <div class="mt-10 flex items-center justify-center gap-4 text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto">
+        <span>AECdisc® Potenzialanalyse</span>
+        <span>·</span>
+        <span class="text-ink font-semibold">Julius Hunold · Motivator & Organisator</span>
       </div>
     </div>
   </div>
@@ -119,7 +124,7 @@ const cloudWords = [
       const rect = section.getBoundingClientRect();
       const totalScrollableHeight = rect.height - window.innerHeight;
 
-      // Mobile fallback: reveal all words immediately for seamless mobile experience
+      // Mobile fallback: reveal all words immediately for smooth touch scrolling
       if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
         words.forEach((w) => {
           w.style.opacity = '1';
@@ -141,8 +146,8 @@ const cloudWords = [
           word.style.filter = 'none';
         } else {
           word.style.opacity = '0';
-          word.style.transform = 'scale(0.6) translateY(16px)';
-          word.style.filter = 'blur(3px)';
+          word.style.transform = 'scale(0.5) translateY(18px)';
+          word.style.filter = 'blur(4px)';
         }
       });
 
