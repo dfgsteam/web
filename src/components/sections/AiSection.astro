@@ -1,0 +1,171 @@
+---
+import { Sparkles, Cpu, ShieldCheck, Layers, Bot, Zap, Code2, Database } from '@lucide/astro';
+import type { Dict, Locale } from '../../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="ai-engineering" class="section-spacing relative isolate overflow-hidden border-t border-line bg-surface/30">
+  <!-- Ambient Glow Orbs -->
+  <div class="glow glow--sky glow--float -left-32 top-10 h-[420px] w-[420px]" aria-hidden="true"></div>
+  <div class="glow glow--violet glow--float-slow -right-32 bottom-0 h-[380px] w-[380px]" aria-hidden="true"></div>
+
+  <div class="container-page relative">
+    <!-- Header -->
+    <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
+          <Sparkles class="size-3.5 text-accent animate-pulse" />
+          <span>2026 Developer Workflow</span>
+        </div>
+        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+          Künstliche Intelligenz & KI-Engineering.
+        </h2>
+        <p class="mt-4 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
+          KI ersetzt keinen durchdachten Code, sondern vervielfacht die Entwicklungsgeschwindigkeit – von Prompt Engineering bis zur Einbindung lokaler LLMs.
+        </p>
+      </div>
+
+      <!-- Tech Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0" data-reveal="up" data-reveal-delay="0.15">
+        <Bot class="size-4 text-accent" />
+        <span>LLM APIs & Local Models</span>
+      </div>
+    </div>
+
+    <!-- 3 Large Bento Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- CARD 1: Prompt Engineering & Copilots -->
+      <div
+        class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-accent/5"
+        data-reveal="up"
+      >
+        <div class="absolute -right-10 -top-10 size-40 rounded-full bg-accent/10 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+
+        <div>
+          <div class="flex size-12 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent mb-6 group-hover:scale-110 transition-transform">
+            <Code2 class="size-6" stroke-width={1.75} />
+          </div>
+
+          <h3 class="text-xl font-bold tracking-tight text-ink">
+            Prompt-Driven Development
+          </h3>
+          <p class="mt-2 text-xs text-mute leading-relaxed">
+            Nutzung von KI-Assistenten für blitzschnelle Architektur-Prototypen, automatisierte Unit-Tests und sauberes Code-Refactoring.
+          </p>
+
+          <ul class="mt-5 space-y-2 text-xs text-mute">
+            <li class="flex items-center gap-2">
+              <Zap class="size-3.5 text-accent shrink-0" />
+              <span>Beschleunigtes Prototyping & Scaffolding</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <Zap class="size-3.5 text-accent shrink-0" />
+              <span>Automatisierte Testfall-Erstellung (PyTest)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <Zap class="size-3.5 text-accent shrink-0" />
+              <span>Präzises Code-Review & Linting</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-[11px] font-mono text-dim">
+          <span>Produktivität</span>
+          <span class="text-accent">High Efficiency</span>
+        </div>
+      </div>
+
+      <!-- CARD 2: LLM API Integration & RAG -->
+      <div
+        class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-accent/40 bg-gradient-to-br from-surface via-surface to-accent/10 p-7 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-accent hover:shadow-accent/10"
+        data-reveal="up"
+        data-reveal-delay="0.1"
+      >
+        <div class="absolute -left-10 -bottom-10 size-40 rounded-full bg-accent/20 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+
+        <div>
+          <div class="flex size-12 items-center justify-center rounded-2xl border border-accent/40 bg-accent/10 text-accent mb-6 group-hover:scale-110 transition-transform">
+            <Layers class="size-6" stroke-width={1.75} />
+          </div>
+
+          <h3 class="text-xl font-bold tracking-tight text-ink">
+            LLM APIs & Custom Workflows
+          </h3>
+          <p class="mt-2 text-xs text-mute leading-relaxed">
+            Integration strukturierter KI-Schnittstellen in bestehende Webanwendungen, E-Commerce Shops und Firmen-Workflows.
+          </p>
+
+          <ul class="mt-5 space-y-2 text-xs text-mute">
+            <li class="flex items-center gap-2">
+              <Database class="size-3.5 text-cyan-400 shrink-0" />
+              <span>OpenAI API & Claude Function Calling</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <Database class="size-3.5 text-cyan-400 shrink-0" />
+              <span>Strukturierter JSON-Output & Schema-Validierung</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <Database class="size-3.5 text-cyan-400 shrink-0" />
+              <span>Automatisierte Text- & Datenextraktion</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-[11px] font-mono text-dim">
+          <span>Schnittstellen</span>
+          <span class="text-cyan-400">API Integration</span>
+        </div>
+      </div>
+
+      <!-- CARD 3: DSGVO & Local Models (Ollama) -->
+      <div
+        class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-accent/5"
+        data-reveal="up"
+        data-reveal-delay="0.2"
+      >
+        <div class="absolute -right-10 -bottom-10 size-40 rounded-full bg-emerald-500/10 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+
+        <div>
+          <div class="flex size-12 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+            <ShieldCheck class="size-6" stroke-width={1.75} />
+          </div>
+
+          <h3 class="text-xl font-bold tracking-tight text-ink">
+            Lokale KI & DSGVO-Konformität
+          </h3>
+          <p class="mt-2 text-xs text-mute leading-relaxed">
+            Einsatz von Open-Source LLMs auf eigener Server-Infrastruktur für 100% Datensouveränität ohne Drittanbieter-Risiken.
+          </p>
+
+          <ul class="mt-5 space-y-2 text-xs text-mute">
+            <li class="flex items-center gap-2">
+              <ShieldCheck class="size-3.5 text-emerald-400 shrink-0" />
+              <span>Ollama & Lokales Model-Hosting</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <ShieldCheck class="size-3.5 text-emerald-400 shrink-0" />
+              <span>Vollständige DSGVO- & Datenschutzkonformität</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <ShieldCheck class="size-3.5 text-emerald-400 shrink-0" />
+              <span>Isolierte Ausführung auf eigenen Hetzner-Servern</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-[11px] font-mono text-dim">
+          <span>Datenschutz</span>
+          <span class="text-emerald-400">Datensouverän</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
