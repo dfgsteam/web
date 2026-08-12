@@ -108,7 +108,7 @@ function setupReveal() {
   const els = gsap.utils.toArray<HTMLElement>('[data-reveal]');
 
   els.forEach((el) => {
-    if (el.closest('[data-horizontal]')) return;
+    if (el.closest('[data-horizontal-track]')) return;
     const dir = el.dataset.reveal || 'up';
     const delay = Number(el.dataset.revealDelay ?? 0);
     const from = {
@@ -309,7 +309,7 @@ function setupHorizontal() {
     ease: 'none',
     scrollTrigger: {
       trigger: section,
-      start: 'top top',
+      start: 'top top+=72',
       end: () => `+=${getScroll()}`,
       pin: true,
       scrub: 1,

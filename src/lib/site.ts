@@ -7,4 +7,4 @@ export const LOCATION = 'Sarstedt, Germany';
 export const GOOGLE_VERIFICATION = '';
 
 // Porträt-/Portfolio-Bild. Ersetze portfolio.svg durch ein echtes Foto (z. B. /portfolio.jpg).
-export const PORTFOLIO_IMAGE = '/portfolio.svg';
+export const PORTFOLIO_IMAGE = '/portfolio.jpg';
