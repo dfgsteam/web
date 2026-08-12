@@ -1,5 +1,5 @@
 ---
-import { Sparkles, ShieldCheck, Layers, Bot, Zap, Code2, Database } from '@lucide/astro';
+import { Sparkles, ShieldCheck, Layers, Zap, Code2, Database } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -18,37 +18,29 @@ const { t } = Astro.props;
   <!-- Sticky Content Container -->
   <div class="container-page relative section-spacing md:sticky md:top-20 md:py-16">
     <!-- Header -->
-    <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
-          <Sparkles class="size-3.5 text-accent animate-pulse" />
-          <span>2026 Developer Workflow</span>
-        </div>
-        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
-          Künstliche Intelligenz & KI-Engineering.
-        </h2>
-        <p class="mt-4 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
-          KI ersetzt keinen durchdachten Code, sondern vervielfacht die Entwicklungsgeschwindigkeit – von Prompt Engineering bis zur Einbindung lokaler LLMs.
-        </p>
+    <div class="mb-12 max-w-2xl">
+      <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
+        <Sparkles class="size-3.5 text-accent animate-pulse" />
+        <span>2026 Developer Workflow</span>
       </div>
-
-      <!-- Scroll Phase Indicator Badge -->
-      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0 shadow-md" data-reveal="up" data-reveal-delay="0.15">
-        <Bot class="size-4 text-accent" />
-        <span id="ai-step-indicator" class="text-ink font-semibold">Phase 1: Prompting & Copilot</span>
-      </div>
+      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        Künstliche Intelligenz & KI-Engineering.
+      </h2>
+      <p class="mt-4 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
+        KI ersetzt keinen durchdachten Code, sondern vervielfacht die Entwicklungsgeschwindigkeit – von Prompt Engineering bis zur Einbindung lokaler LLMs.
+      </p>
     </div>
 
-    <!-- 3 Bento Cards Grid with Sequential Scroll Highlight -->
+    <!-- 3 Bento Cards Grid with Dramatic Sequential Scroll Highlight -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="ai-cards-grid">
 
       <!-- CARD 1: Prompt Engineering & Copilots -->
       <div
         id="ai-card-0"
-        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-accent bg-gradient-to-br from-surface via-surface to-accent/10 p-7 shadow-2xl transition-all duration-500 scale-[1.02]"
+        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-accent/40 bg-surface p-7 shadow-lg transition-all duration-500"
         data-reveal="up"
       >
-        <div class="absolute -right-10 -top-10 size-40 rounded-full bg-accent/20 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+        <div class="absolute -right-10 -top-10 size-44 rounded-full bg-accent/20 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
 
         <div>
           <div class="flex items-center justify-between mb-6">
@@ -83,18 +75,18 @@ const { t } = Astro.props;
 
         <div class="mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-[11px] font-mono text-dim">
           <span>Produktivität</span>
-          <span class="text-accent">High Efficiency</span>
+          <span class="text-accent font-semibold">High Efficiency</span>
         </div>
       </div>
 
       <!-- CARD 2: LLM API Integration & RAG -->
       <div
         id="ai-card-1"
-        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 opacity-80"
+        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500"
         data-reveal="up"
         data-reveal-delay="0.1"
       >
-        <div class="absolute -left-10 -bottom-10 size-40 rounded-full bg-cyan-500/10 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+        <div class="absolute -left-10 -bottom-10 size-44 rounded-full bg-cyan-500/20 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
 
         <div>
           <div class="flex items-center justify-between mb-6">
@@ -129,18 +121,18 @@ const { t } = Astro.props;
 
         <div class="mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-[11px] font-mono text-dim">
           <span>Schnittstellen</span>
-          <span class="text-cyan-400">API Integration</span>
+          <span class="text-cyan-400 font-semibold">API Integration</span>
         </div>
       </div>
 
       <!-- CARD 3: DSGVO & Local Models (Ollama) -->
       <div
         id="ai-card-2"
-        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 opacity-80"
+        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500"
         data-reveal="up"
         data-reveal-delay="0.2"
       >
-        <div class="absolute -right-10 -bottom-10 size-40 rounded-full bg-emerald-500/10 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+        <div class="absolute -right-10 -bottom-10 size-44 rounded-full bg-emerald-500/20 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
 
         <div>
           <div class="flex items-center justify-between mb-6">
@@ -175,7 +167,7 @@ const { t } = Astro.props;
 
         <div class="mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-[11px] font-mono text-dim">
           <span>Datenschutz</span>
-          <span class="text-emerald-400">Datensouverän</span>
+          <span class="text-emerald-400 font-semibold">Datensouverän</span>
         </div>
       </div>
 
@@ -191,25 +183,20 @@ const { t } = Astro.props;
       document.querySelector<HTMLElement>('#ai-card-1'),
       document.querySelector<HTMLElement>('#ai-card-2'),
     ];
-    const indicator = document.querySelector<HTMLElement>('#ai-step-indicator');
 
     if (!section || !cards[0] || !cards[1] || !cards[2]) return;
-
-    const stepTitles = [
-      'Phase 1: Prompting & Copilot',
-      'Phase 2: LLM APIs & Integration',
-      'Phase 3: Lokale KI & Datenschutz',
-    ];
 
     function updateAiScrollPhase() {
       if (!section) return;
 
-      // Only run sticky highlight logic on desktop screens (md+)
+      // Reset on mobile
       if (window.innerWidth < 768) {
         cards.forEach((card) => {
           if (!card) return;
           card.style.opacity = '1';
           card.style.transform = 'none';
+          card.style.filter = 'none';
+          card.style.boxShadow = 'none';
         });
         return;
       }
@@ -219,7 +206,7 @@ const { t } = Astro.props;
 
       if (totalScrollableHeight <= 0) return;
 
-      // Progress from 0 to 1
+      // Progress ratio from 0 to 1
       const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
 
       let activeIndex = 0;
@@ -231,37 +218,34 @@ const { t } = Astro.props;
         activeIndex = 0;
       }
 
-      if (indicator) {
-        indicator.textContent = stepTitles[activeIndex];
-      }
-
       cards.forEach((card, idx) => {
         if (!card) return;
 
         if (idx === activeIndex) {
-          card.classList.remove('border-line', 'bg-surface', 'opacity-80');
-          card.classList.add(
-            'border-accent',
-            'bg-gradient-to-br',
-            'from-surface',
-            'via-surface',
-            'to-accent/10',
-            'shadow-2xl',
-            'scale-[1.02]',
-            'opacity-100'
-          );
+          // DRAMATIC ACTIVE HIGHLIGHT
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1.05) translateY(-6px)';
+          card.style.filter = 'none';
+          card.style.zIndex = '20';
+          
+          if (idx === 0) {
+            card.style.borderColor = 'var(--accent)';
+            card.style.boxShadow = '0 20px 45px -10px rgba(99, 102, 241, 0.4)';
+          } else if (idx === 1) {
+            card.style.borderColor = '#22d3ee';
+            card.style.boxShadow = '0 20px 45px -10px rgba(34, 211, 238, 0.4)';
+          } else {
+            card.style.borderColor = '#34d399';
+            card.style.boxShadow = '0 20px 45px -10px rgba(52, 211, 153, 0.4)';
+          }
         } else {
-          card.classList.remove(
-            'border-accent',
-            'bg-gradient-to-br',
-            'from-surface',
-            'via-surface',
-            'to-accent/10',
-            'shadow-2xl',
-            'scale-[1.02]',
-            'opacity-100'
-          );
-          card.classList.add('border-line', 'bg-surface', 'opacity-70');
+          // DRAMATIC SUBDUED INACTIVE STATE
+          card.style.opacity = '0.25';
+          card.style.transform = 'scale(0.95) translateY(0)';
+          card.style.filter = 'grayscale(0.7) blur(0.5px)';
+          card.style.zIndex = '1';
+          card.style.borderColor = 'var(--line)';
+          card.style.boxShadow = 'none';
         }
       });
     }
