@@ -4,10 +4,10 @@ export const en: Dict = {
   lang: 'en',
   htmlLang: 'en-GB',
   meta: {
-    title: 'Julius Hunold – Web Developer & Tech Project Manager',
+    title: 'Julius Hunold – Software Developer & Tech Project Manager',
     description:
-      'Bespoke web apps with PHP & Python, from the first idea to a live system. Web development and technical project management based in Sarstedt, Germany.',
-    keywords: 'Julius Hunold, Web Developer, PHP, Python, Web Apps, Portfolio, Project Management',
+      'Bespoke web apps with PHP & Python, from concept to live system. Software developer and technical project manager based in Sarstedt, Germany.',
+    keywords: 'Julius Hunold, Software Developer, Web Developer, PHP, Python, Web Apps, Portfolio, Project Management',
   },
   nav: {
     about: 'About',
@@ -30,7 +30,7 @@ export const en: Dict = {
     titleB: 'that actually delivers.',
     titleHighlight: 'software',
     subtitle:
-      'Bespoke web apps with PHP & Python – from concept to live system. Computer Science student in Göttingen, working at the intersection of engineering and technical project management.',
+      'Software developer focused on bespoke web apps with PHP & Python – from concept to live system. 8+ years working at the intersection of engineering and technical project management.',
     primaryCta: 'View projects',
     secondaryCta: 'Get in touch',
     scrollHint: 'Scroll',
@@ -55,8 +55,8 @@ export const en: Dict = {
     label: 'About',
     heading: 'Code is the bridge between idea and reality.',
     paragraphs: [
-      'I build bespoke web apps with PHP & Python – spanning everything from modern web application development to technical project management for the FTTH network rollout (NE4).',
-      'I study Applied Computer Science in Göttingen, deepening my skills in Physics and Business Administration along the way. That mix of technology, science and business shapes how I work: pragmatic, thoughtful, solution-driven.',
+      'I am a software developer specialising in bespoke web applications built with PHP & Python – from planning and development through to live operation. Alongside that, I lead the technical rollout of FTTH fibre-optic infrastructure as project manager.',
+      'With 8+ years of hands-on development experience, I bring a combination of technical depth, process thinking and a commercial perspective – pragmatic, solution-driven, and results-focused.',
       'Outside of work I volunteer as a group leader and in the media team of Schönstatt Mannesjugend, where I have also been responsible for the finances for years.',
     ],
     facts: [

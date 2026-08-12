@@ -2,10 +2,10 @@ export const de = {
   lang: 'de',
   htmlLang: 'de-DE',
   meta: {
-    title: 'Julius Hunold – Web-Entwickler & Tech-Projektmanager',
+    title: 'Julius Hunold – Softwareentwickler & Tech-Projektmanager',
     description:
-      'Maßgeschneiderte Web-Apps mit PHP & Python, von der ersten Idee bis zum Live-System. Web-Entwicklung und technisches Projektmanagement aus Sarstedt, Deutschland.',
-    keywords: 'Julius Hunold, Web-Entwickler, PHP, Python, Web-Apps, Portfolio, Projektmanagement',
+      'Maßgeschneiderte Web-Apps mit PHP & Python – von der ersten Idee bis zum Live-System. Softwareentwickler und technischer Projektmanager aus Sarstedt, Deutschland.',
+    keywords: 'Julius Hunold, Softwareentwickler, Web-Entwickler, PHP, Python, Web-Apps, Portfolio, Projektmanagement',
   },
   nav: {
     about: 'Über mich',
@@ -28,7 +28,7 @@ export const de = {
     titleB: 'die wirklich liefert.',
     titleHighlight: 'Software,',
     subtitle:
-      'Maßgeschneiderte Web-Apps mit PHP & Python – von der ersten Idee bis zum produktiven System. Informatik-Student in Göttingen, tätig an der Schnittstelle von Entwicklung und technischem Projektmanagement.',
+      'Softwareentwickler mit Fokus auf maßgeschneiderte Web-Apps mit PHP & Python – vom Konzept bis zum produktiven System. Seit über 8 Jahren an der Schnittstelle von Entwicklung und technischem Projektmanagement.',
     primaryCta: 'Projekte ansehen',
     secondaryCta: 'Kontakt aufnehmen',
     scrollHint: 'Scrollen',
@@ -53,8 +53,8 @@ export const de = {
     label: 'Über mich',
     heading: 'Code ist die Brücke zwischen Idee und Realität.',
     paragraphs: [
-      'Ich entwickle maßgeschneiderte Web-Apps mit PHP & Python – von moderner Webanwendungsentwicklung bis hin zu technischem Projektmanagement beim Glasfaser-NE4-Ausbau.',
-      'Ich studiere Applied Computer Science in Göttingen und vertiefe parallel Physik und BWL – dieser Mix aus Technik, Wissenschaft und Wirtschaft prägt meine Arbeitsweise: pragmatisch, durchdacht, lösungsorientiert.',
+      'Ich bin Softwareentwickler mit Fokus auf maßgeschneiderte Web-Applikationen in PHP & Python – von der Planung über die Umsetzung bis zum produktiven Betrieb. Parallel dazu verantworte ich als Projektleiter den technischen Glasfaser-NE4-Ausbau.',
+      'Mit über 8 Jahren praktischer Erfahrung in der Softwareentwicklung bringe ich den Mix aus technischer Tiefe, Prozessdenken und wirtschaftlichem Weitblick mit – pragmatisch, lösungsorientiert, konsequent.',
       'Ehrenamtlich engagiere ich mich als Gruppenleiter und im Media-Team der Schönstatt Mannesjugend, wo ich seit Jahren auch die Finanzverwaltung verantworte.',
     ],
     facts: [
