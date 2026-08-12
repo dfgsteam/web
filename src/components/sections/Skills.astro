@@ -7,7 +7,6 @@ import {
   ShoppingCart,
   SquareTerminal,
   Coffee,
-  Blocks,
   Cpu,
   Binary,
   Globe,
@@ -22,6 +21,9 @@ import {
   Award,
   Sparkles,
   Zap,
+  X,
+  ExternalLink,
+  CheckCircle2,
 } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { skills } from '../../data/skills';
@@ -63,6 +65,8 @@ const skillIcons: Record<string, any> = {
   award: Award,
 };
 
+import { Blocks } from '@lucide/astro';
+
 const badgeStyles: Record<SkillBadge, { badgeClass: string; dotClass: string }> = {
   core: {
     badgeClass: 'border-accent/40 bg-accent/10 text-accent font-semibold',
@@ -88,7 +92,7 @@ const categoryKeys: (SkillCategory | 'all')[] = ['all', 'dev', 'web', 'infra', '
 
   <div class="container-page relative">
     <!-- Header -->
-    <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div class="max-w-2xl">
         <p class="mb-3 text-xs uppercase tracking-widest text-accent font-mono" data-reveal="up">
           {t.skills.label}
@@ -96,26 +100,26 @@ const categoryKeys: (SkillCategory | 'all')[] = ['all', 'dev', 'web', 'infra', '
         <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
           {t.skills.heading}
         </h2>
-        <p class="mt-4 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
-          {t.skills.subheading}
+        <p class="mt-3 text-sm md:text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
+          Klicke auf einen Skill, um tiefere Details, Einsatzbereiche & verwandte Tools einzusehen.
         </p>
       </div>
 
       <!-- Skill Count Badge -->
       <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0" data-reveal="up" data-reveal-delay="0.15">
         <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span><strong class="text-ink">{skills.length}</strong> Skills & Expertise</span>
+        <span><strong class="text-ink">{skills.length}</strong> Technologies & Skills</span>
       </div>
     </div>
 
     <!-- Category Filter Tabs -->
-    <div class="mb-10 flex flex-wrap items-center gap-2 border-b border-line pb-4" data-reveal="up" data-reveal-delay="0.2">
+    <div class="mb-8 flex flex-wrap items-center gap-2 border-b border-line pb-4" data-reveal="up" data-reveal-delay="0.2">
       {
         categoryKeys.map((catKey) => (
           <button
             type="button"
             data-skill-tab={catKey}
-            class={`skill-tab group inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${
+            class={`skill-tab group inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-all duration-300 ${
               catKey === 'all'
                 ? 'is-active border-accent bg-accent text-white shadow-md shadow-accent/20'
                 : 'border-line bg-surface/80 text-mute hover:border-accent/40 hover:text-ink hover:bg-surface'
@@ -132,99 +136,214 @@ const categoryKeys: (SkillCategory | 'all')[] = ['all', 'dev', 'web', 'infra', '
       }
     </div>
 
-    <!-- Bento Grid Skill Cards -->
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="skills-grid">
-      <!-- Skill Cards List -->
+    <!-- Compact Skill Mini-Cards Grid (Ultra-Sleek Space-Saving Layout) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3" id="skills-grid">
       {
         skills.map((skill, i) => {
           const Icon = skillIcons[skill.iconName] ?? CodeXml;
-          const { badgeClass, dotClass } = badgeStyles[skill.badge];
+          const { dotClass } = badgeStyles[skill.badge];
 
           return (
-            <div
-              class="skill-card group relative flex flex-col justify-between rounded-2xl border border-line bg-surface/90 p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface hover:shadow-xl hover:shadow-accent/5"
+            <button
+              type="button"
+              data-skill-slug={skill.slug}
+              class="skill-card group relative flex items-center justify-between gap-2.5 rounded-xl border border-line bg-surface/90 px-3.5 py-3 text-left shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-surface hover:shadow-lg hover:shadow-accent/10 active:scale-95 cursor-pointer"
               data-category={skill.category}
               data-reveal="up"
-              data-reveal-delay={(i % 4) * 0.05}
+              data-reveal-delay={(i % 6) * 0.03}
+              title={`Klicken für Details zu ${skill.name}`}
             >
-              <div>
-                <!-- Top Row: Icon & Badge -->
-                <div class="mb-4 flex items-center justify-between gap-3">
-                  <div class="flex size-10 items-center justify-center rounded-xl border border-line bg-base/80 text-accent group-hover:scale-110 group-hover:border-accent/40 group-hover:bg-accent/10 transition-all">
-                    <Icon class="size-5" stroke-width={1.75} />
-                  </div>
-                  <span class={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-wider ${badgeClass}`}>
-                    <span class={`size-1.5 rounded-full ${dotClass}`}></span>
-                    {t.skills.badges[skill.badge]}
-                  </span>
+              <div class="flex items-center gap-2.5 min-w-0">
+                <div class="flex size-7 shrink-0 items-center justify-center rounded-lg border border-line bg-base text-accent group-hover:border-accent/40 group-hover:bg-accent/10 transition-all">
+                  <Icon class="size-3.5" stroke-width={1.75} />
                 </div>
-
-                <!-- Skill Title -->
-                <h3 class="text-base font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
+                <span class="truncate text-xs font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
                   {skill.name}
-                </h3>
-
-                <!-- Description -->
-                {skill.description && (
-                  <p class="mt-2 text-xs leading-relaxed text-mute">
-                    {skill.description}
-                  </p>
-                )}
+                </span>
               </div>
-            </div>
+
+              <!-- Status Dot -->
+              <span class={`size-2 shrink-0 rounded-full ${dotClass}`} title={t.skills.badges[skill.badge]}></span>
+            </button>
           );
         })
       }
     </div>
   </div>
+
+  <!-- Accessible HTML <dialog> Skill Detail Modal -->
+  <dialog
+    id="skill-modal"
+    class="backdrop:bg-black/60 backdrop:backdrop-blur-md fixed inset-0 z-50 m-auto max-h-[85vh] w-[92vw] max-w-lg overflow-y-auto rounded-2xl border border-line bg-surface p-0 shadow-2xl transition-all duration-300"
+  >
+    <div class="relative p-6 sm:p-8" id="skill-modal-content">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between gap-4 pb-4 border-b border-line">
+        <div class="flex items-center gap-3">
+          <div id="modal-icon-container" class="flex size-12 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent shadow-md">
+            <!-- Dynamic Icon -->
+          </div>
+          <div>
+            <h3 id="modal-title" class="text-xl font-bold tracking-tight text-ink"></h3>
+            <span id="modal-badge" class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-wider mt-1"></span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          id="close-skill-modal"
+          class="flex size-8 items-center justify-center rounded-full border border-line bg-base text-mute transition-colors hover:border-accent hover:text-ink"
+          aria-label="Schließen"
+        >
+          <X class="size-4" />
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="mt-5 space-y-5 text-sm">
+        <div>
+          <h4 class="text-xs uppercase tracking-wider text-dim font-mono mb-1.5">Beschreibung & Expertise</h4>
+          <p id="modal-details" class="leading-relaxed text-mute font-normal"></p>
+        </div>
+
+        <!-- Projects Used -->
+        <div id="modal-projects-wrapper">
+          <h4 class="text-xs uppercase tracking-wider text-dim font-mono mb-2">Einsatzbereiche & Relevanz</h4>
+          <div id="modal-projects-list" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Tools Used -->
+        <div id="modal-tools-wrapper">
+          <h4 class="text-xs uppercase tracking-wider text-dim font-mono mb-2">Verwandte Tools & Technologien</h4>
+          <div id="modal-tools-list" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </section>
 
+<!-- Pass Skills JSON Data to Client Script -->
+<script is:inline define:vars={{ skillsData: skills, badgesDict: t.skills.badges }}>
+  window.__SKILLS_DATA__ = skillsData;
+  window.__BADGES_DICT__ = badgesDict;
+</script>
+
 <script>
-  // Client-Side Tab Filtering Logic
-  function initSkillsFilter() {
+  function initSkillsSystem() {
     const tabs = document.querySelectorAll<HTMLButtonElement>('[data-skill-tab]');
     const cards = document.querySelectorAll<HTMLElement>('.skill-card');
+    const modal = document.querySelector<HTMLDialogElement>('#skill-modal');
+    const closeBtn = document.querySelector<HTMLButtonElement>('#close-skill-modal');
 
-    if (!tabs.length || !cards.length) return;
+    const modalTitle = document.querySelector<HTMLElement>('#modal-title');
+    const modalDetails = document.querySelector<HTMLElement>('#modal-details');
+    const modalBadge = document.querySelector<HTMLElement>('#modal-badge');
+    const modalProjectsWrapper = document.querySelector<HTMLElement>('#modal-projects-wrapper');
+    const modalProjectsList = document.querySelector<HTMLElement>('#modal-projects-list');
+    const modalToolsWrapper = document.querySelector<HTMLElement>('#modal-tools-wrapper');
+    const modalToolsList = document.querySelector<HTMLElement>('#modal-tools-list');
 
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const targetCategory = tab.getAttribute('data-skill-tab');
+    // 1. Client Tab Filter Logic
+    if (tabs.length && cards.length) {
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const targetCategory = tab.getAttribute('data-skill-tab');
 
-        // Update Active Tab Styling
-        tabs.forEach((t) => {
-          t.classList.remove('is-active', 'border-accent', 'bg-accent', 'text-white', 'shadow-md', 'shadow-accent/20');
-          t.classList.add('border-line', 'bg-surface/80', 'text-mute');
-        });
+          tabs.forEach((t) => {
+            t.classList.remove('is-active', 'border-accent', 'bg-accent', 'text-white', 'shadow-md', 'shadow-accent/20');
+            t.classList.add('border-line', 'bg-surface/80', 'text-mute');
+          });
 
-        tab.classList.remove('border-line', 'bg-surface/80', 'text-mute');
-        tab.classList.add('is-active', 'border-accent', 'bg-accent', 'text-white', 'shadow-md', 'shadow-accent/20');
+          tab.classList.remove('border-line', 'bg-surface/80', 'text-mute');
+          tab.classList.add('is-active', 'border-accent', 'bg-accent', 'text-white', 'shadow-md', 'shadow-accent/20');
 
-        // Filter Cards with Animation
-        cards.forEach((card) => {
-          const cardCategory = card.getAttribute('data-category');
-
-          if (targetCategory === 'all' || cardCategory === targetCategory || cardCategory === 'all') {
-            card.style.display = 'flex';
-            requestAnimationFrame(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'scale(1)';
-            });
-          } else {
-            card.style.opacity = '0';
-            card.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-              if (tab.getAttribute('data-skill-tab') !== 'all' && card.getAttribute('data-category') !== tab.getAttribute('data-skill-tab') && card.getAttribute('data-category') !== 'all') {
-                card.style.display = 'none';
-              }
-            }, 200);
-          }
+          cards.forEach((card) => {
+            const cardCategory = card.getAttribute('data-category');
+            if (targetCategory === 'all' || cardCategory === targetCategory) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
         });
       });
-    });
+    }
+
+    // 2. Skill Modal Trigger Logic
+    if (modal && cards.length) {
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          const slug = card.getAttribute('data-skill-slug');
+          const skillsList = (window as any).__SKILLS_DATA__ || [];
+          const badgesDict = (window as any).__BADGES_DICT__ || {};
+          const skill = skillsList.find((s: any) => s.slug === slug);
+
+          if (!skill) return;
+
+          if (modalTitle) modalTitle.textContent = skill.name;
+          if (modalDetails) modalDetails.textContent = skill.details || skill.description;
+
+          // Badge
+          if (modalBadge) {
+            const badgeLabel = badgesDict[skill.badge] || skill.badge;
+            modalBadge.textContent = badgeLabel;
+            modalBadge.className = `inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-wider mt-1 ${
+              skill.badge === 'core'
+                ? 'border-accent/40 bg-accent/10 text-accent font-semibold'
+                : skill.badge === 'advanced'
+                ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400 font-semibold'
+                : 'border-purple-500/30 bg-purple-500/10 text-purple-300 font-medium'
+            }`;
+          }
+
+          // Projects List
+          if (modalProjectsWrapper && modalProjectsList) {
+            if (skill.projectsUsed && skill.projectsUsed.length) {
+              modalProjectsWrapper.style.display = 'block';
+              modalProjectsList.innerHTML = skill.projectsUsed
+                .map((p: string) => `<span class="inline-flex items-center gap-1 rounded-lg border border-line bg-base px-2.5 py-1 text-xs text-ink font-medium">✓ ${p}</span>`)
+                .join('');
+            } else {
+              modalProjectsWrapper.style.display = 'none';
+            }
+          }
+
+          // Tools List
+          if (modalToolsWrapper && modalToolsList) {
+            if (skill.tools && skill.tools.length) {
+              modalToolsWrapper.style.display = 'block';
+              modalToolsList.innerHTML = skill.tools
+                .map((t: string) => `<span class="inline-flex items-center gap-1 rounded-lg border border-accent/20 bg-accent/5 px-2.5 py-1 text-xs font-mono text-accent"># ${t}</span>`)
+                .join('');
+            } else {
+              modalToolsWrapper.style.display = 'none';
+            }
+          }
+
+          modal.showModal();
+        });
+      });
+
+      // Close Modal Logic
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => modal.close());
+      }
+
+      modal.addEventListener('click', (e) => {
+        const rect = modal.getBoundingClientRect();
+        const isInDialog =
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width;
+        if (!isInDialog) {
+          modal.close();
+        }
+      });
+    }
   }
 
-  // Initialize on Load & ViewTransitions Swap
-  initSkillsFilter();
-  document.addEventListener('astro:page-load', initSkillsFilter);
+  // Initialize
+  initSkillsSystem();
+  document.addEventListener('astro:page-load', initSkillsSystem);
 </script>
