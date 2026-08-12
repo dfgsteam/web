@@ -10,7 +10,8 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section id="top" class="relative flex min-h-[100svh] items-center overflow-hidden pb-24 pt-32">
+<section id="top" class="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-24 pt-32">
+  <div class="hero-mesh absolute inset-0" aria-hidden="true"></div>
   <div class="grid-backdrop absolute inset-0" data-parallax="30" aria-hidden="true"></div>
   <div
     class="absolute -top-40 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-accent/25 blur-[120px]"

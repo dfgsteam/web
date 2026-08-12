@@ -7,7 +7,7 @@ interface Props {
 const { items, speed = '28s' } = Astro.props;
 ---
 
-<div class="marquee overflow-hidden border-y border-line bg-surface py-5" data-reveal="up">
+<div class="marquee relative overflow-hidden border-y border-line bg-gradient-to-r from-accent/10 via-accent-2/10 to-amber-400/10 py-5" data-reveal="up">
   <div class="marquee-track" style={{ animationDuration: speed }}>
     <ul class="flex items-center gap-10 pr-10">
       {

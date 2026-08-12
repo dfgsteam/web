@@ -12,8 +12,10 @@ interface Props {
 const { t, lang, projects } = Astro.props;
 ---
 
-<section id="projekte" class="section-spacing overflow-hidden">
-  <div class="container-page mb-16">
+<section id="projekte" class="section-spacing relative isolate overflow-hidden">
+  <div class="glow glow--pink -right-40 top-24 h-[480px] w-[480px]" aria-hidden="true"></div>
+  <div class="glow glow--emerald glow--float-slow -left-40 bottom-24 h-[400px] w-[400px]" aria-hidden="true"></div>
+  <div class="container-page relative mb-16">
     <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
       {t.projects.label}
     </p>

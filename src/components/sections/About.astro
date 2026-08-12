@@ -20,8 +20,10 @@ const factIcons = {
 const factIcon = (name: string) => factIcons[name as keyof typeof factIcons] ?? Sparkles;
 ---
 
-<section id="about" class="section-spacing relative">
-  <div class="container-page grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
+<section id="about" class="section-spacing relative isolate">
+  <div class="glow glow--violet glow--float -right-32 top-10 h-[420px] w-[420px]" aria-hidden="true"></div>
+  <div class="glow glow--pink glow--float-slow -left-40 bottom-0 h-[380px] w-[380px]" aria-hidden="true"></div>
+  <div class="container-page relative grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
     <div class="lg:sticky lg:top-32 lg:self-start">
       <p
         class="mb-4 text-xs uppercase tracking-widest text-dim"

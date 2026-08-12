@@ -21,8 +21,10 @@ const barColor: Record<SkillLevel, string> = {
 };
 ---
 
-<section id="skills" class="section-spacing border-t border-line">
-  <div class="container-page">
+<section id="skills" class="section-spacing relative isolate overflow-hidden border-t border-line">
+  <div class="glow glow--sky glow--float -left-32 top-20 h-[420px] w-[420px]" aria-hidden="true"></div>
+  <div class="glow glow--violet glow--float-slow -right-32 bottom-0 h-[380px] w-[380px]" aria-hidden="true"></div>
+  <div class="container-page relative">
     <div class="mb-16 max-w-3xl">
       <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
         {t.skills.label}
