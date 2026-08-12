@@ -12,27 +12,27 @@ const { t } = Astro.props;
 
 // List of Strengths & Keywords from AECdisc & Workstyle with weights (weight = font size importance)
 const wordsData = [
-  { text: 'MOTIVATOR', weight: 80, color: '#ef4444' }, // Red-500
-  { text: 'ORGANISATOR', weight: 75, color: '#f59e0b' }, // Amber-500
-  { text: 'FÜHRUNGSSTÄRKE', weight: 65, color: '#eab308' }, // Yellow-500
-  { text: 'TATKRAFT', weight: 60, color: '#10b981' }, // Emerald-500
-  { text: 'Kognitiver Wissensdurst', weight: 45, color: '#a855f7' }, // Purple-500
-  { text: 'Entschlussfreude', weight: 42, color: '#f43f5e' }, // Rose-500
-  { text: 'Analytische Präzision', weight: 38, color: '#06b6d4' }, // Cyan-500
-  { text: 'Ergebnisorientiert', weight: 48, color: '#ef4444' }, // Red-500
-  { text: 'Eigeninitiative', weight: 40, color: '#22d3ee' }, // Cyan-400
-  { text: 'Innovation', weight: 45, color: '#c084fc' }, // Purple-400
-  { text: 'Begeisterungsfähigkeit', weight: 35, color: '#34d399' }, // Emerald-400
-  { text: 'Strukturierte Umsetzung', weight: 38, color: '#f87171' }, // Red-400
-  { text: 'Verlässlichkeit', weight: 30, color: '#fbbf24' }, // Amber-400
-  { text: 'Autodidaktik', weight: 32, color: '#818cf8' }, // Indigo-400
-  { text: 'Python & PHP', weight: 28, color: '#34d399' }, // Emerald-400
-  { text: 'Aufgabenfokus', weight: 26, color: '#a78bfa' }, // Purple-400
-  { text: 'Web-Apps', weight: 32, color: '#38bdf8' }, // Sky-400
-  { text: 'Weitblick', weight: 25, color: '#22d3ee' }, // Cyan-400
-  { text: 'Flexibilität', weight: 28, color: '#e879f9' }, // Fuchsia-400
-  { text: 'Glasfaserausbau', weight: 22, color: '#94a3b8' }, // Slate-400
-  { text: 'Prozessoptimierung', weight: 20, color: '#64748b' }, // Slate-500
+  { text: 'MOTIVATOR', weight: 75, color: '#ef4444' }, // Red-500
+  { text: 'ORGANISATOR', weight: 68, color: '#f59e0b' }, // Amber-500
+  { text: 'FÜHRUNGSSTÄRKE', weight: 56, color: '#eab308' }, // Yellow-500
+  { text: 'TATKRAFT', weight: 52, color: '#10b981' }, // Emerald-500
+  { text: 'Kognitiver Wissensdurst', weight: 38, color: '#a855f7' }, // Purple-500
+  { text: 'Entschlussfreude', weight: 36, color: '#f43f5e' }, // Rose-500
+  { text: 'Analytische Präzision', weight: 34, color: '#06b6d4' }, // Cyan-500
+  { text: 'Ergebnisorientiert', weight: 42, color: '#ef4444' }, // Red-500
+  { text: 'Eigeninitiative', weight: 34, color: '#22d3ee' }, // Cyan-400
+  { text: 'Innovation', weight: 38, color: '#c084fc' }, // Purple-400
+  { text: 'Begeisterungsfähigkeit', weight: 30, color: '#34d399' }, // Emerald-400
+  { text: 'Strukturierte Umsetzung', weight: 32, color: '#f87171' }, // Red-400
+  { text: 'Verlässlichkeit', weight: 26, color: '#fbbf24' }, // Amber-400
+  { text: 'Autodidaktik', weight: 28, color: '#818cf8' }, // Indigo-400
+  { text: 'Python & PHP', weight: 24, color: '#34d399' }, // Emerald-400
+  { text: 'Aufgabenfokus', weight: 22, color: '#a78bfa' }, // Purple-400
+  { text: 'Web-Apps', weight: 26, color: '#38bdf8' }, // Sky-400
+  { text: 'Weitblick', weight: 22, color: '#22d3ee' }, // Cyan-400
+  { text: 'Flexibilität', weight: 24, color: '#e879f9' }, // Fuchsia-400
+  { text: 'Glasfaserausbau', weight: 20, color: '#94a3b8' }, // Slate-400
+  { text: 'Prozessoptimierung', weight: 18, color: '#64748b' }, // Slate-500
 ];
 ---
 
@@ -49,7 +49,7 @@ const wordsData = [
   </div>
 
   <!-- Ambient Central Cloud Glow Orb -->
-  <div class="glow glow--violet glow--float left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] opacity-40 pointer-events-none" aria-hidden="true"></div>
+  <div class="glow glow--violet glow--float left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[550px] w-[550px] opacity-40 pointer-events-none" aria-hidden="true"></div>
 
   <!-- Sticky Content Wrapper -->
   <div class="container-page relative z-10 section-spacing md:sticky md:top-16 md:py-12">
@@ -58,13 +58,13 @@ const wordsData = [
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
           <Brain class="size-3.5 text-accent" />
-          <span>AECdisc® Algorithmische Stärken-Wolke (d3-cloud)</span>
+          <span>AECdisc® Algorithmische Stärken-Wolke</span>
         </div>
         <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
           Arbeitsweise & Stärkenwolke.
         </h2>
         <p class="mt-2 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
-          Per Kollisions-Algorithmus (`d3-cloud`) berechnete Wortwolke – schrittweise per Scroll sichtbar.
+          Mathematisch berechnete Wortwolke – schrittweise per Scroll aufbauend.
         </p>
       </div>
 
@@ -75,12 +75,12 @@ const wordsData = [
       </div>
     </div>
 
-    <!-- D3-CLOUD SVG WORD CLOUD CONTAINER -->
-    <div class="relative mx-auto max-w-5xl py-4 select-none text-center flex flex-col items-center justify-center min-h-[420px]" id="d3-cloud-wrapper">
-      <svg id="d3-cloud-svg" class="w-full max-w-4xl h-[420px] overflow-visible pointer-events-auto"></svg>
+    <!-- D3-CLOUD SVG WORD CLOUD CONTAINER (Clamped & Overflow Hidden) -->
+    <div class="relative mx-auto max-w-5xl py-2 select-none text-center flex flex-col items-center justify-center min-h-[420px]" id="d3-cloud-wrapper">
+      <svg id="d3-cloud-svg" class="w-full max-w-4xl h-[420px] overflow-hidden pointer-events-auto rounded-2xl"></svg>
 
       <!-- Bottom Profile Subtitle Tag -->
-      <div class="mt-6 flex items-center justify-center gap-4 text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto w-full">
+      <div class="mt-4 flex items-center justify-center gap-4 text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto w-full">
         <span>AECdisc® Potenzialanalyse</span>
         <span>·</span>
         <span class="text-ink font-semibold">Julius Hunold · Motivator & Organisator</span>
@@ -94,24 +94,24 @@ const wordsData = [
 
   const rawWords = [
     { text: 'MOTIVATOR', weight: 75, color: '#ef4444' },
-    { text: 'ORGANISATOR', weight: 70, color: '#f59e0b' },
-    { text: 'FÜHRUNGSSTÄRKE', weight: 58, color: '#eab308' },
-    { text: 'TATKRAFT', weight: 55, color: '#10b981' },
-    { text: 'Kognitiver Wissensdurst', weight: 40, color: '#a855f7' },
-    { text: 'Entschlussfreude', weight: 38, color: '#f43f5e' },
+    { text: 'ORGANISATOR', weight: 68, color: '#f59e0b' },
+    { text: 'FÜHRUNGSSTÄRKE', weight: 56, color: '#eab308' },
+    { text: 'TATKRAFT', weight: 52, color: '#10b981' },
+    { text: 'Kognitiver Wissensdurst', weight: 38, color: '#a855f7' },
+    { text: 'Entschlussfreude', weight: 36, color: '#f43f5e' },
     { text: 'Analytische Präzision', weight: 34, color: '#06b6d4' },
-    { text: 'Ergebnisorientiert', weight: 44, color: '#ef4444' },
-    { text: 'Eigeninitiative', weight: 36, color: '#22d3ee' },
-    { text: 'Innovation', weight: 42, color: '#c084fc' },
-    { text: 'Begeisterungsfähigkeit', weight: 32, color: '#34d399' },
-    { text: 'Strukturierte Umsetzung', weight: 34, color: '#f87171' },
-    { text: 'Verlässlichkeit', weight: 28, color: '#fbbf24' },
-    { text: 'Autodidaktik', weight: 30, color: '#818cf8' },
-    { text: 'Python & PHP', weight: 26, color: '#34d399' },
-    { text: 'Aufgabenfokus', weight: 24, color: '#a78bfa' },
-    { text: 'Web-Apps', weight: 28, color: '#38bdf8' },
-    { text: 'Weitblick', weight: 24, color: '#22d3ee' },
-    { text: 'Flexibilität', weight: 26, color: '#e879f9' },
+    { text: 'Ergebnisorientiert', weight: 42, color: '#ef4444' },
+    { text: 'Eigeninitiative', weight: 34, color: '#22d3ee' },
+    { text: 'Innovation', weight: 38, color: '#c084fc' },
+    { text: 'Begeisterungsfähigkeit', weight: 30, color: '#34d399' },
+    { text: 'Strukturierte Umsetzung', weight: 32, color: '#f87171' },
+    { text: 'Verlässlichkeit', weight: 26, color: '#fbbf24' },
+    { text: 'Autodidaktik', weight: 28, color: '#818cf8' },
+    { text: 'Python & PHP', weight: 24, color: '#34d399' },
+    { text: 'Aufgabenfokus', weight: 22, color: '#a78bfa' },
+    { text: 'Web-Apps', weight: 26, color: '#38bdf8' },
+    { text: 'Weitblick', weight: 22, color: '#22d3ee' },
+    { text: 'Flexibilität', weight: 24, color: '#e879f9' },
     { text: 'Glasfaserausbau', weight: 20, color: '#94a3b8' },
     { text: 'Prozessoptimierung', weight: 18, color: '#64748b' },
   ];
@@ -137,11 +137,12 @@ const wordsData = [
       color: d.color,
     }));
 
+    // Only rotate short single words like ORGANISATOR or TATKRAFT, NEVER long multi-word phrases like Analytische Präzision!
     const layout = cloud()
-      .size([width, height])
+      .size([width - 40, height - 40])
       .words(wordItems)
-      .padding(8)
-      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'FÜHRUNGSSTÄRKE' || d.text === 'Analytische Präzision' ? -90 : 0))
+      .padding(10)
+      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'TATKRAFT' ? -90 : 0))
       .font('Inter, sans-serif')
       .fontSize((d) => (d as any).size)
       .on('end', draw);
@@ -155,7 +156,7 @@ const wordsData = [
 
       const textElements: SVGTextElement[] = [];
 
-      words.forEach((item, idx) => {
+      words.forEach((item) => {
         const textNode = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         textNode.setAttribute('text-anchor', 'middle');
         textNode.setAttribute('transform', `translate(${item.x},${item.y}) rotate(${item.rotate})`);
