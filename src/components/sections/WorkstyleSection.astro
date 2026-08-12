@@ -37,9 +37,9 @@ const { t } = Astro.props;
       </p>
     </div>
 
-    <!-- HIGH-DENSITY WORDCLOUD2 CANVAS CONTAINER (wordcloud npm package) -->
-    <div class="relative mx-auto w-full py-2 select-none text-center flex flex-col items-center justify-center min-h-[520px]" id="wordcloud-wrapper">
-      <canvas id="wordcloud-canvas" class="w-full max-w-7xl h-[520px] rounded-2xl pointer-events-auto transition-opacity duration-700 opacity-90"></canvas>
+    <!-- HIGH-DENSITY WORDCLOUD2 CANVAS CONTAINER (wordcloud npm package with shape) -->
+    <div class="relative mx-auto w-full py-2 select-none text-center flex flex-col items-center justify-center min-h-[540px]" id="wordcloud-wrapper">
+      <canvas id="wordcloud-canvas" class="w-full max-w-7xl h-[540px] rounded-2xl pointer-events-auto transition-opacity duration-700 opacity-90"></canvas>
 
       <!-- Bottom Profile Tag -->
       <div class="mt-4 flex items-center justify-center text-xs font-mono text-dim border-t border-line/40 pt-3 max-w-md mx-auto w-full">
@@ -185,7 +185,7 @@ const { t } = Astro.props;
 
     // Set resolution to match physical viewport width
     const width = Math.min(1280, container.clientWidth || window.innerWidth - 32);
-    const height = 520;
+    const height = 540;
 
     canvas.width = width;
     canvas.height = height;
@@ -204,9 +204,10 @@ const { t } = Astro.props;
 
     WordCloud(canvas, {
       list: wordList,
-      gridSize: Math.round(10 * width / 1024),
+      shape: 'circle', // Organic circular/ellipse cloud silhouette!
+      gridSize: Math.round(8 * width / 1024),
       weightFactor: function (size) {
-        return Math.pow(size, 1.15) * (width / 1100);
+        return Math.pow(size, 1.2) * (width / 1100);
       },
       fontFamily: 'Inter, sans-serif',
       color: function () {
