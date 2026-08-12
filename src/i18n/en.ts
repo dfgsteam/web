@@ -230,46 +230,46 @@ export const en: Dict = {
     published: 'Published on',
   },
   infra: {
-    label: 'Infrastructure & Self-Hosting',
-    heading: 'Servers, Containers & CI/CD.',
+    label: 'Availability & Infrastructure',
+    heading: 'Reliable, fast & modern hosting.',
     subheading:
-      'Modern software development goes far beyond writing code. My web applications run on a high-performance, self-hosted Linux & Docker infrastructure.',
+      'Modern web applications need a rock-solid foundation. I ensure websites and apps stay fast, secure, and available 24/7 with zero downtime.',
+    status: {
+      online: 'Operational',
+      degraded: 'Maintenance',
+    },
     features: [
       {
-        title: 'Docker & Microservices',
+        title: 'Security & SSL Protection',
         description:
-          'Isolated container environments using multi-stage builds and lightweight Nginx/Node/PHP runtime images.',
+          'Modern Let’s Encrypt SSL encryption, firewalls, and isolated container environments protect user and customer data.',
       },
       {
-        title: 'CI/CD via GitHub Actions',
+        title: 'Automated Updates (CI/CD)',
         description:
-          'Automated type checks, linting, and container image builds with direct deployment to GHCR on git push.',
+          'New code is automatically tested and deployed live on every update without any service downtime.',
       },
       {
-        title: 'Nginx Proxy Manager & TLS',
+        title: 'Maximum Speed & Caching',
         description:
-          'Central reverse proxy instance handling automated Let’s Encrypt SSL certificates, custom routes & HTTP/2.',
+          'Optimized Nginx webservers and Redis in-memory caching deliver page responses in milliseconds.',
       },
       {
-        title: 'Zero-Downtime & Watchtower',
+        title: 'Reliable Databases',
         description:
-          'Automated pull & rolling update setup for fresh production images without any service downtime.',
+          'Structured PostgreSQL databases store business data safely with automated backups and high reliability.',
       },
       {
-        title: 'Linux Homelab Multi-Node',
+        title: 'Scalable S3 Cloud Storage',
         description:
-          'Self-hosted nodes (docker3/docker4), secured with SSH-key authentication, UFW firewall, and isolated subnets.',
+          'Images, uploads, and documents are stored and delivered from scalable MinIO S3 Object Storage.',
       },
       {
-        title: 'Performance & Caching',
+        title: '24/7 Stability & Monitoring',
         description:
-          'Static asset caching, Gzip/Brotli compression, and strict security headers (HSTS, Content Security Policy).',
+          'Continuous health monitoring ensures servers remain stable and any issues are instantly resolved.',
       },
     ],
-    status: {
-      online: 'ONLINE',
-      uptime: '99.9% Uptime',
-    },
   },
   services: {
     label: 'Services & Inquiry',

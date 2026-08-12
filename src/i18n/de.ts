@@ -228,46 +228,46 @@ export const de = {
     published: 'Veröffentlicht am',
   },
   infra: {
-    label: 'Infrastruktur & Self-Hosting',
-    heading: 'Server, Container & CI/CD.',
+    label: 'Verfügbarkeit & Infrastruktur',
+    heading: 'Ausfallsicher, schnell & modern gehostet.',
     subheading:
-      'Moderne Software-Entwicklung endet nicht beim Code. Meine eigenen Web-Apps laufen auf einer performanten, selbstgehosteten Linux- & Docker-Infrastruktur.',
+      'Moderne Webanwendungen brauchen ein solides Fundament. Ich sorge dafür, dass Websites und Anwendungen rund um die Uhr schnell, sicher und ohne Ausfallzeiten erreichbar sind.',
+    status: {
+      online: 'Betriebsbereit',
+      degraded: 'Wartung',
+    },
     features: [
       {
-        title: 'Docker & Microservices',
+        title: 'Sicherheit & SSL-Schutz',
         description:
-          'Isolierte Container-Environments mit Multi-Stage-Builds und minimalen Nginx/Node/PHP Runtime-Images.',
+          'Moderne Let’s Encrypt SSL-Verschlüsselung, UFW-Firewalls und isolierte Container schützen Nutzer- und Kundendaten.',
       },
       {
-        title: 'CI/CD mit GitHub Actions',
+        title: 'Automatische Updates (CI/CD)',
         description:
-          'Automatisierte Type-Checks, Linting und Container-Image-Builds mit direktem Deploy nach GHCR bei Git-Push.',
+          'Neuer Code wird bei jedem Push automatisch getestet und ohne Unterbrechungen oder Ausfallzeiten (Zero-Downtime) live eingespielt.',
       },
       {
-        title: 'Nginx Proxy Manager & TLS',
+        title: 'Höchste Performance & Speed',
         description:
-          'Zentrale Reverse-Proxy-Instanz für automatisierte Let’s Encrypt SSL-Zertifikate, Custom Routes & HTTP/2.',
+          'Durch optimierte Nginx-Webserver und Redis-Zwischenspeicher laden Seiten in Millisekunden und reagieren ohne Verzögerung.',
       },
       {
-        title: 'Zero-Downtime & Watchtower',
+        title: 'Ausfallsichere Datenbanken',
         description:
-          'Automatisiertes Pull- & Rolling-Update-Setup für frische Production-Images ohne Ausfallzeiten.',
+          'Strukturierte PostgreSQL-Datenbanken speichern Kundendaten zuverlässig, ausfallsicher und mit Datensicherungen.',
       },
       {
-        title: 'Linux Homelab Multi-Node',
+        title: 'Skalierbarer Cloud-Speicher (S3)',
         description:
-          'Gehostete Nodes (docker3/docker4), abgesichert per SSH-Key-Only, UFW-Firewall und isolierten Subnetzen.',
+          'Bilder, Uploads und Dokumente werden in einem hochverfügbaren MinIO S3 Object Storage gespeichert.',
       },
       {
-        title: 'Performance & Caching',
+        title: '24/7 Monitoring & Stabilität',
         description:
-          'Static-Asset-Caching, Gzip/Brotli-Kompression und strikte Security-Header (HSTS, Content Security Policy).',
+          'Kontinuierliche Systemprüfungen stellen sicher, dass alle Server stabil laufen und Störungen sofort erkannt werden.',
       },
     ],
-    status: {
-      online: 'ONLINE',
-      uptime: '99.9% Uptime',
-    },
   },
   services: {
     label: 'Leistungen & Anfrage',
