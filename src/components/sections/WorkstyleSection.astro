@@ -1,4 +1,5 @@
 ---
+import { Brain, Zap, Target, Award, Sparkles } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { PORTFOLIO_IMAGE } from '../../lib/site';
 
@@ -8,9 +9,57 @@ interface Props {
 }
 
 const { t } = Astro.props;
+
+// Curated 50 High-Impact Profiling Strengths & Attributes for Ultra-Wide Wall
+const strengthsList = [
+  { text: 'MOTIVATOR', highlight: true, color: 'border-red-500/50 bg-red-500/10 text-red-400 text-2xl md:text-3xl font-black' },
+  { text: 'ORGANISATOR', highlight: true, color: 'border-amber-500/50 bg-amber-500/10 text-amber-400 text-2xl md:text-3xl font-black' },
+  { text: 'FÜHRUNGSSTÄRKE', highlight: true, color: 'border-yellow-500/50 bg-yellow-500/10 text-yellow-400 text-xl md:text-2xl font-black' },
+  { text: 'TATKRAFT (76%)', highlight: true, color: 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400 text-xl md:text-2xl font-extrabold' },
+  { text: 'KOGNITIVER WISSENSDURST', highlight: true, color: 'border-purple-500/50 bg-purple-500/10 text-purple-400 text-xl md:text-2xl font-extrabold' },
+  { text: 'Analytische Präzision', color: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300 text-lg md:text-xl font-bold' },
+  { text: 'Pragmatische Lösungen', color: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-lg md:text-xl font-bold' },
+  { text: 'Autodidaktik & Expertise', color: 'border-indigo-500/40 bg-indigo-500/10 text-indigo-300 text-lg md:text-xl font-bold' },
+  { text: 'Kreative Originalität', color: 'border-purple-500/40 bg-purple-500/10 text-purple-300 text-lg md:text-xl font-bold' },
+  { text: 'Eigeninitiative', color: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300 text-lg md:text-xl font-bold' },
+  { text: 'Ergebnisorientierung', color: 'border-red-500/40 bg-red-500/10 text-red-300 text-lg md:text-xl font-bold' },
+  { text: 'Intuitive Herangehensweise', color: 'border-sky-500/40 bg-sky-500/10 text-sky-300 text-base md:text-lg font-bold' },
+  { text: 'Hohe Zielsetzungen', color: 'border-rose-500/40 bg-rose-500/10 text-rose-300 text-base md:text-lg font-bold' },
+  { text: 'Gespür für Dringlichkeiten', color: 'border-amber-500/40 bg-amber-500/10 text-amber-300 text-base md:text-lg font-bold' },
+  { text: 'Enthusiasmus & Dynamik', color: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300 text-base md:text-lg font-bold' },
+  { text: 'Autonomie & Unabhängigkeit', color: 'border-indigo-500/40 bg-indigo-500/10 text-indigo-300 text-base md:text-lg font-bold' },
+  { text: 'Daten- & Faktenfokus', color: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300 text-base md:text-lg font-bold' },
+  { text: 'Innovationsdrang', color: 'border-purple-500/40 bg-purple-500/10 text-purple-300 text-base md:text-lg font-bold' },
+  { text: 'Abwechslungsreiche Aufgaben', color: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-base md:text-lg font-semibold' },
+  { text: 'Verlässlichkeit', color: 'border-amber-500/40 bg-amber-500/10 text-amber-300 text-base md:text-lg font-semibold' },
+  { text: 'Objektive Wahrheit', color: 'border-slate-500/40 bg-slate-500/10 text-slate-300 text-base md:text-lg font-semibold' },
+  { text: 'Prozessoptimierung', color: 'border-slate-500/40 bg-slate-500/10 text-slate-300 text-base md:text-lg font-semibold' },
+  { text: 'Web-Engineering', color: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300 text-base md:text-lg font-semibold' },
+  { text: 'Systemarchitektur', color: 'border-purple-500/40 bg-purple-500/10 text-purple-300 text-base md:text-lg font-semibold' },
+  { text: 'Extrovertierter Drive', color: 'border-red-500/40 bg-red-500/10 text-red-300 text-base md:text-lg font-semibold' },
+  { text: 'Optimismus & Charisma', color: 'border-amber-500/40 bg-amber-500/10 text-amber-300 text-base md:text-lg font-semibold' },
+  { text: 'Systematisches Denken', color: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-base md:text-lg font-semibold' },
+  { text: 'Zielstrebigkeit', color: 'border-rose-500/40 bg-rose-500/10 text-rose-300 text-base md:text-lg font-semibold' },
+  { text: 'Handlungsstärke', color: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-base md:text-lg font-semibold' },
+  { text: 'Strategischer Weitblick', color: 'border-purple-500/40 bg-purple-500/10 text-purple-300 text-base md:text-lg font-semibold' },
+  { text: 'Ressourceneffizienz', color: 'border-amber-500/40 bg-amber-500/10 text-amber-300 text-base md:text-lg font-semibold' },
+  { text: 'Schnelle Auffassungsgabe', color: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300 text-base md:text-lg font-semibold' },
+  { text: 'Durchsetzungsvermögen', color: 'border-yellow-500/40 bg-yellow-500/10 text-yellow-300 text-base md:text-lg font-semibold' },
+  { text: 'Strukturierte Abläufe', color: 'border-red-500/40 bg-red-500/10 text-red-300 text-base md:text-lg font-semibold' },
+  { text: 'Flexibilität & Wandel', color: 'border-fuchsia-500/40 bg-fuchsia-500/10 text-fuchsia-300 text-base md:text-lg font-semibold' },
+  { text: 'Python & FastAPI', color: 'border-sky-500/40 bg-sky-500/10 text-sky-300 text-base md:text-lg font-semibold' },
+  { text: 'TypeScript & Astro', color: 'border-indigo-500/40 bg-indigo-500/10 text-indigo-300 text-base md:text-lg font-semibold' },
+  { text: 'Docker & Linux Infrastructure', color: 'border-amber-500/40 bg-amber-500/10 text-amber-300 text-base md:text-lg font-semibold' },
+  { text: 'OpenAI API & Lokale LLMs', color: 'border-purple-500/40 bg-purple-500/10 text-purple-300 text-base md:text-lg font-semibold' },
+  { text: 'Glasfaserausbau & Netzplanung', color: 'border-slate-500/40 bg-slate-500/10 text-slate-300 text-base md:text-lg font-semibold' },
+  { text: 'Kein Leerlauf', color: 'border-red-500/40 bg-red-500/10 text-red-300 text-sm md:text-base font-semibold' },
+  { text: 'Mehrere Projekte parallel', color: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-300 text-sm md:text-base font-semibold' },
+  { text: 'Komplexität meistern', color: 'border-purple-500/40 bg-purple-500/10 text-purple-300 text-sm md:text-base font-semibold' },
+  { text: 'Hands-on Mentalität', color: 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-sm md:text-base font-semibold' },
+];
 ---
 
-<section id="workstyle" class="relative isolate border-t border-line md:min-h-[160vh]">
+<section id="workstyle" class="relative isolate border-t border-line md:min-h-[150vh]">
   <!-- Full-Width Parallax Scroll Background Image Overlay -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <img
@@ -22,260 +71,124 @@ const { t } = Astro.props;
     <div class="absolute inset-0 bg-gradient-to-b from-base via-base/90 to-base"></div>
   </div>
 
-  <!-- Ambient Central Cloud Glow Orb -->
-  <div class="glow glow--violet glow--float left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[650px] w-[650px] opacity-40 pointer-events-none" aria-hidden="true"></div>
+  <!-- Ambient Central Glow Orbs -->
+  <div class="glow glow--violet glow--float -left-20 top-1/3 h-[600px] w-[600px] opacity-35 pointer-events-none" aria-hidden="true"></div>
+  <div class="glow glow--sky glow--float-slow -right-20 bottom-1/4 h-[550px] w-[550px] opacity-35 pointer-events-none" aria-hidden="true"></div>
 
-  <!-- Sticky Content Wrapper (Expansive max-w-7xl layout for wide screens) -->
-  <div class="container-page max-w-7xl relative z-10 section-spacing md:sticky md:top-16 md:py-10">
+  <!-- ULTRA-WIDE FULL-WIDTH STICKY CONTAINER (1400px width) -->
+  <div class="w-full max-w-[1400px] mx-auto px-4 md:px-8 relative z-10 section-spacing md:sticky md:top-16 md:py-10">
     <!-- Header -->
-    <div class="mb-4 max-w-3xl">
-      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
-        Arbeitsweise & Fokus.
-      </h2>
-      <p class="mt-2 text-base text-mute leading-relaxed md:text-lg" data-reveal="up" data-reveal-delay="0.1">
-        Pragmatische Umsetzung, analytische Präzision und Führungsstärke auf den Punkt gebracht.
-      </p>
+    <div class="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4 border-b border-line/40 pb-6">
+      <div class="max-w-3xl">
+        <span class="block text-xs uppercase tracking-widest text-accent font-mono mb-2">Persönlichkeit & Profiling</span>
+        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+          Arbeitsweise & Fokus.
+        </h2>
+        <p class="mt-2 text-base text-mute leading-relaxed md:text-lg" data-reveal="up" data-reveal-delay="0.1">
+          Pragmatische Umsetzung, analytische Präzision und Führungsstärke auf den Punkt gebracht.
+        </p>
+      </div>
+
+      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0 shadow-md">
+        <Sparkles class="size-4 text-accent" />
+        <span class="text-ink font-semibold">Julius Hunold · Motivator & Organisator</span>
+      </div>
     </div>
 
-    <!-- EXPANSIVE D3-CLOUD HIGH DENSITY SVG WORD CLOUD CONTAINER -->
-    <div class="relative mx-auto w-full py-2 select-none text-center flex flex-col items-center justify-center min-h-[520px]" id="d3-cloud-wrapper">
-      <svg id="d3-cloud-svg" class="w-full max-w-7xl h-[520px] overflow-hidden pointer-events-auto rounded-2xl"></svg>
+    <!-- TOP 2 HERO PROFILE CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <!-- Motivator Card -->
+      <div class="rounded-3xl border border-red-500/30 bg-gradient-to-br from-surface/95 via-surface/90 to-red-500/10 p-7 md:p-8 shadow-xl backdrop-blur-md">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <Zap class="size-6 text-red-400" />
+            <span class="text-xs font-mono tracking-wider text-red-400 uppercase font-bold">Haupttyp</span>
+          </div>
+          <span class="text-xs font-mono text-dim border border-red-500/30 px-3 py-1 rounded-full">Tatkraft 76% · Einfluss 73%</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-black text-ink mb-2">MOTIVATOR</h3>
+        <p class="text-sm text-mute leading-relaxed">
+          Starker Entschluss- und Taten-Drive. Begeistert Teams für innovative Projekte, übernimmt Verantwortung und treibt Veränderung ohne Leerlauf voran.
+        </p>
+      </div>
 
-      <!-- Bottom Profile Tag -->
-      <div class="mt-4 flex items-center justify-center text-xs font-mono text-dim border-t border-line/40 pt-3 max-w-md mx-auto w-full">
-        <span class="text-ink font-semibold">Julius Hunold · Motivator & Organisator</span>
+      <!-- Organisator Card -->
+      <div class="rounded-3xl border border-amber-500/30 bg-gradient-to-br from-surface/95 via-surface/90 to-amber-500/10 p-7 md:p-8 shadow-xl backdrop-blur-md">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <Brain class="size-6 text-amber-400" />
+            <span class="text-xs font-mono tracking-wider text-amber-400 uppercase font-bold">Angepasster Typ</span>
+          </div>
+          <span class="text-xs font-mono text-dim border border-amber-500/30 px-3 py-1 rounded-full">Kognitiv 71/100 · Führung 77%</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-black text-ink mb-2">ORGANISATOR</h3>
+        <p class="text-sm text-mute leading-relaxed">
+          Kombiniert den Motivator-Drive mit strukturierter Präzision. Stützt sich auf Daten, Fakten & logische Systemarchitekturen für verlässliche Ergebnisse.
+        </p>
+      </div>
+    </div>
+
+    <!-- ULTRA-WIDE STRENGTHS WALL GRID (Spans 1400px width) -->
+    <div class="w-full relative select-none">
+      <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 py-4" id="strengths-wall">
+        {
+          strengthsList.map((item, idx) => (
+            <div
+              data-strength-index={idx}
+              class={`strength-pill cursor-default rounded-2xl border px-4 py-2.5 md:px-5 md:py-3 shadow-lg backdrop-blur-md transition-all duration-700 ease-out hover:scale-105 hover:z-20 ${item.color}`}
+            >
+              <span>{item.text}</span>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  import cloud from 'd3-cloud';
-
-  // 120+ Curated Strengths, Behavioral Traits & Tech Terms
-  const rawWords = [
-    // Hero Core
-    { text: 'MOTIVATOR', weight: 65, color: '#ef4444' },
-    { text: 'ORGANISATOR', weight: 58, color: '#f59e0b' },
-    { text: 'FÜHRUNGSSTÄRKE', weight: 52, color: '#eab308' },
-    { text: 'TATKRAFT', weight: 48, color: '#10b981' },
-    { text: 'EIGENINITIATIVE', weight: 44, color: '#06b6d4' },
-    { text: 'ENTSCHLUSSFREUDE', weight: 42, color: '#f43f5e' },
-    { text: 'Autodidaktik', weight: 38, color: '#818cf8' },
-    { text: 'Pragmatische Lösungen', weight: 36, color: '#10b981' },
-    { text: 'Kreative Originalität', weight: 34, color: '#c084fc' },
-    { text: 'Kognitiver Wissensdurst', weight: 35, color: '#a855f7' },
-    { text: 'Ergebnisorientiert', weight: 40, color: '#ef4444' },
-    { text: 'Intuitive Herangehensweise', weight: 32, color: '#38bdf8' },
-    { text: 'Hohe Zielsetzungen', weight: 32, color: '#f43f5e' },
-    { text: 'Gespür für Dringlichkeiten', weight: 30, color: '#f59e0b' },
-    { text: 'Enthusiasmus & Dynamik', weight: 30, color: '#22d3ee' },
-    { text: 'Autonomie & Unabhängigkeit', weight: 28, color: '#818cf8' },
-    { text: 'Daten & Fakten', weight: 28, color: '#06b6d4' },
-    { text: 'Innovationsdrang', weight: 32, color: '#c084fc' },
-    { text: 'Analytische Präzision', weight: 30, color: '#38bdf8' },
-    
-    // Medium Attributes & Workstyle Principles
-    { text: 'Projektkoordination', weight: 26, color: '#38bdf8' },
-    { text: 'Abwechslungsreiche Aufgaben', weight: 24, color: '#34d399' },
-    { text: 'Verlässlichkeit', weight: 22, color: '#fbbf24' },
-    { text: 'Objektive Wahrheit', weight: 20, color: '#94a3b8' },
-    { text: 'Prozessoptimierung', weight: 22, color: '#64748b' },
-    { text: 'Web-Engineering', weight: 24, color: '#06b6d4' },
-    { text: 'Systemarchitektur', weight: 22, color: '#a855f7' },
-    { text: 'Lösungsorientierung', weight: 26, color: '#10b981' },
-    { text: 'Veränderungsbereitschaft', weight: 20, color: '#f43f5e' },
-    { text: 'Extrovertierter Drive', weight: 22, color: '#ef4444' },
-    { text: 'Optimismus & Charisma', weight: 24, color: '#f59e0b' },
-    { text: 'Fachwissen aufbauen', weight: 20, color: '#818cf8' },
-    { text: 'Flexibilität', weight: 22, color: '#e879f9' },
-    { text: 'Unabhängiges Arbeiten', weight: 20, color: '#38bdf8' },
-    { text: 'Systematisches Denken', weight: 20, color: '#34d399' },
-    { text: 'Zielstrebigkeit', weight: 24, color: '#f43f5e' },
-    { text: 'Handlungsstärke', weight: 22, color: '#10b981' },
-    { text: 'Strategischer Weitblick', weight: 22, color: '#c084fc' },
-    { text: 'Ressourceneffizienz', weight: 18, color: '#fbbf24' },
-    { text: 'Schnelle Auffassungsgabe', weight: 22, color: '#06b6d4' },
-    { text: 'Durchsetzungsvermögen', weight: 20, color: '#eab308' },
-    { text: 'Strukturierte Abläufe', weight: 20, color: '#f87171' },
-    { text: 'Entschlusskraft', weight: 22, color: '#ef4444' },
-    { text: 'Anpassungsfähigkeit', weight: 18, color: '#a78bfa' },
-
-    // Technical & Domain Expertise Terms
-    { text: 'Python', weight: 22, color: '#38bdf8' },
-    { text: 'TypeScript', weight: 22, color: '#818cf8' },
-    { text: 'Astro.js', weight: 20, color: '#c084fc' },
-    { text: 'Docker', weight: 20, color: '#38bdf8' },
-    { text: 'Linux', weight: 18, color: '#f59e0b' },
-    { text: 'Hetzner Servers', weight: 18, color: '#ef4444' },
-    { text: 'PostgreSQL', weight: 18, color: '#818cf8' },
-    { text: 'TailwindCSS', weight: 18, color: '#06b6d4' },
-    { text: 'REST APIs', weight: 18, color: '#34d399' },
-    { text: 'OpenAI API', weight: 20, color: '#a855f7' },
-    { text: 'Ollama', weight: 18, color: '#22d3ee' },
-    { text: 'DevOps', weight: 18, color: '#f43f5e' },
-    { text: 'Git & GitHub', weight: 18, color: '#fbbf24' },
-    { text: 'CI/CD Pipelines', weight: 18, color: '#10b981' },
-    { text: 'Glasfaserausbau', weight: 20, color: '#94a3b8' },
-    { text: 'Netzplanung', weight: 18, color: '#64748b' },
-    { text: 'PHP', weight: 18, color: '#818cf8' },
-    { text: 'Node.js', weight: 18, color: '#34d399' },
-    { text: 'Systemtests', weight: 16, color: '#94a3b8' },
-    { text: 'Refactoring', weight: 16, color: '#38bdf8' },
-    { text: 'Code Quality', weight: 18, color: '#10b981' },
-    { text: 'FastAPI', weight: 18, color: '#06b6d4' },
-    { text: 'Automatisierung', weight: 20, color: '#c084fc' },
-    { text: 'Troubleshooting', weight: 16, color: '#f59e0b' },
-    { text: 'Prototyping', weight: 18, color: '#e879f9' },
-
-    // Micro & Secondary Nuances
-    { text: 'Kein Leerlauf', weight: 18, color: '#ef4444' },
-    { text: 'Veränderung treiben', weight: 18, color: '#f43f5e' },
-    { text: 'Hohe Dynamik', weight: 18, color: '#22d3ee' },
-    { text: 'Komplexität meistern', weight: 18, color: '#a855f7' },
-    { text: 'Neue Wege gehen', weight: 18, color: '#34d399' },
-    { text: 'Kommunikation', weight: 20, color: '#fbbf24' },
-    { text: 'Keine Monotonie', weight: 16, color: '#f87171' },
-    { text: 'Projekte parallel', weight: 18, color: '#06b6d4' },
-    { text: 'Zielstrebigkeit', weight: 18, color: '#10b981' },
-    { text: 'Objektive Fakten', weight: 16, color: '#94a3b8' },
-    { text: 'Konkrete Ergebnisse', weight: 18, color: '#ef4444' },
-    { text: 'Führungsanspruch', weight: 18, color: '#eab308' },
-    { text: 'Direktes Handeln', weight: 18, color: '#f59e0b' },
-    { text: 'Unternehmensgeist', weight: 18, color: '#c084fc' },
-    { text: 'Hoher Anspruch', weight: 16, color: '#818cf8' },
-    { text: 'Wissenschaftlich', weight: 16, color: '#38bdf8' },
-    { text: 'Keine Grenzen', weight: 14, color: '#e879f9' },
-    { text: 'Mut zum Risiko', weight: 16, color: '#f43f5e' },
-    { text: 'Humor & Freude', weight: 16, color: '#fbbf24' },
-    { text: 'Wert auf Leistung', weight: 16, color: '#10b981' },
-    { text: 'Faktenbasiert', weight: 16, color: '#06b6d4' },
-    { text: 'Verantwortung', weight: 16, color: '#a855f7' },
-    { text: 'Praktischer Nutzen', weight: 16, color: '#34d399' },
-    { text: 'Kreative Impulse', weight: 16, color: '#c084fc' },
-    { text: 'Tatkräftig', weight: 18, color: '#ef4444' },
-    { text: 'Weitblick', weight: 16, color: '#22d3ee' },
-    { text: 'Performance-Fokus', weight: 16, color: '#38bdf8' },
-    { text: 'Clean Code', weight: 18, color: '#10b981' },
-    { text: 'User Experience', weight: 16, color: '#e879f9' },
-    { text: 'Agile Methoden', weight: 16, color: '#fbbf24' },
-    { text: 'Selbstständigkeit', weight: 18, color: '#818cf8' },
-    { text: 'Datenanalyse', weight: 16, color: '#06b6d4' },
-    { text: 'Problemlösungs-Drive', weight: 18, color: '#f43f5e' },
-    { text: 'Entschlossenheit', weight: 18, color: '#ef4444' },
-    { text: 'Weiterentwicklung', weight: 16, color: '#a855f7' },
-    { text: 'Hands-on', weight: 18, color: '#10b981' },
-    { text: 'Visionär', weight: 18, color: '#c084fc' },
-    { text: 'Kreativpotenzial', weight: 16, color: '#e879f9' },
-    { text: 'Effizienz steigern', weight: 16, color: '#f59e0b' },
-    { text: 'Starke Intuition', weight: 18, color: '#38bdf8' },
-    { text: 'Zukunftsorientiert', weight: 18, color: '#22d3ee' },
-    { text: 'Verlässlicher Partner', weight: 16, color: '#34d399' },
-    { text: 'Expertise', weight: 16, color: '#818cf8' },
-    { text: 'Zielstrebig', weight: 16, color: '#ef4444' },
-    { text: 'System-Optimierung', weight: 16, color: '#a855f7' },
-  ];
-
-  function renderD3Cloud() {
-    const svgEl = document.querySelector<SVGSVGElement>('#d3-cloud-svg');
+  function initStrengthsWallScroll() {
     const section = document.querySelector<HTMLElement>('#workstyle');
+    const pills = document.querySelectorAll<HTMLElement>('.strength-pill');
 
-    if (!svgEl || !section) return;
+    if (!section || !pills.length) return;
 
-    // Clear previous SVG contents
-    svgEl.innerHTML = '';
+    function updateStrengthsWallProgress() {
+      if (!section) return;
 
-    // Expansive Width for large desktop displays (max 1200px)
-    const width = Math.min(1200, window.innerWidth - 32);
-    const height = 520;
+      const rect = section.getBoundingClientRect();
+      const totalScrollableHeight = rect.height - window.innerHeight;
 
-    svgEl.setAttribute('viewBox', `0 0 ${width} ${height}`);
-
-    // Proportional font-size scaling so ALL 120+ words fit onto the wide canvas
-    const wordItems = rawWords.map((d) => ({
-      text: d.text,
-      size: Math.max(10, Math.min(38, Math.round(d.weight * 0.58))),
-      color: d.color,
-    }));
-
-    // Authentic Random Angles as in the official d3-cloud demo!
-    const layout = cloud()
-      .size([width - 20, height - 20])
-      .words(wordItems)
-      .padding(2)
-      .rotate((d) => {
-        // Multi-word long phrases stay horizontal to prevent layout overflow
-        if ((d.text as string).length > 16) return 0;
-        // Random orientation angles (0deg, 90deg, -90deg) like in official demo
-        const possibleAngles = [0, 0, 90, -90];
-        return possibleAngles[Math.floor(Math.random() * possibleAngles.length)];
-      })
-      .font('Inter, sans-serif')
-      .fontSize((d) => (d as any).size)
-      .on('end', draw);
-
-    layout.start();
-
-    function draw(words: any[]) {
-      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      g.setAttribute('transform', `translate(${width / 2},${height / 2})`);
-      if (svgEl) svgEl.appendChild(g);
-
-      const textElements: SVGTextElement[] = [];
-
-      words.forEach((item) => {
-        const textNode = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        textNode.setAttribute('text-anchor', 'middle');
-        textNode.setAttribute('transform', `translate(${item.x},${item.y}) rotate(${item.rotate})`);
-        textNode.style.fontSize = `${item.size}px`;
-        textNode.style.fontFamily = 'Inter, sans-serif';
-        textNode.style.fontWeight = item.size > 28 ? '900' : item.size > 18 ? '700' : '500';
-        textNode.style.fill = item.color;
-        textNode.style.transition = 'all 0.5s ease-out';
-        textNode.style.opacity = '0';
-        textNode.style.transformOrigin = 'center';
-        textNode.classList.add('d3-cloud-word');
-        textNode.textContent = item.text;
-
-        g.appendChild(textNode);
-        textElements.push(textNode);
-      });
-
-      // Scroll Reveal Logic
-      function updateWordCloudProgress() {
-        if (!section) return;
-
-        const rect = section.getBoundingClientRect();
-        const totalScrollableHeight = rect.height - window.innerHeight;
-
-        // Mobile fallback: reveal all words immediately
-        if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
-          textElements.forEach((w) => {
-            w.style.opacity = '1';
-            w.style.filter = 'none';
-          });
-          return;
-        }
-
-        const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
-        const activeCount = Math.floor(progress * (textElements.length + 1));
-
-        textElements.forEach((word, idx) => {
-          if (idx < activeCount) {
-            word.style.opacity = '1';
-            word.style.filter = 'none';
-          } else {
-            word.style.opacity = '0';
-            word.style.filter = 'blur(4px)';
-          }
+      // Mobile fallback: reveal all immediately
+      if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
+        pills.forEach((p) => {
+          p.style.opacity = '1';
+          p.style.transform = 'scale(1) translateY(0)';
+          p.style.filter = 'none';
         });
+        return;
       }
 
-      window.addEventListener('scroll', updateWordCloudProgress, { passive: true });
-      updateWordCloudProgress();
+      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
+      const activeCount = Math.floor(progress * (pills.length + 1));
+
+      pills.forEach((pill, idx) => {
+        if (idx < activeCount) {
+          pill.style.opacity = '1';
+          pill.style.transform = 'scale(1) translateY(0)';
+          pill.style.filter = 'none';
+        } else {
+          pill.style.opacity = '0';
+          pill.style.transform = 'scale(0.85) translateY(16px)';
+          pill.style.filter = 'blur(4px)';
+        }
+      });
     }
+
+    window.addEventListener('scroll', updateStrengthsWallProgress, { passive: true });
+    updateStrengthsWallProgress();
   }
 
-  renderD3Cloud();
-  document.addEventListener('astro:page-load', renderD3Cloud);
+  initStrengthsWallScroll();
+  document.addEventListener('astro:page-load', initStrengthsWallScroll);
 </script>
