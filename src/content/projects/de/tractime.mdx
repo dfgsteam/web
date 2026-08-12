@@ -1,29 +1,42 @@
 ---
 title: Tractime
-tagline: Zeiterfassung direkt in Trello
-client: sgalinski
+tagline: Produktentwicklung · Zeiterfassungstool für Trello
+client: Eigenentwicklung
 category: work
-status: live
+status: under-construction
 order: 5
-year: '2024'
-tech: [JavaScript, Trello API, REST, HTML]
-summary: Eine Trello-App, die Zeiterfassung dorthin bringt, wo die Arbeit passiert – direkt ins Board.
-accentFrom: '#06b6d4'
-accentTo: '#3b82f6'
+year: '2025'
+tech: [Symfony, PHP, Docker, Trello API]
+summary: Trello-App zur integrierten Zeiterfassung direkt in Trello-Karten – mit Auswertungen auf Ticket-, Board- und Projektzeitraum-Ebene.
+accentFrom: '#0ea5e9'
+accentTo: '#14b8a6'
 ---
 
-## Die Aufgabe
+## Ausgangssituation & Anforderungen
 
-Wer mit Trello arbeitet, möchte nicht ständig zwischen Board und Zeiterfassung
-wechseln. Tractime bringt die Zeiterfassung direkt in Trello – ohne Medienbruch.
+In Trello existiert keine native, praxistaugliche Arbeitszeiterfassung für einzelne Tickets und Boards. Externe Tools sind häufig umständlich angebunden oder bieten nicht den gewünschten Funktionsumfang.
 
-## Was ich geliefert habe
+**Ziel:** eine direkte Zeiterfassung innerhalb der Trello-Oberfläche, die für Mitarbeiter und Projektleiter gleichermaßen einfach nutzbar ist und transparente Auswertungen ermöglicht – ohne die gewohnte Arbeitsumgebung zu verlassen.
 
-- Trello-App zur Zeiterfassung direkt am Board
-- Anbindung an die Trello-API mit sauberer Datenhaltung
-- Auswertung der erfassten Zeiten pro Karte und Liste
+## Lösung & Umsetzung
 
-## Learnings
+Entwickelt mit **Symfony (PHP)**, containerisiert via **Docker**, tief integriert über die **Trello API**.
 
-Gute Tools verschwinden im Workflow. Tractime hat gezeigt, wie wichtig es ist,
-die Erfassung an dem Ort zu platzieren, an dem die Aufgabe tatsächlich entsteht.
+**Funktionale Schwerpunkte:**
+
+- Zeiterfassung direkt in Trello-Tickets – kein Context Switch
+- Schnelle, einfache Buchung von Arbeitszeiten per Klick
+- Auswertungen nach Tickets, Boards und Zeiträumen
+- Unterstützung klassischer Arbeitszeiterfassungsszenarien
+
+**Technische Umsetzung:**
+
+- API-Anbindung an Trello für nahtlose Integration
+- Serverseitige Verarbeitung über Symfony
+- Containerisierung mit Docker für flexible Deployments und einfaches Hosting
+
+> „Zeit erfassen, wo sie entsteht – direkt in Trello."
+
+## Ergebnis
+
+Mit Tractime steht ein integriertes Zeiterfassungssystem für Trello zur Verfügung. Zeiten können direkt pro Ticket erfasst, ausgewertet und für die Arbeitszeitdokumentation genutzt werden. Teams erhalten ein transparentes Reporting auf Board- und Aufgabenebene – ohne den gewohnten Workflow zu verlassen.

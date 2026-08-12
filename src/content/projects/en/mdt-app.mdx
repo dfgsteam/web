@@ -1,30 +1,54 @@
 ---
-title: MDT App
-tagline: Invoicing, site documentation & planning
+title: MDTelekom App
+tagline: Custom Web App · Digital Site Documentation
 client: MD Telekom
 category: work
-status: live
+status: client-project
 order: 6
 year: '2024'
-tech: [PHP, MySQL, JavaScript, HTML]
-summary: A web/mobile app connecting invoicing preparation, site documentation and planning between office and field technicians.
-accentFrom: '#10b981'
-accentTo: '#0ea5e9'
+tech: [Flask, Python, JavaScript, jQuery, Gunicorn, Nginx]
+summary: Mobile web application for digital deployment planning and site documentation in the FTTH NE4 fibre rollout – field engineers connected to the office in real time.
+accentFrom: '#f59e0b'
+accentTo: '#10b981'
 ---
 
-## The brief
+## Background & Requirements
 
-In the FTTH rollout at MD Telekom many threads come together: invoicing, site
-documentation and coordination between office and field technicians. The MDT App
-brings all of that into one mobile-friendly application.
+During the FTTH NE4 fibre rollout, daily planning, quantity surveying and site documentation had to be handled through various manual processes and fragmented media. Information was lost or arrived late.
 
-## What I delivered
+**Core requirements:**
 
-- Web/mobile app for invoicing preparation and site documentation
-- Real-time planning and coordination between office and technicians
-- Optimized for on-site use (mobile-first)
+- Central communication and documentation interface between field engineers and the office
+- Capture measurements on-site directly via smartphone
+- Document dynamic build progress per building and residential unit
+- Automatically generate exportable documentation
 
-## Takeaways
+## Solution & Implementation
 
-Software for the field lives and dies by real-world use: stand once with a
-technician on a construction site, and you understand why every tap counts.
+Built with **Flask (Python)**, **JavaScript** and **jQuery**, served via **Gunicorn** behind **Nginx** on a self-hosted Unix system.
+
+**Functional highlights:**
+
+- **Mobile app usage** by field engineers directly on site
+- **Daily planning** for residential unit rollout in the FTTH NE4 area
+- **On-site quantity surveying** during the build
+- **Dynamic build progress view** within buildings – down to individual apartment level
+- **Real-time interface** between site and office
+
+**Documentation & export:**
+
+- Complete site documentation prepared automatically
+- Export to **PDF** and **Excel**
+- Document preparation for subsequent postal dispatch
+
+**Reporting:**
+
+- Analysis functions across time periods and individual buildings or projects
+
+> "From apartment to whole building – rollout, documentation and reporting in one application."
+
+## Result
+
+The app replaces paper-based workflows with a seamless digital process. Field engineers document on-site via smartphone while the office accesses all data in real time.
+
+Measurements, build statuses and documentation are captured consistently, exported automatically and available for analysis at any time – resulting in greater transparency, fewer errors and significantly more efficient project management during the FTTH NE4 rollout.

@@ -1,30 +1,42 @@
 ---
 title: Tractime
-tagline: Time tracking right inside Trello
-client: sgalinski
+tagline: Product Development · Time Tracking for Trello
+client: Own Product
 category: work
-status: live
+status: under-construction
 order: 5
-year: '2024'
-tech: [JavaScript, Trello API, REST, HTML]
-summary: A Trello app that brings time tracking to where the work happens – right inside the board.
-accentFrom: '#06b6d4'
-accentTo: '#3b82f6'
+year: '2025'
+tech: [Symfony, PHP, Docker, Trello API]
+summary: Trello app for integrated time tracking directly inside Trello cards – with reporting at ticket, board and time-period level.
+accentFrom: '#0ea5e9'
+accentTo: '#14b8a6'
 ---
 
-## The brief
+## Background & Requirements
 
-If you work with Trello, you don't want to constantly switch between the board
-and a separate time tracker. Tractime brings time tracking directly into Trello –
-no context switching.
+Trello has no native, practical time tracking for individual tickets and boards. External tools are often cumbersome to connect or lack the required feature set.
 
-## What I delivered
+**Goal:** time tracking directly within the Trello interface – simple to use for both team members and project managers, with transparent reporting – without leaving the familiar working environment.
 
-- Trello app for time tracking right on the board
-- Clean integration with the Trello API and solid data handling
-- Reporting of tracked time per card and list
+## Solution & Implementation
 
-## Takeaways
+Built with **Symfony (PHP)**, containerised via **Docker**, deeply integrated through the **Trello API**.
 
-Great tools disappear into the workflow. Tractime showed how important it is to
-place tracking exactly where the work actually happens.
+**Functional highlights:**
+
+- Time tracking directly in Trello tickets – no context switching
+- Quick, simple booking of working hours with a click
+- Reporting by ticket, board and time period
+- Support for standard working-time recording scenarios
+
+**Technical implementation:**
+
+- API integration with Trello for seamless embedding
+- Server-side processing via Symfony
+- Docker containerisation for flexible deployments and easy hosting
+
+> "Track time where it happens – right inside Trello."
+
+## Result
+
+Tractime provides an integrated time tracking system for Trello. Time can be logged directly per ticket, evaluated and used for working-time documentation. Teams get transparent reporting at board and task level – without leaving their usual workflow.

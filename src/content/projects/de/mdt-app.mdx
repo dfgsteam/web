@@ -1,30 +1,54 @@
 ---
-title: MDT App
-tagline: Abrechnung, Baustellendoku & Planung
+title: MDTelekom App
+tagline: Custom Web App · Digitale Baudokumentation
 client: MD Telekom
 category: work
-status: live
+status: client-project
 order: 6
 year: '2024'
-tech: [PHP, MySQL, JavaScript, HTML]
-summary: Web-/Mobile-App, die Abrechnungsvorbereitung, Baustellendokumentation und die Planung zwischen Büro und Technikern verbindet.
-accentFrom: '#10b981'
-accentTo: '#0ea5e9'
+tech: [Flask, Python, JavaScript, jQuery, Gunicorn, Nginx]
+summary: Mobile Webanwendung zur digitalen Einsatzplanung und Baudokumentation im Glasfaser-NE4-Ausbau – Monteure vor Ort direkt mit dem Büro vernetzt.
+accentFrom: '#f59e0b'
+accentTo: '#10b981'
 ---
 
-## Die Aufgabe
+## Ausgangssituation & Anforderungen
 
-Beim Glasfaserausbau der MD Telekom laufen viele Fäden zusammen: Abrechnung,
-Baustellendokumentation und die Abstimmung zwischen Büro und Technikern. Die
-MDT App bringt das in eine gemeinsame, mobile Anwendung.
+Beim Glasfaser-Ausbau im NE4-Bereich mussten Tagesplanung, Aufmaßermittlung und Baudokumentation bislang über verschiedene manuelle Prozesse und Medienbrüche erfolgen. Informationen gingen verloren oder lagen zeitverzögert vor.
 
-## Was ich geliefert habe
+**Kernanforderungen:**
 
-- Web-/Mobile-App für Abrechnungsvorbereitung und Baustellendoku
-- Planung und Koordination Büro ↔ Techniker in Echtzeit
-- Einsatz auf der Baustelle optimiert (Mobile-First)
+- Zentrale Kommunikations- und Dokumentationsschnittstelle zwischen Monteuren und Büro
+- Aufmaße direkt vor Ort per Smartphone erfassen
+- Dynamische Ausbaufortschritte je Haus und Wohneinheit dokumentieren
+- Exportfähige Unterlagen automatisiert erzeugen
 
-## Learnings
+## Lösung & Umsetzung
 
-Software für den Außendienst lebt vom Realbetrieb: Wer einmal mit einem Techniker
-auf der Baustelle steht, versteht, warum jeder Klick zählt.
+Entwickelt mit **Flask (Python)**, **JavaScript** und **jQuery**, betrieben via **Gunicorn** hinter **Nginx** auf einem selbst gehosteten Unix-System.
+
+**Funktionale Schwerpunkte:**
+
+- **Mobile App-Nutzung** auf Smartphones durch Monteure direkt auf der Baustelle
+- **Tagesplanung** für den Wohnungsausbau im Glasfaser-NE4-Bereich
+- **Aufmaßerstellung** direkt vor Ort während des Baus
+- **Dynamische Ausbauansicht** innerhalb von Gebäuden – bis auf Wohneinheitenebene
+- **Kommunikationsschnittstelle** Baustelle ↔ Büro in Echtzeit
+
+**Dokumentation & Export:**
+
+- Vollständige Baudokumentation automatisch aufbereitet
+- Export in **PDF** und **Excel**
+- Vorbereitung der Unterlagen für späteren Briefversand
+
+**Auswertung:**
+
+- Analysefunktionen für Zeiträume und einzelne Gebäude bzw. Projekte
+
+> „Von der Wohnung bis zum Gesamtgebäude – Ausbau, Dokumentation und Auswertung in einer Anwendung."
+
+## Ergebnis
+
+Die App ersetzt papierbasierte Abläufe durch einen durchgängigen digitalen Prozess. Monteure dokumentieren Vorgänge direkt vor Ort per Smartphone, während das Büro in Echtzeit auf alle Daten zugreifen kann.
+
+Aufmaße, Ausbauzustände und Dokumentationen werden konsistent erfasst, automatisch exportiert und sind jederzeit auswertbar – höhere Transparenz, geringere Fehlerquote und deutlich effizientere Projektsteuerung im Glasfaser-NE4-Ausbau.
