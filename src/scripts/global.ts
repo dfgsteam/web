@@ -192,7 +192,11 @@ function setupHorizontal() {
   const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
   if (!isDesktop || reduceMotion) return;
 
-  const getScroll = () => track.scrollWidth - window.innerWidth;
+  const getScroll = () => {
+    const style = getComputedStyle(track);
+    const padR = parseFloat(style.paddingRight) || 0;
+    return track.scrollWidth - window.innerWidth + padR;
+  };
 
   const tween = gsap.to(track, {
     x: () => -getScroll(),
