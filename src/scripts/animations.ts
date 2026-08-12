@@ -411,23 +411,29 @@ function setupInfraFlowAnimation() {
   if (!nodes.length || !laserBar) return;
 
   const labels = [
-    '1. Der Nutzer klickt (0ms)...',
-    '2. Zentrale Symfony 7 App-Logik (4ms)...',
-    '3. Redis Cache & Symfony Messenger Worker (10ms)...',
-    '4. PostgreSQL DB & MinIO S3 Cloud-Speicher (18ms Gesamtzeit 🚀)',
+    'Service 01: Symfony Web-App (4ms)...',
+    'Service 02: Auth-Server OAuth2 & JWT (7ms)...',
+    'Service 03: Redis Cache & Queue Broker (9ms)...',
+    'Service 04: Symfony Messenger Background Worker (12ms)...',
+    'Service 05: PostgreSQL Datenbank Cluster (15ms)...',
+    'Service 06: MinIO S3 Object Storage (18ms Fertig 🚀)',
   ];
 
   const statusTexts = [
-    'Schritt 1 von 4: Browser-Aufruf per SSL verschlüsselt gesendet',
-    'Schritt 2 von 4: Symfony App-Kernel prüft Rechte & Route',
-    'Schritt 3 von 4: Redis lädt Daten & Messenger verarbeitet Async-Jobs',
-    'Schritt 4 von 4: PostgreSQL & MinIO S3 antworten erfolgreich (200 OK)',
+    'Service 1 von 6: Symfony Web-App nimmt HTTP-Anfragen entgegen',
+    'Service 2 von 6: Auth-Server (Keycloak/OAuth2) prüft Login & Rechte',
+    'Service 3 von 6: Redis lädt Daten aus In-Memory & steuert Queue',
+    'Service 4 von 6: Symfony Messenger führt Hintergrund-Jobs asynchron aus',
+    'Service 5 von 6: PostgreSQL speichert Strukturdaten ausfallsicher',
+    'Service 6 von 6: S3 Storage liefert Medien & Dateien hochverfügbar',
   ];
 
   const borderAccents = [
     'rgba(245, 158, 11, 0.7)',
     'rgba(14, 165, 233, 0.7)',
     'rgba(139, 92, 246, 0.7)',
+    'rgba(168, 85, 247, 0.7)',
+    'rgba(99, 102, 241, 0.7)',
     'rgba(16, 185, 129, 0.7)',
   ];
 
@@ -435,6 +441,8 @@ function setupInfraFlowAnimation() {
     '0 10px 30px -5px rgba(245, 158, 11, 0.25)',
     '0 10px 30px -5px rgba(14, 165, 233, 0.25)',
     '0 10px 30px -5px rgba(139, 92, 246, 0.25)',
+    '0 10px 30px -5px rgba(168, 85, 247, 0.25)',
+    '0 10px 30px -5px rgba(99, 102, 241, 0.25)',
     '0 10px 30px -5px rgba(16, 185, 129, 0.25)',
   ];
 
@@ -442,6 +450,8 @@ function setupInfraFlowAnimation() {
     'bg-amber-400 shadow-amber-500/50',
     'bg-sky-400 shadow-sky-500/50',
     'bg-violet-400 shadow-violet-500/50',
+    'bg-purple-400 shadow-purple-500/50',
+    'bg-indigo-400 shadow-indigo-500/50',
     'bg-emerald-400 shadow-emerald-500/50',
   ];
 
