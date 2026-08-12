@@ -191,47 +191,6 @@ section[id] {
   }
 }
 
-/* Rolling digit counters (code-style) */
-.count-col {
-  display: inline-block;
-  overflow: hidden;
-  width: 0.64em;
-  vertical-align: -0.08em;
-}
-.count-col-inner {
-  display: block;
-  will-change: transform;
-}
-.count-col-inner i {
-  display: block;
-  font-style: normal;
-  line-height: 1;
-  height: 1em;
-  font-variant-numeric: tabular-nums;
-}
-.count-suffix {
-  margin-left: 0.06em;
-}
-.count-cursor {
-  display: inline-block;
-  width: 0.07em;
-  height: 0.82em;
-  margin-left: 0.14em;
-  vertical-align: -0.02em;
-  background: var(--color-accent);
-  animation: cursor-blink 1s steps(2, start) infinite;
-}
-@keyframes cursor-blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  50.01%,
-  100% {
-    opacity: 0;
-  }
-}
-
 /* Colorful background glows */
 .glow {
   position: absolute;

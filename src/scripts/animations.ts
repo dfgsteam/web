@@ -289,59 +289,24 @@ function setupSkillBars() {
 }
 
 function setupCounters() {
+  if (reduceMotion) {
+    document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+      el.textContent = el.dataset.countValue ?? '0';
+    });
+    return;
+  }
   const counters = gsap.utils.toArray<HTMLElement>('[data-count]');
   counters.forEach((el) => {
     const target = Number(el.dataset.countValue ?? 0);
     const suffix = el.dataset.countSuffix ?? '';
-
-    if (reduceMotion) {
-      el.textContent = `${target}${suffix}`;
-      return;
-    }
-
-    const digits = String(target).split('');
-    el.textContent = '';
-
-    const cols = digits.map((d) => {
-      const col = document.createElement('span');
-      col.className = 'count-col';
-      const inner = document.createElement('span');
-      inner.className = 'count-col-inner';
-      for (let i = 0; i < 10; i++) {
-        const n = document.createElement('i');
-        n.textContent = String(i);
-        inner.appendChild(n);
-      }
-      col.appendChild(inner);
-      el.appendChild(col);
-      return { inner, pos: 0 };
-    });
-
-    if (suffix) {
-      const s = document.createElement('span');
-      s.className = 'count-suffix';
-      s.textContent = suffix;
-      el.appendChild(s);
-    }
-    const cursor = document.createElement('span');
-    cursor.className = 'count-cursor';
-    el.appendChild(cursor);
-
     const obj = { val: 0 };
     gsap.to(obj, {
       val: target,
-      duration: 2,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+      duration: 1.6,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
       onUpdate: () => {
-        cols.forEach((c, i) => {
-          const power = Math.pow(10, cols.length - i - 1);
-          const cur = Math.floor(obj.val / power) % 10;
-          if (cur !== c.pos) {
-            c.pos = cur;
-            c.inner.style.transform = `translateY(${-cur}em)`;
-          }
-        });
+        el.textContent = `${Math.round(obj.val)}${suffix}`;
       },
     });
   });
