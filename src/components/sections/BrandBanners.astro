@@ -10,14 +10,7 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section id="brands" class="section-spacing relative isolate overflow-hidden border-t border-b border-line bg-gradient-to-b from-base via-surface/30 to-base">
-  <!-- Full-Width Bliss Gradient Background Mesh -->
-  <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
-    <div class="glow glow--violet glow--float -left-20 top-1/4 h-[500px] w-[500px] opacity-40"></div>
-    <div class="glow glow--cyan glow--float-slow -right-20 bottom-1/4 h-[500px] w-[500px] opacity-40"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
-  </div>
-
+<section id="brands" class="section-spacing relative isolate overflow-hidden border-t border-b border-line bg-base">
   <div class="container-page relative">
     <!-- Header -->
     <div class="mb-14 text-center max-w-3xl mx-auto" data-reveal="up">
@@ -29,130 +22,173 @@ const { t } = Astro.props;
       </h2>
     </div>
 
-    <!-- Full-Width Brand Showcase Grid -->
-    <div class="grid gap-8 lg:grid-cols-2">
-      <!-- Brand 1: HNLD (Webdesign & Digital Studio) -->
+    <!-- Brand Banners Showcase Grid -->
+    <div class="grid gap-10 lg:grid-cols-2">
+      
+      <!-- BRAND 1: HUNOLD24.DE (AUTHENTIC WINDOWS XP LUNA & BLISS THEME) -->
       <div
-        class="group relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col justify-between"
+        class="group relative overflow-hidden rounded-2xl border-2 border-[#0055ea] bg-surface shadow-2xl shadow-[#0055ea]/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-[#0055ea]/30 flex flex-col justify-between"
         data-reveal="up"
       >
-        <!-- Bliss Ambient Backlight -->
-        <div class="absolute -right-20 -top-20 -z-10 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
-
-        <div>
-          <!-- Header Bar with Brand Badge -->
-          <div class="flex items-center justify-between gap-4 mb-6">
-            <div class="flex items-center gap-3">
-              <!-- Monogram Logo Icon -->
-              <div class="flex size-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 font-bold tracking-tighter text-lg shadow-inner">
-                HNLD
-              </div>
-              <div>
-                <span class="block text-xs uppercase tracking-widest text-dim font-mono">{t.brands.hnld.tag}</span>
-                <span class="block text-sm font-semibold text-ink">hnld.de</span>
-              </div>
+        <!-- Windows XP Titlebar -->
+        <div class="flex items-center justify-between bg-gradient-to-r from-[#0058e6] via-[#1065f4] to-[#0055ea] px-4 py-2 text-white font-sans text-xs font-bold shadow-md select-none border-b border-[#0a48b5]">
+          <div class="flex items-center gap-2">
+            <!-- Retro Windows XP Icon -->
+            <div class="size-4 rounded-xs bg-[#e29300] flex items-center justify-center text-[9px] font-mono text-black font-extrabold shadow-xs">
+              H24
             </div>
-            <span class="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-mono text-cyan-400">Digital Studio</span>
+            <span class="tracking-wide drop-shadow-xs">hunold24.exe – Custom Software & Cloud Apps</span>
           </div>
 
-          <!-- Content -->
-          <h3 class="text-2xl font-semibold tracking-tight text-ink group-hover:text-cyan-400 transition-colors md:text-3xl">
-            {t.brands.hnld.title}
-          </h3>
-          <p class="mt-4 text-sm leading-relaxed text-mute">
-            {t.brands.hnld.subtitle}
-          </p>
-
-          <!-- Highlights List -->
-          <ul class="mt-6 space-y-2.5">
-            {
-              t.brands.hnld.highlights.map((item) => (
-                <li class="flex items-center gap-2.5 text-xs text-mute">
-                  <CheckCircle2 class="size-4 text-cyan-400 shrink-0" stroke-width={2} />
-                  <span>{item}</span>
-                </li>
-              ))
-            }
-          </ul>
+          <!-- Windows XP Titlebar Buttons (_, [], X) -->
+          <div class="flex items-center gap-1">
+            <button type="button" class="flex size-4 items-center justify-center rounded-xs bg-[#004fcf] text-[9px] font-bold text-white border border-[#377df4] hover:brightness-125" aria-label="Minimize">_</button>
+            <button type="button" class="flex size-4 items-center justify-center rounded-xs bg-[#004fcf] text-[9px] font-bold text-white border border-[#377df4] hover:brightness-125" aria-label="Maximize">□</button>
+            <button type="button" class="flex size-5 items-center justify-center rounded-xs bg-gradient-to-b from-[#e34b35] via-[#d02912] to-[#b91d09] text-xs font-bold text-white border border-[#f57463] hover:brightness-125 shadow-xs" aria-label="Close">✕</button>
+          </div>
         </div>
 
-        <!-- CTA Link -->
-        <div class="mt-8 pt-6 border-t border-line/60 flex items-center justify-between">
-          <span class="text-xs text-dim font-mono">https://hnld.de</span>
-          <a
-            href="https://hnld.de"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-magnetic
-            class="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2.5 text-xs font-medium text-black transition-all duration-300 hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 active:scale-95"
-          >
-            <span>{t.brands.hnld.cta}</span>
-            <ExternalLink class="size-3.5" />
-          </a>
+        <!-- Windows XP Bliss Landscape Container -->
+        <div class="relative p-6 md:p-8 bg-gradient-to-b from-[#3a9afb] via-[#65befa] via-60% to-[#6fbe47] text-white flex-1 flex flex-col justify-between overflow-hidden">
+          <!-- Bliss Soft Clouds Overlay -->
+          <div class="absolute top-2 left-10 h-16 w-48 rounded-full bg-white/20 blur-xl pointer-events-none"></div>
+          <div class="absolute top-8 right-12 h-20 w-64 rounded-full bg-white/25 blur-2xl pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <!-- Brand Badge -->
+            <div class="inline-flex items-center gap-2 rounded-lg bg-black/40 backdrop-blur-md px-3 py-1.5 text-xs font-mono text-emerald-300 border border-white/20 mb-4 shadow-md">
+              <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              {t.brands.hunold24.tag}
+            </div>
+
+            <!-- Title & Subtitle -->
+            <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white drop-shadow-md">
+              {t.brands.hunold24.title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-white/95 drop-shadow-xs max-w-lg font-medium">
+              {t.brands.hunold24.subtitle}
+            </p>
+
+            <!-- Highlights in XP Dialog Box Style -->
+            <div class="mt-6 rounded-xl border border-white/30 bg-white/15 p-4 backdrop-blur-md shadow-lg space-y-2">
+              {
+                t.brands.hunold24.highlights.map((item) => (
+                  <div class="flex items-center gap-2.5 text-xs text-white font-medium">
+                    <span class="flex size-4 items-center justify-center rounded-full bg-[#388d37] text-white text-[10px] font-bold shadow-xs">✓</span>
+                    <span class="drop-shadow-xs">{item}</span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- XP Taskbar Footer with Authentic Start Button & Action -->
+          <div class="relative z-10 mt-8 pt-4 border-t border-white/25 flex flex-wrap items-center justify-between gap-4">
+            <!-- Authentic Windows XP Start Button -->
+            <a
+              href="https://hunold24.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2.5 rounded-r-xl rounded-l-md bg-gradient-to-b from-[#388d37] via-[#3fa33e] to-[#1e581e] px-4 py-2 text-xs font-extrabold text-white shadow-lg border border-[#6fd36d] hover:brightness-110 active:scale-95 transition-all"
+            >
+              <div class="grid grid-cols-2 gap-0.5 size-3.5">
+                <span class="bg-[#f25022]"></span>
+                <span class="bg-[#7fba00]"></span>
+                <span class="bg-[#00a4ef]"></span>
+                <span class="bg-[#ffb900]"></span>
+              </div>
+              <span class="italic text-sm font-sans tracking-wide">start</span>
+              <span class="font-normal not-italic text-xs opacity-90">— hunold24.de</span>
+            </a>
+
+            <a
+              href="https://hunold24.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg bg-white text-[#0055ea] px-4 py-2 text-xs font-bold shadow-md hover:bg-slate-100 transition-colors"
+            >
+              <span>{t.brands.hunold24.cta}</span>
+              <ExternalLink class="size-3.5" />
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Brand 2: HUNOLD24 (Custom Software & Cloud Apps) -->
+
+      <!-- BRAND 2: HNLD.DE (HIGH-END MODERN DIGITAL AGENCY STUDIO) -->
       <div
-        class="group relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-violet-500/40 hover:shadow-2xl hover:shadow-violet-500/10 flex flex-col justify-between"
+        class="group relative overflow-hidden rounded-2xl border border-line bg-surface/90 shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/50 hover:shadow-cyan-500/10 flex flex-col justify-between"
         data-reveal="up"
         data-reveal-delay="0.1"
       >
-        <!-- Bliss Ambient Backlight -->
-        <div class="absolute -right-20 -top-20 -z-10 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+        <!-- Modern Agency Topbar -->
+        <div class="flex items-center justify-between border-b border-line bg-base/80 px-4 py-3 backdrop-blur-md">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5">
+              <span class="size-3 rounded-full bg-red-500/80"></span>
+              <span class="size-3 rounded-full bg-yellow-500/80"></span>
+              <span class="size-3 rounded-full bg-green-500/80"></span>
+            </div>
+            <span class="text-xs font-mono text-dim">hnld.de · Digital Studio</span>
+          </div>
+          <span class="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2.5 py-0.5 text-[10px] font-mono text-cyan-400">Webdesign Agency</span>
+        </div>
 
-        <div>
-          <!-- Header Bar with Brand Badge -->
-          <div class="flex items-center justify-between gap-4 mb-6">
-            <div class="flex items-center gap-3">
-              <!-- Monogram Logo Icon -->
-              <div class="flex size-12 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/10 text-violet-400 font-bold tracking-tighter text-lg shadow-inner">
-                H24
+        <!-- Studio Content -->
+        <div class="p-6 md:p-8 flex-1 flex flex-col justify-between relative isolate">
+          <!-- Background Glow Mesh -->
+          <div class="absolute -right-16 -top-16 -z-10 size-64 rounded-full bg-cyan-500/15 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+
+          <div>
+            <!-- Monogram Branding -->
+            <div class="mb-5 flex items-center gap-3">
+              <div class="flex size-11 items-center justify-center rounded-xl border border-cyan-500/40 bg-cyan-500/10 text-cyan-400 font-black tracking-tighter text-lg shadow-lg">
+                HNLD
               </div>
               <div>
-                <span class="block text-xs uppercase tracking-widest text-dim font-mono">{t.brands.hunold24.tag}</span>
-                <span class="block text-sm font-semibold text-ink">hunold24.de</span>
+                <span class="block text-xs font-mono uppercase tracking-widest text-dim">{t.brands.hnld.tag}</span>
+                <span class="block text-sm font-bold text-ink">hnld.de</span>
               </div>
             </div>
-            <span class="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-mono text-violet-400">Custom Software</span>
+
+            <!-- Title & Subtitle -->
+            <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-ink group-hover:text-cyan-400 transition-colors">
+              {t.brands.hnld.title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-mute">
+              {t.brands.hnld.subtitle}
+            </p>
+
+            <!-- Highlights -->
+            <div class="mt-6 space-y-2.5 rounded-xl border border-line bg-base/50 p-4">
+              {
+                t.brands.hnld.highlights.map((item) => (
+                  <div class="flex items-center gap-2.5 text-xs text-mute font-medium">
+                    <CheckCircle2 class="size-4 text-cyan-400 shrink-0" stroke-width={2} />
+                    <span>{item}</span>
+                  </div>
+                ))
+              }
+            </div>
           </div>
 
-          <!-- Content -->
-          <h3 class="text-2xl font-semibold tracking-tight text-ink group-hover:text-violet-400 transition-colors md:text-3xl">
-            {t.brands.hunold24.title}
-          </h3>
-          <p class="mt-4 text-sm leading-relaxed text-mute">
-            {t.brands.hunold24.subtitle}
-          </p>
-
-          <!-- Highlights List -->
-          <ul class="mt-6 space-y-2.5">
-            {
-              t.brands.hunold24.highlights.map((item) => (
-                <li class="flex items-center gap-2.5 text-xs text-mute">
-                  <CheckCircle2 class="size-4 text-violet-400 shrink-0" stroke-width={2} />
-                  <span>{item}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <!-- CTA Link -->
-        <div class="mt-8 pt-6 border-t border-line/60 flex items-center justify-between">
-          <span class="text-xs text-dim font-mono">https://hunold24.de</span>
-          <a
-            href="https://hunold24.de"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-magnetic
-            class="inline-flex items-center gap-2 rounded-full bg-violet-500 px-5 py-2.5 text-xs font-medium text-white transition-all duration-300 hover:bg-violet-400 hover:shadow-lg hover:shadow-violet-500/25 active:scale-95"
-          >
-            <span>{t.brands.hunold24.cta}</span>
-            <ExternalLink class="size-3.5" />
-          </a>
+          <!-- Studio Footer CTA -->
+          <div class="mt-8 pt-5 border-t border-line flex items-center justify-between">
+            <span class="text-xs font-mono text-dim">https://hnld.de</span>
+            <a
+              href="https://hnld.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-magnetic
+              class="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2.5 text-xs font-bold text-black shadow-lg transition-all duration-300 hover:bg-cyan-400 hover:shadow-cyan-500/30 active:scale-95"
+            >
+              <span>{t.brands.hnld.cta}</span>
+              <ExternalLink class="size-3.5" />
+            </a>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
