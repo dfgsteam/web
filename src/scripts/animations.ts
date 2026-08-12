@@ -252,36 +252,17 @@ function setupHero() {
 function setupSkillBars() {
   const bars = gsap.utils.toArray<HTMLElement>('[data-skill-bar]');
   bars.forEach((bar) => {
-    const levelVal = Number(bar.dataset.level ?? 0);
-    const level = levelVal / 100;
-    const card = bar.closest<HTMLElement>('.group') ?? bar.parentElement;
-    const badge = card?.querySelector<HTMLElement>('[data-skill-percentage]');
-
+    const level = Number(bar.dataset.level ?? 0) / 100;
     if (reduceMotion) {
       bar.style.transform = `scaleX(${level})`;
-      if (badge) badge.textContent = `${levelVal}%`;
       return;
     }
-
-    const obj = { val: 0 };
     gsap.to(bar, {
       scaleX: level,
       duration: 1.4,
       ease: 'power3.out',
-      onStart: () => {
-        if (badge) {
-          gsap.to(obj, {
-            val: levelVal,
-            duration: 1.4,
-            ease: 'power3.out',
-            onUpdate: () => {
-              badge.textContent = `${Math.round(obj.val)}%`;
-            },
-          });
-        }
-      },
       scrollTrigger: {
-        trigger: card ?? bar,
+        trigger: bar,
         start: 'top 88%',
         once: true,
       },

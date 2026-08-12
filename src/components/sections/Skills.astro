@@ -28,11 +28,11 @@ const { t } = Astro.props;
 const levelOrder: SkillLevel[] = ['master', 'expert', 'advanced', 'medium', 'beginner'];
 
 const barColor: Record<SkillLevel, string> = {
-  master: 'bg-gradient-to-r from-accent via-violet-500 to-accent-2 shadow-sm shadow-accent/40',
-  expert: 'bg-gradient-to-r from-accent to-violet-500',
-  advanced: 'bg-accent/80',
-  medium: 'bg-accent/60',
-  beginner: 'bg-accent/40',
+  master: 'bg-gradient-to-r from-accent to-accent-2',
+  expert: 'bg-accent/80',
+  advanced: 'bg-accent/60',
+  medium: 'bg-accent/40',
+  beginner: 'bg-accent/25',
 };
 
 const skillIcons: Record<string, any> = {
@@ -53,12 +53,10 @@ const skillIcons: Record<string, any> = {
 ---
 
 <section id="skills" class="section-spacing relative isolate overflow-hidden border-t border-line">
-  <!-- Ambient Glow Orbs -->
   <div class="glow glow--sky glow--float -left-32 top-20 h-[420px] w-[420px]" aria-hidden="true"></div>
   <div class="glow glow--violet glow--float-slow -right-32 bottom-0 h-[380px] w-[380px]" aria-hidden="true"></div>
 
   <div class="container-page relative">
-    <!-- Section Header -->
     <div class="mb-16 max-w-3xl">
       <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
         {t.skills.label}
@@ -71,42 +69,28 @@ const skillIcons: Record<string, any> = {
       </p>
     </div>
 
-    <!-- Skills Grid with 3D Tilt & Staggered Reveal -->
-    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
       {
         skills.map((skill, i) => {
           const Icon = skillIcons[skill.name] ?? CodeXml;
           return (
             <div
-              data-tilt
+              class="group rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/40"
               data-reveal="up"
-              data-reveal-delay={(i % 3) * 0.07}
-              class="group relative overflow-hidden rounded-2xl border border-line bg-surface/90 p-6 backdrop-blur-md transition-all duration-300 hover:border-accent/60 hover:shadow-xl hover:shadow-accent/5 hover:-translate-y-1"
+              data-reveal-delay={(i % 3) * 0.08}
             >
-              <!-- Ambient Subtle Backlight -->
-              <div class="absolute -right-12 -top-12 -z-10 size-32 rounded-full bg-accent/10 blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
-
               <div class="flex items-center justify-between gap-3">
                 <h3 class="flex items-center gap-3 font-medium tracking-tight text-ink">
-                  <div class="flex size-9 items-center justify-center rounded-xl bg-accent/10 text-accent group-hover:scale-110 group-hover:rotate-6 group-hover:bg-accent/20 transition-all duration-300">
-                    <Icon class="size-5 shrink-0" stroke-width={1.75} />
-                  </div>
-                  <span class="group-hover:text-accent transition-colors font-semibold">{skill.name}</span>
+                  <Icon class="size-5 shrink-0 text-accent" stroke-width={1.75} />
+                  {skill.name}
                 </h3>
-                <div class="flex items-center gap-2">
-                  <span class="font-mono text-xs font-bold text-accent" data-skill-percentage data-target={skill.value}>
-                    0%
-                  </span>
-                  <span class="rounded-full border border-line bg-elevated px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-mute">
-                    {t.skills.levels[skill.level]}
-                  </span>
-                </div>
+                <span class="rounded-full bg-elevated px-2.5 py-1 text-[11px] uppercase tracking-wider text-mute font-mono">
+                  {t.skills.levels[skill.level]}
+                </span>
               </div>
-
-              <!-- Animated Skill Progress Bar -->
-              <div class="mt-5 h-2 overflow-hidden rounded-full bg-elevated/70 p-0.5 border border-line/40">
+              <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-elevated">
                 <div
-                  class={`h-full rounded-full ${barColor[skill.level]} origin-left transition-transform duration-700 ease-out`}
+                  class={`h-full rounded-full ${barColor[skill.level]} origin-left transition-transform duration-700 ease-out group-hover:scale-x-105`}
                   data-skill-bar
                   data-level={skill.value}
                   style={{ transform: 'scaleX(0)' }}
@@ -118,12 +102,10 @@ const skillIcons: Record<string, any> = {
       }
     </div>
 
-    <!-- Skill Levels Legend -->
-    <div class="mt-12 flex flex-wrap gap-4 rounded-2xl border border-line/60 bg-surface/50 px-6 py-4 backdrop-blur-md" data-reveal="up" data-reveal-delay="0.2">
-      <span class="text-xs uppercase tracking-widest text-dim font-mono self-center mr-2">Proficiency Legend:</span>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal="up">
       {
         levelOrder.map((level) => (
-          <span class="inline-flex items-center gap-2 rounded-full border border-line bg-base/80 px-3 py-1 text-xs font-medium text-mute transition-colors hover:border-accent/40 hover:text-ink">
+          <span class="inline-flex items-center gap-2 text-xs text-mute">
             <span class={`size-2 rounded-full ${barColor[level]}`} aria-hidden="true"></span>
             {t.skills.levels[level]}
           </span>
