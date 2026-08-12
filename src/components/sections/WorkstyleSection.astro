@@ -37,7 +37,7 @@ const { t } = Astro.props;
       </p>
     </div>
 
-    <!-- HIGH-DENSITY WORDCLOUD2 DOM CONTAINER (Inside-out scroll reveal) -->
+    <!-- HIGH-DENSITY WORDCLOUD2 DOM CONTAINER (Clean static layout + pure opacity reveal) -->
     <div class="relative mx-auto w-full py-2 select-none text-center flex flex-col items-center justify-center min-h-[540px]" id="wordcloud-wrapper">
       <div id="wordcloud-container" class="relative w-full max-w-7xl h-[540px] rounded-2xl pointer-events-auto overflow-hidden"></div>
 
@@ -52,128 +52,122 @@ const { t } = Astro.props;
 <script>
   import WordCloud from 'wordcloud';
 
-  // 120+ Curated Strengths, Traits & Technology Terms for WordCloud2
+  // Curated Strengths, Traits & Technology Terms
   const fullWordList: [string, number][] = [
     // Core Hero Terms
-    ['MOTIVATOR', 95],
-    ['ORGANISATOR', 88],
-    ['FÜHRUNGSSTÄRKE', 78],
-    ['TATKRAFT', 75],
-    ['EIGENINITIATIVE', 70],
-    ['ENTSCHLUSSFREUDE', 68],
-    ['Autodidaktik', 62],
-    ['Pragmatische Lösungen', 58],
-    ['Kreative Originalität', 55],
-    ['Kognitiver Wissensdurst', 56],
-    ['Ergebnisorientiert', 64],
-    ['Intuitive Herangehensweise', 52],
-    ['Hohe Zielsetzungen', 52],
-    ['Gespür für Dringlichkeiten', 48],
-    ['Enthusiasmus & Dynamik', 48],
-    ['Autonomie & Unabhängigkeit', 45],
-    ['Daten & Fakten', 45],
-    ['Innovationsdrang', 52],
-    ['Analytische Präzision', 48],
+    ['MOTIVATOR', 90],
+    ['ORGANISATOR', 82],
+    ['FÜHRUNGSSTÄRKE', 72],
+    ['TATKRAFT', 68],
+    ['EIGENINITIATIVE', 62],
+    ['ENTSCHLUSSFREUDE', 60],
+    ['Autodidaktik', 54],
+    ['Pragmatische Lösungen', 50],
+    ['Kreative Originalität', 48],
+    ['Kognitiver Wissensdurst', 50],
+    ['Ergebnisorientiert', 56],
+    ['Intuitive Herangehensweise', 45],
+    ['Hohe Zielsetzungen', 45],
+    ['Gespür für Dringlichkeiten', 42],
+    ['Enthusiasmus & Dynamik', 42],
+    ['Autonomie & Unabhängigkeit', 40],
+    ['Daten & Fakten', 40],
+    ['Innovationsdrang', 45],
+    ['Analytische Präzision', 42],
 
     // Medium Attributes & Workstyle Principles
-    ['Projektkoordination', 40],
-    ['Abwechslungsreiche Aufgaben', 38],
-    ['Verlässlichkeit', 35],
-    ['Objektive Wahrheit', 32],
-    ['Prozessoptimierung', 35],
-    ['Web-Engineering', 38],
-    ['Systemarchitektur', 35],
-    ['Lösungsorientierung', 40],
-    ['Veränderungsbereitschaft', 32],
-    ['Extrovertierter Drive', 35],
-    ['Optimismus & Charisma', 38],
-    ['Fachwissen aufbauen', 32],
-    ['Flexibilität', 35],
-    ['Unabhängiges Arbeiten', 32],
-    ['Systematisches Denken', 32],
-    ['Zielstrebigkeit', 38],
-    ['Handlungsstärke', 35],
-    ['Strategischer Weitblick', 35],
-    ['Ressourceneffizienz', 30],
-    ['Schnelle Auffassungsgabe', 35],
-    ['Durchsetzungsvermögen', 32],
-    ['Strukturierte Abläufe', 32],
-    ['Entschlusskraft', 35],
-    ['Anpassungsfähigkeit', 30],
+    ['Projektkoordination', 36],
+    ['Abwechslungsreiche Aufgaben', 34],
+    ['Verlässlichkeit', 32],
+    ['Objektive Wahrheit', 28],
+    ['Prozessoptimierung', 32],
+    ['Web-Engineering', 34],
+    ['Systemarchitektur', 32],
+    ['Lösungsorientierung', 36],
+    ['Veränderungsbereitschaft', 28],
+    ['Extrovertierter Drive', 32],
+    ['Optimismus & Charisma', 34],
+    ['Fachwissen aufbauen', 28],
+    ['Flexibilität', 32],
+    ['Unabhängiges Arbeiten', 28],
+    ['Systematisches Denken', 28],
+    ['Zielstrebigkeit', 34],
+    ['Handlungsstärke', 32],
+    ['Strategischer Weitblick', 32],
+    ['Ressourceneffizienz', 26],
+    ['Schnelle Auffassungsgabe', 32],
+    ['Durchsetzungsvermögen', 28],
+    ['Strukturierte Abläufe', 28],
+    ['Entschlusskraft', 32],
+    ['Anpassungsfähigkeit', 26],
 
     // Technical & Domain Terms
-    ['Python', 36],
-    ['TypeScript', 36],
-    ['Astro.js', 34],
-    ['Docker', 34],
-    ['Linux', 30],
-    ['Hetzner Servers', 30],
-    ['PostgreSQL', 30],
-    ['TailwindCSS', 30],
-    ['REST APIs', 30],
-    ['OpenAI API', 34],
-    ['Ollama', 30],
-    ['DevOps', 30],
-    ['Git & GitHub', 30],
-    ['CI/CD Pipelines', 30],
-    ['Glasfaserausbau', 34],
-    ['Netzplanung', 30],
-    ['PHP', 30],
-    ['Node.js', 30],
-    ['Systemtests', 26],
-    ['Refactoring', 26],
-    ['Code Quality', 30],
-    ['FastAPI', 30],
-    ['Automatisierung', 34],
-    ['Troubleshooting', 26],
-    ['Prototyping', 30],
+    ['Python', 32],
+    ['TypeScript', 32],
+    ['Astro.js', 30],
+    ['Docker', 30],
+    ['Linux', 26],
+    ['Hetzner Servers', 26],
+    ['PostgreSQL', 26],
+    ['TailwindCSS', 26],
+    ['REST APIs', 26],
+    ['OpenAI API', 30],
+    ['Ollama', 26],
+    ['DevOps', 26],
+    ['Git & GitHub', 26],
+    ['CI/CD Pipelines', 26],
+    ['Glasfaserausbau', 30],
+    ['Netzplanung', 26],
+    ['PHP', 26],
+    ['Node.js', 26],
+    ['FastAPI', 26],
+    ['Automatisierung', 30],
+    ['Code Quality', 26],
 
     // Micro / Accent Terms
-    ['Kein Leerlauf', 28],
-    ['Veränderung treiben', 28],
-    ['Hohe Dynamik', 28],
-    ['Komplexität meistern', 28],
-    ['Neue Wege gehen', 28],
-    ['Kommunikation', 30],
-    ['Keine Monotonie', 26],
-    ['Projekte parallel', 28],
-    ['Zielstrebigkeit', 28],
-    ['Objektive Fakten', 26],
-    ['Konkrete Ergebnisse', 28],
-    ['Führungsanspruch', 28],
-    ['Direktes Handeln', 28],
-    ['Unternehmensgeist', 28],
-    ['Hoher Anspruch', 26],
-    ['Wissenschaftlich', 26],
-    ['Keine Grenzen', 24],
-    ['Mut zum Risiko', 26],
-    ['Humor & Freude', 26],
-    ['Wert auf Leistung', 26],
-    ['Faktenbasiert', 26],
-    ['Verantwortung', 26],
-    ['Praktischer Nutzen', 26],
-    ['Kreative Impulse', 26],
-    ['Tatkräftig', 28],
-    ['Weitblick', 26],
-    ['Performance-Fokus', 26],
-    ['Clean Code', 28],
-    ['User Experience', 26],
-    ['Agile Methoden', 26],
-    ['Selbstständigkeit', 28],
-    ['Datenanalyse', 26],
-    ['Problemlösungs-Drive', 28],
-    ['Entschlossenheit', 28],
-    ['Weiterentwicklung', 26],
-    ['Hands-on', 28],
-    ['Visionär', 28],
-    ['Kreativpotenzial', 26],
-    ['Effizienz steigern', 26],
-    ['Starke Intuition', 28],
-    ['Zukunftsorientiert', 28],
-    ['Verlässlicher Partner', 26],
-    ['Expertise', 26],
-    ['Zielstrebig', 26],
-    ['System-Optimierung', 26],
+    ['Kein Leerlauf', 24],
+    ['Veränderung treiben', 24],
+    ['Hohe Dynamik', 24],
+    ['Komplexität meistern', 24],
+    ['Neue Wege gehen', 24],
+    ['Kommunikation', 26],
+    ['Keine Monotonie', 22],
+    ['Projekte parallel', 24],
+    ['Zielstrebigkeit', 24],
+    ['Objektive Fakten', 22],
+    ['Konkrete Ergebnisse', 24],
+    ['Führungsanspruch', 24],
+    ['Direktes Handeln', 24],
+    ['Unternehmensgeist', 24],
+    ['Hoher Anspruch', 22],
+    ['Wissenschaftlich', 22],
+    ['Keine Grenzen', 20],
+    ['Mut zum Risiko', 22],
+    ['Humor & Freude', 22],
+    ['Wert auf Leistung', 22],
+    ['Faktenbasiert', 22],
+    ['Verantwortung', 22],
+    ['Praktischer Nutzen', 22],
+    ['Kreative Impulse', 22],
+    ['Tatkräftig', 24],
+    ['Weitblick', 22],
+    ['Performance-Fokus', 22],
+    ['Clean Code', 24],
+    ['User Experience', 22],
+    ['Agile Methoden', 22],
+    ['Selbstständigkeit', 24],
+    ['Datenanalyse', 22],
+    ['Problemlösungs-Drive', 24],
+    ['Entschlossenheit', 24],
+    ['Weiterentwicklung', 22],
+    ['Hands-on', 24],
+    ['Visionär', 24],
+    ['Effizienz steigern', 22],
+    ['Starke Intuition', 24],
+    ['Zukunftsorientiert', 24],
+    ['Verlässlicher Partner', 22],
+    ['Expertise', 22],
+    ['System-Optimierung', 22],
   ];
 
   const colors = [
@@ -204,13 +198,13 @@ const { t } = Astro.props;
 
     let sortedSpans: HTMLElement[] = [];
 
-    // Render wordcloud once into DOM elements
+    // Render wordcloud ONCE into DOM elements without touching layout transforms
     WordCloud(container, {
       list: fullWordList,
       shape: 'circle',
-      gridSize: Math.round(8 * width / 1024),
+      gridSize: Math.round(10 * width / 1024),
       weightFactor: function (size) {
-        return Math.pow(size, 1.2) * (width / 1100);
+        return Math.pow(size, 1.1) * (width / 1200);
       },
       fontFamily: '"Inter Variable", Inter, system-ui, -apple-system, sans-serif',
       color: function () {
@@ -232,7 +226,7 @@ const { t } = Astro.props;
 
       const spans = Array.from(container.querySelectorAll<HTMLElement>('span'));
       
-      // Calculate distance from center for each word element
+      // Calculate distance from center for each word element WITHOUT mutating transform
       spans.forEach((span) => {
         const left = parseFloat(span.style.left) || (span.offsetLeft + span.offsetWidth / 2);
         const top = parseFloat(span.style.top) || (span.offsetTop + span.offsetHeight / 2);
@@ -241,10 +235,9 @@ const { t } = Astro.props;
         const dist = Math.hypot(dx, dy);
 
         span.dataset.distance = dist.toString();
-        span.style.transition = 'opacity 0.4s ease-out, filter 0.4s ease-out, transform 0.4s ease-out';
+        // ONLY transition opacity - NEVER mutate transform or scale to prevent displacement!
+        span.style.transition = 'opacity 0.35s ease-out';
         span.style.opacity = '0';
-        span.style.filter = 'blur(6px)';
-        span.style.transform = (span.style.transform || '') + ' scale(0.85)';
       });
 
       // Sort spans by distance from center ascending (center words first, outer words last)
@@ -263,8 +256,6 @@ const { t } = Astro.props;
       if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
         sortedSpans.forEach((span) => {
           span.style.opacity = '1';
-          span.style.filter = 'none';
-          span.style.transform = span.style.transform.replace(' scale(0.85)', '');
         });
         return;
       }
@@ -275,10 +266,8 @@ const { t } = Astro.props;
       sortedSpans.forEach((span, idx) => {
         if (idx < activeCount) {
           span.style.opacity = '1';
-          span.style.filter = 'none';
         } else {
           span.style.opacity = '0';
-          span.style.filter = 'blur(6px)';
         }
       });
     }
