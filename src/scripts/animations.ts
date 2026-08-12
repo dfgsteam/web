@@ -347,13 +347,19 @@ function setupServiceStack() {
   const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
 
   if (isDesktop && !reduceMotion) {
+    cards.forEach((card, i) => {
+      if (i > 0) {
+        gsap.set(card, { yPercent: 115, opacity: 0, scale: 0.96 });
+      }
+    });
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: 'top top+=75',
-        end: () => `+=${cards.length * 400}`,
+        end: () => `+=${cards.length * 450}`,
         pin: true,
-        scrub: 1,
+        scrub: 0.6,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       },
@@ -361,12 +367,12 @@ function setupServiceStack() {
 
     cards.forEach((card, index) => {
       if (index === 0) return;
-      gsap.set(card, { yPercent: 110, opacity: 0 });
 
       tl.to(card, {
         yPercent: 0,
         opacity: 1,
-        ease: 'power1.inOut',
+        scale: 1,
+        ease: 'power2.out',
         duration: 1,
       });
 
@@ -375,8 +381,8 @@ function setupServiceStack() {
         prevCards,
         {
           scale: (i) => 1 - (index - i) * 0.035,
-          y: (i) => -(index - i) * 14,
-          opacity: (i) => (index - i > 2 ? 0.3 : 0.85),
+          y: (i) => -(index - i) * 16,
+          opacity: (i) => Math.max(0.4, 1 - (index - i) * 0.2),
           duration: 1,
         },
         '<',
@@ -387,6 +393,7 @@ function setupServiceStack() {
       card.style.position = 'relative';
       card.style.top = '0';
       card.style.transform = 'none';
+      card.style.opacity = '1';
       if (i > 0) card.style.marginTop = '1.5rem';
     });
   }
