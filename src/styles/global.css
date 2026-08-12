@@ -352,10 +352,18 @@ html:not(.js) [data-reveal] {
   }
 }
 
-/* Printable CV document media query */
+/* Printable CV document rules */
+.print-cv-container {
+  display: none !important;
+}
+
 @media print {
-  body > *:not(.print-cv-container) {
-    display: none !important;
+  body * {
+    visibility: hidden !important;
+  }
+  .print-cv-container,
+  .print-cv-container * {
+    visibility: visible !important;
   }
   .print-cv-container {
     display: block !important;
@@ -364,12 +372,14 @@ html:not(.js) [data-reveal] {
     top: 0 !important;
     width: 100% !important;
     margin: 0 !important;
-    padding: 1.5cm !important;
+    padding: 1cm !important;
     background: #ffffff !important;
     color: #000000 !important;
   }
   html, body {
     background: #ffffff !important;
     color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
