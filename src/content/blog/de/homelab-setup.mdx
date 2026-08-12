@@ -1,0 +1,37 @@
+---
+title: 'Mein Self-Hosted-Setup: Docker, Reverse Proxy & Watchtower'
+date: 2026-07-20
+excerpt: 'Ein Einblick in die Infrastruktur hinter meinen Projekten: selbst gehostet, containerisiert und automatisch aktualisiert.'
+tags: [Homelab, Docker, DevOps]
+---
+
+## Warum selbst hosten
+
+Meine Projekte und diese Website laufen nicht bei einem großen Cloud-Anbieter,
+sondern auf eigenen Servern. Gründe: volle Kontrolle über Deployments,
+kein Vendor-Lock-in und deutlich geringere laufende Kosten für kleine Dienste.
+
+## Die Bausteine
+
+Das Setup besteht aus ein paar bewährten Komponenten:
+
+- **Docker & docker-compose:** Jede Anwendung läuft in einem eigenen Container,
+  reproduzierbar und isoliert
+- **Reverse Proxy:** Ein zentraler Proxy (bei mir Nginx Proxy Manager)
+  übernimmt Routing, TLS-Zertifikate und Host-Header
+- **Watchtower:** Aktualisiert Container automatisch auf neue Images – wichtig,
+  damit keine Security-Patches liegen bleiben
+- **GHCR als Registry:** Images werden gebaut und gepusht, der Server zieht sie
+
+## Der Deploy-Flow
+
+Ein neues Release bedeutet: Build in der CI, Push des Images zur Registry,
+`docker compose pull && up -d` auf dem Server. In unter einer Minute ist die
+neue Version live – und der alte Container sauber ersetzt.
+
+## Was ich daraus gelernt habe
+
+Self-Hosting ist kein Hexenwerk, aber es braucht Disziplin. Backups gehören in
+die Routine, Updates gehören automatisiert, und jede neue App bekommt nur die
+Ports, die sie wirklich braucht. Wenn das steht, ist selbst gehostet oft
+komfortabler als jede Managed-Plattform.

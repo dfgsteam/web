@@ -1,0 +1,35 @@
+---
+title: 'Core Web Vitals: Warum Performance heute SEO ist'
+date: 2026-06-30
+excerpt: 'Google belohnt schnelle Seiten. Die wichtigsten Metriken und wie man sie in Astro praktisch erreicht.'
+tags: [Performance, SEO, Astro]
+---
+
+## Performance ist kein Nice-to-have mehr
+
+Seit Google die Core Web Vitals in den Ranking-Faktor einrechnet, ist
+Geschwindigkeit ein Teil der SEO-Strategie – nicht mehr nur ein
+Entwicklungs-Spielplatz. Drei Metriken zählen besonders:
+
+- **LCP (Largest Contentful Paint):** Wie schnell das Hauptelement sichtbar wird
+- **INP (Interaction to Next Paint):** Wie flüssig die Seite auf Eingaben reagiert
+- **CLS (Cumulative Layout Shift):** Wie sehr das Layout beim Laden springt
+
+## Wie man sie praktisch erreicht
+
+Die gute Nachricht: Die meisten Werte fallen einem fast geschenkt zu, wenn die
+Grundlagen stimmen:
+
+- **Statisches Rendering:** Nur ausliefern, was nötig ist – Astro macht das
+  von Haus aus
+- **Kein Render-blocking JavaScript:** Schwere Bundles erst nach dem ersten
+  Rendern laden (lazy)
+- **Feste Maße für Medien:** Bilder ohne reservierte Höhe verursachen CLS
+- **Moderne Bildformate:** WebP/AVIF mit passenden srcset
+
+## Das Beispiel dieser Seite
+
+Diese Seite lädt das komplette Animations-Bundle erst nach dem ersten
+Rendering. Dazu kommen lokal gehostete Schriften und keine Tracking-Skripte.
+Das Ergebnis: minimaler JavaScript-Footprint und stabile Core Web Vitals –
+Performance wird so zur wiederkehrenden Routine statt zum Sonderprojekt.
