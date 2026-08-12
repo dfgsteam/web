@@ -30,10 +30,11 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
   class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
   id="site-header"
 >
-  <div class="container-page flex items-center justify-between py-4">
+  <div class="container-page flex items-center justify-between gap-4 py-4">
+    <!-- Logo -->
     <a
       href={lang === 'de' ? '/' : '/en'}
-      class="group relative z-10 flex items-center gap-3"
+      class="group relative z-10 flex items-center gap-3 shrink-0"
       aria-label="Julius Hunold – Home"
     >
       <span
@@ -47,15 +48,16 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
       </span>
     </a>
 
+    <!-- Center Navigation Pill -->
     <nav
-      class="hidden items-center gap-8 rounded-full border border-line bg-surface/70 px-6 py-2.5 backdrop-blur-md md:flex"
+      class="hidden lg:flex items-center gap-5 rounded-full border border-line bg-surface/70 px-5 py-2 backdrop-blur-md shrink-0"
       aria-label="Hauptnavigation"
     >
       {
         links.map((link) => (
           <a
             href={link.href}
-            class="text-sm text-mute transition-colors duration-300 hover:text-ink"
+            class="text-xs font-medium text-mute transition-colors duration-300 hover:text-ink whitespace-nowrap"
           >
             {link.label}
           </a>
@@ -63,7 +65,8 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
       }
     </nav>
 
-    <div class="relative z-10 flex items-center gap-2">
+    <!-- Right Actions Group -->
+    <div class="relative z-10 flex items-center gap-2 shrink-0">
       <!-- Cmd+K Command Palette Search Trigger -->
       <CommandPalette t={t} lang={lang} />
 
@@ -71,7 +74,7 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
         data-theme-toggle
         aria-pressed="false"
         aria-label="Dark mode"
-        class="flex size-10 items-center justify-center rounded-full border border-line text-mute transition-colors duration-300 hover:border-accent hover:text-ink"
+        class="flex size-9 items-center justify-center rounded-full border border-line text-mute transition-colors duration-300 hover:border-accent hover:text-ink shrink-0"
       >
         <Sun class="hidden size-4 dark:block" stroke-width={1.75} />
         <Moon class="size-4 dark:hidden" stroke-width={1.75} />
@@ -79,7 +82,7 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
 
       <a
         href={alternatePath}
-        class="flex items-center gap-1.5 rounded-full border border-line px-3 py-2 text-xs font-medium text-mute transition-colors duration-300 hover:border-accent hover:text-ink"
+        class="flex items-center gap-1.5 rounded-full border border-line px-3 py-2 text-xs font-medium text-mute transition-colors duration-300 hover:border-accent hover:text-ink shrink-0"
         aria-label="Switch language"
       >
         <Languages class="size-3.5" stroke-width={1.75} />
@@ -92,7 +95,7 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
 
       <button
         data-menu-toggle
-        class="flex size-10 items-center justify-center rounded-full border border-line text-ink md:hidden"
+        class="flex size-9 items-center justify-center rounded-full border border-line text-ink lg:hidden shrink-0"
         aria-label={t.nav.menu}
         aria-expanded="false"
       >
@@ -102,10 +105,11 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
   </div>
 </header>
 
+<!-- Mobile Navigation Drawer -->
 <div
   data-menu
   aria-hidden="true"
-  class="fixed inset-0 z-40 hidden bg-base/95 backdrop-blur-xl md:hidden"
+  class="fixed inset-0 z-40 hidden bg-base/95 backdrop-blur-xl lg:hidden"
 >
   <div class="container-page flex h-full flex-col justify-center gap-8 pt-20">
     {

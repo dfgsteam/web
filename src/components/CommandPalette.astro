@@ -36,14 +36,14 @@ const actions = [
 <button
   id="cmd-palette-trigger"
   type="button"
-  class="group flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1.5 text-xs text-mute backdrop-blur-md transition-all duration-300 hover:border-accent hover:text-ink active:scale-95"
+  class="group flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-2 text-xs font-medium text-mute backdrop-blur-md transition-all duration-300 hover:border-accent hover:text-ink shrink-0"
   aria-label={t.cmdPalette.title}
+  title="Schnellsuche (⌘K)"
 >
   <Search class="size-3.5 text-dim group-hover:text-accent transition-colors" />
-  <span class="hidden sm:inline font-medium">{t.cmdPalette.title}</span>
-  <kbd class="flex items-center gap-0.5 rounded border border-line bg-base px-1.5 py-0.5 text-[10px] font-mono text-dim shadow-xs">
-    <Command class="size-2.5" />
-    <span>K</span>
+  <span class="hidden xl:inline">Suche</span>
+  <kbd class="flex items-center gap-0.5 rounded border border-line bg-base px-1.5 py-0.5 text-[10px] font-mono text-dim">
+    ⌘K
   </kbd>
 </button>
 
