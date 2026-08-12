@@ -108,7 +108,7 @@ function setupReveal() {
   const els = gsap.utils.toArray<HTMLElement>('[data-reveal]');
 
   els.forEach((el) => {
-    if (el.closest('[data-horizontal-track]')) return;
+    if (el.closest('[data-horizontal-track]') || el.closest('[data-stack-card]')) return;
     const dir = el.dataset.reveal || 'up';
     const delay = Number(el.dataset.revealDelay ?? 0);
     const from = {
@@ -338,6 +338,60 @@ function setupHorizontal() {
   });
 }
 
+function setupServiceStack() {
+  const section = document.querySelector<HTMLElement>('[data-service-stack]');
+  if (!section) return;
+  const cards = gsap.utils.toArray<HTMLElement>(section.querySelectorAll('[data-stack-card]'));
+  if (!cards.length) return;
+
+  const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+
+  if (isDesktop && !reduceMotion) {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top top+=75',
+        end: () => `+=${cards.length * 400}`,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    cards.forEach((card, index) => {
+      if (index === 0) return;
+      gsap.set(card, { yPercent: 110, opacity: 0 });
+
+      tl.to(card, {
+        yPercent: 0,
+        opacity: 1,
+        ease: 'power1.inOut',
+        duration: 1,
+      });
+
+      const prevCards = cards.slice(0, index);
+      tl.to(
+        prevCards,
+        {
+          scale: (i) => 1 - (index - i) * 0.035,
+          y: (i) => -(index - i) * 14,
+          opacity: (i) => (index - i > 2 ? 0.3 : 0.85),
+          duration: 1,
+        },
+        '<',
+      );
+    });
+  } else {
+    cards.forEach((card, i) => {
+      card.style.position = 'relative';
+      card.style.top = '0';
+      card.style.transform = 'none';
+      if (i > 0) card.style.marginTop = '1.5rem';
+    });
+  }
+}
+
 export function boot() {
   createLenis();
   ctx = gsap.context(() => {
@@ -349,6 +403,7 @@ export function boot() {
     setupCounters();
     setupSkillBars();
     setupHorizontal();
+    setupServiceStack();
     setupParallax();
     setupTilt();
     setupProgress();

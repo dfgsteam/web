@@ -13,6 +13,7 @@ export const en: Dict = {
     about: 'About',
     projects: 'Projects',
     skills: 'Skills',
+    services: 'Services',
     infra: 'Infra',
     cv: 'Resume',
     contact: 'Contact',
@@ -269,5 +270,45 @@ export const en: Dict = {
       online: 'ONLINE',
       uptime: '99.9% Uptime',
     },
+  },
+  services: {
+    label: 'Services & Inquiry',
+    heading: 'From concept to production-ready software.',
+    subheading:
+      'Scroll through the options – choose your scope and send a direct project inquiry.',
+    cards: [
+      {
+        tag: '01 // CUSTOM APPS',
+        title: 'Custom Web Apps & APIs',
+        description:
+          'High-performance software solutions with PHP (Laravel/TYPO3) & Python. From complex business logic to scalable REST APIs.',
+        highlights: ['Laravel & Python Backend', 'Scalable Databases', 'REST / GraphQL APIs', 'Clean Code & Type Safety'],
+        badge: 'High Performance',
+      },
+      {
+        tag: '02 // E-COMMERCE',
+        title: 'E-Commerce & Shop Systems',
+        description:
+          'Professional WooCommerce online shops with custom payment gateways, ERP synchronization, and automated inventory sync.',
+        highlights: ['WooCommerce Customization', 'ERP & Inventory Sync', 'Payment Gateway Integration', 'Conversion Focus'],
+        badge: 'Conversion Focused',
+      },
+      {
+        tag: '03 // DEVOPS & INFRA',
+        title: 'IT Consulting & Infrastructure',
+        description:
+          'Setup of secure Linux servers, Docker environments, CI/CD pipelines, and automated backup & monitoring systems.',
+        highlights: ['Docker & Linux Server Setup', 'GitHub Actions CI/CD', 'SSL, Security & Nginx Proxy', 'IT Services & Hosting'],
+        badge: 'Self-Hosted',
+      },
+      {
+        tag: '04 // START A PROJECT',
+        title: 'Ready for your next project?',
+        description:
+          'Select your scope and send me a direct message – I will get back to you within 24 hours.',
+        cta: 'Send Inquiry Now →',
+        badge: 'Direct & Fast',
+      },
+    ],
   },
 };

@@ -1,0 +1,118 @@
+---
+import { Code, ShoppingBag, Server, ArrowRight, CheckCircle2, Sparkles, Send } from '@lucide/astro';
+import type { Dict, Locale } from '../../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+
+const cardIcons = [Code, ShoppingBag, Server, Sparkles];
+
+const cardGradients = [
+  'from-violet-500/10 via-purple-500/5 to-transparent border-violet-500/30',
+  'from-pink-500/10 via-rose-500/5 to-transparent border-pink-500/30',
+  'from-emerald-500/10 via-teal-500/5 to-transparent border-emerald-500/30',
+  'from-amber-500/15 via-orange-500/10 to-accent/20 border-accent/60 shadow-2xl shadow-accent/20',
+];
+---
+
+<section id="services" data-service-stack class="section-spacing relative isolate overflow-hidden">
+  <!-- Glowing Orbs -->
+  <div class="glow glow--violet glow--float -right-40 top-1/4 h-[500px] w-[500px]" aria-hidden="true"></div>
+  <div class="glow glow--amber glow--float-slow -left-40 bottom-1/4 h-[420px] w-[420px]" aria-hidden="true"></div>
+
+  <div class="container-page relative">
+    <!-- Header -->
+    <div class="max-w-3xl mb-14">
+      <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
+        {t.services.label}
+      </p>
+      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        {t.services.heading}
+      </h2>
+      <p class="mt-5 text-lg text-mute" data-reveal="up" data-reveal-delay="0.1">
+        {t.services.subheading}
+      </p>
+    </div>
+
+    <!-- Stack Cards Container -->
+    <div class="relative min-h-[520px] w-full" data-stack-container>
+      {
+        t.services.cards.map((card, i) => {
+          const Icon = cardIcons[i % cardIcons.length];
+          const isCtaCard = i === t.services.cards.length - 1;
+          const gradient = cardGradients[i % cardGradients.length];
+
+          return (
+            <div
+              data-stack-card
+              class={`group absolute inset-x-0 top-0 overflow-hidden rounded-3xl border bg-surface/90 p-8 md:p-12 backdrop-blur-xl transition-all duration-500 ${gradient}`}
+              style={`z-index: ${i + 1};`}
+            >
+              <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
+                <div class="max-w-2xl">
+                  <div class="flex items-center gap-3">
+                    <span class="font-mono text-xs font-semibold uppercase tracking-wider text-accent">
+                      {card.tag}
+                    </span>
+                    <span class="rounded-full bg-surface border border-line px-3 py-1 text-xs font-medium text-ink shadow-sm">
+                      {card.badge}
+                    </span>
+                  </div>
+
+                  <h3 class="mt-4 text-2xl font-semibold tracking-tight text-ink md:text-4xl">
+                    {card.title}
+                  </h3>
+
+                  <p class="mt-4 text-base leading-relaxed text-mute md:text-lg">
+                    {card.description}
+                  </p>
+
+                  {!isCtaCard && card.highlights && (
+                    <ul class="mt-6 grid gap-2.5 sm:grid-cols-2">
+                      {card.highlights.map((item) => (
+                        <li class="flex items-center gap-2.5 text-sm text-ink">
+                          <CheckCircle2 class="size-4 shrink-0 text-accent" stroke-width={2} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <!-- Right Action / Icon Column -->
+                <div class="flex shrink-0 flex-col items-start gap-6 lg:items-end">
+                  <div class="flex size-16 items-center justify-center rounded-2xl border border-line bg-elevated text-accent transition-transform duration-300 group-hover:scale-110">
+                    <Icon class="size-8" stroke-width={1.75} />
+                  </div>
+
+                  {isCtaCard ? (
+                    <a
+                      href="#kontakt"
+                      data-magnetic
+                      class="inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-base font-semibold text-white shadow-xl shadow-accent/25 transition-all duration-300 hover:bg-accent/90 hover:shadow-2xl hover:scale-105 active:scale-95"
+                    >
+                      <Send class="size-5" />
+                      <span>{card.cta}</span>
+                    </a>
+                  ) : (
+                    <a
+                      href="#kontakt"
+                      class="inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors duration-300 hover:text-accent"
+                    >
+                      <span>Anfrage stellen</span>
+                      <ArrowRight class="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

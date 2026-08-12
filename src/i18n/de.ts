@@ -11,6 +11,7 @@ export const de = {
     about: 'Über mich',
     projects: 'Projekte',
     skills: 'Skills',
+    services: 'Services',
     infra: 'Infra',
     cv: 'Lebenslauf',
     contact: 'Kontakt',
@@ -267,6 +268,46 @@ export const de = {
       online: 'ONLINE',
       uptime: '99.9% Uptime',
     },
+  },
+  services: {
+    label: 'Leistungen & Anfrage',
+    heading: 'Von der Idee zur fertigen Software.',
+    subheading:
+      'Scrollen für die Übersicht – wähle deinen Bereich und starte direkt eine unverbindliche Anfrage.',
+    cards: [
+      {
+        tag: '01 // CUSTOM APPS',
+        title: 'Maßgeschneiderte Web-Apps & APIs',
+        description:
+          'Hochperformante Softwarelösungen mit PHP (Laravel/TYPO3) & Python. Von komplexer Geschäftslogik bis zu skalierbaren REST-APIs.',
+        highlights: ['Laravel & Python Backend', 'Skalierbare Datenbanken', 'REST / GraphQL APIs', 'Clean Code & Type-Safety'],
+        badge: 'High Performance',
+      },
+      {
+        tag: '02 // E-COMMERCE',
+        title: 'Shop-Systeme & E-Commerce',
+        description:
+          'Professionelle WooCommerce-Webshops mit individuellen Zahlungsanbindungen, ERP-Synchronisation und automatisierter Warenwirtschaft.',
+        highlights: ['WooCommerce Customizing', 'ERP & WAWI-Anbindungen', 'Payment-Gateway Integrationen', 'Conversion-Optimierung'],
+        badge: 'Conversion-Fokus',
+      },
+      {
+        tag: '03 // DEVOPS & INFRA',
+        title: 'IT-Consulting & Cloud-Hosting',
+        description:
+          'Setup von sicheren Linux-Servern, Docker-Environments, CI/CD-Pipelines und automatisierten Backup- & Monitoring-Systemen.',
+        highlights: ['Docker & Linux Server-Setup', 'GitHub Actions CI/CD', 'SSL, Security & Nginx Proxy', 'IT-Services & Hosting'],
+        badge: 'Self-Hosted',
+      },
+      {
+        tag: '04 // PROJEKT STARTEN',
+        title: 'Bereit für dein nächstes Projekt?',
+        description:
+          'Wähle dein Thema und sende mir direkt eine Nachricht – ich melde mich innerhalb von 24 Stunden bei dir.',
+        cta: 'Anfrage jetzt senden →',
+        badge: 'Unverbindlich & Direkt',
+      },
+    ],
   },
 };
 
