@@ -1,0 +1,36 @@
+---
+title: 'Astro & GSAP: Butterweiche Scroll-Animationen'
+date: 2026-08-05
+excerpt: 'ScrollTrigger, Lenis und ein paar Fallstricke: Wie man Apple-artige Scroll-Effekte performant in Astro umsetzt.'
+tags: [Astro, GSAP, Performance]
+---
+
+## Das Setup
+
+Für die Scroll-Animationen auf dieser Seite kombinieren wir drei Bausteine:
+
+- **Lenis** für butterweiches Smooth Scrolling
+- **GSAP + ScrollTrigger** für Pinning, Scrubbing und Reveals
+- **Astro** als Framework, das das JavaScript nur dort ausliefert, wo es gebraucht wird
+
+## Die wichtigste Lektion
+
+GSAP und Lenis funktionieren nur sauber zusammen, wenn Lenis' Scroll-Position
+an ScrollTrigger weitergegeben wird – am einfachsten über `gsap.ticker`:
+
+```js
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
+```
+
+## Lazy Loading
+
+Das ganze GSAP-Bundle wird erst *nach* dem ersten Rendern geladen
+(`import('./animations')` + `requestIdleCallback`). So bleibt die Seite sofort
+sichtbar, obwohl die Animationen schwer sind.
+
+## Reduced Motion
+
+Jede Animation respektiert `prefers-reduced-motion` – ein Muss für eine
+Portfolio-Seite, die von Bewegung lebt.

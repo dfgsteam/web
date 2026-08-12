@@ -15,6 +15,7 @@ export const en: Dict = {
     skills: 'Skills',
     cv: 'Resume',
     contact: 'Contact',
+    blog: 'Blog',
     menu: 'Menu',
     close: 'Close',
   },
@@ -217,5 +218,13 @@ export const en: Dict = {
     close: 'Close',
     viewDetails: 'View Details',
     readMore: 'Read more',
+  },
+  blog: {
+    label: 'Blog',
+    heading: 'Notes & insights.',
+    subheading: 'Thoughts on web development, tooling and this project.',
+    readMore: 'Read more',
+    back: 'Back to blog',
+    published: 'Published on',
   },
 };

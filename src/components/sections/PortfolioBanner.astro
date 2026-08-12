@@ -1,6 +1,7 @@
 ---
 import type { Dict, Locale } from '../../lib/i18n';
 import { skills } from '../../data/skills';
+import { PORTFOLIO_IMAGE } from '../../lib/site';
 
 interface Props {
   t: Dict;
@@ -27,7 +28,7 @@ const stats = [
       ></div>
       <div class="relative overflow-hidden rounded-[2rem] border border-line shadow-2xl shadow-accent/10">
         <img
-          src="/portfolio.svg"
+          src={PORTFOLIO_IMAGE}
           alt={t.portfolio.imageAlt}
           width="800"
           height="1000"

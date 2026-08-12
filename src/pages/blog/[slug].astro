@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+import { getDict } from '../../lib/i18n';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ id }) => id.startsWith('de/'));
+  return posts.map((post) => ({
+    params: { slug: post.id.split('/').slice(1).join('/') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const t = getDict();
+---
+
+<Layout
+  t={t}
+  lang="de"
+  title={`${post.data.title} – Blog – ${t.meta.title}`}
+  description={post.data.excerpt}
+  path={Astro.url.pathname}
+>
+  <BlogPost t={t} lang="de" post={post} />
+</Layout>

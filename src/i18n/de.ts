@@ -13,6 +13,7 @@ export const de = {
     skills: 'Skills',
     cv: 'Lebenslauf',
     contact: 'Kontakt',
+    blog: 'Blog',
     menu: 'Menü',
     close: 'Schließen',
   },
@@ -215,6 +216,14 @@ export const de = {
     close: 'Schließen',
     viewDetails: 'View Details',
     readMore: 'Mehr erfahren',
+  },
+  blog: {
+    label: 'Blog',
+    heading: 'Notizen & Einblicke.',
+    subheading: 'Gedanken zu Web-Entwicklung, Tooling und diesem Projekt.',
+    readMore: 'Weiterlesen',
+    back: 'Zurück zum Blog',
+    published: 'Veröffentlicht am',
   },
 };
 

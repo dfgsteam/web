@@ -131,6 +131,9 @@ body {
 }
 
 /* Prose for MDX detail content */
+.prose-detail > h2 {
+  @apply mt-12 mb-4 text-2xl font-semibold tracking-tight;
+}
 .prose-detail > h3 {
   @apply mt-10 mb-3 text-xl font-semibold tracking-tight;
 }
@@ -149,6 +152,20 @@ body {
 }
 .prose-detail > strong {
   @apply text-ink;
+}
+.prose-detail > blockquote {
+  @apply my-6 border-l-2 border-accent pl-4 text-mute italic;
+}
+.prose-detail pre {
+  @apply my-6 overflow-x-auto rounded-xl border border-line bg-elevated p-4 text-sm leading-relaxed;
+}
+.prose-detail pre code {
+  font-family: var(--font-mono);
+  @apply text-[0.85em] text-ink;
+}
+.prose-detail :not(pre) > code {
+  @apply rounded bg-elevated px-1.5 py-0.5 text-[0.85em] text-ink;
+  font-family: var(--font-mono);
 }
 
 /* Marquee ticker */

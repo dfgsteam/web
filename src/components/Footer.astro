@@ -53,6 +53,9 @@ const homeHref = lang === 'de' ? '/' : '/en';
             </svg>
           </a>
         ))}
+        <a href={lang === 'de' ? '/blog' : '/en/blog'} class="transition-colors hover:text-ink">
+          {t.nav.blog}
+        </a>
         <a href={lang === 'de' ? '/impressum' : '/en/impressum'} class="transition-colors hover:text-ink">
           {t.footer.imprint}
         </a>

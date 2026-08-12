@@ -54,6 +54,31 @@ src/
 Der Showcase sortiert nach `order`, die Detailseite wird automatisch unter
 `/projekte/<slug>` und `/en/projekte/<slug>` generiert.
 
+## Blog
+
+- Posts als MDX unter `src/content/blog/de/<slug>.mdx` und `en/<slug>.mdx`
+  (Schema: `title`, `date`, `excerpt`, `tags`)
+- Seiten: `/blog` und `/blog/<slug>` (bzw. `/en/...`)
+- Sortierung nach Datum absteigend, Sitemap automatisch inkludiert
+
+## Porträt-/Portfolio-Bild
+
+Platzhalter liegt in `public/portfolio.svg`. Echtes Foto ablegen (z. B.
+`public/portfolio.jpg`, 4:5) und den Pfad in `src/lib/site.ts`
+(`PORTFOLIO_IMAGE`) anpassen.
+
+## Google Search Console
+
+Verifikations-Code (Meta-Tag-Wert) in `src/lib/site.ts`
+(`GOOGLE_VERIFICATION`) eintragen. Danach in der Search Console die
+Sitemap `https://julius-hunold.de/sitemap-index.xml` einreichen.
+
+## PWA / Icons
+
+App-Icons (`icon-192`, `icon-512`, `apple-touch-icon`, `favicon-32`) in
+`public/`, Manifest in `public/site.webmanifest`. Neu generieren mit dem
+Skript-Muster in `/tmp` (`PIL`) oder manuell ersetzen.
+
 ## Sprachen / i18n
 
 - Default-Locale: **deutsch** (unpräfixierte URLs), Englisch unter `/en/...`

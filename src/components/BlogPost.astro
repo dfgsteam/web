@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import type { Dict, Locale } from '../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+  post: CollectionEntry<'blog'>;
+}
+
+const { t, lang, post } = Astro.props;
+const { Content } = await render(post);
+const blogIndexHref = lang === 'de' ? '/blog' : '/en/blog';
+
+const formatDate = (d: Date) =>
+  new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'de-DE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(d);
+---
+
+<article class="section-spacing pt-40">
+  <div class="container-page max-w-3xl">
+    <a
+      href={blogIndexHref}
+      class="mb-10 inline-flex items-center gap-2 text-sm text-mute transition-colors hover:text-ink"
+      data-reveal="up"
+    >
+      <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+      {t.blog.back}
+    </a>
+
+    <div class="flex flex-wrap items-center gap-3 text-xs" data-reveal="up" data-reveal-delay="0.05">
+      <time datetime={post.data.date.toISOString()} class="text-dim">
+        {t.blog.published} {formatDate(post.data.date)}
+      </time>
+      {
+        post.data.tags.map((tag) => (
+          <span class="rounded-full border border-line bg-elevated px-2.5 py-0.5 text-[11px] text-mute">{tag}</span>
+        ))
+      }
+    </div>
+
+    <h1 class="mt-4 text-balance text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl" data-reveal="up" data-reveal-delay="0.1">
+      {post.data.title}
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg text-mute" data-reveal="up" data-reveal-delay="0.15">
+      {post.data.excerpt}
+    </p>
+
+    <div class="mt-12 prose-detail" data-reveal="up" data-reveal-delay="0.2">
+      <Content />
+    </div>
+  </div>
+</article>

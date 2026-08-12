@@ -16,6 +16,7 @@ const links = [
   { href: '#skills', label: t.nav.skills },
   { href: '#cv', label: t.nav.cv },
   { href: '#kontakt', label: t.nav.contact },
+  { href: lang === 'de' ? '/blog' : '/en/blog', label: t.nav.blog },
 ];
 
 const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : `/en${pathname}`;

@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogIndex from '../../components/BlogIndex.astro';
+import { getDict } from '../../lib/i18n';
+import { getCollection } from 'astro:content';
+
+const t = getDict('en');
+
+const posts = (await getCollection('blog', ({ id }) => id.startsWith('en/')))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .map((p) => ({
+    id: p.id,
+    slug: p.id.split('/').slice(1).join('/'),
+    title: p.data.title,
+    date: p.data.date,
+    excerpt: p.data.excerpt,
+    tags: p.data.tags,
+  }));
+---
+
+<Layout
+  t={t}
+  lang="en"
+  title={`Blog – ${t.meta.title}`}
+  description={t.blog.subheading}
+  path={Astro.url.pathname}
+>
+  <BlogIndex t={t} lang="en" posts={posts} />
+</Layout>
