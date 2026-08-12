@@ -1,5 +1,4 @@
 ---
-import { Globe, Cpu, Leaf, Mail, Download } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -9,116 +8,118 @@ interface Props {
 
 const { t } = Astro.props;
 
+// Official Full Brand Logotypes (SVG containing Logo Icon + Official Brand Typography Wordmark)
 const brandLogos = [
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/julius-hunold/',
     hoverColor: 'hover:text-[#0A66C2]',
-    svg: `<svg class="h-6 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>`,
+    // Official LinkedIn Full Logo (Icon + "LinkedIn" typography)
+    svg: `<svg class="h-7 w-auto fill-current" viewBox="0 0 134 34" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 31.321h6.634V9.923H0v21.398zM3.317.001C1.488.001 0 1.489 0 3.317c0 1.828 1.488 3.364 3.317 3.364 1.829 0 3.317-1.536 3.317-3.364C6.634 1.489 5.146.001 3.317.001zM42.146 31.321h6.634V18.179c0-7.039-3.758-10.312-8.767-10.312-4.041 0-5.85 2.227-6.86 3.791v-3.257h-6.634c.088 1.874 0 21.398 0 21.398h6.634v-11.95c0-.639.046-1.278.234-1.737.514-1.278 1.685-2.604 3.652-2.604 2.576 0 3.606 1.961 3.606 4.834v11.457zM11.66 31.321h6.634V9.923h-6.634v21.398zM24.819 23.368c.002-3.876 2.05-6.027 5.127-6.027 1.869 0 3.011.895 3.518 1.691v-9.109h-6.634v4.04c-.958-1.428-2.695-2.42-5.328-2.42-4.908 0-8.621 3.861-8.621 10.36 0 6.406 3.607 10.22 8.48 10.22 2.766 0 4.606-1.127 5.469-2.564v2.062h6.634v-8.253h-8.645zm-1.89 2.518c-2.316 0-3.957-1.79-3.957-4.654 0-2.887 1.664-4.701 3.98-4.701 2.292 0 3.934 1.814 3.934 4.701 0 2.864-1.642 4.654-3.957 4.654z"/>
+      <g transform="translate(56, 0)">
+        <path d="M72 0H6a6 6 0 0 0-6 6v60a6 6 0 0 0 6 6h66a6 6 0 0 0 6-6V6a6 6 0 0 0-6-6zM22 62H11V27h11v35zm-5.5-40a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13zM67 62H56V43.5c0-4.7-1.7-7.9-5.9-7.9-3.2 0-5.1 2.2-5.9 4.3-.3.7-.4 1.7-.4 2.7V62H33s.1-32 0-35h11v5c1.5-2.2 4.1-5.4 9.8-5.4 7.2 0 13.2 4.7 13.2 15.1V62z" transform="scale(0.421)"/>
+      </g>
+    </svg>`,
   },
   {
     name: 'GitHub',
     url: 'https://github.com/juliushunold',
     hoverColor: 'hover:text-[#2DBA4E]',
-    svg: `<svg class="h-6 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>`,
+    // Official GitHub Full Logo (Octocat + "GitHub" typography wordmark)
+    svg: `<svg class="h-7 w-auto fill-current" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 0C7.16 0 0 7.16 0 16c0 7.07 4.58 13.07 10.94 15.19.8.15 1.09-.35 1.09-.77 0-.38-.01-1.39-.02-2.73-4.45.97-5.39-2.14-5.39-2.14-.73-1.85-1.78-2.34-1.78-2.34-1.45-.99.11-.97.11-.97 1.6.11 2.45 1.64 2.45 1.64 1.43 2.45 3.75 1.74 4.66 1.33.15-1.04.56-1.74 1.02-2.14-3.55-.4-7.29-1.78-7.29-7.91 0-1.75.62-3.18 1.64-4.3-.16-.4-.71-2.03.16-4.24 0 0 1.35-.43 4.42 1.64a15.3 15.3 0 0 1 4.02-.54c1.36.01 2.73.18 4.02.54 3.07-2.07 4.42-1.64 4.42-1.64.87 2.21.32 3.84.16 4.24 1.02 1.12 1.64 2.55 1.64 4.3 0 6.15-3.75 7.5-7.32 7.9.58.5 1.09 1.48 1.09 2.98 0 2.15-.02 3.89-.02 4.41 0 .43.29.93 1.1 0.77C27.42 29.07 32 23.07 32 16 32 7.16 24.84 0 16 0z"/>
+      <text x="38" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="21" letter-spacing="-0.5">GitHub</text>
+    </svg>`,
   },
   {
     name: 'XING',
     url: 'https://www.xing.com/profile/Julius_Hunold',
     hoverColor: 'hover:text-[#006567]',
-    svg: `<svg class="h-6 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.188 0c-.517 0-.741.325-.927.663l-6.45 11.462 4.11 7.425c.174.325.42.663.927.663h3.513c.427 0 .618-.288.441-.613l-3.86-6.95 6.07-10.787c.177-.325-.014-.613-.441-.613h-3.386zm-11.83 4.887c-.427 0-.645.288-.469.613l2.298 4.103-3.666 6.462c-.177.325.014.613.441.613h3.407c.517 0 .741-.325.927-.663l3.86-6.8-2.52-4.513c-.174-.325-.42-.613-.927-.613h-3.352z"/></svg>`,
+    // Official XING Full Logo (XING Double-X + "XING" typography wordmark)
+    svg: `<svg class="h-7 w-auto fill-current" viewBox="0 0 110 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.188 0c-.517 0-.741.325-.927.663l-6.45 11.462 4.11 7.425c.174.325.42.663.927.663h3.513c.427 0 .618-.288.441-.613l-3.86-6.95 6.07-10.787c.177-.325-.014-.613-.441-.613h-3.386zm-11.83 4.887c-.427 0-.645.288-.469.613l2.298 4.103-3.666 6.462c-.177.325.014.613.441.613h3.407c.517 0 .741-.325.927-.663l3.86-6.8-2.52-4.513c-.174-.325-.42-.613-.927-.613h-3.352z" transform="translate(0, 4) scale(1.1)"/>
+      <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="22" letter-spacing="0.5">XING</text>
+    </svg>`,
   },
   {
     name: 'hnld.de',
     url: 'https://hnld.de',
     hoverColor: 'hover:text-cyan-400',
-    icon: Globe,
+    // hnld.de Official Studio Wordmark SVG
+    svg: `<svg class="h-7 w-auto fill-current text-cyan-400" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="4" width="24" height="24" rx="7" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2"/>
+      <text x="6" y="21" font-family="monospace" font-weight="900" font-size="13" fill="currentColor">H</text>
+      <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="21" letter-spacing="-0.5">hnld<tspan font-weight="400" fill-opacity="0.6">.de</tspan></text>
+    </svg>`,
   },
   {
     name: 'hunold24.de',
     url: 'https://hunold24.de',
     hoverColor: 'hover:text-blue-400',
-    icon: Cpu,
+    // hunold24.de Windows XP / Tech Wordmark SVG
+    svg: `<svg class="h-7 w-auto fill-current text-blue-400" viewBox="0 0 150 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 6a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v20a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm2 2v4h20V8H2zm0 6v10h20V14H2z" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.5"/>
+      <text x="30" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="20" letter-spacing="-0.5">hunold<tspan font-weight="900" fill="#3B82F6">24</tspan><tspan font-weight="400" fill-opacity="0.6">.de</tspan></text>
+    </svg>`,
   },
   {
     name: 'ennery',
     url: 'https://ennery.de',
     hoverColor: 'hover:text-emerald-400',
-    icon: Leaf,
+    // ennery CleanTech Energy Wordmark SVG
+    svg: `<svg class="h-7 w-auto fill-current text-emerald-400" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" fill="currentColor" fill-opacity="0.2" transform="translate(0, 4) scale(1)"/>
+      <text x="28" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5">ennery<tspan font-size="12" font-weight="500" fill="currentColor" fill-opacity="0.7">.de</tspan></text>
+    </svg>`,
   },
   {
-    name: 'X / Twitter',
+    name: 'X (Twitter)',
     url: 'https://x.com',
     hoverColor: 'hover:text-white',
-    svg: `<svg class="h-5 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
-  },
-  {
-    name: 'vCard .vcf',
-    url: '/julius-hunold.vcf',
-    download: true,
-    hoverColor: 'hover:text-amber-400',
-    icon: Download,
+    // Official X Logo Mark SVG
+    svg: `<svg class="h-6 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>`,
   },
 ];
 ---
 
-<section class="relative isolate overflow-hidden border-y border-line bg-surface/40 py-7 backdrop-blur-md">
+<section class="relative isolate overflow-hidden border-y border-line bg-surface/40 py-8 backdrop-blur-md">
   <div class="marquee relative overflow-hidden" data-reveal="up">
-    <div class="marquee-track flex items-center gap-14 hover:[animation-play-state:paused]" style="animation-duration: 26s;">
+    <div class="marquee-track flex items-center gap-16 hover:[animation-play-state:paused]" style="animation-duration: 28s;">
       <!-- Track 1 -->
-      <div class="flex items-center gap-14 pr-14">
+      <div class="flex items-center gap-16 pr-16">
         {
-          brandLogos.map((brand) => {
-            const Icon = brand.icon;
-            return (
-              <a
-                href={brand.url}
-                target={brand.download ? '_self' : '_blank'}
-                rel={brand.download ? undefined : 'noopener noreferrer'}
-                download={brand.download ? true : undefined}
-                class={`group flex items-center gap-3 text-mute transition-all duration-300 ${brand.hoverColor} hover:scale-105 shrink-0 opacity-75 hover:opacity-100`}
-                title={brand.name}
-              >
-                {brand.svg ? (
-                  <Fragment set:html={brand.svg} />
-                ) : Icon ? (
-                  <Icon class="size-5 shrink-0" stroke-width={1.75} />
-                ) : null}
-                <span class="text-sm font-semibold tracking-tight text-ink group-hover:text-current transition-colors">
-                  {brand.name}
-                </span>
-              </a>
-            );
-          })
+          brandLogos.map((brand) => (
+            <a
+              href={brand.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`group flex items-center text-mute transition-all duration-300 ${brand.hoverColor} hover:scale-110 shrink-0 opacity-80 hover:opacity-100`}
+              title={brand.name}
+            >
+              <Fragment set:html={brand.svg} />
+            </a>
+          ))
         }
       </div>
 
       <!-- Track 2 (Duplicate for Infinite Loop) -->
-      <div class="flex items-center gap-14 pr-14" aria-hidden="true">
+      <div class="flex items-center gap-16 pr-16" aria-hidden="true">
         {
-          brandLogos.map((brand) => {
-            const Icon = brand.icon;
-            return (
-              <a
-                href={brand.url}
-                target={brand.download ? '_self' : '_blank'}
-                rel={brand.download ? undefined : 'noopener noreferrer'}
-                download={brand.download ? true : undefined}
-                tabindex="-1"
-                class={`group flex items-center gap-3 text-mute transition-all duration-300 ${brand.hoverColor} hover:scale-105 shrink-0 opacity-75 hover:opacity-100`}
-                title={brand.name}
-              >
-                {brand.svg ? (
-                  <Fragment set:html={brand.svg} />
-                ) : Icon ? (
-                  <Icon class="size-5 shrink-0" stroke-width={1.75} />
-                ) : null}
-                <span class="text-sm font-semibold tracking-tight text-ink group-hover:text-current transition-colors">
-                  {brand.name}
-                </span>
-              </a>
-            );
-          })
+          brandLogos.map((brand) => (
+            <a
+              href={brand.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabindex="-1"
+              class={`group flex items-center text-mute transition-all duration-300 ${brand.hoverColor} hover:scale-110 shrink-0 opacity-80 hover:opacity-100`}
+              title={brand.name}
+            >
+              <Fragment set:html={brand.svg} />
+            </a>
+          ))
         }
       </div>
     </div>
