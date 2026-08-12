@@ -90,10 +90,10 @@ const skillIcons: Record<string, any> = {
               </div>
               <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-elevated">
                 <div
-                  class={`h-full rounded-full ${barColor[skill.level]} origin-left transition-transform duration-700 ease-out group-hover:scale-x-105`}
+                  class={`h-full rounded-full ${barColor[skill.level]} origin-left`}
                   data-skill-bar
                   data-level={skill.value}
-                  style={{ transform: 'scaleX(0)' }}
+                  style="transform: scaleX(0); transform-origin: left;"
                 ></div>
               </div>
             </div>

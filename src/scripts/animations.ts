@@ -253,20 +253,27 @@ function setupSkillBars() {
   const bars = gsap.utils.toArray<HTMLElement>('[data-skill-bar]');
   bars.forEach((bar) => {
     const level = Number(bar.dataset.level ?? 0) / 100;
+    const card = bar.closest<HTMLElement>('.group') ?? bar.parentElement;
+
     if (reduceMotion) {
       bar.style.transform = `scaleX(${level})`;
       return;
     }
-    gsap.to(bar, {
-      scaleX: level,
-      duration: 1.4,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: bar,
-        start: 'top 88%',
-        once: true,
+
+    gsap.fromTo(
+      bar,
+      { scaleX: 0 },
+      {
+        scaleX: level,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card ?? bar,
+          start: 'top 85%',
+          once: true,
+        },
       },
-    });
+    );
   });
 }
 
