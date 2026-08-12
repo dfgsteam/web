@@ -90,17 +90,21 @@ export const en: Dict = {
     related: 'More projects',
   },
   skills: {
-    label: 'Skills',
-    heading: 'I’ve got the goods.',
-    subheading: 'My toolbox – from Python to Photoshop.',
-    levels: {
-      master: 'Master',
-      expert: 'Expert',
-      advanced: 'Advanced',
-      medium: 'Medium',
-      beginner: 'Beginner',
+    label: 'Skills & Tech Stack',
+    heading: 'Technologies, Tools & Expertise.',
+    subheading: 'My continuously expanding ecosystem for modern software development, e-commerce, and IT infrastructure.',
+    categories: {
+      all: 'All Skills',
+      dev: 'Languages & Dev',
+      web: 'Web, CMS & Shop',
+      infra: 'Infrastructure & Tools',
+      biz: 'Management & Business',
     },
-    legend: 'Level',
+    badges: {
+      core: 'Core Stack',
+      advanced: 'Experienced',
+      proficient: 'Proficient',
+    },
   },
   cv: {
     label: 'Curriculum Vitae',

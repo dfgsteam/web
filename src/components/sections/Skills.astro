@@ -4,19 +4,28 @@ import {
   Database,
   Braces,
   FileCode,
-  Table,
   ShoppingCart,
   SquareTerminal,
   Coffee,
   Blocks,
   Cpu,
-  Sigma,
   Binary,
-  Palette,
+  Globe,
+  Server,
+  GitBranch,
+  Box,
+  FileSpreadsheet,
+  Briefcase,
+  Layers,
+  Store,
+  Users,
+  Award,
+  Sparkles,
+  Zap,
 } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { skills } from '../../data/skills';
-import type { SkillLevel } from '../../data/skills';
+import type { SkillCategory, SkillBadge } from '../../data/skills';
 
 interface Props {
   t: Dict;
@@ -25,92 +34,196 @@ interface Props {
 
 const { t } = Astro.props;
 
-const levelOrder: SkillLevel[] = ['master', 'expert', 'advanced', 'medium', 'beginner'];
-
-const barColor: Record<SkillLevel, string> = {
-  master: 'bg-gradient-to-r from-accent to-accent-2',
-  expert: 'bg-accent/80',
-  advanced: 'bg-accent/60',
-  medium: 'bg-accent/40',
-  beginner: 'bg-accent/25',
-};
-
 const skillIcons: Record<string, any> = {
-  Python: CodeXml,
-  SQL: Database,
-  PHP: Braces,
-  HTML: FileCode,
-  'MS Office': Table,
-  WooCommerce: ShoppingCart,
-  'Linux / BASH': SquareTerminal,
-  Java: Coffee,
-  TYPO3: Blocks,
-  'C++': Cpu,
-  Haskell: Sigma,
-  Assembly: Binary,
-  Photoshop: Palette,
+  python: CodeXml,
+  php: Braces,
+  js: FileCode,
+  database: Database,
+  html: CodeXml,
+  java: Coffee,
+  cpp: Cpu,
+  terminal: SquareTerminal,
+  haskell: Zap,
+  binary: Binary,
+  astro: Sparkles,
+  shopping: ShoppingCart,
+  typo3: Blocks,
+  wordpress: Blocks,
+  react: CodeXml,
+  api: Zap,
+  server: Server,
+  git: GitBranch,
+  docker: Box,
+  globe: Globe,
+  excel: FileSpreadsheet,
+  briefcase: Briefcase,
+  layers: Layers,
+  store: Store,
+  users: Users,
+  award: Award,
 };
+
+const badgeStyles: Record<SkillBadge, { badgeClass: string; dotClass: string }> = {
+  core: {
+    badgeClass: 'border-accent/40 bg-accent/10 text-accent font-semibold',
+    dotClass: 'bg-accent animate-pulse',
+  },
+  advanced: {
+    badgeClass: 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400 font-semibold',
+    dotClass: 'bg-cyan-400',
+  },
+  proficient: {
+    badgeClass: 'border-purple-500/30 bg-purple-500/10 text-purple-300 font-medium',
+    dotClass: 'bg-purple-400',
+  },
+};
+
+const categoryKeys: (SkillCategory | 'all')[] = ['all', 'dev', 'web', 'infra', 'biz'];
 ---
 
 <section id="skills" class="section-spacing relative isolate overflow-hidden border-t border-line">
+  <!-- Ambient Glow Orbs -->
   <div class="glow glow--sky glow--float -left-32 top-20 h-[420px] w-[420px]" aria-hidden="true"></div>
   <div class="glow glow--violet glow--float-slow -right-32 bottom-0 h-[380px] w-[380px]" aria-hidden="true"></div>
 
   <div class="container-page relative">
-    <div class="mb-16 max-w-3xl">
-      <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
-        {t.skills.label}
-      </p>
-      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
-        {t.skills.heading}
-      </h2>
-      <p class="mt-5 max-w-xl text-lg text-mute" data-reveal="up" data-reveal-delay="0.1">
-        {t.skills.subheading}
-      </p>
+    <!-- Header -->
+    <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-2xl">
+        <p class="mb-3 text-xs uppercase tracking-widest text-accent font-mono" data-reveal="up">
+          {t.skills.label}
+        </p>
+        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+          {t.skills.heading}
+        </h2>
+        <p class="mt-4 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
+          {t.skills.subheading}
+        </p>
+      </div>
+
+      <!-- Skill Count Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0" data-reveal="up" data-reveal-delay="0.15">
+        <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span><strong class="text-ink">{skills.length}</strong> Skills & Expertise</span>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+    <!-- Category Filter Tabs -->
+    <div class="mb-10 flex flex-wrap items-center gap-2 border-b border-line pb-4" data-reveal="up" data-reveal-delay="0.2">
+      {
+        categoryKeys.map((catKey) => (
+          <button
+            type="button"
+            data-skill-tab={catKey}
+            class={`skill-tab group inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${
+              catKey === 'all'
+                ? 'is-active border-accent bg-accent text-white shadow-md shadow-accent/20'
+                : 'border-line bg-surface/80 text-mute hover:border-accent/40 hover:text-ink hover:bg-surface'
+            }`}
+          >
+            <span>{t.skills.categories[catKey]}</span>
+            {catKey !== 'all' && (
+              <span class="rounded-full bg-elevated px-2 py-0.5 text-[10px] font-mono text-dim group-hover:text-ink">
+                {skills.filter((s) => s.category === catKey).length}
+              </span>
+            )}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Bento Grid Skill Cards -->
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" id="skills-grid">
       {
         skills.map((skill, i) => {
-          const Icon = skillIcons[skill.name] ?? CodeXml;
+          const Icon = skillIcons[skill.iconName] ?? CodeXml;
+          const { badgeClass, dotClass } = badgeStyles[skill.badge];
+
           return (
             <div
-              class="group rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/40"
+              class="skill-card group relative flex flex-col justify-between rounded-2xl border border-line bg-surface/90 p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface hover:shadow-xl hover:shadow-accent/5"
+              data-category={skill.category}
               data-reveal="up"
-              data-reveal-delay={(i % 3) * 0.08}
+              data-reveal-delay={(i % 4) * 0.05}
             >
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="flex items-center gap-3 font-medium tracking-tight text-ink">
-                  <Icon class="size-5 shrink-0 text-accent" stroke-width={1.75} />
+              <div>
+                <!-- Top Row: Icon & Badge -->
+                <div class="mb-4 flex items-center justify-between gap-3">
+                  <div class="flex size-10 items-center justify-center rounded-xl border border-line bg-base/80 text-accent group-hover:scale-110 group-hover:border-accent/40 group-hover:bg-accent/10 transition-all">
+                    <Icon class="size-5" stroke-width={1.75} />
+                  </div>
+                  <span class={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-wider ${badgeClass}`}>
+                    <span class={`size-1.5 rounded-full ${dotClass}`}></span>
+                    {t.skills.badges[skill.badge]}
+                  </span>
+                </div>
+
+                <!-- Skill Title -->
+                <h3 class="text-base font-bold tracking-tight text-ink group-hover:text-accent transition-colors">
                   {skill.name}
                 </h3>
-                <span class="rounded-full bg-elevated px-2.5 py-1 text-[11px] uppercase tracking-wider text-mute">
-                  {t.skills.levels[skill.level]}
-                </span>
-              </div>
-              <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-elevated">
-                <div
-                  class={`h-full rounded-full ${barColor[skill.level]} origin-left`}
-                  data-skill-bar
-                  data-level={skill.value}
-                  style={{ transform: 'scaleX(0)' }}
-                ></div>
+
+                <!-- Description -->
+                {skill.description && (
+                  <p class="mt-2 text-xs leading-relaxed text-mute">
+                    {skill.description}
+                  </p>
+                )}
               </div>
             </div>
           );
         })
       }
     </div>
-
-    <div class="mt-10 flex flex-wrap gap-3" data-reveal="up">
-      {
-        levelOrder.map((level) => (
-          <span class="inline-flex items-center gap-2 text-xs text-mute">
-            <span class={`size-2 rounded-full ${barColor[level]}`} aria-hidden="true"></span>
-            {t.skills.levels[level]}
-          </span>
-        ))
-      }
-    </div>
   </div>
 </section>
+
+<script>
+  // Client-Side Tab Filtering Logic
+  function initSkillsFilter() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('[data-skill-tab]');
+    const cards = document.querySelectorAll<HTMLElement>('.skill-card');
+
+    if (!tabs.length || !cards.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const targetCategory = tab.getAttribute('data-skill-tab');
+
+        // Update Active Tab Styling
+        tabs.forEach((t) => {
+          t.classList.remove('is-active', 'border-accent', 'bg-accent', 'text-white', 'shadow-md', 'shadow-accent/20');
+          t.classList.add('border-line', 'bg-surface/80', 'text-mute');
+        });
+
+        tab.classList.remove('border-line', 'bg-surface/80', 'text-mute');
+        tab.classList.add('is-active', 'border-accent', 'bg-accent', 'text-white', 'shadow-md', 'shadow-accent/20');
+
+        // Filter Cards with Animation
+        cards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+
+          if (targetCategory === 'all' || cardCategory === targetCategory) {
+            card.style.display = 'flex';
+            requestAnimationFrame(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            });
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              if (tab.getAttribute('data-skill-tab') !== 'all' && card.getAttribute('data-category') !== tab.getAttribute('data-skill-tab')) {
+                card.style.display = 'none';
+              }
+            }, 200);
+          }
+        });
+      });
+    });
+  }
+
+  // Initialize on Load & ViewTransitions Swap
+  initSkillsFilter();
+  document.addEventListener('astro:page-load', initSkillsFilter);
+</script>

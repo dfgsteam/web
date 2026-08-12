@@ -88,17 +88,21 @@ export const de = {
     related: 'Weitere Projekte',
   },
   skills: {
-    label: 'Skills',
-    heading: 'Das Zeug dazu.',
-    subheading: 'Mein Werkzeugkasten – von Python bis Photoshop.',
-    levels: {
-      master: 'Master',
-      expert: 'Expert',
-      advanced: 'Advanced',
-      medium: 'Medium',
-      beginner: 'Beginner',
+    label: 'Fähigkeiten & Tech-Stack',
+    heading: 'Technologien, Tools & Expertise.',
+    subheading: 'Mein kontinuierlich wachsendes Ökosystem für moderne Softwareentwicklung, E-Commerce und IT-Infrastruktur.',
+    categories: {
+      all: 'Alle Skills',
+      dev: 'Sprachen & Dev',
+      web: 'Web, CMS & Shop',
+      infra: 'Infrastruktur & Tools',
+      biz: 'Management & Business',
     },
-    legend: 'Level',
+    badges: {
+      core: 'Hauptstack',
+      advanced: 'Erfahren',
+      proficient: 'Fundiert',
+    },
   },
   cv: {
     label: 'Lebenslauf',
