@@ -73,7 +73,7 @@ export const de = {
   projects: {
     label: 'Projekte',
     heading: 'Ausgewählte Arbeit.',
-    subheading: 'Ein Einblick in Projekte aus Freelance, Studium und Beruf.',
+    subheading: 'Ein Einblick in Projekte aus Selbstständigkeit und Beruf.',
     all: 'Alle Projekte',
     viewDetails: 'Details ansehen',
     back: 'Zurück zu den Projekten',
@@ -82,8 +82,12 @@ export const de = {
     tech: 'Technologien',
     overview: 'Überblick',
     category: {
-      client: 'Kunden & Freelance',
-      work: 'Berufliche Projekte',
+      client: 'Kunden & Selbstständigkeit',
+      work: 'Berufliche Arbeit',
+    },
+    clientLabel: {
+      client: 'Auftraggeber',
+      work: 'Arbeitgeber / Unternehmen',
     },
     status: {
       live: 'Live',

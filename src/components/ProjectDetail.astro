@@ -71,7 +71,7 @@ const relatedHref = (p: CollectionEntry<'projects'>) => {
           </h3>
           <dl class="space-y-5">
             <div>
-              <dt class="text-xs uppercase tracking-wider text-dim">{t.projects.client}</dt>
+              <dt class="text-xs uppercase tracking-wider text-dim">{t.projects.clientLabel?.[category] ?? t.projects.client}</dt>
               <dd class="mt-1 font-medium text-ink">{client}</dd>
             </div>
             <div>

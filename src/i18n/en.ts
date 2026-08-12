@@ -75,7 +75,7 @@ export const en: Dict = {
   projects: {
     label: 'Projects',
     heading: 'Selected work.',
-    subheading: 'A look at projects from freelance, university and work.',
+    subheading: 'A look at projects from business and career.',
     all: 'All projects',
     viewDetails: 'View Details',
     back: 'Back to projects',
@@ -84,8 +84,12 @@ export const en: Dict = {
     tech: 'Technologies',
     overview: 'Overview',
     category: {
-      client: 'Clients & Freelancing',
+      client: 'Clients & Business',
       work: 'Professional Work',
+    },
+    clientLabel: {
+      client: 'Client',
+      work: 'Employer / Company',
     },
     status: {
       live: 'Live',
