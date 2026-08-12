@@ -13,6 +13,7 @@ export const en: Dict = {
     about: 'About',
     projects: 'Projects',
     skills: 'Skills',
+    infra: 'Infra',
     cv: 'Resume',
     contact: 'Contact',
     blog: 'Blog',
@@ -226,5 +227,47 @@ export const en: Dict = {
     readMore: 'Read more',
     back: 'Back to blog',
     published: 'Published on',
+  },
+  infra: {
+    label: 'Infrastructure & Self-Hosting',
+    heading: 'Servers, Containers & CI/CD.',
+    subheading:
+      'Modern software development goes far beyond writing code. My web applications run on a high-performance, self-hosted Linux & Docker infrastructure.',
+    features: [
+      {
+        title: 'Docker & Microservices',
+        description:
+          'Isolated container environments using multi-stage builds and lightweight Nginx/Node/PHP runtime images.',
+      },
+      {
+        title: 'CI/CD via GitHub Actions',
+        description:
+          'Automated type checks, linting, and container image builds with direct deployment to GHCR on git push.',
+      },
+      {
+        title: 'Nginx Proxy Manager & TLS',
+        description:
+          'Central reverse proxy instance handling automated Let’s Encrypt SSL certificates, custom routes & HTTP/2.',
+      },
+      {
+        title: 'Zero-Downtime & Watchtower',
+        description:
+          'Automated pull & rolling update setup for fresh production images without any service downtime.',
+      },
+      {
+        title: 'Linux Homelab Multi-Node',
+        description:
+          'Self-hosted nodes (docker3/docker4), secured with SSH-key authentication, UFW firewall, and isolated subnets.',
+      },
+      {
+        title: 'Performance & Caching',
+        description:
+          'Static asset caching, Gzip/Brotli compression, and strict security headers (HSTS, Content Security Policy).',
+      },
+    ],
+    status: {
+      online: 'ONLINE',
+      uptime: '99.9% Uptime',
+    },
   },
 };

@@ -7,6 +7,7 @@ import PortfolioBanner from './sections/PortfolioBanner.astro';
 import Marquee from './Marquee.astro';
 import ProjectsShowcase from './sections/ProjectsShowcase.astro';
 import Skills from './sections/Skills.astro';
+import InfraSection from './sections/InfraSection.astro';
 import CvSection from './sections/CvSection.astro';
 import BlogSection from './sections/BlogSection.astro';
 import Contact from './sections/Contact.astro';
@@ -35,6 +36,7 @@ const marqueeItems = ['PHP', 'Python', 'SQL', 'JavaScript', 'Tailwind', 'WooComm
 <Marquee items={marqueeItems} />
 <ProjectsShowcase t={t} lang={lang} projects={projects} />
 <Skills t={t} lang={lang} />
+<InfraSection t={t} lang={lang} />
 <CvSection t={t} lang={lang} />
 <BlogSection t={t} lang={lang} posts={blogPosts} />
 <Contact t={t} lang={lang} />

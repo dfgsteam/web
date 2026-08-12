@@ -11,6 +11,7 @@ export const de = {
     about: 'Über mich',
     projects: 'Projekte',
     skills: 'Skills',
+    infra: 'Infra',
     cv: 'Lebenslauf',
     contact: 'Kontakt',
     blog: 'Blog',
@@ -224,6 +225,48 @@ export const de = {
     readMore: 'Weiterlesen',
     back: 'Zurück zum Blog',
     published: 'Veröffentlicht am',
+  },
+  infra: {
+    label: 'Infrastruktur & Self-Hosting',
+    heading: 'Server, Container & CI/CD.',
+    subheading:
+      'Moderne Software-Entwicklung endet nicht beim Code. Meine eigenen Web-Apps laufen auf einer performanten, selbstgehosteten Linux- & Docker-Infrastruktur.',
+    features: [
+      {
+        title: 'Docker & Microservices',
+        description:
+          'Isolierte Container-Environments mit Multi-Stage-Builds und minimalen Nginx/Node/PHP Runtime-Images.',
+      },
+      {
+        title: 'CI/CD mit GitHub Actions',
+        description:
+          'Automatisierte Type-Checks, Linting und Container-Image-Builds mit direktem Deploy nach GHCR bei Git-Push.',
+      },
+      {
+        title: 'Nginx Proxy Manager & TLS',
+        description:
+          'Zentrale Reverse-Proxy-Instanz für automatisierte Let’s Encrypt SSL-Zertifikate, Custom Routes & HTTP/2.',
+      },
+      {
+        title: 'Zero-Downtime & Watchtower',
+        description:
+          'Automatisiertes Pull- & Rolling-Update-Setup für frische Production-Images ohne Ausfallzeiten.',
+      },
+      {
+        title: 'Linux Homelab Multi-Node',
+        description:
+          'Gehostete Nodes (docker3/docker4), abgesichert per SSH-Key-Only, UFW-Firewall und isolierten Subnetzen.',
+      },
+      {
+        title: 'Performance & Caching',
+        description:
+          'Static-Asset-Caching, Gzip/Brotli-Kompression und strikte Security-Header (HSTS, Content Security Policy).',
+      },
+    ],
+    status: {
+      online: 'ONLINE',
+      uptime: '99.9% Uptime',
+    },
   },
 };
 

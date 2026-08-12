@@ -1,0 +1,164 @@
+---
+import { Box, GitBranch, ShieldCheck, RefreshCw, Server, Zap, Terminal, Check } from '@lucide/astro';
+import type { Dict, Locale } from '../../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+
+const featureIcons = [Box, GitBranch, ShieldCheck, RefreshCw, Server, Zap];
+
+const nodes = [
+  { name: 'docker3.infra', role: 'Nginx Proxy Manager & TLS Gateway', ip: '10.0.4.3', status: t.infra.status.online, load: '12%' },
+  { name: 'docker4.infra', role: 'GHCR Auto-Deploy & Watchtower Host', ip: '10.0.4.4', status: t.infra.status.online, load: '18%' },
+];
+---
+
+<section id="infra" class="section-spacing relative isolate overflow-hidden">
+  <!-- Glowing Background Orbs -->
+  <div class="glow glow--emerald -left-40 top-1/3 h-[460px] w-[460px]" aria-hidden="true"></div>
+  <div class="glow glow--violet glow--float-slow -right-32 bottom-10 h-[400px] w-[400px]" aria-hidden="true"></div>
+
+  <div class="container-page relative">
+    <!-- Header -->
+    <div class="max-w-3xl">
+      <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
+        {t.infra.label}
+      </p>
+      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        {t.infra.heading}
+      </h2>
+      <p class="mt-5 text-lg text-mute" data-reveal="up" data-reveal-delay="0.1">
+        {t.infra.subheading}
+      </p>
+    </div>
+
+    <!-- Active Nodes Badge Bar -->
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-2" data-reveal="up" data-reveal-delay="0.15">
+      {
+        nodes.map((node) => (
+          <div class="flex items-center justify-between rounded-2xl border border-line bg-surface/80 px-6 py-4 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/40">
+            <div class="flex items-center gap-3.5">
+              <span class="relative flex size-3">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex size-3 rounded-full bg-emerald-500"></span>
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-sm font-semibold tracking-tight text-ink">{node.name}</span>
+                  <span class="rounded bg-emerald-500/10 px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wider text-emerald-500 border border-emerald-500/20">
+                    {node.status}
+                  </span>
+                </div>
+                <p class="text-xs text-mute mt-0.5">{node.role}</p>
+              </div>
+            </div>
+            <div class="hidden sm:block text-right font-mono text-xs text-dim">
+              <span class="block">{node.ip}</span>
+              <span class="text-mute">Load: {node.load}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Grid of 6 Architecture Pillars -->
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        t.infra.features.map((feature, i) => {
+          const Icon = featureIcons[i % featureIcons.length];
+          return (
+            <div
+              class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5"
+              data-reveal="up"
+              data-reveal-delay={0.06 * i}
+            >
+              <div class="relative z-10">
+                <div class="mb-5 flex size-12 items-center justify-center rounded-2xl border border-line bg-elevated text-accent transition-colors duration-300 group-hover:border-accent/40 group-hover:bg-accent group-hover:text-white">
+                  <Icon class="size-6" stroke-width={1.75} />
+                </div>
+                <h3 class="text-xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
+                  {feature.title}
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-mute">
+                  {feature.description}
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-xs text-dim font-mono">
+                <span>0{i + 1} // ARCHITECTURE</span>
+                <span class="group-hover:text-accent transition-colors">Active</span>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- Interactive Terminal Window -->
+    <div class="mt-14 overflow-hidden rounded-3xl border border-line bg-[#0d0d12] shadow-2xl shadow-black/40" data-reveal="up" data-reveal-delay="0.2">
+      <!-- Terminal Header -->
+      <div class="flex items-center justify-between border-b border-white/10 bg-[#16161e] px-5 py-3.5">
+        <div class="flex items-center gap-2">
+          <span class="size-3 rounded-full bg-rose-500/80 inline-block"></span>
+          <span class="size-3 rounded-full bg-amber-500/80 inline-block"></span>
+          <span class="size-3 rounded-full bg-emerald-500/80 inline-block"></span>
+          <span class="ml-3 font-mono text-xs text-zinc-400 flex items-center gap-2">
+            <Terminal class="size-3.5 text-accent" />
+            infra.julius-hunold.de — bash
+          </span>
+        </div>
+        <div class="flex items-center gap-3 text-xs font-mono text-zinc-500">
+          <span class="hidden sm:inline">bash 5.2.21</span>
+          <span class="flex items-center gap-1.5 text-emerald-400">
+            <Check class="size-3.5" />
+            Connected
+          </span>
+        </div>
+      </div>
+
+      <!-- Terminal Body / Snippet Output -->
+      <div class="p-6 font-mono text-xs leading-relaxed text-zinc-300 overflow-x-auto space-y-4">
+        <div>
+          <div class="flex items-center gap-2 text-zinc-400">
+            <span class="text-emerald-400 font-bold">julius@docker3</span>:<span class="text-accent">~</span>$ <span class="text-zinc-100 font-semibold">docker ps --format "table &#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;"</span>
+          </div>
+          <div class="mt-2 pl-4 text-zinc-400 space-y-1">
+            <p class="text-zinc-500 font-bold">NAMES                     STATUS                  PORTS</p>
+            <p><span class="text-emerald-400 font-semibold">julius-hunold-de-app</span>     Up 14 days (healthy)    0.0.0.0:4180->80/tcp</p>
+            <p><span class="text-sky-400 font-semibold">nginx-proxy-manager</span>      Up 32 days (healthy)    0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp</p>
+            <p><span class="text-violet-400 font-semibold">watchtower-autoupdate</span>    Up 32 days              (daemon)</p>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-white/5">
+          <div class="flex items-center gap-2 text-zinc-400">
+            <span class="text-emerald-400 font-bold">julius@docker3</span>:<span class="text-accent">~</span>$ <span class="text-zinc-100 font-semibold">curl -I https://julius-hunold.de</span>
+          </div>
+          <div class="mt-2 pl-4 text-zinc-400 space-y-0.5">
+            <p><span class="text-emerald-400 font-semibold">HTTP/2 200 OK</span></p>
+            <p><span class="text-zinc-500">server:</span> nginx/1.26.2 (alpine)</p>
+            <p><span class="text-zinc-500">content-type:</span> text/html; charset=utf-8</p>
+            <p><span class="text-zinc-500">content-encoding:</span> br</p>
+            <p><span class="text-zinc-500">strict-transport-security:</span> max-age=31536000; includeSubDomains; preload</p>
+            <p><span class="text-zinc-500">x-frame-options:</span> SAMEORIGIN</p>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-white/5">
+          <div class="flex items-center gap-2 text-zinc-400">
+            <span class="text-emerald-400 font-bold">julius@dev</span>:<span class="text-accent">~/web</span>$ <span class="text-amber-400 font-semibold">git push origin prod</span>
+          </div>
+          <div class="mt-2 pl-4 text-zinc-400 space-y-1">
+            <p class="text-emerald-400">[✓] GitHub Actions CI triggered (#142)</p>
+            <p class="text-emerald-400">[✓] astro check & build: 0 errors (static output)</p>
+            <p class="text-emerald-400">[✓] Docker image built & pushed to ghcr.io/dfgsteam/web:latest</p>
+            <p class="text-sky-400">[✓] Watchtower detected new image on docker3 -> Zero-Downtime Rollout Complete 🚀</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
