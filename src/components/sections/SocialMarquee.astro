@@ -8,78 +8,86 @@ interface Props {
 
 const { t } = Astro.props;
 
-// Exact Official Brand Logos uploaded by user
+// Configurable Brand Logos (with optional text labels e.g. for Instagram & Twitter/X)
 const brandLogos = [
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/julius-hunold/',
     imgSrc: '/images/logos/linkedin.png',
-    heightClass: 'h-7 sm:h-8 w-auto object-contain',
+    heightClass: 'h-6 sm:h-7 w-auto object-contain',
+    label: undefined,
   },
   {
     name: 'XING',
     url: 'https://www.xing.com/profile/Julius_Hunold',
     imgSrc: '/images/logos/xing.png',
-    heightClass: 'h-7 sm:h-8 w-auto object-contain',
+    heightClass: 'h-6 sm:h-7 w-auto object-contain',
+    label: undefined,
   },
   {
     name: 'hunold24',
     url: 'https://hunold24.de',
     imgSrc: '/images/logos/hunold24.png',
-    heightClass: 'h-8 sm:h-9 w-auto object-contain',
+    heightClass: 'h-7 sm:h-8 w-auto object-contain dark:brightness-200',
+    label: undefined,
   },
   {
     name: 'Instagram',
     url: 'https://instagram.com',
     imgSrc: '/images/logos/instagram.png',
-    heightClass: 'h-7 sm:h-8 w-auto object-contain',
+    heightClass: 'h-6 sm:h-7 w-auto object-contain',
+    label: 'Instagram',
   },
   {
-    name: 'X',
+    name: 'Twitter / X',
     url: 'https://x.com',
     imgSrc: '/images/logos/x.png',
-    heightClass: 'h-6 sm:h-7 w-auto object-contain dark:invert',
+    heightClass: 'h-5 sm:h-6 w-auto object-contain dark:invert',
+    label: 'Twitter / X',
   },
   {
     name: 'GitHub',
     url: 'https://github.com/juliushunold',
-    svg: `<svg class="h-7 sm:h-8 w-auto fill-current text-ink" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
+    svg: `<svg class="h-6 sm:h-7 w-auto fill-current text-ink" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
       <path d="M16 0C7.16 0 0 7.16 0 16c0 7.07 4.58 13.07 10.94 15.19.8.15 1.09-.35 1.09-.77 0-.38-.01-1.39-.02-2.73-4.45.97-5.39-2.14-5.39-2.14-.73-1.85-1.78-2.34-1.78-2.34-1.45-.99.11-.97.11-.97 1.6.11 2.45 1.64 2.45 1.64 1.43 2.45 3.75 1.74 4.66 1.33.15-1.04.56-1.74 1.02-2.14-3.55-.4-7.29-1.78-7.29-7.91 0-1.75.62-3.18 1.64-4.3-.16-.4-.71-2.03.16-4.24 0 0 1.35-.43 4.42 1.64a15.3 15.3 0 0 1 4.02-.54c1.36.01 2.73.18 4.02.54 3.07-2.07 4.42-1.64 4.42-1.64.87 2.21.32 3.84.16 4.24 1.02 1.12 1.64 2.55 1.64 4.3 0 6.15-3.75 7.5-7.32 7.9.58.5 1.09 1.48 1.09 2.98 0 2.15-.02 3.89-.02 4.41 0 .43.29.93 1.1 0.77C27.42 29.07 32 23.07 32 16 32 7.16 24.84 0 16 0z"/>
       <text x="38" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="21" letter-spacing="-0.5">GitHub</text>
     </svg>`,
+    label: undefined,
   },
   {
     name: 'hnld.de',
     url: 'https://hnld.de',
-    svg: `<svg class="h-7 sm:h-8 w-auto fill-current text-cyan-400" viewBox="0 0 110 32" xmlns="http://www.w3.org/2000/svg">
+    svg: `<svg class="h-6 sm:h-7 w-auto fill-current text-cyan-400" viewBox="0 0 110 32" xmlns="http://www.w3.org/2000/svg">
       <rect x="0" y="4" width="24" height="24" rx="7" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2"/>
       <text x="6" y="21" font-family="monospace" font-weight="900" font-size="13" fill="currentColor">H</text>
       <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="21" letter-spacing="-0.5" fill="currentColor">hnld<tspan font-weight="400" fill-opacity="0.6">.de</tspan></text>
     </svg>`,
+    label: undefined,
   },
   {
     name: 'ennery',
     url: 'https://ennery.de',
-    svg: `<svg class="h-7 sm:h-8 w-auto fill-current text-emerald-400" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
+    svg: `<svg class="h-6 sm:h-7 w-auto fill-current text-emerald-400" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" fill="currentColor" fill-opacity="0.2" transform="translate(0, 4) scale(1)"/>
       <text x="28" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5" fill="currentColor">ennery<tspan font-size="12" font-weight="500" fill-opacity="0.7">.de</tspan></text>
     </svg>`,
+    label: undefined,
   },
 ];
 ---
 
 <section class="relative isolate overflow-hidden border-y border-line bg-surface/50 py-7 backdrop-blur-md">
   <div class="marquee relative overflow-hidden" data-reveal="up">
-    <div class="marquee-track flex items-center gap-16 hover:[animation-play-state:paused]" style="animation-duration: 28s;">
+    <div class="marquee-track flex items-center gap-6 hover:[animation-play-state:paused]" style="animation-duration: 30s;">
       <!-- Track 1 -->
-      <div class="flex items-center gap-16 pr-16">
+      <div class="flex items-center gap-6 pr-6">
         {
           brandLogos.map((brand) => (
             <a
               href={brand.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex items-center justify-center rounded-xl bg-white/90 px-4 py-2 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white hover:shadow-md shrink-0 dark:bg-white/90 dark:hover:bg-white"
+              class="group flex items-center gap-3 rounded-2xl border border-line bg-surface/80 px-4 py-2.5 backdrop-blur-md shadow-xs transition-all duration-300 hover:scale-105 hover:border-accent/50 hover:bg-surface hover:shadow-lg hover:shadow-accent/5 shrink-0"
               title={brand.name}
             >
               {brand.imgSrc ? (
@@ -92,13 +100,19 @@ const brandLogos = [
               ) : brand.svg ? (
                 <Fragment set:html={brand.svg} />
               ) : null}
+
+              {brand.label && (
+                <span class="text-sm font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
+                  {brand.label}
+                </span>
+              )}
             </a>
           ))
         }
       </div>
 
       <!-- Track 2 (Duplicate for Seamless Infinite Loop) -->
-      <div class="flex items-center gap-16 pr-16" aria-hidden="true">
+      <div class="flex items-center gap-6 pr-6" aria-hidden="true">
         {
           brandLogos.map((brand) => (
             <a
@@ -106,7 +120,7 @@ const brandLogos = [
               target="_blank"
               rel="noopener noreferrer"
               tabindex="-1"
-              class="group flex items-center justify-center rounded-xl bg-white/90 px-4 py-2 shadow-sm backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white hover:shadow-md shrink-0 dark:bg-white/90 dark:hover:bg-white"
+              class="group flex items-center gap-3 rounded-2xl border border-line bg-surface/80 px-4 py-2.5 backdrop-blur-md shadow-xs transition-all duration-300 hover:scale-105 hover:border-accent/50 hover:bg-surface hover:shadow-lg hover:shadow-accent/5 shrink-0"
               title={brand.name}
             >
               {brand.imgSrc ? (
@@ -119,6 +133,12 @@ const brandLogos = [
               ) : brand.svg ? (
                 <Fragment set:html={brand.svg} />
               ) : null}
+
+              {brand.label && (
+                <span class="text-sm font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
+                  {brand.label}
+                </span>
+              )}
             </a>
           ))
         }
