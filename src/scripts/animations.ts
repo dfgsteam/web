@@ -250,29 +250,40 @@ function setupHero() {
 }
 
 function setupSkillBars() {
+  const container = document.querySelector<HTMLElement>('#skills');
+  if (!container) return;
+
   const bars = gsap.utils.toArray<HTMLElement>('[data-skill-bar]');
-  bars.forEach((bar) => {
-    const level = Number(bar.dataset.level ?? 0) / 100;
-    const card = bar.closest<HTMLElement>('.group') ?? bar.parentElement;
+  if (!bars.length) return;
 
-    if (reduceMotion) {
+  if (reduceMotion) {
+    bars.forEach((bar) => {
+      const level = Number(bar.dataset.level ?? 0) / 100;
       bar.style.transform = `scaleX(${level})`;
-      return;
-    }
+    });
+    return;
+  }
 
-    gsap.fromTo(
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: 'top 70%',
+      end: 'center 35%',
+      scrub: 0.3,
+    },
+  });
+
+  bars.forEach((bar, i) => {
+    const level = Number(bar.dataset.level ?? 0) / 100;
+    tl.fromTo(
       bar,
       { scaleX: 0 },
       {
         scaleX: level,
         ease: 'none',
-        scrollTrigger: {
-          trigger: card ?? bar,
-          start: 'top 90%',
-          end: 'top 45%',
-          scrub: 0.5,
-        },
+        duration: 0.8,
       },
+      (i % 3) * 0.1,
     );
   });
 }
