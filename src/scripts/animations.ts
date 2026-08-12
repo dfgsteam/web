@@ -268,9 +268,9 @@ function setupSkillBars() {
         ease: 'none',
         scrollTrigger: {
           trigger: card ?? bar,
-          start: 'top 85%',
-          end: 'bottom 65%',
-          scrub: 0.4,
+          start: 'top 90%',
+          end: 'top 45%',
+          scrub: 0.5,
         },
       },
     );
