@@ -39,7 +39,7 @@ const { t } = Astro.props;
 
     <!-- HIGH-DENSITY WORDCLOUD2 CANVAS CONTAINER (wordcloud npm package with shape) -->
     <div class="relative mx-auto w-full py-2 select-none text-center flex flex-col items-center justify-center min-h-[540px]" id="wordcloud-wrapper">
-      <canvas id="wordcloud-canvas" class="w-full max-w-7xl h-[540px] rounded-2xl pointer-events-auto transition-opacity duration-700 opacity-90"></canvas>
+      <canvas id="wordcloud-canvas" class="w-full max-w-7xl h-[540px] rounded-2xl pointer-events-auto transition-opacity duration-500 opacity-95"></canvas>
 
       <!-- Bottom Profile Tag -->
       <div class="mt-4 flex items-center justify-center text-xs font-mono text-dim border-t border-line/40 pt-3 max-w-md mx-auto w-full">
@@ -53,7 +53,7 @@ const { t } = Astro.props;
   import WordCloud from 'wordcloud';
 
   // 120+ Curated Strengths, Traits & Technology Terms for WordCloud2
-  const wordList: [string, number][] = [
+  const fullWordList: [string, number][] = [
     // Core Hero Terms
     ['MOTIVATOR', 95],
     ['ORGANISATOR', 88],
@@ -176,54 +176,95 @@ const { t } = Astro.props;
     ['System-Optimierung', 26],
   ];
 
-  function renderWordCloud2() {
+  const colors = [
+    '#ef4444', // Red
+    '#f59e0b', // Amber
+    '#10b981', // Emerald
+    '#06b6d4', // Cyan
+    '#818cf8', // Indigo
+    '#c084fc', // Purple
+    '#f43f5e', // Rose
+    '#38bdf8', // Sky
+    '#22d3ee', // Cyan light
+  ];
+
+  function initScrollDrivenWordCloud() {
     const canvas = document.querySelector<HTMLCanvasElement>('#wordcloud-canvas');
-    if (!canvas) return;
+    const section = document.querySelector<HTMLElement>('#workstyle');
+    if (!canvas || !section) return;
 
     const container = canvas.parentElement;
     if (!container) return;
 
-    // Set resolution to match physical viewport width
-    const width = Math.min(1280, container.clientWidth || window.innerWidth - 32);
-    const height = 540;
+    let lastWordCount = 0;
 
-    canvas.width = width;
-    canvas.height = height;
+    function renderCloudForCount(count: number) {
+      if (!canvas || !container) return;
 
-    const colors = [
-      '#ef4444', // Red
-      '#f59e0b', // Amber
-      '#10b981', // Emerald
-      '#06b6d4', // Cyan
-      '#818cf8', // Indigo
-      '#c084fc', // Purple
-      '#f43f5e', // Rose
-      '#38bdf8', // Sky
-      '#22d3ee', // Cyan light
-    ];
+      const width = Math.min(1280, container.clientWidth || window.innerWidth - 32);
+      const height = 540;
 
-    WordCloud(canvas, {
-      list: wordList,
-      shape: 'circle', // Organic circular/ellipse cloud silhouette!
-      gridSize: Math.round(8 * width / 1024),
-      weightFactor: function (size) {
-        return Math.pow(size, 1.2) * (width / 1100);
-      },
-      fontFamily: '"Inter Variable", Inter, system-ui, -apple-system, sans-serif',
-      color: function () {
-        return colors[Math.floor(Math.random() * colors.length)];
-      },
-      rotateRatio: 0.35, // 35% vertical, 65% horizontal
-      rotationSteps: 2,
-      minRotation: -Math.PI / 2, // -90 deg
-      maxRotation: 0, // 0 deg
-      backgroundColor: 'transparent',
-      drawOutOfBound: false,
-      shrinkToFit: true,
-    });
+      canvas.width = width;
+      canvas.height = height;
+
+      const currentList = fullWordList.slice(0, count);
+
+      WordCloud(canvas, {
+        list: currentList,
+        shape: 'circle',
+        gridSize: Math.round(8 * width / 1024),
+        weightFactor: function (size) {
+          return Math.pow(size, 1.2) * (width / 1100);
+        },
+        fontFamily: '"Inter Variable", Inter, system-ui, -apple-system, sans-serif',
+        color: function () {
+          return colors[Math.floor(Math.random() * colors.length)];
+        },
+        rotateRatio: 0.35,
+        rotationSteps: 2,
+        minRotation: -Math.PI / 2,
+        maxRotation: 0,
+        backgroundColor: 'transparent',
+        drawOutOfBound: false,
+        shrinkToFit: true,
+      });
+    }
+
+    function updateScrollProgress() {
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const totalScrollableHeight = rect.height - window.innerHeight;
+
+      // Mobile or fallback: render full cloud immediately
+      if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
+        if (lastWordCount !== fullWordList.length) {
+          lastWordCount = fullWordList.length;
+          renderCloudForCount(fullWordList.length);
+        }
+        return;
+      }
+
+      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
+      // Progressive build: from min 12 terms up to all 120+ terms
+      const targetCount = Math.max(12, Math.floor(progress * fullWordList.length));
+
+      // Re-render in steps of 6 words to avoid excessive redraws while keeping smooth progression
+      if (Math.abs(targetCount - lastWordCount) >= 6 || (progress >= 0.98 && lastWordCount !== fullWordList.length)) {
+        lastWordCount = targetCount;
+        renderCloudForCount(targetCount);
+      }
+    }
+
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', () => {
+      lastWordCount = 0;
+      updateScrollProgress();
+    }, { passive: true });
+
+    updateScrollProgress();
   }
 
-  renderWordCloud2();
-  window.addEventListener('resize', renderWordCloud2, { passive: true });
-  document.addEventListener('astro:page-load', renderWordCloud2);
+  initScrollDrivenWordCloud();
+  document.addEventListener('astro:page-load', initScrollDrivenWordCloud);
 </script>
