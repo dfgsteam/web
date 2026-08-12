@@ -1,5 +1,5 @@
 ---
-import { Brain, Target, Zap, Award, Sparkles, CheckCircle2 } from '@lucide/astro';
+import { Brain, Sparkles } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { PORTFOLIO_IMAGE } from '../../lib/site';
 
@@ -9,9 +9,29 @@ interface Props {
 }
 
 const { t } = Astro.props;
+
+// Placeholder Strengths & Keywords from AECdisc & Workstyle (User can customize content anytime)
+const cloudWords = [
+  { text: 'MOTIVATOR', size: 'text-3xl sm:text-5xl font-black', color: 'bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent' },
+  { text: 'ORGANISATOR', size: 'text-2xl sm:text-4xl font-extrabold', color: 'text-cyan-400' },
+  { text: 'Kognitiver Wissensdurst', size: 'text-lg sm:text-2xl font-bold', color: 'text-emerald-400' },
+  { text: 'Tatkraft & Entschlussfreude', size: 'text-xl sm:text-3xl font-extrabold', color: 'text-amber-400' },
+  { text: 'Analytische Präzision', size: 'text-base sm:text-xl font-bold', color: 'text-ink' },
+  { text: 'Autodidaktik', size: 'text-lg sm:text-2xl font-black', color: 'text-indigo-400' },
+  { text: 'Führungsstärke', size: 'text-xl sm:text-3xl font-black', color: 'text-accent' },
+  { text: 'Begeisterungsfähigkeit', size: 'text-base sm:text-xl font-semibold', color: 'text-cyan-300' },
+  { text: 'Eigeninitiative', size: 'text-lg sm:text-2xl font-bold', color: 'text-emerald-300' },
+  { text: 'Prozessoptimierung', size: 'text-sm sm:text-lg font-mono', color: 'text-dim' },
+  { text: 'Ergebnisorientiert', size: 'text-xl sm:text-3xl font-extrabold', color: 'text-amber-300' },
+  { text: 'Verlässlichkeit', size: 'text-base sm:text-xl font-bold', color: 'text-ink/90' },
+  { text: 'Innovation & Weitblick', size: 'text-lg sm:text-2xl font-black', color: 'bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent' },
+  { text: 'Aufgabenfokus', size: 'text-sm sm:text-lg font-bold', color: 'text-purple-300' },
+  { text: 'Flexibilität', size: 'text-base sm:text-xl font-semibold', color: 'text-accent' },
+  { text: 'Strukturierte Umsetzung', size: 'text-lg sm:text-2xl font-bold', color: 'text-cyan-400' },
+];
 ---
 
-<section id="workstyle" class="section-spacing relative isolate overflow-hidden border-t border-line">
+<section id="workstyle" class="relative isolate border-t border-line md:min-h-[170vh]">
   <!-- Full-Width Parallax Scroll Background Image Overlay -->
   <div class="absolute inset-0 z-0 overflow-hidden">
     <img
@@ -27,111 +47,108 @@ const { t } = Astro.props;
   <div class="glow glow--violet glow--float -right-32 top-10 h-[450px] w-[450px]" aria-hidden="true"></div>
   <div class="glow glow--sky glow--float-slow -left-32 bottom-0 h-[400px] w-[400px]" aria-hidden="true"></div>
 
-  <div class="container-page relative z-10">
+  <!-- Sticky Content Wrapper -->
+  <div class="container-page relative z-10 section-spacing md:sticky md:top-16 md:py-16">
     <!-- Header -->
-    <div class="mb-12 max-w-3xl">
-      <p class="mb-3 text-xs uppercase tracking-widest text-accent font-mono" data-reveal="up">
-        Persönlichkeitsprofil & Potenzialanalyse
-      </p>
-      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
-        Arbeitsweise & Führungskompetenz.
-      </h2>
-      <p class="mt-4 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
-        Wissenschaftlich fundierte Verhaltensanalyse trifft auf pragmatische Umsetzung – das Persönlichkeitsprofil laut offizieller AECdisc® Potenzialanalyse.
-      </p>
+    <div class="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
+          <Brain class="size-3.5 text-accent" />
+          <span>AECdisc® Profil & Stärken-Analyse</span>
+        </div>
+        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+          Arbeitsweise & Profiling.
+        </h2>
+        <p class="mt-3 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
+          Scrolle nach unten, um das Stärken- & Verhaltensprofil Schritt für Schritt aufzubauen.
+        </p>
+      </div>
+
+      <!-- Live Count Pill -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0 shadow-md" data-reveal="up" data-reveal-delay="0.15">
+        <Sparkles class="size-4 text-accent animate-pulse" />
+        <span id="cloud-reveal-counter" class="text-ink font-semibold">0 / {cloudWords.length} Stärken geladen</span>
+      </div>
     </div>
 
-    <!-- Main Grid Layout -->
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-stretch">
+    <!-- Scroll-Driven Glassmorphic Word Cloud Container -->
+    <div class="relative overflow-hidden rounded-3xl border border-accent/40 bg-gradient-to-br from-surface/95 via-surface/85 to-accent/10 p-8 md:p-14 shadow-2xl backdrop-blur-xl">
+      <!-- Background Glow -->
+      <div class="absolute -right-20 -bottom-20 size-72 rounded-full bg-accent/15 blur-3xl pointer-events-none"></div>
 
-      <!-- Left Hero Image Card (4 Spalten) -->
-      <div class="lg:col-span-4 relative group rounded-3xl overflow-hidden border border-line bg-surface/80 p-3 shadow-2xl backdrop-blur-md" data-reveal="up">
-        <div class="relative h-full min-h-[340px] w-full rounded-2xl overflow-hidden">
-          <img
-            src={PORTFOLIO_IMAGE}
-            alt="Julius Hunold Profile"
-            class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-          
-          <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-surface/80 border border-white/10 backdrop-blur-md">
-            <span class="block text-xs font-mono text-accent uppercase tracking-wider">AECdisc® Haupttyp</span>
-            <span class="block text-lg font-bold text-white">MOTIVATOR & ORGANISATOR</span>
-            <span class="block text-[11px] text-gray-300 mt-0.5">Pos. 12 (Natürlich) · Pos. 9 (Angepasst)</span>
-          </div>
-        </div>
+      <!-- Word Cloud Layout Grid -->
+      <div class="relative z-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-5 py-6 select-none text-center" id="workstyle-word-cloud">
+        {
+          cloudWords.map((word, i) => (
+            <span
+              data-cloud-index={i}
+              class={`cloud-word ${word.size} ${word.color} tracking-tight transition-all duration-700 ease-out cursor-default opacity-0 scale-75 translate-y-4 hover:scale-110 hover:z-20`}
+            >
+              {word.text}
+            </span>
+          ))
+        }
       </div>
 
-      <!-- Right Insights Grid (8 Spalten) -->
-      <div class="lg:col-span-8 flex flex-col justify-between gap-6" data-reveal="up" data-reveal-delay="0.15">
-
-        <!-- Top Overview Glass Card -->
-        <div class="rounded-3xl border border-line bg-surface/90 p-7 md:p-8 shadow-xl backdrop-blur-md">
-          <div class="flex items-center gap-2 mb-3">
-            <Brain class="size-5 text-accent" />
-            <h3 class="text-xl font-bold text-ink">Verhaltens- & Leistungsmuster</h3>
-          </div>
-          <p class="text-sm text-mute leading-relaxed">
-            Julius kombiniert die **Begeisterungsfähigkeit und Führungskraft des Motivators** mit der **strukturierten Präzision des Organisators**. Diese Synthese ermöglicht es ihm, anspruchsvolle Software- & Ausbauprojekte mit klarer Vision zu starten und diszipliniert ins Ziel zu steuern.
-          </p>
-
-          <!-- 4 Score Cards -->
-          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="rounded-2xl border border-line bg-base/90 p-3.5 text-center shadow-inner">
-              <span class="block text-2xl font-black text-accent font-mono">71 / 100</span>
-              <span class="block text-[11px] font-mono text-dim mt-0.5">Kognitives Motiv</span>
-            </div>
-            <div class="rounded-2xl border border-line bg-base/90 p-3.5 text-center shadow-inner">
-              <span class="block text-2xl font-black text-cyan-400 font-mono">76 %</span>
-              <span class="block text-[11px] font-mono text-dim mt-0.5">Rot (Tatkraft)</span>
-            </div>
-            <div class="rounded-2xl border border-line bg-base/90 p-3.5 text-center shadow-inner">
-              <span class="block text-2xl font-black text-amber-400 font-mono">73 %</span>
-              <span class="block text-[11px] font-mono text-dim mt-0.5">Gelb (Einfluss)</span>
-            </div>
-            <div class="rounded-2xl border border-line bg-base/90 p-3.5 text-center shadow-inner">
-              <span class="block text-2xl font-black text-purple-400 font-mono">77 %</span>
-              <span class="block text-[11px] font-mono text-dim mt-0.5">Dringlichkeit & Führung</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom 3 Pillars Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="rounded-2xl border border-line bg-surface/80 p-5 backdrop-blur-md">
-            <div class="flex items-center gap-2 mb-2 text-ink font-bold text-sm">
-              <Target class="size-4 text-accent" />
-              <span>Analytische Tiefe</span>
-            </div>
-            <p class="text-xs text-mute leading-relaxed">
-              Starker Wissensdurst (Kognitiv 71) & schnelle Einarbeitung in komplexe Technologien und Datenmodelle.
-            </p>
-          </div>
-
-          <div class="rounded-2xl border border-line bg-surface/80 p-5 backdrop-blur-md">
-            <div class="flex items-center gap-2 mb-2 text-ink font-bold text-sm">
-              <Zap class="size-4 text-cyan-400" />
-              <span>Zielorientierung</span>
-            </div>
-            <p class="text-xs text-mute leading-relaxed">
-              Hohe Entschlussfreude (Rot 76%) – packt Herausforderungen direkt ohne Leerlauf an.
-            </p>
-          </div>
-
-          <div class="rounded-2xl border border-line bg-surface/80 p-5 backdrop-blur-md">
-            <div class="flex items-center gap-2 mb-2 text-ink font-bold text-sm">
-              <Award class="size-4 text-purple-400" />
-              <span>Kommunikation</span>
-            </div>
-            <p class="text-xs text-mute leading-relaxed">
-              Klare Vermittlung (Gelb 73%) an der Schnittstelle zwischen Tech-Teams, Vorgesetzten und Kunden.
-            </p>
-          </div>
-        </div>
-
+      <!-- Bottom Profile Footer Tag -->
+      <div class="relative z-10 mt-6 pt-4 border-t border-line/60 flex items-center justify-between text-xs font-mono text-dim">
+        <span>Geprüftes Persönlichkeitsprofil</span>
+        <span class="text-ink">Julius Hunold · Motivator & Organisator</span>
       </div>
-
     </div>
   </div>
 </section>
+
+<script>
+  function initWordCloudScroll() {
+    const section = document.querySelector<HTMLElement>('#workstyle');
+    const words = document.querySelectorAll<HTMLElement>('.cloud-word');
+    const counter = document.querySelector<HTMLElement>('#cloud-reveal-counter');
+
+    if (!section || !words.length) return;
+
+    function updateWordCloudProgress() {
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const totalScrollableHeight = rect.height - window.innerHeight;
+
+      // Mobile or fallback: reveal all words immediately
+      if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
+        words.forEach((w) => {
+          w.style.opacity = '1';
+          w.style.transform = 'scale(1) translateY(0)';
+        });
+        if (counter) counter.textContent = `${words.length} / ${words.length} Stärken geladen`;
+        return;
+      }
+
+      // Progress from 0 to 1 as user scrolls through section height
+      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
+      const activeCount = Math.floor(progress * (words.length + 1));
+
+      words.forEach((word, idx) => {
+        if (idx < activeCount) {
+          word.style.opacity = '1';
+          word.style.transform = 'scale(1) translateY(0)';
+          word.style.filter = 'none';
+        } else {
+          word.style.opacity = '0';
+          word.style.transform = 'scale(0.75) translateY(12px)';
+          word.style.filter = 'blur(2px)';
+        }
+      });
+
+      if (counter) {
+        const currentRevealed = Math.min(words.length, activeCount);
+        counter.textContent = `${currentRevealed} / ${words.length} Stärken geladen`;
+      }
+    }
+
+    window.addEventListener('scroll', updateWordCloudProgress, { passive: true });
+    updateWordCloudProgress();
+  }
+
+  initWordCloudScroll();
+  document.addEventListener('astro:page-load', initWordCloudScroll);
+</script>
