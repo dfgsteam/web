@@ -6,32 +6,78 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R /F3 5 0 R /F4 7 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 348 >>
+<< /Length 3749 >>
 stream
-BT /F1 24 Tf 72 740 Td (Julius Hunold) Tj ET
-BT /F1 12 Tf 72 710 Td (Web Developer & Tech Project Manager) Tj ET
-BT /F1 11 Tf 72 680 Td (info@julius-hunold.de) Tj ET
-BT /F1 11 Tf 72 660 Td (Sarstedt, Germany) Tj ET
-BT /F1 10 Tf 72 620 Td (Placeholder CV - full PDF export coming soon.) Tj ET
-BT /F1 10 Tf 72 600 Td (https://julius-hunold.de) Tj ET
+BT /F1 22 Tf 0.000 0.106 0.557 rg 60 795 Td (Julius Hunold) Tj ET
+BT /F1 11 Tf 0.25 0.25 0.3 rg 60 774 Td (Web Developer & Tech Project Manager) Tj ET
+BT /F1 9 Tf 0.55 0.55 0.62 rg 60 758 Td (Sarstedt, Germany  |  info@julius-hunold.de  |  julius-hunold.de) Tj ET
+0.93 0.93 0.95 rg 0 752 595 2 re f
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 736 Td (Julius Hunold) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 722 Td (Web Developer & Tech Project Manager) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 708 Td (Sarstedt, Germany) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 708 Td (info@julius-hunold.de  |  julius-hunold.de) Tj ET
+BT /F2 13 Tf 0.000 0.106 0.557 rg 60 680 Td (PROFILE) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 664 Td (Passionate developer crafting bespoke web apps with PHP & Python, spanning modern) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 650 Td (web application development at sgalinski and technical project management for the) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 636 Td (FTTH rollout at MD Telekom. Studying Applied Computer Science in Goettingen,) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 622 Td (deepening Physics and Business Administration alongside.) Tj ET
+BT /F2 13 Tf 0.000 0.106 0.557 rg 60 594 Td (TECHNICAL SKILLS) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 578 Td (Python \(Master\) SQL \(Expert\) PHP \(Expert\) HTML \(Expert\) MS Office \(Master\)) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 564 Td (WooCommerce \(Expert\) Linux/BASH \(Advanced\) Java \(Advanced\) TYPO3 \(Advanced\)) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 550 Td (C++ \(Medium\) Haskell \(Beginner\) Assembly \(Beginner\) Photoshop \(Beginner\)) Tj ET
+BT /F2 13 Tf 0.000 0.106 0.557 rg 60 522 Td (WORK EXPERIENCE) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 506 Td (Web Developer - sgalinski) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 506 Td (May 2024 - present) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 492 Td (Building and developing apps, websites and extensions \(web/desktop/mobile\).) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 478 Td (Project Manager - MD Telekom) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 478 Td (Sep 2022 - present) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 464 Td (Planning and organising the FTTH rollout and industry-specific software.) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 450 Td (E-Commerce - MD Landmaschinen) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 450 Td (Feb - Aug 2022) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 436 Td (Managing Amazon and WooCommerce shops.) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 422 Td (Owner - Julius Hunold IT Services) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 422 Td (Dec 2021 - present) Tj ET
+BT /F3 9.5 Tf 0.25 0.25 0.3 rg 60 408 Td (ERP and online shop setup, websites incl. hosting, IT consulting and training.) Tj ET
+BT /F2 13 Tf 0.000 0.106 0.557 rg 60 380 Td (EDUCATION) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 364 Td (B.Sc. Applied Computer Science, University of Goettingen) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 364 Td (2022 - expected 2026) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 350 Td (B.Sc. Business Administration, University of Goettingen) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 350 Td (2024 - expected 2027) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 336 Td (B.Sc. Physics, University of Goettingen) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 336 Td (2024 - expected 2028) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 322 Td (Abitur, Werner-von-Siemens-Schule Hildesheim) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 322 Td (2019 - 2022) Tj ET
+BT /F2 13 Tf 0.000 0.106 0.557 rg 60 294 Td (CERTIFICATES) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 278 Td (UniCert II English \(B2\), University of Goettingen) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 278 Td (2024) Tj ET
+BT /F2 10 Tf 0 0 0 rg 60 264 Td (JuLeiCa group leader training, Schoenstatt Mannesjugend) Tj ET
+BT /F3 9 Tf 0.55 0.55 0.62 rg 320 264 Td (2021) Tj ET
 endstream
 endobj
 5 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
 xref
-0 6
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000241 00000 n 
-0000000639 00000 n 
+0000000271 00000 n 
+0000004072 00000 n 
+0000004142 00000 n 
+0000004217 00000 n 
 trailer
-<< /Size 6 /Root 1 0 R >>
+<< /Size 8 /Root 1 0 R >>
 startxref
-709
+4295
 %%EOF

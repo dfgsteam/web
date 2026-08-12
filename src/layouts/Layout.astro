@@ -12,10 +12,11 @@ interface Props {
   title?: string;
   description?: string;
   path?: string;
+  ogImage?: string;
   jsonLd?: Record<string, unknown>[];
 }
 
-const { t, lang, jsonLd = [] } = Astro.props;
+const { t, lang, ogImage, jsonLd = [] } = Astro.props;
 const pageTitle = Astro.props.title ?? t.meta.title;
 const pageDescription = Astro.props.description ?? t.meta.description;
 const pagePath = Astro.props.path ?? Astro.url.pathname;
@@ -29,12 +30,27 @@ const pagePath = Astro.props.path ?? Astro.url.pathname;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f6fa" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0c" />
     <title>{pageTitle}</title>
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.classList.add('js');
+        } catch (e) {
+          /* ignore */
+        }
+      })();
+    </script>
     <Seo
       title={pageTitle}
       description={pageDescription}
       lang={lang}
       path={pagePath}
+      ogImage={ogImage}
       jsonLd={jsonLd}
     />
     <ClientRouter />

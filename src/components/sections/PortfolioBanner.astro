@@ -1,0 +1,70 @@
+---
+import type { Dict, Locale } from '../../lib/i18n';
+import { skills } from '../../data/skills';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+
+const stats = [
+  { value: 20, suffix: '+', label: t.portfolio.kpiProjects },
+  { value: 8, suffix: '+', label: t.portfolio.kpiExperience },
+  { value: skills.length, suffix: '+', label: t.portfolio.kpiTechnologies },
+];
+---
+
+<section id="portfolio" class="section-spacing">
+  <div class="container-page grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-24">
+    <div class="relative" data-reveal="up">
+      <div
+        class="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-accent/20 to-accent-2/25 blur-2xl"
+        aria-hidden="true"
+      ></div>
+      <div class="relative overflow-hidden rounded-[2rem] border border-line shadow-2xl shadow-accent/10">
+        <img
+          src="/portfolio.svg"
+          alt={t.portfolio.imageAlt}
+          width="800"
+          height="1000"
+          loading="lazy"
+          class="aspect-[4/5] w-full object-cover"
+        />
+      </div>
+      <div class="absolute -bottom-5 left-6 rounded-full border border-line bg-surface px-5 py-2 text-sm font-medium text-ink shadow-lg">
+        {t.portfolio.imageChip}
+      </div>
+    </div>
+
+    <div>
+      <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
+        {t.portfolio.label}
+      </p>
+      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        {t.portfolio.heading}
+      </h2>
+      <p class="mt-5 max-w-xl text-lg text-mute" data-reveal="up" data-reveal-delay="0.1">
+        {t.portfolio.subheading}
+      </p>
+
+      <dl class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        {
+          stats.map((stat, i) => (
+            <div
+              class="rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/40"
+              data-reveal="up"
+              data-reveal-delay={0.08 * i}
+            >
+              <dd class="text-4xl font-semibold tracking-tight text-ink">
+                <span data-count data-count-value={stat.value} data-count-suffix={stat.suffix}>0</span>
+              </dd>
+              <dt class="mt-2 text-sm leading-snug text-mute">{stat.label}</dt>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>

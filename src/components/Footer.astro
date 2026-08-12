@@ -35,6 +35,29 @@ const homeHref = lang === 'de' ? '/' : '/en';
         <MapPin class="size-4" />
         {t.contact.location}
       </span>
+      <div class="mt-2 flex flex-wrap items-center gap-5 text-xs text-dim">
+        {t.footer.sites.map((site) => (
+          <a
+            href={site.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 transition-colors hover:text-ink"
+          >
+            {site.label}
+            <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </a>
+        ))}
+        <a href={lang === 'de' ? '/impressum' : '/en/impressum'} class="transition-colors hover:text-ink">
+          {t.footer.imprint}
+        </a>
+        <a href={lang === 'de' ? '/datenschutz' : '/en/datenschutz'} class="transition-colors hover:text-ink">
+          {t.footer.privacy}
+        </a>
+      </div>
     </div>
 
     <div class="flex items-center gap-3">

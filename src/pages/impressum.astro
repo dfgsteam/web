@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { getDict } from '../lib/i18n';
+import { legal } from '../data/legal';
+
+const t = getDict();
+const description = legal.impressum.de.sections[0].body.split('\n').slice(0, 3).join(', ');
+---
+
+<Layout
+  t={t}
+  lang="de"
+  title={`Impressum – ${t.meta.title}`}
+  description={description}
+  path={Astro.url.pathname}
+>
+  <LegalPage t={t} lang="de" doc={legal.impressum.de} />
+</Layout>

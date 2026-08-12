@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalPage from '../components/LegalPage.astro';
+import { getDict } from '../lib/i18n';
+import { legal } from '../data/legal';
+
+const t = getDict();
+---
+
+<Layout
+  t={t}
+  lang="de"
+  title={`Datenschutz – ${t.meta.title}`}
+  description="Datenschutzerklärung für julius-hunold.de."
+  path={Astro.url.pathname}
+>
+  <LegalPage t={t} lang="de" doc={legal.datenschutz.de} />
+</Layout>

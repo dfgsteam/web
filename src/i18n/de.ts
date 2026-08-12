@@ -17,7 +17,10 @@ export const de = {
     close: 'Schließen',
   },
   hero: {
-    eyebrow: 'Julius Hunold · Web-Developer & Tech PM',
+    links: [
+      { label: 'Webdesign', url: 'https://hnld.de' },
+      { label: 'Custom Apps', url: 'https://hunold24.de' },
+    ],
     titleA: 'Ich baue Web-Apps,',
     titleB: 'die einfach funktionieren.',
     titleHighlight: 'Web-Apps,',
@@ -27,10 +30,21 @@ export const de = {
     secondaryCta: 'Kontakt aufnehmen',
     scrollHint: 'Scrollen',
     stats: [
-      { value: 7, label: 'Projekte umgesetzt' },
-      { value: 3, label: 'Jahre Erfahrung' },
-      { value: 2, label: 'Universitätsabschlüsse in Arbeit' },
+      { value: 20, label: 'Projekte umgesetzt' },
+      { value: 8, label: 'Jahre Erfahrung' },
+      { value: 13, label: 'Technologien im Stack' },
     ],
+  },
+  portfolio: {
+    label: 'Portfolio',
+    heading: 'Zahlen, die für sich sprechen.',
+    subheading:
+      'Aus Projektarbeit, Freelance und Studium – ein paar Kennzahlen in der Übersicht.',
+    imageAlt: 'Porträt von Julius Hunold',
+    imageChip: 'Julius Hunold · Web-Developer',
+    kpiProjects: 'Projekte umgesetzt',
+    kpiExperience: 'Jahre Erfahrung',
+    kpiTechnologies: 'Technologien im Stack',
   },
   about: {
     label: 'Über mich',
@@ -191,6 +205,11 @@ export const de = {
     rights: 'Alle Rechte vorbehalten.',
     builtWith: 'Gebaut mit Astro · GSAP · Tailwind',
     imprint: 'Impressum',
+    privacy: 'Datenschutz',
+    sites: [
+      { label: 'Webdesign', url: 'https://hnld.de' },
+      { label: 'Custom Apps', url: 'https://hunold24.de' },
+    ],
   },
   common: {
     close: 'Schließen',

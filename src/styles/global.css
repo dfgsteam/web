@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: 'Inter Variable';
   font-style: normal;
@@ -55,6 +57,37 @@ body {
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+/* Dark mode: override design tokens */
+.dark {
+  --color-base: #0a0a0c;
+  --color-surface: #121216;
+  --color-elevated: #1a1a20;
+  --color-line: #26262e;
+  --color-ink: #f5f5f7;
+  --color-mute: #9b9ba4;
+  --color-dim: #5f5f68;
+}
+
+.dark ::selection {
+  background: rgba(139, 92, 246, 0.45);
+  color: #fff;
+}
+
+.dark .grid-backdrop {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+@media (pointer: fine) {
+  .dark .cursor-ring {
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+  .dark .cursor-ring.is-active {
+    background: rgba(139, 92, 246, 0.15);
+  }
 }
 
 ::selection {
@@ -153,15 +186,15 @@ body {
 }
 
 /* Reveal helpers (initial state is set by JS to avoid FOUC without JS) */
-[data-reveal] {
+html.js [data-reveal] {
   opacity: 0;
 }
 
-[data-reveal='done'] {
+html.js [data-reveal='done'] {
   opacity: 1;
 }
 
-html.no-js [data-reveal] {
+html:not(.js) [data-reveal] {
   opacity: 1;
 }
 

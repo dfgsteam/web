@@ -1,5 +1,5 @@
 ---
-import { Menu, X, Languages } from '@lucide/astro';
+import { Menu, X, Languages, Sun, Moon } from '@lucide/astro';
 import type { Dict, Locale } from '../lib/i18n';
 
 interface Props {
@@ -59,6 +59,16 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
     </nav>
 
     <div class="relative z-10 flex items-center gap-2">
+      <button
+        data-theme-toggle
+        aria-pressed="false"
+        aria-label="Dark mode"
+        class="flex size-10 items-center justify-center rounded-full border border-line text-mute transition-colors duration-300 hover:border-accent hover:text-ink"
+      >
+        <Sun class="hidden size-4 dark:block" stroke-width={1.75} />
+        <Moon class="size-4 dark:hidden" stroke-width={1.75} />
+      </button>
+
       <a
         href={alternatePath}
         class="flex items-center gap-1.5 rounded-full border border-line px-3 py-2 text-xs font-medium text-mute transition-colors duration-300 hover:border-accent hover:text-ink"

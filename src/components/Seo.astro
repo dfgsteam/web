@@ -1,10 +1,13 @@
 ---
+import { SITE_URL, GOOGLE_VERIFICATION } from '../lib/site';
+
 interface Props {
   title: string;
   description: string;
   lang?: string;
   path?: string;
   ogType?: 'website' | 'article';
+  ogImage?: string;
   jsonLd?: Record<string, unknown>[];
 }
 
@@ -14,16 +17,18 @@ const {
   lang = 'de',
   path = '/',
   ogType = 'website',
+  ogImage = '/og-default.jpg',
   jsonLd = [],
 } = Astro.props;
 
-const site = 'https://julius-hunold.de';
+const site = SITE_URL;
 const canonical = `${site}${path}`;
-const ogImage = '/og-default.jpg';
+const imageUrl = ogImage.startsWith('http') ? ogImage : `${site}${ogImage}`;
 const { pathname } = Astro.url;
 const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : `/en${pathname}`;
 ---
 
+{GOOGLE_VERIFICATION && <meta name="google-site-verification" content={GOOGLE_VERIFICATION} />}
 <meta name="description" content={description} />
 <meta name="keywords" content="Julius Hunold, Web Developer, PHP, Python, Web-Apps, Portfolio, Göttingen, Sarstedt" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -39,12 +44,12 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
 <meta property="og:url" content={canonical} />
 <meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'de_DE'} />
 <meta property="og:site_name" content="Julius Hunold" />
-<meta property="og:image" content={`${site}${ogImage}`} />
+<meta property="og:image" content={imageUrl} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={`${site}${ogImage}`} />
+<meta name="twitter:image" content={imageUrl} />
 
 {jsonLd.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}

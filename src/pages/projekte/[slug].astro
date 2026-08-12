@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const t = getDict();
+const slug = project.id.split('/').slice(1).join('/');
 
 const allProjects = (await getCollection('projects', ({ id }) => id.startsWith('de/')))
   .sort((a, b) => a.data.order - b.data.order);
@@ -39,6 +40,7 @@ const softwareJsonLd = {
   title={`${project.data.title} – ${t.meta.title}`}
   description={project.data.summary}
   path={Astro.url.pathname}
+  ogImage={`/og/${slug}.jpg`}
   jsonLd={[softwareJsonLd]}
 >
   <ProjectDetail project={project} t={t} lang="de" related={related} />

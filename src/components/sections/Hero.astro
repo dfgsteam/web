@@ -30,14 +30,29 @@ const { t } = Astro.props;
 
   <div class="container-page relative z-10">
     <div class="max-w-4xl">
-      <p
-        class="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-4 py-1.5 text-xs uppercase tracking-widest text-mute backdrop-blur-md"
+      <div
+        class="mb-6 flex flex-wrap items-center gap-3"
         data-reveal="up"
         data-reveal-delay="0.1"
       >
-        <span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>
-        {t.hero.eyebrow}
-      </p>
+        {
+          t.hero.links.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-4 py-1.5 text-xs font-medium tracking-wide text-mute backdrop-blur-md transition-colors duration-300 hover:border-accent hover:text-ink"
+            >
+              {link.label}
+              <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 3h6v6"></path>
+                <path d="M10 14 21 3"></path>
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              </svg>
+            </a>
+          ))
+        }
+      </div>
 
       <h1 class="text-balance text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]">
         <span class="block overflow-hidden pb-1">
@@ -82,7 +97,7 @@ const { t } = Astro.props;
           <div>
             <dt class="order-2 mt-1 block text-sm text-mute">{stat.label}</dt>
             <dd class="order-1 text-4xl font-semibold tracking-tight text-ink">
-              <span data-count data-count-value={stat.value}>0</span>
+              <span data-count data-count-value={stat.value} data-count-suffix="+">0</span>
             </dd>
           </div>
         ))
