@@ -63,6 +63,10 @@ section[id] {
   scroll-margin-top: 6rem;
 }
 
+section {
+  overflow-x: clip;
+}
+
 /* Dark mode: override design tokens */
 .dark {
   --color-base: #0a0a0c;
@@ -189,6 +193,14 @@ section[id] {
   to {
     transform: translateX(-50%);
   }
+}
+
+/* Mobile nav drawer */
+[data-menu] {
+  display: none;
+}
+[data-menu].is-open {
+  display: block;
 }
 
 /* Colorful background glows */

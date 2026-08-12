@@ -16,13 +16,22 @@ function setupMenu() {
   const closeMenu = () => {
     menu.classList.remove('is-open');
     menu.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('overflow-hidden');
+  };
+  const openMenu = () => {
+    menu.classList.add('is-open');
+    menu.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('overflow-hidden');
   };
 
   toggle.addEventListener('click', () => {
-    menu.classList.add('is-open');
-    menu.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('overflow-hidden');
+    if (menu.classList.contains('is-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
   close?.addEventListener('click', closeMenu);
   menu.addEventListener('click', (e) => {
