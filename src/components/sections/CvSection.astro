@@ -10,7 +10,7 @@ interface Props {
 const { t, lang } = Astro.props;
 ---
 
-<section id="cv" class="section-spacing relative isolate overflow-hidden border-t border-line">
+<section id="cv" class="section-spacing relative isolate overflow-hidden border-t border-line bg-gradient-to-b from-base via-surface/40 to-[#06070a]">
   <!-- Ambient Glow Orbs -->
   <div class="glow glow--pink glow--float -right-40 top-16 h-[440px] w-[440px]" aria-hidden="true"></div>
   <div class="glow glow--amber glow--float-slow -left-32 bottom-24 h-[360px] w-[360px]" aria-hidden="true"></div>
@@ -22,7 +22,7 @@ const { t, lang } = Astro.props;
         <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
           {t.cv.label}
         </p>
-        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl text-gradient-silver" data-reveal="up">
           {t.cv.heading}
         </h2>
         <p class="mt-5 max-w-xl text-lg text-mute" data-reveal="up" data-reveal-delay="0.1">
@@ -45,23 +45,23 @@ const { t, lang } = Astro.props;
           {t.cv.work}
         </h3>
         <div class="relative pl-8">
-          <!-- Animated Vertical Timeline Axis -->
-          <div class="absolute left-0 top-2.5 h-[calc(100%-1rem)] w-px bg-line">
-            <div data-cv-timeline class="h-full w-full bg-accent origin-top scale-y-0 shadow-sm shadow-accent/50"></div>
+          <!-- Animated Vertical Timeline Axis (Fades from Gray-Accent to Deep Black Accent) -->
+          <div class="absolute left-0 top-2.5 h-[calc(100%-1rem)] w-px bg-line/60">
+            <div data-cv-timeline class="h-full w-full bg-gradient-to-b from-accent via-accent/80 to-accent-to origin-top scale-y-0 shadow-sm shadow-accent/40"></div>
           </div>
 
           <ol class="space-y-10">
             {
               t.cv.workItems.map((entry, i) => (
-                <li class="relative" data-reveal="up" data-reveal-delay={i * 0.08}>
+                <li class="relative group" data-reveal="up" data-reveal-delay={i * 0.08}>
                   <!-- Animated Timeline Node Dot -->
                   <span
                     data-cv-dot
-                    class="absolute -left-[37px] top-1.5 size-3 rounded-full border-2 border-accent bg-surface transition-transform duration-300 hover:scale-125"
+                    class="absolute -left-[37px] top-1.5 size-3 rounded-full border-2 border-accent bg-base transition-transform duration-300 group-hover:scale-125 group-hover:bg-accent"
                     aria-hidden="true"
                   ></span>
                   <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h4 class="text-lg font-medium tracking-tight text-ink">{entry.role}</h4>
+                    <h4 class="text-lg font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.role}</h4>
                     <span class="text-sm font-semibold text-accent">{entry.company}</span>
                   </div>
                   <p class="mt-1 text-xs uppercase tracking-wider text-dim font-mono">{entry.period}</p>
@@ -81,21 +81,21 @@ const { t, lang } = Astro.props;
         </h3>
         <div class="relative pl-8">
           <!-- Animated Vertical Timeline Axis -->
-          <div class="absolute left-0 top-2.5 h-[calc(100%-1rem)] w-px bg-line">
-            <div data-cv-timeline class="h-full w-full bg-accent origin-top scale-y-0 shadow-sm shadow-accent/50"></div>
+          <div class="absolute left-0 top-2.5 h-[calc(100%-1rem)] w-px bg-line/60">
+            <div data-cv-timeline class="h-full w-full bg-gradient-to-b from-accent via-accent/80 to-accent-to origin-top scale-y-0 shadow-sm shadow-accent/40"></div>
           </div>
 
           <ol class="space-y-10">
             {
               t.cv.educationItems.map((entry, i) => (
-                <li class="relative" data-reveal="up" data-reveal-delay={i * 0.08}>
+                <li class="relative group" data-reveal="up" data-reveal-delay={i * 0.08}>
                   <!-- Animated Timeline Node Dot -->
                   <span
                     data-cv-dot
-                    class="absolute -left-[37px] top-1.5 size-3 rounded-full border-2 border-accent bg-surface transition-transform duration-300 hover:scale-125"
+                    class="absolute -left-[37px] top-1.5 size-3 rounded-full border-2 border-accent bg-base transition-transform duration-300 group-hover:scale-125 group-hover:bg-accent"
                     aria-hidden="true"
                   ></span>
-                  <h4 class="text-lg font-medium tracking-tight text-ink">{entry.degree}</h4>
+                  <h4 class="text-lg font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.degree}</h4>
                   <p class="mt-1 text-sm font-semibold text-accent">{entry.school}</p>
                   <p class="mt-1 text-xs uppercase tracking-wider text-dim font-mono">{entry.period}</p>
                 </li>
@@ -106,7 +106,7 @@ const { t, lang } = Astro.props;
       </div>
     </div>
 
-    <!-- Cards Grid (Volunteer & Certificates) -->
+    <!-- Cards Grid (Volunteer & Certificates - Gradient from Gray Surface to Deep Black) -->
     <div class="mt-20 grid gap-16 lg:grid-cols-2">
       <!-- Ehrenamt -->
       <div>
@@ -118,7 +118,7 @@ const { t, lang } = Astro.props;
           {
             t.cv.volunteerItems.map((entry, i) => (
               <li
-                class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+                class="group flex items-center justify-between gap-4 rounded-2xl border border-line/70 bg-gradient-to-b from-surface/90 via-surface/60 to-[#0b0c12] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5"
                 data-reveal="up"
                 data-reveal-delay={i * 0.06}
               >
@@ -143,7 +143,7 @@ const { t, lang } = Astro.props;
           {
             t.cv.certificateItems.map((entry, i) => (
               <li
-                class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+                class="group flex items-center justify-between gap-4 rounded-2xl border border-line/70 bg-gradient-to-b from-surface/90 via-surface/60 to-[#0b0c12] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5"
                 data-reveal="up"
                 data-reveal-delay={i * 0.06}
               >
