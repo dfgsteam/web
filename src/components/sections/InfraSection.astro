@@ -1,5 +1,5 @@
 ---
-import { Box, GitBranch, ShieldCheck, RefreshCw, Server, Zap, Terminal, Check, Globe, Play, ArrowRight, Activity } from '@lucide/astro';
+import { Box, GitBranch, ShieldCheck, RefreshCw, Server, Zap, Terminal, Check, Globe, ArrowRight, Activity } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -104,9 +104,9 @@ const flowSteps = [
       }
     </div>
 
-    <!-- INTERACTIVE REQUEST FLOW GRAPH / TOPOLOGY VISUALIZER -->
+    <!-- GSAP SCROLL-DRIVEN REQUEST FLOW GRAPH VISUALIZER -->
     <div
-      data-flow-graph
+      data-infra-flow-section
       class="mt-12 overflow-hidden rounded-3xl border border-line bg-surface/90 p-8 md:p-12 shadow-2xl backdrop-blur-xl"
       data-reveal="up"
       data-reveal-delay="0.2"
@@ -115,23 +115,21 @@ const flowSteps = [
         <div>
           <span class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
             <Activity class="size-3.5" />
-            REQUEST TOPOLOGY GRAPH
+            LIVE REQUEST FLOW SCROLL VISUALIZER
           </span>
           <h3 class="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
-            Vom Browser in den Docker-Container
+            Vom Aufruf zum Container-Routing
           </h3>
           <p class="mt-1 text-sm text-mute">
-            Klicke auf den Button, um ein Anfragen-Paket in Echtzeit durch die Infrastruktur zu schicken.
+            Beim Scrollen wandert das Datenpaket in Echtzeit durch Proxy, SSL & Docker-Container.
           </p>
         </div>
 
-        <button
-          data-trace-btn
-          class="inline-flex shrink-0 items-center gap-2.5 rounded-full bg-accent px-5 py-2.5 text-xs font-semibold text-white shadow-lg shadow-accent/25 transition-all duration-300 hover:bg-accent/90 hover:scale-105 active:scale-95"
-        >
-          <Play class="size-3.5 fill-white" />
-          <span>Request-Trace simulieren</span>
-        </button>
+        <div class="flex items-center gap-3 font-mono text-xs text-dim bg-elevated px-4 py-2.5 rounded-full border border-line">
+          <span class="size-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span>Live Packet Trace:</span>
+          <span data-infra-latency-text class="font-bold text-accent">0ms</span>
+        </div>
       </div>
 
       <!-- Flow Graph Nodes Grid -->
@@ -141,16 +139,16 @@ const flowSteps = [
             const Icon = step.icon;
             return (
               <div
-                data-flow-node={index}
-                class={`group relative flex flex-col justify-between rounded-2xl border bg-gradient-to-b p-6 transition-all duration-500 ${step.color}`}
+                data-infra-node={index}
+                class={`group relative flex flex-col justify-between rounded-2xl border bg-gradient-to-b p-6 transition-all duration-300 ${step.color}`}
               >
                 <div>
                   <div class="flex items-center justify-between">
                     <span class="font-mono text-xs font-bold tracking-wider opacity-70">{step.step}</span>
-                    <span class={`size-2.5 rounded-full ${step.dotColor} animate-pulse`}></span>
+                    <span data-infra-node-dot={index} class={`size-2.5 rounded-full ${step.dotColor} opacity-40 transition-all duration-300`}></span>
                   </div>
 
-                  <div class="mt-4 flex size-11 items-center justify-center rounded-xl bg-surface border border-line shadow-sm">
+                  <div class="mt-4 flex size-11 items-center justify-center rounded-xl bg-surface border border-line shadow-sm transition-transform duration-300 group-hover:scale-110">
                     <Icon class="size-5" />
                   </div>
 
@@ -177,14 +175,14 @@ const flowSteps = [
         }
       </div>
 
-      <!-- Live Packet Progress Bar -->
+      <!-- Live Laser Progress Line -->
       <div class="mt-8 rounded-xl border border-line bg-elevated p-4">
-        <div class="flex items-center justify-between text-xs font-mono text-dim">
-          <span data-trace-status>Status: Bereit für Request-Trace</span>
-          <span data-trace-time class="text-accent font-semibold">14ms Total</span>
+        <div class="flex items-center justify-between text-xs font-mono text-dim mb-2">
+          <span data-infra-step-label>1. Browser Request wird verarbeitet...</span>
+          <span class="text-accent font-semibold">14ms Target</span>
         </div>
-        <div class="mt-2.5 h-1.5 w-full overflow-hidden rounded-full bg-line">
-          <div data-trace-bar class="h-full w-0 rounded-full bg-gradient-to-r from-amber-500 via-sky-500 to-emerald-500 transition-all duration-300"></div>
+        <div class="relative h-2 w-full overflow-hidden rounded-full bg-line">
+          <div data-infra-laser-bar class="h-full w-0 rounded-full bg-gradient-to-r from-amber-500 via-sky-500 via-violet-500 to-emerald-500"></div>
         </div>
       </div>
     </div>
@@ -286,58 +284,3 @@ const flowSteps = [
     </div>
   </div>
 </section>
-
-<script>
-  function setupFlowGraph() {
-    const btn = document.querySelector('[data-trace-btn]');
-    const bar = document.querySelector('[data-trace-bar]') as HTMLElement | null;
-    const status = document.querySelector('[data-trace-status]');
-    const nodes = document.querySelectorAll('[data-flow-node]');
-    if (!btn || !bar || !status) return;
-
-    let isRunning = false;
-
-    btn.addEventListener('click', async () => {
-      if (isRunning) return;
-      isRunning = true;
-      btn.setAttribute('disabled', 'true');
-      btn.classList.add('opacity-50', 'pointer-events-none');
-
-      const steps = [
-        { label: 'Step 1/4: Browser Request wird gesendet (0ms)...', width: '25%', activeNode: 0 },
-        { label: 'Step 2/4: TLS Handshake & Nginx Proxy Manager (4ms)...', width: '50%', activeNode: 1 },
-        { label: 'Step 3/4: Docker Container App Routing (9ms)...', width: '75%', activeNode: 2 },
-        { label: 'Step 4/4: Astro 200 OK Response serviert (14ms) 🚀', width: '100%', activeNode: 3 },
-      ];
-
-      for (let i = 0; i < steps.length; i++) {
-        const s = steps[i];
-        status.textContent = s.label;
-        bar.style.width = s.width;
-
-        nodes.forEach((n, index) => {
-          if (index === s.activeNode) {
-            n.classList.add('scale-105', 'ring-2', 'ring-accent', 'shadow-xl');
-          } else {
-            n.classList.remove('scale-105', 'ring-2', 'ring-accent', 'shadow-xl');
-          }
-        });
-
-        await new Promise((r) => setTimeout(r, 600));
-      }
-
-      await new Promise((r) => setTimeout(r, 1200));
-
-      // Reset
-      nodes.forEach((n) => n.classList.remove('scale-105', 'ring-2', 'ring-accent', 'shadow-xl'));
-      status.textContent = 'Status: Bereit für Request-Trace';
-      bar.style.width = '0%';
-      btn.removeAttribute('disabled');
-      btn.classList.remove('opacity-50', 'pointer-events-none');
-      isRunning = false;
-    });
-  }
-
-  document.addEventListener('astro:page-load', setupFlowGraph);
-  setupFlowGraph();
-</script>

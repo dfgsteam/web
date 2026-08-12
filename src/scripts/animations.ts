@@ -399,6 +399,62 @@ function setupServiceStack() {
   }
 }
 
+function setupInfraFlowAnimation() {
+  const container = document.querySelector<HTMLElement>('[data-infra-flow-section]');
+  if (!container || reduceMotion) return;
+
+  const nodes = gsap.utils.toArray<HTMLElement>(container.querySelectorAll('[data-infra-node]'));
+  const laserBar = container.querySelector<HTMLElement>('[data-infra-laser-bar]');
+  const latencyText = container.querySelector<HTMLElement>('[data-infra-latency-text]');
+  const stepLabel = container.querySelector<HTMLElement>('[data-infra-step-label]');
+  if (!nodes.length || !laserBar) return;
+
+  const labels = [
+    '1. Browser / Visitor Request initiiert (0ms)...',
+    '2. TLS Handshake & Nginx Proxy Manager (4ms)...',
+    '3. Docker App Container Port-Routing :4180 (9ms)...',
+    '4. Astro 7 SSG Engine Payload serviert (14ms 🚀)',
+  ];
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: container,
+      start: 'top center+=140',
+      end: 'bottom center',
+      scrub: 0.5,
+    },
+  });
+
+  tl.to(laserBar, { width: '100%', ease: 'none', duration: 1 });
+
+  const nodeCount = nodes.length;
+  nodes.forEach((node, i) => {
+    const startProgress = i / nodeCount;
+    const dot = node.querySelector<HTMLElement>('[data-infra-node-dot]');
+
+    tl.to(
+      node,
+      {
+        scale: 1.04,
+        borderColor: 'rgba(139, 92, 246, 0.6)',
+        boxShadow: '0 10px 30px -5px rgba(139, 92, 246, 0.25)',
+        duration: 0.25,
+        onStart: () => {
+          if (dot) dot.style.opacity = '1';
+          if (latencyText) latencyText.textContent = `${Math.round((i / (nodeCount - 1)) * 14)}ms`;
+          if (stepLabel) stepLabel.textContent = labels[i];
+        },
+        onReverseComplete: () => {
+          if (dot && i > 0) dot.style.opacity = '0.4';
+          if (latencyText) latencyText.textContent = `${Math.round((Math.max(0, i - 1) / (nodeCount - 1)) * 14)}ms`;
+          if (stepLabel) stepLabel.textContent = labels[Math.max(0, i - 1)];
+        },
+      },
+      startProgress,
+    );
+  });
+}
+
 export function boot() {
   createLenis();
   ctx = gsap.context(() => {
@@ -411,6 +467,7 @@ export function boot() {
     setupSkillBars();
     setupHorizontal();
     setupServiceStack();
+    setupInfraFlowAnimation();
     setupParallax();
     setupTilt();
     setupProgress();
