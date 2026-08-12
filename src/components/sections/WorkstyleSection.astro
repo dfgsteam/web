@@ -1,5 +1,4 @@
 ---
-import { Brain, Sparkles } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { PORTFOLIO_IMAGE } from '../../lib/site';
 
@@ -10,7 +9,7 @@ interface Props {
 
 const { t } = Astro.props;
 
-// List of Strengths & Keywords from AECdisc & Workstyle with weights (weight = font size importance)
+// List of Strengths & Keywords with weights (weight = font size importance)
 const wordsData = [
   { text: 'MOTIVATOR', weight: 75, color: '#ef4444' }, // Red-500
   { text: 'ORGANISATOR', weight: 68, color: '#f59e0b' }, // Amber-500
@@ -54,35 +53,21 @@ const wordsData = [
   <!-- Sticky Content Wrapper -->
   <div class="container-page relative z-10 section-spacing md:sticky md:top-16 md:py-12">
     <!-- Header -->
-    <div class="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
-          <Brain class="size-3.5 text-accent" />
-          <span>AECdisc® Algorithmische Stärken-Wolke</span>
-        </div>
-        <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
-          Arbeitsweise & Stärkenwolke.
-        </h2>
-        <p class="mt-2 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
-          Mathematisch berechnete Wortwolke – schrittweise per Scroll aufbauend.
-        </p>
-      </div>
-
-      <!-- Live Count Pill -->
-      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0 shadow-md" data-reveal="up" data-reveal-delay="0.15">
-        <Sparkles class="size-4 text-accent animate-pulse" />
-        <span id="cloud-reveal-counter" class="text-ink font-semibold">0 / {wordsData.length} Stärken geladen</span>
-      </div>
+    <div class="mb-6 max-w-3xl">
+      <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
+        Arbeitsweise & Fokus.
+      </h2>
+      <p class="mt-3 text-base text-mute leading-relaxed md:text-lg" data-reveal="up" data-reveal-delay="0.1">
+        Pragmatische Umsetzung, analytische Präzision und Führungsstärke auf den Punkt gebracht.
+      </p>
     </div>
 
-    <!-- D3-CLOUD SVG WORD CLOUD CONTAINER (Clamped & Overflow Hidden) -->
+    <!-- D3-CLOUD SVG WORD CLOUD CONTAINER -->
     <div class="relative mx-auto max-w-5xl py-2 select-none text-center flex flex-col items-center justify-center min-h-[420px]" id="d3-cloud-wrapper">
       <svg id="d3-cloud-svg" class="w-full max-w-4xl h-[420px] overflow-hidden pointer-events-auto rounded-2xl"></svg>
 
-      <!-- Bottom Profile Subtitle Tag -->
-      <div class="mt-4 flex items-center justify-center gap-4 text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto w-full">
-        <span>AECdisc® Potenzialanalyse</span>
-        <span>·</span>
+      <!-- Bottom Profile Tag -->
+      <div class="mt-4 flex items-center justify-center text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto w-full">
         <span class="text-ink font-semibold">Julius Hunold · Motivator & Organisator</span>
       </div>
     </div>
@@ -119,7 +104,6 @@ const wordsData = [
   function renderD3Cloud() {
     const svgEl = document.querySelector<SVGSVGElement>('#d3-cloud-svg');
     const section = document.querySelector<HTMLElement>('#workstyle');
-    const counter = document.querySelector<HTMLElement>('#cloud-reveal-counter');
 
     if (!svgEl || !section) return;
 
@@ -137,12 +121,12 @@ const wordsData = [
       color: d.color,
     }));
 
-    // Only rotate short single words like ORGANISATOR or TATKRAFT, NEVER long multi-word phrases like Analytische Präzision!
+    // Clean horizontal & vertical orientation mix (0deg and -90deg / 90deg for single terms)
     const layout = cloud()
       .size([width - 40, height - 40])
       .words(wordItems)
       .padding(10)
-      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'TATKRAFT' ? -90 : 0))
+      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'TATKRAFT' || d.text === 'FÜHRUNGSSTÄRKE' || d.text === 'Eigeninitiative' ? -90 : 0))
       .font('Inter, sans-serif')
       .fontSize((d) => (d as any).size)
       .on('end', draw);
@@ -187,7 +171,6 @@ const wordsData = [
             w.style.opacity = '1';
             w.style.filter = 'none';
           });
-          if (counter) counter.textContent = `${textElements.length} / ${textElements.length} Stärken geladen`;
           return;
         }
 
@@ -203,11 +186,6 @@ const wordsData = [
             word.style.filter = 'blur(4px)';
           }
         });
-
-        if (counter) {
-          const currentRevealed = Math.min(textElements.length, activeCount);
-          counter.textContent = `${currentRevealed} / ${textElements.length} Stärken geladen`;
-        }
       }
 
       window.addEventListener('scroll', updateWordCloudProgress, { passive: true });
