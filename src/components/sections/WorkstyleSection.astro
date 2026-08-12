@@ -8,7 +8,6 @@ interface Props {
 }
 
 const { t } = Astro.props;
-
 ---
 
 <section id="workstyle" class="relative isolate border-t border-line md:min-h-[160vh]">
@@ -24,26 +23,26 @@ const { t } = Astro.props;
   </div>
 
   <!-- Ambient Central Cloud Glow Orb -->
-  <div class="glow glow--violet glow--float left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[550px] w-[550px] opacity-40 pointer-events-none" aria-hidden="true"></div>
+  <div class="glow glow--violet glow--float left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] opacity-40 pointer-events-none" aria-hidden="true"></div>
 
   <!-- Sticky Content Wrapper -->
-  <div class="container-page relative z-10 section-spacing md:sticky md:top-16 md:py-12">
+  <div class="container-page relative z-10 section-spacing md:sticky md:top-16 md:py-10">
     <!-- Header -->
-    <div class="mb-6 max-w-3xl">
+    <div class="mb-4 max-w-3xl">
       <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
         Arbeitsweise & Fokus.
       </h2>
-      <p class="mt-3 text-base text-mute leading-relaxed md:text-lg" data-reveal="up" data-reveal-delay="0.1">
+      <p class="mt-2 text-base text-mute leading-relaxed md:text-lg" data-reveal="up" data-reveal-delay="0.1">
         Pragmatische Umsetzung, analytische Präzision und Führungsstärke auf den Punkt gebracht.
       </p>
     </div>
 
-    <!-- D3-CLOUD SVG WORD CLOUD CONTAINER -->
-    <div class="relative mx-auto max-w-5xl py-2 select-none text-center flex flex-col items-center justify-center min-h-[420px]" id="d3-cloud-wrapper">
-      <svg id="d3-cloud-svg" class="w-full max-w-4xl h-[420px] overflow-hidden pointer-events-auto rounded-2xl"></svg>
+    <!-- D3-CLOUD HIGH DENSITY SVG WORD CLOUD CONTAINER -->
+    <div class="relative mx-auto max-w-5xl py-2 select-none text-center flex flex-col items-center justify-center min-h-[480px]" id="d3-cloud-wrapper">
+      <svg id="d3-cloud-svg" class="w-full max-w-5xl h-[480px] overflow-hidden pointer-events-auto rounded-2xl"></svg>
 
       <!-- Bottom Profile Tag -->
-      <div class="mt-4 flex items-center justify-center text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto w-full">
+      <div class="mt-4 flex items-center justify-center text-xs font-mono text-dim border-t border-line/40 pt-3 max-w-md mx-auto w-full">
         <span class="text-ink font-semibold">Julius Hunold · Motivator & Organisator</span>
       </div>
     </div>
@@ -53,29 +52,128 @@ const { t } = Astro.props;
 <script>
   import cloud from 'd3-cloud';
 
+  // 120+ Curated Strengths, Behavioral Traits & Tech Terms
   const rawWords = [
-    { text: 'MOTIVATOR', weight: 78, color: '#ef4444' },
-    { text: 'ORGANISATOR', weight: 70, color: '#f59e0b' },
-    { text: 'FÜHRUNGSSTÄRKE', weight: 60, color: '#eab308' },
-    { text: 'Autodidaktik', weight: 46, color: '#818cf8' },
-    { text: 'Pragmatische Lösungen', weight: 44, color: '#10b981' },
-    { text: 'Eigeninitiative', weight: 42, color: '#06b6d4' },
-    { text: 'Kreative Originalität', weight: 40, color: '#c084fc' },
-    { text: 'Kognitiver Wissensdurst', weight: 38, color: '#a855f7' },
-    { text: 'Ergebnisorientiert', weight: 45, color: '#ef4444' },
-    { text: 'Intuitive Herangehensweise', weight: 36, color: '#38bdf8' },
-    { text: 'Hohe Zielsetzungen', weight: 36, color: '#f43f5e' },
-    { text: 'Gespür für Dringlichkeiten', weight: 34, color: '#f59e0b' },
-    { text: 'Enthusiasmus & Dynamik', weight: 34, color: '#22d3ee' },
-    { text: 'Autonomie & Unabhängigkeit', weight: 32, color: '#818cf8' },
-    { text: 'Daten & Fakten', weight: 32, color: '#06b6d4' },
-    { text: 'Innovationsdrang', weight: 38, color: '#c084fc' },
-    { text: 'Abwechslung', weight: 30, color: '#34d399' },
-    { text: 'Verlässlichkeit', weight: 26, color: '#fbbf24' },
-    { text: 'Projektkoordination', weight: 28, color: '#38bdf8' },
-    { text: 'Objektive Wahrheit', weight: 24, color: '#94a3b8' },
-    { text: 'Entschlussfreude', weight: 30, color: '#f43f5e' },
-    { text: 'Flexibilität', weight: 26, color: '#e879f9' },
+    // Hero & Major Core Traits
+    { text: 'MOTIVATOR', weight: 65, color: '#ef4444' },
+    { text: 'ORGANISATOR', weight: 58, color: '#f59e0b' },
+    { text: 'FÜHRUNGSSTÄRKE', weight: 50, color: '#eab308' },
+    { text: 'TATKRAFT', weight: 48, color: '#10b981' },
+    { text: 'EIGENINITIATIVE', weight: 44, color: '#06b6d4' },
+    { text: 'ENTSCHLUSSFREUDE', weight: 42, color: '#f43f5e' },
+    { text: 'Autodidaktik', weight: 38, color: '#818cf8' },
+    { text: 'Pragmatische Lösungen', weight: 36, color: '#10b981' },
+    { text: 'Kreative Originalität', weight: 34, color: '#c084fc' },
+    { text: 'Kognitiver Wissensdurst', weight: 35, color: '#a855f7' },
+    { text: 'Ergebnisorientiert', weight: 40, color: '#ef4444' },
+    { text: 'Intuitive Herangehensweise', weight: 32, color: '#38bdf8' },
+    { text: 'Hohe Zielsetzungen', weight: 32, color: '#f43f5e' },
+    { text: 'Gespür für Dringlichkeiten', weight: 30, color: '#f59e0b' },
+    { text: 'Enthusiasmus & Dynamik', weight: 30, color: '#22d3ee' },
+    { text: 'Autonomie & Unabhängigkeit', weight: 28, color: '#818cf8' },
+    { text: 'Daten & Fakten', weight: 28, color: '#06b6d4' },
+    { text: 'Innovationsdrang', weight: 32, color: '#c084fc' },
+    { text: 'Analytische Präzision', weight: 30, color: '#38bdf8' },
+    
+    // Medium Attributes & Workstyle Principles
+    { text: 'Projektkoordination', weight: 24, color: '#38bdf8' },
+    { text: 'Abwechslungsreiche Aufgaben', weight: 24, color: '#34d399' },
+    { text: 'Verlässlichkeit', weight: 22, color: '#fbbf24' },
+    { text: 'Objektive Wahrheit', weight: 20, color: '#94a3b8' },
+    { text: 'Prozessoptimierung', weight: 22, color: '#64748b' },
+    { text: 'Web-Engineering', weight: 24, color: '#06b6d4' },
+    { text: 'Systemarchitektur', weight: 22, color: '#a855f7' },
+    { text: 'Lösungsorientierung', weight: 26, color: '#10b981' },
+    { text: 'Veränderungsbereitschaft', weight: 20, color: '#f43f5e' },
+    { text: 'Extrovertierter Drive', weight: 22, color: '#ef4444' },
+    { text: 'Optimismus & Charisma', weight: 24, color: '#f59e0b' },
+    { text: 'Fachwissen aufbauen', weight: 20, color: '#818cf8' },
+    { text: 'Flexibilität', weight: 22, color: '#e879f9' },
+    { text: 'Unabhängiges Arbeiten', weight: 20, color: '#38bdf8' },
+    { text: 'Systematisches Denken', weight: 20, color: '#34d399' },
+    { text: 'Zielstrebigkeit', weight: 24, color: '#f43f5e' },
+    { text: 'Handlungsstärke', weight: 22, color: '#10b981' },
+    { text: 'Strategischer Weitblick', weight: 22, color: '#c084fc' },
+    { text: 'Ressourceneffizienz', weight: 18, color: '#fbbf24' },
+    { text: 'Schnelle Auffassungsgabe', weight: 22, color: '#06b6d4' },
+    { text: 'Durchsetzungsvermögen', weight: 20, color: '#eab308' },
+    { text: 'Strukturierte Abläufe', weight: 20, color: '#f87171' },
+    { text: 'Entschlusskraft', weight: 22, color: '#ef4444' },
+    { text: 'Anpassungsfähigkeit', weight: 18, color: '#a78bfa' },
+
+    // Technical & Domain Expertise Terms
+    { text: 'Python', weight: 18, color: '#38bdf8' },
+    { text: 'TypeScript', weight: 18, color: '#818cf8' },
+    { text: 'Astro.js', weight: 18, color: '#c084fc' },
+    { text: 'Docker', weight: 16, color: '#38bdf8' },
+    { text: 'Linux', weight: 16, color: '#f59e0b' },
+    { text: 'Hetzner Servers', weight: 16, color: '#ef4444' },
+    { text: 'PostgreSQL', weight: 16, color: '#818cf8' },
+    { text: 'TailwindCSS', weight: 16, color: '#06b6d4' },
+    { text: 'REST APIs', weight: 16, color: '#34d399' },
+    { text: 'OpenAI API', weight: 18, color: '#a855f7' },
+    { text: 'Ollama', weight: 16, color: '#22d3ee' },
+    { text: 'DevOps', weight: 16, color: '#f43f5e' },
+    { text: 'Git & GitHub', weight: 16, color: '#fbbf24' },
+    { text: 'CI/CD Pipelines', weight: 16, color: '#10b981' },
+    { text: 'Glasfaserausbau', weight: 18, color: '#94a3b8' },
+    { text: 'Netzplanung', weight: 16, color: '#64748b' },
+    { text: 'PHP', weight: 16, color: '#818cf8' },
+    { text: 'Node.js', weight: 16, color: '#34d399' },
+    { text: 'Systemtests', weight: 14, color: '#94a3b8' },
+    { text: 'Refactoring', weight: 14, color: '#38bdf8' },
+    { text: 'Code Quality', weight: 16, color: '#10b981' },
+    { text: 'FastAPI', weight: 16, color: '#06b6d4' },
+    { text: 'Automatisierung', weight: 18, color: '#c084fc' },
+    { text: 'Troubleshooting', weight: 14, color: '#f59e0b' },
+    { text: 'Prototyping', weight: 16, color: '#e879f9' },
+
+    // Secondary Profiling Nuances & Traits
+    { text: 'Kein Leerlauf', weight: 16, color: '#ef4444' },
+    { text: 'Veränderung treiben', weight: 18, color: '#f43f5e' },
+    { text: 'Hohe Dynamik', weight: 16, color: '#22d3ee' },
+    { text: 'Komplexität meistern', weight: 18, color: '#a855f7' },
+    { text: 'Neue Wege gehen', weight: 16, color: '#34d399' },
+    { text: 'Kommunikation', weight: 18, color: '#fbbf24' },
+    { text: 'Keine Monotonie', weight: 14, color: '#f87171' },
+    { text: 'Mehrere Projekte parallel', weight: 18, color: '#06b6d4' },
+    { text: 'Zielstrebig zum Erfolgen', weight: 16, color: '#10b981' },
+    { text: 'Objektive Fakten', weight: 16, color: '#94a3b8' },
+    { text: 'Konkrete Ergebnisse', weight: 18, color: '#ef4444' },
+    { text: 'Fähigkeit zur Führung', weight: 18, color: '#eab308' },
+    { text: 'Direktes Handeln', weight: 16, color: '#f59e0b' },
+    { text: 'Unternehmensgeist', weight: 18, color: '#c084fc' },
+    { text: 'Hoher Anspruch', weight: 16, color: '#818cf8' },
+    { text: 'Wissenschaftlicher Blick', weight: 14, color: '#38bdf8' },
+    { text: 'Keine starren Grenzen', weight: 14, color: '#e879f9' },
+    { text: 'Mut zum Risiko', weight: 16, color: '#f43f5e' },
+    { text: 'Guter Humor', weight: 14, color: '#fbbf24' },
+    { text: 'Wert auf Leistung', weight: 16, color: '#10b981' },
+    { text: 'Faktenbasierte Sicht', weight: 14, color: '#06b6d4' },
+    { text: 'Verantwortungsbewusst', weight: 16, color: '#a855f7' },
+    { text: 'Praktischer Nutzen', weight: 14, color: '#34d399' },
+    { text: 'Kreative Impulse', weight: 16, color: '#c084fc' },
+    { text: 'Tatkräftig anpacken', weight: 16, color: '#ef4444' },
+    { text: 'Weitblick behalten', weight: 14, color: '#22d3ee' },
+    { text: 'Performance-Fokus', weight: 16, color: '#38bdf8' },
+    { text: 'Clean Code', weight: 16, color: '#10b981' },
+    { text: 'User Experience', weight: 14, color: '#e879f9' },
+    { text: 'Agile Methoden', weight: 14, color: '#fbbf24' },
+    { text: 'Selbstständigkeit', weight: 16, color: '#818cf8' },
+    { text: 'Datenanalyse', weight: 14, color: '#06b6d4' },
+    { text: 'Problemlösungs-Drive', weight: 16, color: '#f43f5e' },
+    { text: 'Entschlossenheit', weight: 16, color: '#ef4444' },
+    { text: 'Stetige Weiterentwicklung', weight: 14, color: '#a855f7' },
+    { text: 'Hands-on Mentalität', weight: 16, color: '#10b981' },
+    { text: 'Visionär', weight: 16, color: '#c084fc' },
+    { text: 'Kreatives Potenzial', weight: 14, color: '#e879f9' },
+    { text: 'Effizienz steigern', weight: 14, color: '#f59e0b' },
+    { text: 'Starke Intuition', weight: 16, color: '#38bdf8' },
+    { text: 'Zukunftsorientiert', weight: 16, color: '#22d3ee' },
+    { text: 'Verlässlicher Partner', weight: 14, color: '#34d399' },
+    { text: 'Eigenständige Expertise', weight: 14, color: '#818cf8' },
+    { text: 'Zielstrebig', weight: 14, color: '#ef4444' },
+    { text: 'System-Optimierer', weight: 14, color: '#a855f7' },
   ];
 
   function renderD3Cloud() {
@@ -87,8 +185,8 @@ const { t } = Astro.props;
     // Clear previous SVG contents
     svgEl.innerHTML = '';
 
-    const width = Math.min(850, window.innerWidth - 48);
-    const height = 400;
+    const width = Math.min(950, window.innerWidth - 32);
+    const height = 480;
 
     svgEl.setAttribute('viewBox', `0 0 ${width} ${height}`);
 
@@ -98,12 +196,22 @@ const { t } = Astro.props;
       color: d.color,
     }));
 
-    // Clean horizontal & vertical orientation mix (0deg and -90deg / 90deg for single terms)
+    // Dense collision packing layout with mix of 0deg and -90deg rotation for select terms
     const layout = cloud()
-      .size([width - 40, height - 40])
+      .size([width - 30, height - 30])
       .words(wordItems)
-      .padding(10)
-      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'Eigeninitiative' || d.text === 'FÜHRUNGSSTÄRKE' || d.text === 'Autodidaktik' ? -90 : 0))
+      .padding(4)
+      .rotate((d) => (
+        d.text === 'ORGANISATOR' || 
+        d.text === 'EIGENINITIATIVE' || 
+        d.text === 'FÜHRUNGSSTÄRKE' || 
+        d.text === 'Autodidaktik' || 
+        d.text === 'Python' || 
+        d.text === 'Docker' || 
+        d.text === 'Innovationsdrang'
+          ? -90 
+          : 0
+      ))
       .font('Inter, sans-serif')
       .fontSize((d) => (d as any).size)
       .on('end', draw);
@@ -123,9 +231,9 @@ const { t } = Astro.props;
         textNode.setAttribute('transform', `translate(${item.x},${item.y}) rotate(${item.rotate})`);
         textNode.style.fontSize = `${item.size}px`;
         textNode.style.fontFamily = 'Inter, sans-serif';
-        textNode.style.fontWeight = item.size > 40 ? '900' : item.size > 28 ? '700' : '600';
+        textNode.style.fontWeight = item.size > 35 ? '900' : item.size > 22 ? '700' : '600';
         textNode.style.fill = item.color;
-        textNode.style.transition = 'all 0.6s ease-out';
+        textNode.style.transition = 'all 0.5s ease-out';
         textNode.style.opacity = '0';
         textNode.style.transformOrigin = 'center';
         textNode.classList.add('d3-cloud-word');
