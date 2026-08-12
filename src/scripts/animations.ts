@@ -411,32 +411,17 @@ function setupInfraFlowAnimation() {
   if (!nodes.length || !laserBar) return;
 
   const labels = [
-    '1. HTTPS Client Request initiiert (0ms)...',
-    '2. Symfony App Kernel & Controller Execution (4ms)...',
-    '3. Redis Cache Lookup & Async Messenger Dispatch (10ms)...',
-    '4. PostgreSQL ORM Query & MinIO S3 Asset Link (18ms 🚀)',
+    '1. Der Nutzer klickt (0ms)...',
+    '2. Zentrale Symfony 7 App-Logik (4ms)...',
+    '3. Redis Cache & Symfony Messenger Worker (10ms)...',
+    '4. PostgreSQL DB & MinIO S3 Cloud-Speicher (18ms Gesamtzeit 🚀)',
   ];
 
-  const inspectorFeeds = [
-    `<p><span class="text-amber-400 font-bold">&gt; GET</span> /api/v1/checkout HTTP/2</p>
-     <p><span class="text-zinc-500">Host:</span> app.julius-hunold.de</p>
-     <p><span class="text-zinc-500">Authorization:</span> Bearer jwt.token.val</p>
-     <p><span class="text-zinc-500">Client IP:</span> 185.220.101.5 (Routed)</p>`,
-
-    `<p><span class="text-sky-400 font-bold">* Symfony 7.1 AppKernel Bootstrapped</span></p>
-     <p><span class="text-zinc-500">Route:</span> App\\Controller\\CheckoutController</p>
-     <p><span class="text-zinc-500">PHP Runtime:</span> PHP 8.3.8-FPM (Alpine)</p>
-     <p><span class="text-zinc-500">Container DI:</span> 142 Autowired Services</p>`,
-
-    `<p><span class="text-violet-400 font-bold">* Redis Cache HIT (0.4ms)</span></p>
-     <p><span class="text-zinc-500">Queue Transport:</span> redis://redis-cache-broker:6379</p>
-     <p><span class="text-zinc-500">Dispatched Event:</span> SendOrderConfirmationMessage</p>
-     <p><span class="text-zinc-500">Worker Process:</span> messenger:consume async</p>`,
-
-    `<p><span class="text-emerald-400 font-bold">&lt; PostgreSQL 16 DB Query (1.2ms)</span></p>
-     <p><span class="text-zinc-500">Doctrine ORM:</span> Connection Pool Active</p>
-     <p><span class="text-zinc-500">S3 Asset Bucket:</span> minio-s3:9000/invoices/inv_9042.pdf</p>
-     <p><span class="text-emerald-400 font-semibold">Total Symfony Execution Latency: 18ms 🚀</span></p>`,
+  const statusTexts = [
+    'Schritt 1 von 4: Browser-Aufruf per SSL verschlüsselt gesendet',
+    'Schritt 2 von 4: Symfony App-Kernel prüft Rechte & Route',
+    'Schritt 3 von 4: Redis lädt Daten & Messenger verarbeitet Async-Jobs',
+    'Schritt 4 von 4: PostgreSQL & MinIO S3 antworten erfolgreich (200 OK)',
   ];
 
   const borderAccents = [
@@ -447,10 +432,10 @@ function setupInfraFlowAnimation() {
   ];
 
   const shadowAccents = [
-    '0 10px 30px -5px rgba(245, 158, 11, 0.3)',
-    '0 10px 30px -5px rgba(14, 165, 233, 0.3)',
-    '0 10px 30px -5px rgba(139, 92, 246, 0.3)',
-    '0 10px 30px -5px rgba(16, 185, 129, 0.3)',
+    '0 10px 30px -5px rgba(245, 158, 11, 0.25)',
+    '0 10px 30px -5px rgba(14, 165, 233, 0.25)',
+    '0 10px 30px -5px rgba(139, 92, 246, 0.25)',
+    '0 10px 30px -5px rgba(16, 185, 129, 0.25)',
   ];
 
   const dotBgClasses = [
@@ -489,16 +474,16 @@ function setupInfraFlowAnimation() {
           }
           if (latencyText) latencyText.textContent = `${Math.round((i / (nodeCount - 1)) * 18)}ms`;
           if (stepLabel) stepLabel.textContent = labels[i];
-          if (inspector) inspector.innerHTML = inspectorFeeds[i];
+          if (inspector) inspector.textContent = statusTexts[i];
         },
         onReverseComplete: () => {
           const prevIdx = Math.max(0, i - 1);
           if (dot && i > 0) {
-            dot.className = `size-2.5 rounded-full bg-zinc-600 opacity-40 transition-all duration-300`;
+            dot.className = `size-3 rounded-full bg-line opacity-40 transition-all duration-300`;
           }
           if (latencyText) latencyText.textContent = `${Math.round((prevIdx / (nodeCount - 1)) * 18)}ms`;
           if (stepLabel) stepLabel.textContent = labels[prevIdx];
-          if (inspector) inspector.innerHTML = inspectorFeeds[prevIdx];
+          if (inspector) inspector.textContent = statusTexts[prevIdx];
         },
       },
       startProgress,
