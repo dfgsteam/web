@@ -10,38 +10,29 @@ interface Props {
 
 const { t } = Astro.props;
 
-// Dense Organic Oval Cloud Array (Arranged from outer edges to central hero core)
-const cloudWords = [
-  // Outer Edge (Smaller Accent terms)
-  { text: 'Glasfaserausbau', size: 'text-sm md:text-base font-mono', color: 'text-dim', orient: 'md:-rotate-90' },
-  { text: 'Autodidaktik', size: 'text-lg md:text-2xl font-bold', color: 'text-indigo-400', orient: 'rotate-0' },
-  { text: 'Prozessoptimierung', size: 'text-xs md:text-sm font-mono', color: 'text-dim', orient: 'rotate-0' },
-  { text: 'Weitblick', size: 'text-base md:text-xl font-bold', color: 'text-cyan-300', orient: 'md:rotate-90' },
-  { text: 'Flexibilität', size: 'text-lg md:text-2xl font-semibold', color: 'text-purple-300', orient: 'rotate-0' },
-
-  // Inner Ring (Medium / Strong terms)
-  { text: 'Kognitiver Wissensdurst', size: 'text-xl md:text-3xl font-extrabold', color: 'text-purple-400', orient: 'rotate-0' },
-  { text: 'Entschlussfreude', size: 'text-2xl md:text-4xl font-extrabold', color: 'text-red-400', orient: 'md:-rotate-6' },
-  { text: 'Analytische Präzision', size: 'text-xl md:text-3xl font-bold', color: 'text-cyan-400', orient: 'md:rotate-90' },
-
-  // CORE CENTER HERO (Biggest, Boldest focal points of the cloud)
-  { text: 'MOTIVATOR', size: 'text-5xl md:text-7xl font-black tracking-tight', color: 'text-red-500', orient: 'rotate-0' },
-  { text: 'FÜHRUNGSSTÄRKE', size: 'text-4xl md:text-6xl font-black tracking-tight', color: 'text-amber-400', orient: 'md:-rotate-90' },
-  { text: 'ORGANISATOR', size: 'text-5xl md:text-7xl font-black tracking-tight', color: 'text-amber-500', orient: 'rotate-0' },
-  { text: 'TATKRAFT', size: 'text-4xl md:text-6xl font-black tracking-tight', color: 'text-emerald-400', orient: 'rotate-0' },
-
-  // Inner Ring (Secondary bold terms)
-  { text: 'Ergebnisorientiert', size: 'text-3xl md:text-5xl font-black', color: 'text-red-400', orient: 'rotate-0' },
-  { text: 'Eigeninitiative', size: 'text-2xl md:text-4xl font-extrabold', color: 'text-cyan-300', orient: 'md:-rotate-90' },
-  { text: 'Innovation', size: 'text-3xl md:text-5xl font-black', color: 'text-purple-400', orient: 'rotate-0' },
-  { text: 'Begeisterung', size: 'text-xl md:text-3xl font-bold', color: 'text-emerald-300', orient: 'rotate-0' },
-
-  // Outer Edge (Closing outer ring)
-  { text: 'Strukturierte Umsetzung', size: 'text-2xl md:text-4xl font-bold', color: 'text-red-400', orient: 'rotate-0' },
-  { text: 'Verlässlichkeit', size: 'text-lg md:text-2xl font-bold', color: 'text-amber-300', orient: 'md:rotate-6' },
-  { text: 'Python & PHP', size: 'text-lg md:text-2xl font-extrabold', color: 'text-emerald-400', orient: 'md:-rotate-90' },
-  { text: 'Aufgabenfokus', size: 'text-base md:text-xl font-bold', color: 'text-indigo-300', orient: 'rotate-0' },
-  { text: 'Web-Apps', size: 'text-xl md:text-3xl font-bold', color: 'text-cyan-400', orient: 'rotate-0' },
+// List of Strengths & Keywords from AECdisc & Workstyle with weights (weight = font size importance)
+const wordsData = [
+  { text: 'MOTIVATOR', weight: 80, color: '#ef4444' }, // Red-500
+  { text: 'ORGANISATOR', weight: 75, color: '#f59e0b' }, // Amber-500
+  { text: 'FÜHRUNGSSTÄRKE', weight: 65, color: '#eab308' }, // Yellow-500
+  { text: 'TATKRAFT', weight: 60, color: '#10b981' }, // Emerald-500
+  { text: 'Kognitiver Wissensdurst', weight: 45, color: '#a855f7' }, // Purple-500
+  { text: 'Entschlussfreude', weight: 42, color: '#f43f5e' }, // Rose-500
+  { text: 'Analytische Präzision', weight: 38, color: '#06b6d4' }, // Cyan-500
+  { text: 'Ergebnisorientiert', weight: 48, color: '#ef4444' }, // Red-500
+  { text: 'Eigeninitiative', weight: 40, color: '#22d3ee' }, // Cyan-400
+  { text: 'Innovation', weight: 45, color: '#c084fc' }, // Purple-400
+  { text: 'Begeisterungsfähigkeit', weight: 35, color: '#34d399' }, // Emerald-400
+  { text: 'Strukturierte Umsetzung', weight: 38, color: '#f87171' }, // Red-400
+  { text: 'Verlässlichkeit', weight: 30, color: '#fbbf24' }, // Amber-400
+  { text: 'Autodidaktik', weight: 32, color: '#818cf8' }, // Indigo-400
+  { text: 'Python & PHP', weight: 28, color: '#34d399' }, // Emerald-400
+  { text: 'Aufgabenfokus', weight: 26, color: '#a78bfa' }, // Purple-400
+  { text: 'Web-Apps', weight: 32, color: '#38bdf8' }, // Sky-400
+  { text: 'Weitblick', weight: 25, color: '#22d3ee' }, // Cyan-400
+  { text: 'Flexibilität', weight: 28, color: '#e879f9' }, // Fuchsia-400
+  { text: 'Glasfaserausbau', weight: 22, color: '#94a3b8' }, // Slate-400
+  { text: 'Prozessoptimierung', weight: 20, color: '#64748b' }, // Slate-500
 ];
 ---
 
@@ -67,41 +58,29 @@ const cloudWords = [
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
           <Brain class="size-3.5 text-accent" />
-          <span>AECdisc® Stärken- & Potenzialwolke</span>
+          <span>AECdisc® Algorithmische Stärken-Wolke (d3-cloud)</span>
         </div>
         <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
           Arbeitsweise & Stärkenwolke.
         </h2>
         <p class="mt-2 text-base text-mute leading-relaxed" data-reveal="up" data-reveal-delay="0.1">
-          Scrolle nach unten, um das Stärkenprofil Wort für Wort als dichte Wolke aufzubauen.
+          Per Kollisions-Algorithmus (`d3-cloud`) berechnete Wortwolke – schrittweise per Scroll sichtbar.
         </p>
       </div>
 
       <!-- Live Count Pill -->
       <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0 shadow-md" data-reveal="up" data-reveal-delay="0.15">
         <Sparkles class="size-4 text-accent animate-pulse" />
-        <span id="cloud-reveal-counter" class="text-ink font-semibold">0 / {cloudWords.length} Stärken geladen</span>
+        <span id="cloud-reveal-counter" class="text-ink font-semibold">0 / {wordsData.length} Stärken geladen</span>
       </div>
     </div>
 
-    <!-- FREELY FLOATING TIGHT DENSE OVAL CLOUD SILHOUETTE (No Card Box!) -->
-    <div class="relative mx-auto max-w-5xl py-8 md:py-12 select-none text-center">
-      <!-- Dense Interlocking Cloud Container -->
-      <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:gap-x-5 md:gap-y-3 leading-none" id="workstyle-word-cloud">
-        {
-          cloudWords.map((word, i) => (
-            <span
-              data-cloud-index={i}
-              class={`cloud-word inline-block ${word.size} ${word.color} ${word.orient} tracking-tight leading-none transition-all duration-700 ease-out cursor-default opacity-0 scale-60 translate-y-6 hover:scale-110 hover:z-30 hover:brightness-125`}
-            >
-              {word.text}
-            </span>
-          ))
-        }
-      </div>
+    <!-- D3-CLOUD SVG WORD CLOUD CONTAINER -->
+    <div class="relative mx-auto max-w-5xl py-4 select-none text-center flex flex-col items-center justify-center min-h-[420px]" id="d3-cloud-wrapper">
+      <svg id="d3-cloud-svg" class="w-full max-w-4xl h-[420px] overflow-visible pointer-events-auto"></svg>
 
       <!-- Bottom Profile Subtitle Tag -->
-      <div class="mt-10 flex items-center justify-center gap-4 text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto">
+      <div class="mt-6 flex items-center justify-center gap-4 text-xs font-mono text-dim border-t border-line/40 pt-4 max-w-md mx-auto w-full">
         <span>AECdisc® Potenzialanalyse</span>
         <span>·</span>
         <span class="text-ink font-semibold">Julius Hunold · Motivator & Organisator</span>
@@ -111,56 +90,130 @@ const cloudWords = [
 </section>
 
 <script>
-  function initWordCloudScroll() {
+  import cloud from 'd3-cloud';
+
+  const rawWords = [
+    { text: 'MOTIVATOR', weight: 75, color: '#ef4444' },
+    { text: 'ORGANISATOR', weight: 70, color: '#f59e0b' },
+    { text: 'FÜHRUNGSSTÄRKE', weight: 58, color: '#eab308' },
+    { text: 'TATKRAFT', weight: 55, color: '#10b981' },
+    { text: 'Kognitiver Wissensdurst', weight: 40, color: '#a855f7' },
+    { text: 'Entschlussfreude', weight: 38, color: '#f43f5e' },
+    { text: 'Analytische Präzision', weight: 34, color: '#06b6d4' },
+    { text: 'Ergebnisorientiert', weight: 44, color: '#ef4444' },
+    { text: 'Eigeninitiative', weight: 36, color: '#22d3ee' },
+    { text: 'Innovation', weight: 42, color: '#c084fc' },
+    { text: 'Begeisterungsfähigkeit', weight: 32, color: '#34d399' },
+    { text: 'Strukturierte Umsetzung', weight: 34, color: '#f87171' },
+    { text: 'Verlässlichkeit', weight: 28, color: '#fbbf24' },
+    { text: 'Autodidaktik', weight: 30, color: '#818cf8' },
+    { text: 'Python & PHP', weight: 26, color: '#34d399' },
+    { text: 'Aufgabenfokus', weight: 24, color: '#a78bfa' },
+    { text: 'Web-Apps', weight: 28, color: '#38bdf8' },
+    { text: 'Weitblick', weight: 24, color: '#22d3ee' },
+    { text: 'Flexibilität', weight: 26, color: '#e879f9' },
+    { text: 'Glasfaserausbau', weight: 20, color: '#94a3b8' },
+    { text: 'Prozessoptimierung', weight: 18, color: '#64748b' },
+  ];
+
+  function renderD3Cloud() {
+    const svgEl = document.querySelector<SVGSVGElement>('#d3-cloud-svg');
     const section = document.querySelector<HTMLElement>('#workstyle');
-    const words = document.querySelectorAll<HTMLElement>('.cloud-word');
     const counter = document.querySelector<HTMLElement>('#cloud-reveal-counter');
 
-    if (!section || !words.length) return;
+    if (!svgEl || !section) return;
 
-    function updateWordCloudProgress() {
-      if (!section) return;
+    // Clear previous SVG contents
+    svgEl.innerHTML = '';
 
-      const rect = section.getBoundingClientRect();
-      const totalScrollableHeight = rect.height - window.innerHeight;
+    const width = Math.min(850, window.innerWidth - 48);
+    const height = 400;
 
-      // Mobile fallback: reveal all words immediately for smooth touch scrolling
-      if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
-        words.forEach((w) => {
-          w.style.opacity = '1';
-          w.style.transform = 'scale(1) translateY(0)';
-          w.style.filter = 'none';
-        });
-        if (counter) counter.textContent = `${words.length} / ${words.length} Stärken geladen`;
-        return;
-      }
+    svgEl.setAttribute('viewBox', `0 0 ${width} ${height}`);
 
-      // Progress from 0 to 1 as user scrolls through section height
-      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
-      const activeCount = Math.floor(progress * (words.length + 1));
+    const wordItems = rawWords.map((d) => ({
+      text: d.text,
+      size: d.weight,
+      color: d.color,
+    }));
 
-      words.forEach((word, idx) => {
-        if (idx < activeCount) {
-          word.style.opacity = '1';
-          word.style.transform = 'scale(1) translateY(0)';
-          word.style.filter = 'none';
-        } else {
-          word.style.opacity = '0';
-          word.style.transform = 'scale(0.5) translateY(18px)';
-          word.style.filter = 'blur(4px)';
-        }
+    const layout = cloud()
+      .size([width, height])
+      .words(wordItems)
+      .padding(8)
+      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'FÜHRUNGSSTÄRKE' || d.text === 'Analytische Präzision' ? -90 : 0))
+      .font('Inter, sans-serif')
+      .fontSize((d) => (d as any).size)
+      .on('end', draw);
+
+    layout.start();
+
+    function draw(words: any[]) {
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('transform', `translate(${width / 2},${height / 2})`);
+      svgEl.appendChild(g);
+
+      const textElements: SVGTextElement[] = [];
+
+      words.forEach((item, idx) => {
+        const textNode = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        textNode.setAttribute('text-anchor', 'middle');
+        textNode.setAttribute('transform', `translate(${item.x},${item.y}) rotate(${item.rotate})`);
+        textNode.style.fontSize = `${item.size}px`;
+        textNode.style.fontFamily = 'Inter, sans-serif';
+        textNode.style.fontWeight = item.size > 40 ? '900' : item.size > 28 ? '700' : '600';
+        textNode.style.fill = item.color;
+        textNode.style.transition = 'all 0.6s ease-out';
+        textNode.style.opacity = '0';
+        textNode.style.transformOrigin = 'center';
+        textNode.classList.add('d3-cloud-word');
+        textNode.textContent = item.text;
+
+        g.appendChild(textNode);
+        textElements.push(textNode);
       });
 
-      if (counter) {
-        const currentRevealed = Math.min(words.length, activeCount);
-        counter.textContent = `${currentRevealed} / ${words.length} Stärken geladen`;
-      }
-    }
+      // Scroll Reveal Logic
+      function updateWordCloudProgress() {
+        if (!section) return;
 
-    window.addEventListener('scroll', updateWordCloudProgress, { passive: true });
-    updateWordCloudProgress();
+        const rect = section.getBoundingClientRect();
+        const totalScrollableHeight = rect.height - window.innerHeight;
+
+        // Mobile fallback: reveal all words immediately
+        if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
+          textElements.forEach((w) => {
+            w.style.opacity = '1';
+            w.style.filter = 'none';
+          });
+          if (counter) counter.textContent = `${textElements.length} / ${textElements.length} Stärken geladen`;
+          return;
+        }
+
+        const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
+        const activeCount = Math.floor(progress * (textElements.length + 1));
+
+        textElements.forEach((word, idx) => {
+          if (idx < activeCount) {
+            word.style.opacity = '1';
+            word.style.filter = 'none';
+          } else {
+            word.style.opacity = '0';
+            word.style.filter = 'blur(4px)';
+          }
+        });
+
+        if (counter) {
+          const currentRevealed = Math.min(textElements.length, activeCount);
+          counter.textContent = `${currentRevealed} / ${textElements.length} Stärken geladen`;
+        }
+      }
+
+      window.addEventListener('scroll', updateWordCloudProgress, { passive: true });
+      updateWordCloudProgress();
+    }
   }
 
-  initWordCloudScroll();
-  document.addEventListener('astro:page-load', initWordCloudScroll);
+  renderD3Cloud();
+  document.addEventListener('astro:page-load', renderD3Cloud);
 </script>
