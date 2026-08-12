@@ -291,7 +291,7 @@ function setupSkillBars() {
 function setupCounters() {
   if (reduceMotion) {
     document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
-      el.textContent = el.dataset.countValue ?? '0';
+      el.textContent = `${el.dataset.countValue ?? '0'}${el.dataset.countSuffix ?? ''}`;
     });
     return;
   }
@@ -300,15 +300,30 @@ function setupCounters() {
     const target = Number(el.dataset.countValue ?? 0);
     const suffix = el.dataset.countSuffix ?? '';
     const obj = { val: 0 };
-    gsap.to(obj, {
-      val: target,
-      duration: 1.6,
-      ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-      onUpdate: () => {
-        el.textContent = `${Math.round(obj.val)}${suffix}`;
-      },
-    });
+    const update = () => {
+      el.textContent = `${Math.round(obj.val)}${suffix}`;
+    };
+    if (el.hasAttribute('data-count-scrub')) {
+      gsap.to(obj, {
+        val: target,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 95%',
+          end: 'top 55%',
+          scrub: 0.3,
+        },
+        onUpdate: update,
+      });
+    } else {
+      gsap.to(obj, {
+        val: target,
+        duration: 1.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+        onUpdate: update,
+      });
+    }
   });
 }
 
