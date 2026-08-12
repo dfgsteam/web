@@ -1,6 +1,5 @@
 ---
 import type { Dict, Locale } from '../../lib/i18n';
-import Button from '../ui/Button.astro';
 
 interface Props {
   t: Dict;
@@ -30,9 +29,16 @@ const { t, lang } = Astro.props;
         </p>
       </div>
       <div data-reveal="up" data-reveal-delay="0.2">
-        <Button href="/cv-julius-hunold.pdf" variant="outline" icon="download">
-          {t.cv.download}
-        </Button>
+        <button
+          type="button"
+          onclick="window.print()"
+          class="group inline-flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink shadow-xs backdrop-blur-md transition-all duration-300 hover:border-accent hover:bg-accent/10 hover:shadow-lg hover:shadow-accent/5 active:scale-95 cursor-pointer"
+        >
+          <svg class="size-4 text-accent group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 002-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          <span>{t.cv.download}</span>
+        </button>
       </div>
     </div>
 

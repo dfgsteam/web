@@ -1,0 +1,186 @@
+---
+import type { Dict, Locale } from '../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+---
+
+<div class="print-cv-container hidden print:block font-sans text-black bg-white p-8 max-w-[210mm] mx-auto">
+  <!-- Document Header -->
+  <div class="text-center mb-8 pb-4 border-b border-gray-300">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-2">Julius Hunold</h1>
+    <div class="text-sm font-medium text-gray-700 space-x-3">
+      <span>job@julius-hunold.de</span>
+      <span>•</span>
+      <span>www.julius-hunold.de</span>
+    </div>
+  </div>
+
+  <div class="space-y-7 text-xs leading-relaxed">
+    <!-- 1. SCHULBILDUNG -->
+    <section>
+      <h2 class="text-sm font-bold uppercase tracking-wider border-b-2 border-black pb-1 mb-3">
+        Schulbildung
+      </h2>
+      <div class="space-y-3">
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2022 – heute</span>
+          <div>
+            <div class="font-bold text-sm">Georg-August-Universität Göttingen</div>
+            <ul class="list-disc list-inside text-gray-800 mt-0.5">
+              <li><span class="italic font-medium">Erwarteter</span> Bachelor of Science in Angewandte Informatik 2025</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2019 – 2022</span>
+          <div>
+            <div class="font-bold text-sm">Werner von Siemens Schule Hildesheim</div>
+            <ul class="list-disc list-inside text-gray-800 mt-0.5">
+              <li>Allgemeinbildende Hochschulreife 2022</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2018 – 2019</span>
+          <div>
+            <div class="font-bold text-sm">Schiller Oberschule Sarstedt</div>
+            <ul class="list-disc list-inside text-gray-800 mt-0.5">
+              <li>Erweiterter Sekundarabschluss I</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. WEITERBILDUNGEN -->
+    <section>
+      <h2 class="text-sm font-bold uppercase tracking-wider border-b-2 border-black pb-1 mb-3">
+        Weiterbildungen
+      </h2>
+      <div class="space-y-2.5">
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2021</span>
+          <div>
+            <div class="font-bold">Gruppenleiter Schulung (JuLeiCa)</div>
+            <ul class="list-disc list-inside text-gray-800">
+              <li>Schönstadt Mannesjugend | Regio Wegweiser</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2019</span>
+          <div>
+            <div class="font-bold">Führerschein Klasse B</div>
+            <ul class="list-disc list-inside text-gray-800">
+              <li>Fahrschule Kämpfer Hildesheim</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2019</span>
+          <div>
+            <div class="font-bold">Besser informiert in die Selbstständigkeit</div>
+            <ul class="list-disc list-inside text-gray-800">
+              <li>IHK Hannover</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ARBEITS-/EHRENAMTLICHE ERFAHRUNG -->
+    <section>
+      <h2 class="text-sm font-bold uppercase tracking-wider border-b-2 border-black pb-1 mb-3">
+        Arbeits-/Ehrenamtliche Erfahrung
+      </h2>
+      <div class="space-y-3.5">
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2022 – heute</span>
+          <div>
+            <div class="font-bold text-sm">Projektleiter | MD Telekom</div>
+            <ul class="list-disc list-inside text-gray-800 space-y-0.5 mt-0.5">
+              <li>Planung, Organisation und Leiten von Glasfaserarbeiten</li>
+              <li>Entwicklung von branchenspezifischer Software</li>
+              <li>Delegation und Überwachung von Aufgaben an Mitarbeiter</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2022 – 2022</span>
+          <div>
+            <div class="font-bold text-sm">E-Commerce Manager | MD Landmaschinen</div>
+            <ul class="list-disc list-inside text-gray-800 space-y-0.5 mt-0.5">
+              <li>E-Commerce Administration</li>
+              <li>Amazon, WooCommerce</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2021 – heute</span>
+          <div>
+            <div class="font-bold text-sm">Julius Hunold IT-Dienstleistungen</div>
+            <ul class="list-disc list-inside text-gray-800 space-y-0.5 mt-0.5">
+              <li>WaWi-/Onlineshop Einrichtung</li>
+              <li>Webseiten mit Hosting</li>
+              <li>IT-Beratung/Schulungen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2021</span>
+          <div>
+            <div class="font-bold text-sm">Aushilfe | Andreas Riesmeier Industrieservice</div>
+            <ul class="list-disc list-inside text-gray-800 space-y-0.5 mt-0.5">
+              <li>Reinigung und Instandsetzung von Industrieanlagen</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[110px_1fr] gap-4">
+          <span class="font-mono text-gray-600">2020 – heute</span>
+          <div>
+            <div class="font-bold text-sm">Gruppenbetreuer/ stellv. Öffentlichkeitsarbeitsbeauftragter | Regio Wegweiser</div>
+            <ul class="list-disc list-inside text-gray-800 space-y-0.5 mt-0.5">
+              <li>Ausarbeitung und Durchführung von Gruppenstunden mit aktuellen Themen</li>
+              <li>Repräsentation der Organisation nach außen, Pflegen der Webseite</li>
+              <li>Audio-/Visuelle Begleitung von Veranstaltungen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FÄHIGKEITEN & INTERESSEN -->
+    <section>
+      <h2 class="text-sm font-bold uppercase tracking-wider border-b-2 border-black pb-1 mb-3">
+        Fähigkeiten & Interessen
+      </h2>
+      <div class="space-y-2">
+        <div class="grid grid-cols-[120px_1fr] gap-4">
+          <span class="font-bold">Technologie</span>
+          <span>C, C++, Java, Python, SQL, JSON, JavaScript, JQuery, Linux, MS-Office, Excel</span>
+        </div>
+        <div class="grid grid-cols-[120px_1fr] gap-4">
+          <span class="font-bold">Jugendarbeit</span>
+          <span>Organisationsfähigkeit, Kommunikativ, Gruppenstunden zu aktuellen Themen</span>
+        </div>
+        <div class="grid grid-cols-[120px_1fr] gap-4">
+          <span class="font-bold">Interessen</span>
+          <span>Betriebswirtschaft, Programmierung, Vertrieb, Projektmanagement</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
