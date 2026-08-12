@@ -151,7 +151,7 @@ const wordsData = [
     function draw(words: any[]) {
       const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
       g.setAttribute('transform', `translate(${width / 2},${height / 2})`);
-      svgEl.appendChild(g);
+      if (svgEl) svgEl.appendChild(g);
 
       const textElements: SVGTextElement[] = [];
 
