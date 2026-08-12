@@ -490,8 +490,16 @@ function setupInfraFlowAnimation() {
 
 function setupCvTimeline() {
   const container = document.querySelector<HTMLElement>('#cv');
-  if (!container || reduceMotion) return;
+  if (!container) return;
 
+  if (reduceMotion) {
+    container.querySelectorAll<HTMLElement>('[data-cv-item], [data-cv-card]').forEach((el) => {
+      el.style.opacity = '1';
+    });
+    return;
+  }
+
+  // 1. Timeline Axis Growth
   const lines = container.querySelectorAll<HTMLElement>('[data-cv-timeline]');
   lines.forEach((line) => {
     gsap.fromTo(
@@ -510,23 +518,48 @@ function setupCvTimeline() {
     );
   });
 
-  const dots = container.querySelectorAll<HTMLElement>('[data-cv-dot]');
-  dots.forEach((dot) => {
-    gsap.fromTo(
-      dot,
-      { scale: 0, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.5,
-        ease: 'back.out(2)',
-        scrollTrigger: {
-          trigger: dot,
-          start: 'top 85%',
-          once: true,
+  // 2. Active vs. Inactive Item Highlight (Muted Gray -> Active Bright Contrast)
+  const items = container.querySelectorAll<HTMLElement>('[data-cv-item]');
+  items.forEach((item) => {
+    const dot = item.querySelector<HTMLElement>('[data-cv-dot]');
+
+    gsap.to(item, {
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 82%',
+        toggleActions: 'play reverse play reverse',
+        onEnter: () => {
+          if (dot) {
+            dot.classList.remove('border-line', 'opacity-40');
+            dot.classList.add('border-accent', 'bg-accent', 'opacity-100', 'shadow-md', 'shadow-accent/50');
+          }
+        },
+        onLeaveBack: () => {
+          if (dot) {
+            dot.classList.remove('border-accent', 'bg-accent', 'opacity-100', 'shadow-md', 'shadow-accent/50');
+            dot.classList.add('border-line', 'opacity-40');
+          }
         },
       },
-    );
+    });
+  });
+
+  // 3. Active vs Inactive Card Highlight (Volunteer & Certificates)
+  const cards = container.querySelectorAll<HTMLElement>('[data-cv-card]');
+  cards.forEach((card) => {
+    gsap.to(card, {
+      opacity: 1,
+      duration: 0.5,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 88%',
+        toggleActions: 'play reverse play reverse',
+      },
+    });
   });
 }
 
