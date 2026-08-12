@@ -13,6 +13,7 @@ import InfraSection from './sections/InfraSection.astro';
 import CvSection from './sections/CvSection.astro';
 import BlogSection from './sections/BlogSection.astro';
 import Contact from './sections/Contact.astro';
+import SocialMarquee from './sections/SocialMarquee.astro';
 
 interface Props {
   t: Dict;
@@ -43,4 +44,5 @@ const marqueeItems = ['PHP', 'Python', 'SQL', 'JavaScript', 'Tailwind', 'WooComm
 <InfraSection t={t} lang={lang} />
 <CvSection t={t} lang={lang} />
 <BlogSection t={t} lang={lang} posts={blogPosts} />
+<SocialMarquee t={t} lang={lang} />
 <Contact t={t} lang={lang} />

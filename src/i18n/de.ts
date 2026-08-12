@@ -354,6 +354,9 @@ export const de = {
       highlights: ['iSFP & Sanierungsfahrpläne', 'CO₂- & Effizienz-Rechner', 'Automatisierte Audit-Berichte'],
     },
   },
+  socialMarquee: {
+    label: 'Profile & Netzwerke im Web',
+  },
 };
 
 export type Dict = typeof de;

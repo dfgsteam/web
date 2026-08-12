@@ -356,4 +356,7 @@ export const en: Dict = {
       highlights: ['iSFP & Building Audits', 'CO₂ & Efficiency Calculator', 'Automated Audit Reports'],
     },
   },
+  socialMarquee: {
+    label: 'Profiles & Networks Across the Web',
+  },
 };
