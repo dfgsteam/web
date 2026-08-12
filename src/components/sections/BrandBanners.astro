@@ -1,5 +1,5 @@
 ---
-import { ExternalLink, CheckCircle2, Zap, Leaf } from '@lucide/astro';
+import { ExternalLink, CheckCircle2 } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -49,14 +49,15 @@ const { t } = Astro.props;
           <div class="absolute -right-16 -top-16 -z-10 size-64 rounded-full bg-cyan-500/15 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
 
           <div>
-            <!-- Monogram Branding -->
+            <!-- Official Branding Logo -->
             <div class="mb-5 flex items-center gap-3">
-              <div class="flex size-11 items-center justify-center rounded-xl border border-cyan-500/40 bg-cyan-500/10 text-cyan-400 font-black tracking-tighter text-lg shadow-lg">
-                HNLD
-              </div>
+              <svg class="h-8 w-auto text-cyan-400" viewBox="0 0 110 32" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="4" width="24" height="24" rx="7" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2"/>
+                <text x="6" y="21" font-family="monospace" font-weight="900" font-size="13" fill="currentColor">H</text>
+                <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="21" letter-spacing="-0.5" fill="currentColor">hnld<tspan font-weight="400" fill-opacity="0.6">.de</tspan></text>
+              </svg>
               <div>
                 <span class="block text-[11px] font-mono uppercase tracking-widest text-dim">{t.brands.hnld.tag}</span>
-                <span class="block text-sm font-bold text-ink">hnld.de</span>
               </div>
             </div>
 
@@ -97,7 +98,7 @@ const { t } = Astro.props;
           </div>
         </div>
       </div>
-      
+
       <!-- BRAND 2: HUNOLD24.DE (AUTHENTIC WINDOWS XP LUNA & BLISS THEME) -->
       <div
         class="group relative overflow-hidden rounded-2xl border-2 border-[#0055ea] bg-surface shadow-2xl shadow-[#0055ea]/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-[#0055ea]/30 flex flex-col justify-between"
@@ -107,10 +108,8 @@ const { t } = Astro.props;
         <!-- Windows XP Titlebar -->
         <div class="flex items-center justify-between bg-gradient-to-r from-[#0058e6] via-[#1065f4] to-[#0055ea] px-3.5 py-2 text-white font-sans text-xs font-bold shadow-md select-none border-b border-[#0a48b5]">
           <div class="flex items-center gap-2">
-            <!-- Retro Windows XP Icon -->
-            <div class="size-4 rounded-xs bg-[#e29300] flex items-center justify-center text-[9px] font-mono text-black font-extrabold shadow-xs">
-              H24
-            </div>
+            <!-- Official hunold24 Logo in Titlebar -->
+            <img src="/images/logos/hunold24.png" alt="hunold24 logo" class="h-4 w-auto object-contain brightness-200" />
             <span class="tracking-wide text-[11px] drop-shadow-xs truncate">hunold24.exe – Custom Apps</span>
           </div>
 
@@ -128,10 +127,15 @@ const { t } = Astro.props;
           <div class="absolute top-2 left-6 h-12 w-36 rounded-full bg-white/20 blur-xl pointer-events-none"></div>
 
           <div class="relative z-10">
-            <!-- Brand Badge -->
-            <div class="inline-flex items-center gap-1.5 rounded-lg bg-black/40 backdrop-blur-md px-2.5 py-1 text-[11px] font-mono text-emerald-300 border border-white/20 mb-3 shadow-md">
-              <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              {t.brands.hunold24.tag}
+            <!-- Official hunold24 Branding Image -->
+            <div class="mb-4 flex items-center justify-between">
+              <div class="rounded-xl bg-white/10 p-2 backdrop-blur-md border border-white/20 shadow-md">
+                <img src="/images/logos/hunold24.png" alt="hunold24" class="h-8 w-auto object-contain brightness-200" />
+              </div>
+              <div class="inline-flex items-center gap-1.5 rounded-lg bg-black/40 backdrop-blur-md px-2.5 py-1 text-[11px] font-mono text-emerald-300 border border-white/20 shadow-md">
+                <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                {t.brands.hunold24.tag}
+              </div>
             </div>
 
             <!-- Title & Subtitle -->
@@ -195,7 +199,8 @@ const { t } = Astro.props;
         <!-- CleanTech Topbar -->
         <div class="flex items-center justify-between border-b border-emerald-500/20 bg-emerald-950/40 px-4 py-3 backdrop-blur-md">
           <div class="flex items-center gap-2">
-            <Zap class="size-4 text-emerald-400 animate-pulse" />
+            <!-- Official ennery Logo in Topbar -->
+            <img src="/images/logos/ennery.png" alt="ennery logo" class="h-4 w-auto object-contain dark:invert" />
             <span class="text-xs font-mono text-emerald-300 font-semibold">ennery · Energy Suite</span>
           </div>
           <span class="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-mono text-emerald-400">Energieberatung</span>
@@ -207,15 +212,12 @@ const { t } = Astro.props;
           <div class="absolute -right-16 -top-16 -z-10 size-64 rounded-full bg-emerald-500/15 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
 
           <div>
-            <!-- Monogram Branding -->
-            <div class="mb-5 flex items-center gap-3">
-              <div class="flex size-11 items-center justify-center rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 font-extrabold tracking-tight text-lg shadow-lg">
-                <Leaf class="size-6 text-emerald-400" />
+            <!-- Official ennery Branding Image -->
+            <div class="mb-5 flex items-center justify-between">
+              <div class="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 shadow-lg backdrop-blur-md">
+                <img src="/images/logos/ennery.png" alt="ennery" class="h-8 w-auto object-contain dark:invert" />
               </div>
-              <div>
-                <span class="block text-[11px] font-mono uppercase tracking-widest text-emerald-400/80">{t.brands.ennery.tag}</span>
-                <span class="block text-sm font-bold text-ink">ennery</span>
-              </div>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400/80">{t.brands.ennery.tag}</span>
             </div>
 
             <!-- Title & Subtitle -->
