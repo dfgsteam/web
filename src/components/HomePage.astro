@@ -8,15 +8,23 @@ import Marquee from './Marquee.astro';
 import ProjectsShowcase from './sections/ProjectsShowcase.astro';
 import Skills from './sections/Skills.astro';
 import CvSection from './sections/CvSection.astro';
+import BlogSection from './sections/BlogSection.astro';
 import Contact from './sections/Contact.astro';
 
 interface Props {
   t: Dict;
   lang: Locale;
   projects: CollectionEntry<'projects'>[];
+  blogPosts: {
+    slug: string;
+    title: string;
+    date: Date;
+    excerpt: string;
+    tags: string[];
+  }[];
 }
 
-const { t, lang, projects } = Astro.props;
+const { t, lang, projects, blogPosts } = Astro.props;
 
 const marqueeItems = ['PHP', 'Python', 'SQL', 'JavaScript', 'Tailwind', 'WooCommerce', 'Linux', 'TYPO3', 'Java', 'C++', 'Laravel', 'MySQL'];
 ---
@@ -28,4 +36,5 @@ const marqueeItems = ['PHP', 'Python', 'SQL', 'JavaScript', 'Tailwind', 'WooComm
 <ProjectsShowcase t={t} lang={lang} projects={projects} />
 <Skills t={t} lang={lang} />
 <CvSection t={t} lang={lang} />
+<BlogSection t={t} lang={lang} posts={blogPosts} />
 <Contact t={t} lang={lang} />

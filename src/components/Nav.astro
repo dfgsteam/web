@@ -9,14 +9,15 @@ interface Props {
 
 const { t, lang } = Astro.props;
 const { pathname } = Astro.url;
+const base = lang === 'de' ? '/' : '/en';
 
 const links = [
-  { href: '#about', label: t.nav.about },
-  { href: '#projekte', label: t.nav.projects },
-  { href: '#skills', label: t.nav.skills },
-  { href: '#cv', label: t.nav.cv },
-  { href: '#kontakt', label: t.nav.contact },
-  { href: lang === 'de' ? '/blog' : '/en/blog', label: t.nav.blog },
+  { href: `${base}#about`, label: t.nav.about },
+  { href: `${base}#projekte`, label: t.nav.projects },
+  { href: `${base}#skills`, label: t.nav.skills },
+  { href: `${base}#cv`, label: t.nav.cv },
+  { href: `${base}#kontakt`, label: t.nav.contact },
+  { href: `${base}blog`, label: t.nav.blog },
 ];
 
 const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : `/en${pathname}`;

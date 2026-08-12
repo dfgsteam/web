@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { ArrowRight } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import BrowserMockup from './BrowserMockup.astro';
 import StatusBadge from './StatusBadge.astro';
@@ -48,10 +49,7 @@ const href = `${lang === 'de' ? '/projekte' : '/en/projekte'}/${slug}`;
 
   <span class="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-medium text-accent">
     {t.projects.viewDetails}
-    <svg class="size-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M5 12h14"></path>
-      <path d="m12 5 7 7-7 7"></path>
-    </svg>
+    <ArrowRight class="size-4 transition-transform duration-300 group-hover:translate-x-1" stroke-width={2} />
   </span>
   <span class="sr-only">{index + 1}</span>
 </a>

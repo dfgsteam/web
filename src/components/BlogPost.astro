@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
+import { ArrowLeft } from '@lucide/astro';
 import type { Dict, Locale } from '../lib/i18n';
 
 interface Props {
@@ -28,10 +29,7 @@ const formatDate = (d: Date) =>
       class="mb-10 inline-flex items-center gap-2 text-sm text-mute transition-colors hover:text-ink"
       data-reveal="up"
     >
-      <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M5 12h14"></path>
-        <path d="m12 5 7 7-7 7"></path>
-      </svg>
+      <ArrowLeft class="size-4" stroke-width={2} />
       {t.blog.back}
     </a>
 

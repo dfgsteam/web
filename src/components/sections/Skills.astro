@@ -1,4 +1,19 @@
 ---
+import {
+  CodeXml,
+  Database,
+  Braces,
+  FileCode,
+  Table,
+  ShoppingCart,
+  SquareTerminal,
+  Coffee,
+  Blocks,
+  Cpu,
+  Sigma,
+  Binary,
+  Palette,
+} from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { skills, LEVEL_VALUE } from '../../data/skills';
 import type { SkillLevel } from '../../data/skills';
@@ -18,6 +33,22 @@ const barColor: Record<SkillLevel, string> = {
   advanced: 'bg-accent/60',
   medium: 'bg-accent/40',
   beginner: 'bg-accent/25',
+};
+
+const skillIcons: Record<string, any> = {
+  Python: CodeXml,
+  SQL: Database,
+  PHP: Braces,
+  HTML: FileCode,
+  'MS Office': Table,
+  WooCommerce: ShoppingCart,
+  'Linux / BASH': SquareTerminal,
+  Java: Coffee,
+  TYPO3: Blocks,
+  'C++': Cpu,
+  Haskell: Sigma,
+  Assembly: Binary,
+  Photoshop: Palette,
 };
 ---
 
@@ -39,28 +70,34 @@ const barColor: Record<SkillLevel, string> = {
 
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
       {
-        skills.map((skill, i) => (
-          <div
-            class="group rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/40"
-            data-reveal="up"
-            data-reveal-delay={(i % 3) * 0.08}
-          >
-            <div class="flex items-center justify-between gap-3">
-              <h3 class="font-medium tracking-tight text-ink">{skill.name}</h3>
-              <span class="rounded-full bg-elevated px-2.5 py-1 text-[11px] uppercase tracking-wider text-mute">
-                {t.skills.levels[skill.level]}
-              </span>
+        skills.map((skill, i) => {
+          const Icon = skillIcons[skill.name] ?? CodeXml;
+          return (
+            <div
+              class="group rounded-2xl border border-line bg-surface p-6 transition-colors duration-300 hover:border-accent/40"
+              data-reveal="up"
+              data-reveal-delay={(i % 3) * 0.08}
+            >
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="flex items-center gap-3 font-medium tracking-tight text-ink">
+                  <Icon class="size-5 shrink-0 text-accent" stroke-width={1.75} />
+                  {skill.name}
+                </h3>
+                <span class="rounded-full bg-elevated px-2.5 py-1 text-[11px] uppercase tracking-wider text-mute">
+                  {t.skills.levels[skill.level]}
+                </span>
+              </div>
+              <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-elevated">
+                <div
+                  class={`h-full rounded-full ${barColor[skill.level]} origin-left transition-transform duration-700 ease-out group-hover:scale-x-105`}
+                  data-skill-bar
+                  data-level={skill.value}
+                  style={{ transform: 'scaleX(0)' }}
+                ></div>
+              </div>
             </div>
-            <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-elevated">
-              <div
-                class={`h-full rounded-full ${barColor[skill.level]} origin-left transition-transform duration-700 ease-out group-hover:scale-x-105`}
-                data-skill-bar
-                data-level={skill.value}
-                style={{ transform: 'scaleX(0)' }}
-              ></div>
-            </div>
-          </div>
-        ))
+          );
+        })
       }
     </div>
 

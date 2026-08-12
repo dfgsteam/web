@@ -9,6 +9,17 @@ const t = getDict('en');
 const projects = (await getCollection('projects', ({ id }) => id.startsWith('en/')))
   .sort((a, b) => a.data.order - b.data.order);
 
+const blogPosts = (await getCollection('blog', ({ id }) => id.startsWith('en/')))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3)
+  .map((p) => ({
+    slug: p.id.split('/').slice(1).join('/'),
+    title: p.data.title,
+    date: p.data.date,
+    excerpt: p.data.excerpt,
+    tags: p.data.tags,
+  }));
+
 const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -30,5 +41,5 @@ const personJsonLd = {
 ---
 
 <Layout t={t} lang="en" jsonLd={[personJsonLd]}>
-  <HomePage t={t} lang="en" projects={projects} />
+  <HomePage t={t} lang="en" projects={projects} blogPosts={blogPosts} />
 </Layout>

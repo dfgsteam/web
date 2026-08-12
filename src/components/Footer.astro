@@ -1,5 +1,5 @@
 ---
-import { Mail, MapPin, ArrowUp } from '@lucide/astro';
+import { Mail, MapPin, ArrowUp, ExternalLink } from '@lucide/astro';
 import type { Dict, Locale } from '../lib/i18n';
 
 interface Props {
@@ -46,11 +46,7 @@ const homeHref = lang === 'de' ? '/' : '/en';
             class="inline-flex items-center gap-1.5 transition-colors hover:text-ink"
           >
             {site.label}
-            <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M15 3h6v6"></path>
-              <path d="M10 14 21 3"></path>
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-            </svg>
+            <ExternalLink class="size-3" stroke-width={2} />
           </a>
         ))}
         <a href={lang === 'de' ? '/blog' : '/en/blog'} class="transition-colors hover:text-ink">

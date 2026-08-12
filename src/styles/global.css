@@ -59,6 +59,10 @@ body {
   overflow-x: hidden;
 }
 
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 /* Dark mode: override design tokens */
 .dark {
   --color-base: #0a0a0c;
