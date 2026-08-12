@@ -268,22 +268,22 @@ function setupSkillBars() {
       scaleX: level,
       duration: 1.4,
       ease: 'power3.out',
+      onStart: () => {
+        if (badge) {
+          gsap.to(obj, {
+            val: levelVal,
+            duration: 1.4,
+            ease: 'power3.out',
+            onUpdate: () => {
+              badge.textContent = `${Math.round(obj.val)}%`;
+            },
+          });
+        }
+      },
       scrollTrigger: {
         trigger: card ?? bar,
         start: 'top 88%',
         once: true,
-        onStart: () => {
-          if (badge) {
-            gsap.to(obj, {
-              val: levelVal,
-              duration: 1.4,
-              ease: 'power3.out',
-              onUpdate: () => {
-                badge.textContent = `${Math.round(obj.val)}%`;
-              },
-            });
-          }
-        },
       },
     });
   });
