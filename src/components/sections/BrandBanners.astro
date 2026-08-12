@@ -1,0 +1,158 @@
+---
+import { ExternalLink, CheckCircle2 } from '@lucide/astro';
+import type { Dict, Locale } from '../../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="brands" class="section-spacing relative isolate overflow-hidden border-t border-b border-line bg-gradient-to-b from-base via-surface/30 to-base">
+  <!-- Full-Width Bliss Gradient Background Mesh -->
+  <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="glow glow--violet glow--float -left-20 top-1/4 h-[500px] w-[500px] opacity-40"></div>
+    <div class="glow glow--cyan glow--float-slow -right-20 bottom-1/4 h-[500px] w-[500px] opacity-40"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+  </div>
+
+  <div class="container-page relative">
+    <!-- Header -->
+    <div class="mb-14 text-center max-w-3xl mx-auto" data-reveal="up">
+      <p class="mb-3 text-xs uppercase tracking-widest text-accent font-mono">
+        {t.brands.label}
+      </p>
+      <h2 class="text-balance text-3xl font-semibold tracking-tight md:text-5xl">
+        {t.brands.heading}
+      </h2>
+    </div>
+
+    <!-- Full-Width Brand Showcase Grid -->
+    <div class="grid gap-8 lg:grid-cols-2">
+      <!-- Brand 1: HNLD (Webdesign & Digital Studio) -->
+      <div
+        class="group relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/40 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col justify-between"
+        data-reveal="up"
+      >
+        <!-- Bliss Ambient Backlight -->
+        <div class="absolute -right-20 -top-20 -z-10 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+
+        <div>
+          <!-- Header Bar with Brand Badge -->
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="flex items-center gap-3">
+              <!-- Monogram Logo Icon -->
+              <div class="flex size-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 font-bold tracking-tighter text-lg shadow-inner">
+                HNLD
+              </div>
+              <div>
+                <span class="block text-xs uppercase tracking-widest text-dim font-mono">{t.brands.hnld.tag}</span>
+                <span class="block text-sm font-semibold text-ink">hnld.de</span>
+              </div>
+            </div>
+            <span class="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-mono text-cyan-400">Digital Studio</span>
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-2xl font-semibold tracking-tight text-ink group-hover:text-cyan-400 transition-colors md:text-3xl">
+            {t.brands.hnld.title}
+          </h3>
+          <p class="mt-4 text-sm leading-relaxed text-mute">
+            {t.brands.hnld.subtitle}
+          </p>
+
+          <!-- Highlights List -->
+          <ul class="mt-6 space-y-2.5">
+            {
+              t.brands.hnld.highlights.map((item) => (
+                <li class="flex items-center gap-2.5 text-xs text-mute">
+                  <CheckCircle2 class="size-4 text-cyan-400 shrink-0" stroke-width={2} />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- CTA Link -->
+        <div class="mt-8 pt-6 border-t border-line/60 flex items-center justify-between">
+          <span class="text-xs text-dim font-mono">https://hnld.de</span>
+          <a
+            href="https://hnld.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-magnetic
+            class="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2.5 text-xs font-medium text-black transition-all duration-300 hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/25 active:scale-95"
+          >
+            <span>{t.brands.hnld.cta}</span>
+            <ExternalLink class="size-3.5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Brand 2: HUNOLD24 (Custom Software & Cloud Apps) -->
+      <div
+        class="group relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-8 md:p-10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-violet-500/40 hover:shadow-2xl hover:shadow-violet-500/10 flex flex-col justify-between"
+        data-reveal="up"
+        data-reveal-delay="0.1"
+      >
+        <!-- Bliss Ambient Backlight -->
+        <div class="absolute -right-20 -top-20 -z-10 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+
+        <div>
+          <!-- Header Bar with Brand Badge -->
+          <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="flex items-center gap-3">
+              <!-- Monogram Logo Icon -->
+              <div class="flex size-12 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/10 text-violet-400 font-bold tracking-tighter text-lg shadow-inner">
+                H24
+              </div>
+              <div>
+                <span class="block text-xs uppercase tracking-widest text-dim font-mono">{t.brands.hunold24.tag}</span>
+                <span class="block text-sm font-semibold text-ink">hunold24.de</span>
+              </div>
+            </div>
+            <span class="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-mono text-violet-400">Custom Software</span>
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-2xl font-semibold tracking-tight text-ink group-hover:text-violet-400 transition-colors md:text-3xl">
+            {t.brands.hunold24.title}
+          </h3>
+          <p class="mt-4 text-sm leading-relaxed text-mute">
+            {t.brands.hunold24.subtitle}
+          </p>
+
+          <!-- Highlights List -->
+          <ul class="mt-6 space-y-2.5">
+            {
+              t.brands.hunold24.highlights.map((item) => (
+                <li class="flex items-center gap-2.5 text-xs text-mute">
+                  <CheckCircle2 class="size-4 text-violet-400 shrink-0" stroke-width={2} />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <!-- CTA Link -->
+        <div class="mt-8 pt-6 border-t border-line/60 flex items-center justify-between">
+          <span class="text-xs text-dim font-mono">https://hunold24.de</span>
+          <a
+            href="https://hunold24.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-magnetic
+            class="inline-flex items-center gap-2 rounded-full bg-violet-500 px-5 py-2.5 text-xs font-medium text-white transition-all duration-300 hover:bg-violet-400 hover:shadow-lg hover:shadow-violet-500/25 active:scale-95"
+          >
+            <span>{t.brands.hunold24.cta}</span>
+            <ExternalLink class="size-3.5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

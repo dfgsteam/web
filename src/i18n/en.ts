@@ -331,4 +331,22 @@ export const en: Dict = {
     copyEmailBtn: 'Copy Email',
     copied: 'Copied to clipboard! ✓',
   },
+  brands: {
+    label: 'Brands & Digital Studios',
+    heading: 'Specialized expertise for your digital growth.',
+    hnld: {
+      tag: 'hnld.de · Webdesign Studio',
+      title: 'High-Performance Web Design & Brand Identity',
+      subtitle: 'Modern websites built to impress. Aesthetic, lightning-fast, and optimized for maximum conversions.',
+      cta: 'Visit hnld.de',
+      highlights: ['Custom Web Design', 'Responsive & Mobile First', 'SEO & Performance'],
+    },
+    hunold24: {
+      tag: 'hunold24.de · Custom Software',
+      title: 'Tailored Web Applications & Cloud Apps',
+      subtitle: 'Complex business workflows, PHP/Symfony backend systems, REST APIs & scalable cloud architectures.',
+      cta: 'Explore hunold24.de',
+      highlights: ['Custom Software Apps', 'APIs & Data Pipelines', 'Docker & Cloud Infra'],
+    },
+  },
 };

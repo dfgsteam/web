@@ -329,6 +329,24 @@ export const de = {
     copyEmailBtn: 'E-Mail kopieren',
     copied: 'In Zwischenablage kopiert! ✓',
   },
+  brands: {
+    label: 'Marken & Digital-Studios',
+    heading: 'Spezialisierte Expertise für dein digitales Wachstum.',
+    hnld: {
+      tag: 'hnld.de · Webdesign Studio',
+      title: 'High-Performance Webdesign & Brand Identity',
+      subtitle: 'Moderne Websites, die Eindruck hinterlassen. Ästhetisch, blitzschnell und für maximale Conversions optimiert.',
+      cta: 'hnld.de besuchen',
+      highlights: ['Custom Webdesign', 'Responsive & Mobile First', 'SEO & Performance'],
+    },
+    hunold24: {
+      tag: 'hunold24.de · Custom Software',
+      title: 'Maßgeschneiderte Webanwendungen & Cloud Apps',
+      subtitle: 'Komplexe Workflows, PHP/Symfony Backend-Systeme, API-Schnittstellen & skalierbare Cloud-Architekturen.',
+      cta: 'hunold24.de entdecken',
+      highlights: ['Custom Software-Apps', 'API-Schnittstellen & Data', 'Docker & Cloud Infra'],
+    },
+  },
 };
 
 export type Dict = typeof de;
