@@ -1,31 +1,44 @@
 ---
-title: EN.MIE
-tagline: Netzanmeldungen & Baustellendokumentation
+title: EN.MIE – Netzanmeldungen
+tagline: Custom Web App · Prozessautomatisierung
 client: EN.MIE
 category: client
 status: client-project
 order: 2
 year: '2025'
-tech: [PHP, Laravel, MySQL, Tailwind, Alpine.js]
-summary: Eine Custom Web App, die Baustellendokumentation und die Vorbereitung von Netzanmeldungen strukturiert und beschleunigt.
+tech: [Flask, Python, Gunicorn, Nginx]
+summary: Webanwendung zur vollautomatisierten Erstellung von Abnahmeprotokollen und Netzanmeldungen für Photovoltaikanlagen – manuelle Prozesse digital abgelöst.
 accentFrom: '#38bdf8'
 accentTo: '#6366f1'
 ---
 
-## Die Aufgabe
+## Ausgangssituation & Anforderungen
 
-Netzanmeldungen vorzubereiten heißt: viele Daten, viele Stellen, viel Papier.
-EN.MIE brauchte eine zentrale Anwendung, die Baustellen-Dokumentation und die
-Anmeldungs-Vorbereitung in einem Workflow vereint.
+Die Anmeldung von Photovoltaikanlagen beim zuständigen Netzbetreiber erfordert zahlreiche Formulare, Abnahmeprotokolle und Abstimmungsprozesse. Diese Arbeiten wurden bisher überwiegend manuell durchgeführt – zeitaufwändig und fehleranfällig.
 
-## Was ich geliefert habe
+**Kernanforderungen:**
 
-- Custom Web App zur Erfassung und Pflege aller Baustellendaten
-- Strukturierter Ablauf zur Vorbereitung von Netzanmeldungen
-- Klare Rollen und Rechte für Kunde und Team
+- **Automatisierung** der Abnahmeprotokollerstellung
+- **Strukturierter Datenabgleich** zur Reduzierung von Eingabefehlern
+- **Einheitliche Dokumentenvorbereitung** für die Abnahme durch einen Meisterbetrieb
+- Konsistentes, wiedererkennbares Systemdesign
 
-## Learnings
+## Lösung & Umsetzung
 
-Wer Prozesse softwaremäßig abbildet, muss sie erst wirklich verstehen. Die
-meiste Arbeit steckte im Modellieren der realen Abläufe – danach war der Rest
-fast Routine.
+Entwickelt mit **Flask (Python)**, betrieben unter **Gunicorn** hinter einem **Nginx**-Reverse-Proxy auf eigener Infrastruktur.
+
+**Kernfunktionen der Anwendung:**
+
+- **Automatisierte Abnahmeprotokolle** – auf Knopfdruck, formal korrekt und prüffähig
+- **Strukturierter Datenabgleich** – zentrale Datenbasis verhindert Inkonsistenzen
+- **Zentrale Projektverwaltung** – alle Projektdaten gespeichert und jederzeit abrufbar
+- **Automatisierter Mailversand** – Dokumente werden direkt an den Meisterbetrieb weitergeleitet
+- **Vollständiger Workflow** – von der Datenerfassung über die Dokumenterstellung bis zur fertigen Netzanmeldung
+
+> „Von der Projekterfassung bis zur Netzanmeldung – alle Schritte in einem durchgängigen System."
+
+## Ergebnis
+
+Ein digitalisierter, einheitlicher und deutlich effizienterer Prozess für Netzanmeldungen. Abnahmeprotokolle und Antragsunterlagen werden automatisch, formal konsistent und prüffähig erzeugt.
+
+Der Verwaltungsaufwand wurde spürbar reduziert, Fehlerquellen minimiert und der gesamte Ablauf für Meisterbetrieb und Netzbetreiber strukturiert vorbereitet – was vorher Stunden dauerte, läuft jetzt in Minuten.

@@ -1,31 +1,44 @@
 ---
-title: EN.MIE
-tagline: Grid Applications & Site Documentation
+title: EN.MIE – Grid Registrations
+tagline: Custom Web App · Process Automation
 client: EN.MIE
 category: client
 status: client-project
 order: 2
 year: '2025'
-tech: [PHP, Laravel, MySQL, Tailwind, Alpine.js]
-summary: A custom web app that structures and accelerates site documentation and the preparation of grid connection applications.
+tech: [Flask, Python, Gunicorn, Nginx]
+summary: Web application for fully automated creation of acceptance reports and grid registration documents for photovoltaic installations – replacing manual processes end-to-end.
 accentFrom: '#38bdf8'
 accentTo: '#6366f1'
 ---
 
-## The brief
+## Background & Requirements
 
-Preparing grid connection applications means: lots of data, lots of touchpoints,
-lots of paper. EN.MIE needed a central application that combines site
-documentation and the preparation of connection requests in a single workflow.
+Registering photovoltaic installations with the responsible grid operator requires numerous forms, acceptance reports and coordination processes. These tasks were previously handled largely by hand – time-consuming and prone to inconsistency.
 
-## What I delivered
+**Core requirements:**
 
-- Custom web app for capturing and maintaining all site data
-- Structured workflow for preparing grid connection applications
-- Clear roles and permissions for client and team
+- **Automation** of acceptance report generation
+- **Structured data reconciliation** to eliminate input errors
+- **Consistent document preparation** for review by a certified master craftsman
+- Clean, recognisable system design throughout
 
-## Takeaways
+## Solution & Implementation
 
-To map processes in software you first have to really understand them. Most of
-the work went into modelling the real-world workflows – after that, the rest was
-almost routine.
+Built with **Flask (Python)**, served via **Gunicorn** behind an **Nginx** reverse proxy on own infrastructure.
+
+**Key application features:**
+
+- **Automated acceptance reports** – generated on demand, formally correct and audit-ready
+- **Structured data reconciliation** – central data source prevents inconsistencies
+- **Central project management** – all project data saved and accessible at any time
+- **Automated email dispatch** – documents forwarded directly to the certifying craftsman
+- **Full workflow coverage** – from data capture through document creation to the completed grid registration
+
+> "From project capture to grid registration – every step in one seamless system."
+
+## Result
+
+A digitalized, uniform and significantly more efficient process for grid registrations. Acceptance reports and application documents are generated automatically – formally consistent and ready for inspection.
+
+Administrative overhead was noticeably reduced, error sources minimized and the entire workflow structured for both the certifying craftsman and the grid operator. What used to take hours now runs in minutes.
