@@ -9,30 +9,6 @@ interface Props {
 
 const { t } = Astro.props;
 
-// List of Strengths & Keywords with weights (weight = font size importance)
-const wordsData = [
-  { text: 'MOTIVATOR', weight: 75, color: '#ef4444' }, // Red-500
-  { text: 'ORGANISATOR', weight: 68, color: '#f59e0b' }, // Amber-500
-  { text: 'FÜHRUNGSSTÄRKE', weight: 56, color: '#eab308' }, // Yellow-500
-  { text: 'TATKRAFT', weight: 52, color: '#10b981' }, // Emerald-500
-  { text: 'Kognitiver Wissensdurst', weight: 38, color: '#a855f7' }, // Purple-500
-  { text: 'Entschlussfreude', weight: 36, color: '#f43f5e' }, // Rose-500
-  { text: 'Analytische Präzision', weight: 34, color: '#06b6d4' }, // Cyan-500
-  { text: 'Ergebnisorientiert', weight: 42, color: '#ef4444' }, // Red-500
-  { text: 'Eigeninitiative', weight: 34, color: '#22d3ee' }, // Cyan-400
-  { text: 'Innovation', weight: 38, color: '#c084fc' }, // Purple-400
-  { text: 'Begeisterungsfähigkeit', weight: 30, color: '#34d399' }, // Emerald-400
-  { text: 'Strukturierte Umsetzung', weight: 32, color: '#f87171' }, // Red-400
-  { text: 'Verlässlichkeit', weight: 26, color: '#fbbf24' }, // Amber-400
-  { text: 'Autodidaktik', weight: 28, color: '#818cf8' }, // Indigo-400
-  { text: 'Python & PHP', weight: 24, color: '#34d399' }, // Emerald-400
-  { text: 'Aufgabenfokus', weight: 22, color: '#a78bfa' }, // Purple-400
-  { text: 'Web-Apps', weight: 26, color: '#38bdf8' }, // Sky-400
-  { text: 'Weitblick', weight: 22, color: '#22d3ee' }, // Cyan-400
-  { text: 'Flexibilität', weight: 24, color: '#e879f9' }, // Fuchsia-400
-  { text: 'Glasfaserausbau', weight: 20, color: '#94a3b8' }, // Slate-400
-  { text: 'Prozessoptimierung', weight: 18, color: '#64748b' }, // Slate-500
-];
 ---
 
 <section id="workstyle" class="relative isolate border-t border-line md:min-h-[160vh]">
@@ -78,27 +54,28 @@ const wordsData = [
   import cloud from 'd3-cloud';
 
   const rawWords = [
-    { text: 'MOTIVATOR', weight: 75, color: '#ef4444' },
-    { text: 'ORGANISATOR', weight: 68, color: '#f59e0b' },
-    { text: 'FÜHRUNGSSTÄRKE', weight: 56, color: '#eab308' },
-    { text: 'TATKRAFT', weight: 52, color: '#10b981' },
+    { text: 'MOTIVATOR', weight: 78, color: '#ef4444' },
+    { text: 'ORGANISATOR', weight: 70, color: '#f59e0b' },
+    { text: 'FÜHRUNGSSTÄRKE', weight: 60, color: '#eab308' },
+    { text: 'Autodidaktik', weight: 46, color: '#818cf8' },
+    { text: 'Pragmatische Lösungen', weight: 44, color: '#10b981' },
+    { text: 'Eigeninitiative', weight: 42, color: '#06b6d4' },
+    { text: 'Kreative Originalität', weight: 40, color: '#c084fc' },
     { text: 'Kognitiver Wissensdurst', weight: 38, color: '#a855f7' },
-    { text: 'Entschlussfreude', weight: 36, color: '#f43f5e' },
-    { text: 'Analytische Präzision', weight: 34, color: '#06b6d4' },
-    { text: 'Ergebnisorientiert', weight: 42, color: '#ef4444' },
-    { text: 'Eigeninitiative', weight: 34, color: '#22d3ee' },
-    { text: 'Innovation', weight: 38, color: '#c084fc' },
-    { text: 'Begeisterungsfähigkeit', weight: 30, color: '#34d399' },
-    { text: 'Strukturierte Umsetzung', weight: 32, color: '#f87171' },
+    { text: 'Ergebnisorientiert', weight: 45, color: '#ef4444' },
+    { text: 'Intuitive Herangehensweise', weight: 36, color: '#38bdf8' },
+    { text: 'Hohe Zielsetzungen', weight: 36, color: '#f43f5e' },
+    { text: 'Gespür für Dringlichkeiten', weight: 34, color: '#f59e0b' },
+    { text: 'Enthusiasmus & Dynamik', weight: 34, color: '#22d3ee' },
+    { text: 'Autonomie & Unabhängigkeit', weight: 32, color: '#818cf8' },
+    { text: 'Daten & Fakten', weight: 32, color: '#06b6d4' },
+    { text: 'Innovationsdrang', weight: 38, color: '#c084fc' },
+    { text: 'Abwechslung', weight: 30, color: '#34d399' },
     { text: 'Verlässlichkeit', weight: 26, color: '#fbbf24' },
-    { text: 'Autodidaktik', weight: 28, color: '#818cf8' },
-    { text: 'Python & PHP', weight: 24, color: '#34d399' },
-    { text: 'Aufgabenfokus', weight: 22, color: '#a78bfa' },
-    { text: 'Web-Apps', weight: 26, color: '#38bdf8' },
-    { text: 'Weitblick', weight: 22, color: '#22d3ee' },
-    { text: 'Flexibilität', weight: 24, color: '#e879f9' },
-    { text: 'Glasfaserausbau', weight: 20, color: '#94a3b8' },
-    { text: 'Prozessoptimierung', weight: 18, color: '#64748b' },
+    { text: 'Projektkoordination', weight: 28, color: '#38bdf8' },
+    { text: 'Objektive Wahrheit', weight: 24, color: '#94a3b8' },
+    { text: 'Entschlussfreude', weight: 30, color: '#f43f5e' },
+    { text: 'Flexibilität', weight: 26, color: '#e879f9' },
   ];
 
   function renderD3Cloud() {
@@ -126,7 +103,7 @@ const wordsData = [
       .size([width - 40, height - 40])
       .words(wordItems)
       .padding(10)
-      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'TATKRAFT' || d.text === 'FÜHRUNGSSTÄRKE' || d.text === 'Eigeninitiative' ? -90 : 0))
+      .rotate((d) => (d.text === 'ORGANISATOR' || d.text === 'Eigeninitiative' || d.text === 'FÜHRUNGSSTÄRKE' || d.text === 'Autodidaktik' ? -90 : 0))
       .font('Inter, sans-serif')
       .fontSize((d) => (d as any).size)
       .on('end', draw);
