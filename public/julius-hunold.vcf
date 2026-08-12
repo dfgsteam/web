@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Julius Hunold
+N:Hunold;Julius;;;
+TITLE:Fullstack & DevOps Web-Entwickler
+ORG:Julius Hunold Web-Development
+EMAIL;TYPE=INTERNET,HOME:info@julius-hunold.de
+URL:https://julius-hunold.de
+ADR;TYPE=HOME:;;Sarstedt;;;Germany
+NOTE:Experte für Symfony, Astro, React, Docker & Cloud-Infrastruktur.
+END:VCARD

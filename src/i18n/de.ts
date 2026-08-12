@@ -309,6 +309,26 @@ export const de = {
       },
     ],
   },
+  cmdPalette: {
+    title: 'Schnellnavigation & Befehle',
+    placeholder: 'Suchen oder Befehl eingeben (z.B. CV, Kontakt, Projekte)...',
+    sections: 'Sektionen',
+    actions: 'Schnellaktionen',
+    noResults: 'Keine passenden Ergebnisse gefunden.',
+    kbdHint: 'Verwende ↑↓ zum Navigieren, Enter zum Auswählen, Esc zum Schließen',
+    downloadCv: 'Lebenslauf als PDF herunterladen',
+    downloadVcard: 'vCard Kontaktkarte (.vcf) herunterladen',
+    copyEmail: 'E-Mail-Adresse kopieren',
+    copied: 'In Zwischenablage kopiert! ✓',
+    switchLang: 'Sprache auf Englisch wechseln',
+    openGithub: 'GitHub Profil öffnen',
+    openLinkedin: 'LinkedIn Profil öffnen',
+  },
+  contactRecruiter: {
+    vcardBtn: 'vCard Visitenkarte (.vcf)',
+    copyEmailBtn: 'E-Mail kopieren',
+    copied: 'In Zwischenablage kopiert! ✓',
+  },
 };
 
 export type Dict = typeof de;

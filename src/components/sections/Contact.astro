@@ -1,5 +1,5 @@
 ---
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from '@lucide/astro';
+import { Mail, Phone, MapPin, Send, CheckCircle2, UserPlus, Copy, Check } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -14,6 +14,7 @@ const email = 'info@julius-hunold.de';
 <section id="kontakt" class="section-spacing relative isolate overflow-hidden border-t border-line">
   <div class="glow glow--emerald glow--float -left-32 top-16 h-[400px] w-[400px]" aria-hidden="true"></div>
   <div class="glow glow--violet glow--float-slow -right-32 bottom-0 h-[440px] w-[440px]" aria-hidden="true"></div>
+
   <div class="container-page relative">
     <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
       <div>
@@ -27,25 +28,65 @@ const email = 'info@julius-hunold.de';
           {t.contact.subheading}
         </p>
 
+        <!-- Direct Contact Actions (Email + Quick Copy + Recruiter vCard) -->
         <div class="mt-10 space-y-4" data-reveal="up" data-reveal-delay="0.2">
+          <!-- Primary Email Card -->
+          <div class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:border-accent/60 hover:bg-accent/5">
+            <a href={`mailto:${email}`} class="flex items-center gap-4 flex-1">
+              <div class="flex size-10 items-center justify-center rounded-xl bg-accent/10 text-accent group-hover:scale-110 transition-transform">
+                <Mail class="size-5" stroke-width={1.75} />
+              </div>
+              <div>
+                <span class="block text-xs uppercase tracking-wider text-dim">{t.contact.emailCta}</span>
+                <span class="block font-medium text-ink group-hover:text-accent transition-colors">{email}</span>
+              </div>
+            </a>
+
+            <!-- Quick Copy Button for Email -->
+            <button
+              type="button"
+              id="copy-email-btn"
+              data-email={email}
+              data-copied-text={t.contactRecruiter.copied}
+              class="relative flex items-center gap-1.5 rounded-xl border border-line bg-base px-3.5 py-2 text-xs font-medium text-mute transition-all duration-300 hover:border-accent hover:text-ink active:scale-95 shrink-0"
+              aria-label={t.contactRecruiter.copyEmailBtn}
+            >
+              <Copy id="copy-email-icon" class="size-3.5 text-accent" />
+              <Check id="check-email-icon" class="hidden size-3.5 text-emerald-400" />
+              <span id="copy-email-label">{t.contactRecruiter.copyEmailBtn}</span>
+            </button>
+          </div>
+
+          <!-- Recruiter & HR vCard Card -->
           <a
-            href={`mailto:${email}`}
-            data-magnetic
-            class="flex items-center gap-4 rounded-2xl border border-line bg-surface px-6 py-5 transition-all duration-300 hover:border-accent/60 hover:bg-accent/5"
+            href="/julius-hunold.vcf"
+            download
+            class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 transition-all duration-300 hover:border-accent/60 hover:bg-accent/5"
           >
-            <Mail class="size-5 text-accent" stroke-width={1.75} />
-            <div>
-              <span class="block text-xs uppercase tracking-wider text-dim">{t.contact.emailCta}</span>
-              <span class="block font-medium text-ink">{email}</span>
+            <div class="flex items-center gap-4">
+              <div class="flex size-10 items-center justify-center rounded-xl bg-accent/10 text-accent group-hover:scale-110 transition-transform">
+                <UserPlus class="size-5" stroke-width={1.75} />
+              </div>
+              <div>
+                <span class="block text-xs uppercase tracking-wider text-dim">Recruiter & HR Special</span>
+                <span class="block font-medium text-ink group-hover:text-accent transition-colors">{t.contactRecruiter.vcardBtn}</span>
+              </div>
             </div>
+            <span class="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium text-accent">.vcf Download</span>
           </a>
-          <div class="flex items-center gap-4 rounded-2xl border border-line bg-surface px-6 py-5">
-            <MapPin class="size-5 text-accent" stroke-width={1.75} />
+
+          <!-- Location Card -->
+          <div class="flex items-center gap-4 rounded-2xl border border-line bg-surface p-5">
+            <div class="flex size-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
+              <MapPin class="size-5" stroke-width={1.75} />
+            </div>
             <div>
               <span class="block text-xs uppercase tracking-wider text-dim">{t.contact.location}</span>
               <span class="block font-medium text-ink">Sarstedt, Germany</span>
             </div>
           </div>
+
+          <!-- Availability Badge -->
           <div class="flex items-center gap-3 rounded-2xl border border-emerald-500/25 bg-emerald-500/5 px-6 py-4">
             <span class="size-2 animate-pulse rounded-full bg-emerald-500" aria-hidden="true"></span>
             <span class="text-sm font-medium text-emerald-700 dark:text-emerald-300">{t.contact.availability}</span>
@@ -53,6 +94,7 @@ const email = 'info@julius-hunold.de';
         </div>
       </div>
 
+      <!-- Contact Form -->
       <form
         id="contact-form"
         class="rounded-3xl border border-line bg-surface p-8 md:p-10"
@@ -119,6 +161,7 @@ const email = 'info@julius-hunold.de';
 </section>
 
 <script>
+  // Form submission handling
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const status = document.getElementById('cf-status') as HTMLElement | null;
   const statusText = status?.querySelector('span');
@@ -137,5 +180,33 @@ const email = 'info@julius-hunold.de';
       status.classList.remove('hidden');
       status.classList.add('flex');
     }
+  });
+
+  // 1-Click Copy Email Button
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyIcon = document.getElementById('copy-email-icon');
+  const checkIcon = document.getElementById('check-email-icon');
+  const copyLabel = document.getElementById('copy-email-label');
+
+  copyBtn?.addEventListener('click', () => {
+    const email = copyBtn.dataset.email || 'info@julius-hunold.de';
+    const copiedMsg = copyBtn.dataset.copiedText || 'Kopiert! ✓';
+
+    navigator.clipboard.writeText(email).then(() => {
+      if (copyIcon && checkIcon && copyLabel) {
+        copyIcon.classList.add('hidden');
+        checkIcon.classList.remove('hidden');
+        const originalText = copyLabel.textContent;
+        copyLabel.textContent = copiedMsg;
+        copyBtn.classList.add('border-emerald-500/50', 'text-emerald-400');
+
+        setTimeout(() => {
+          copyIcon.classList.remove('hidden');
+          checkIcon.classList.add('hidden');
+          copyLabel.textContent = originalText;
+          copyBtn.classList.remove('border-emerald-500/50', 'text-emerald-400');
+        }, 2500);
+      }
+    });
   });
 </script>

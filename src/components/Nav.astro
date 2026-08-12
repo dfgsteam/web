@@ -1,6 +1,7 @@
 ---
 import { Menu, X, Languages, Sun, Moon } from '@lucide/astro';
 import type { Dict, Locale } from '../lib/i18n';
+import CommandPalette from './CommandPalette.astro';
 
 interface Props {
   t: Dict;
@@ -63,6 +64,9 @@ const alternatePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '')
     </nav>
 
     <div class="relative z-10 flex items-center gap-2">
+      <!-- Cmd+K Command Palette Search Trigger -->
+      <CommandPalette t={t} lang={lang} />
+
       <button
         data-theme-toggle
         aria-pressed="false"

@@ -1,0 +1,288 @@
+---
+import { Search, Command, ArrowRight, Download, FileText, Mail, Languages, Globe, ExternalLink, Sparkles, X } from '@lucide/astro';
+import type { Dict, Locale } from '../lib/i18n';
+
+interface Props {
+  t: Dict;
+  lang: Locale;
+}
+
+const { t, lang } = Astro.props;
+const base = lang === 'de' ? '/' : '/en';
+const alternatePath = lang === 'de' ? '/en' : '/';
+
+const sections = [
+  { id: 'sec-home', label: 'Start (Hero)', href: `${base}`, icon: Sparkles, keywords: 'home start hero julius' },
+  { id: 'sec-about', label: t.nav.about, href: `${base}#about`, icon: ArrowRight, keywords: 'über mich about bio ausbildung study' },
+  { id: 'sec-projects', label: t.nav.projects, href: `${base}#projekte`, icon: ArrowRight, keywords: 'projekte projects portfolio apps cases' },
+  { id: 'sec-services', label: t.nav.services, href: `${base}#services`, icon: ArrowRight, keywords: 'services leistungen anfrage custom shop docker' },
+  { id: 'sec-infra', label: t.nav.infra, href: `${base}#infra`, icon: ArrowRight, keywords: 'infra server container docker homelab nginx ssl' },
+  { id: 'sec-cv', label: t.nav.cv, href: `${base}#cv`, icon: ArrowRight, keywords: 'lebenslauf cv resume erfahrung berufe' },
+  { id: 'sec-contact', label: t.nav.contact, href: `${base}#kontakt`, icon: ArrowRight, keywords: 'kontakt contact mail anfrage sarstedt' },
+  { id: 'sec-blog', label: t.nav.blog, href: `${base}blog`, icon: ArrowRight, keywords: 'blog artikel news insights' },
+];
+
+const actions = [
+  { id: 'act-cv-pdf', label: t.cmdPalette.downloadCv, href: '/cv-julius-hunold.pdf', download: true, icon: FileText, badge: 'PDF' },
+  { id: 'act-vcard', label: t.cmdPalette.downloadVcard, href: '/julius-hunold.vcf', download: true, icon: Download, badge: 'vCard .vcf' },
+  { id: 'act-email', label: t.cmdPalette.copyEmail, action: 'copy-email', icon: Mail, badge: 'info@julius-hunold.de' },
+  { id: 'act-lang', label: t.cmdPalette.switchLang, href: alternatePath, icon: Languages, badge: lang === 'de' ? 'EN' : 'DE' },
+  { id: 'act-github', label: t.cmdPalette.openGithub, href: 'https://github.com', target: '_blank', icon: Globe, badge: 'GitHub' },
+  { id: 'act-linkedin', label: t.cmdPalette.openLinkedin, href: 'https://linkedin.com', target: '_blank', icon: ExternalLink, badge: 'LinkedIn' },
+];
+---
+
+<!-- Trigger Button for Header / Mobile Nav -->
+<button
+  id="cmd-palette-trigger"
+  type="button"
+  class="group flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1.5 text-xs text-mute backdrop-blur-md transition-all duration-300 hover:border-accent hover:text-ink active:scale-95"
+  aria-label={t.cmdPalette.title}
+>
+  <Search class="size-3.5 text-dim group-hover:text-accent transition-colors" />
+  <span class="hidden sm:inline font-medium">{t.cmdPalette.title}</span>
+  <kbd class="flex items-center gap-0.5 rounded border border-line bg-base px-1.5 py-0.5 text-[10px] font-mono text-dim shadow-xs">
+    <Command class="size-2.5" />
+    <span>K</span>
+  </kbd>
+</button>
+
+<!-- Command Palette Modal Backdrop & Container -->
+<div
+  id="cmd-palette"
+  class="fixed inset-0 z-[100] hidden bg-base/80 backdrop-blur-xl transition-all duration-300 opacity-0 pointer-events-none flex items-start justify-center p-4 sm:p-6 md:p-20"
+  role="dialog"
+  aria-modal="true"
+  aria-label={t.cmdPalette.title}
+>
+  <div
+    id="cmd-palette-card"
+    class="relative w-full max-w-2xl transform overflow-hidden rounded-3xl border border-line bg-surface/95 shadow-2xl shadow-accent/10 transition-all duration-300 scale-95"
+  >
+    <!-- Header Input Box -->
+    <div class="relative flex items-center border-b border-line px-5 py-4">
+      <Search class="size-5 text-accent shrink-0" stroke-width={2} />
+      <input
+        id="cmd-search-input"
+        type="text"
+        placeholder={t.cmdPalette.placeholder}
+        autocomplete="off"
+        spellcheck="false"
+        class="w-full bg-transparent px-4 text-base text-ink placeholder:text-dim outline-none"
+      />
+      <button
+        id="cmd-close-btn"
+        type="button"
+        class="flex size-8 items-center justify-center rounded-full border border-line text-dim transition-colors hover:border-accent hover:text-ink shrink-0"
+        aria-label="Close"
+      >
+        <X class="size-4" />
+      </button>
+    </div>
+
+    <!-- Results Container -->
+    <div class="max-h-[60vh] overflow-y-auto p-4 space-y-6" id="cmd-results-list">
+      <!-- Section 1: Navigation -->
+      <div class="cmd-group">
+        <h3 class="mb-2 px-3 text-[11px] font-semibold uppercase tracking-widest text-dim font-mono">
+          {t.cmdPalette.sections}
+        </h3>
+        <div class="space-y-1">
+          {
+            sections.map((item) => {
+              const IconComp = item.icon;
+              return (
+                <a
+                  href={item.href}
+                  class="cmd-item group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-mute transition-all hover:bg-accent/10 hover:text-ink focus:bg-accent/10 focus:text-ink outline-none"
+                  data-keywords={item.keywords}
+                >
+                  <div class="flex items-center gap-3">
+                    <IconComp class="size-4 text-dim group-hover:text-accent group-focus:text-accent transition-colors" />
+                    <span>{item.label}</span>
+                  </div>
+                  <ArrowRight class="size-3.5 text-dim opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:translate-x-1 transition-all" />
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+
+      <!-- Section 2: Quick Actions -->
+      <div class="cmd-group">
+        <h3 class="mb-2 px-3 text-[11px] font-semibold uppercase tracking-widest text-dim font-mono">
+          {t.cmdPalette.actions}
+        </h3>
+        <div class="space-y-1">
+          {
+            actions.map((item) => {
+              const IconComp = item.icon;
+              if (item.action === 'copy-email') {
+                return (
+                  <button
+                    type="button"
+                    id="cmd-copy-email"
+                    class="cmd-item w-full group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-mute transition-all hover:bg-accent/10 hover:text-ink focus:bg-accent/10 focus:text-ink outline-none text-left"
+                    data-keywords="email e-mail mail kopieren copy info@julius-hunold.de"
+                    data-copied-msg={t.cmdPalette.copied}
+                  >
+                    <div class="flex items-center gap-3">
+                      <IconComp class="size-4 text-dim group-hover:text-accent group-focus:text-accent transition-colors" />
+                      <span id="cmd-copy-label">{item.label}</span>
+                    </div>
+                    <span class="rounded-full border border-line bg-base px-2.5 py-0.5 text-xs font-mono text-accent">{item.badge}</span>
+                  </button>
+                );
+              }
+              return (
+                <a
+                  href={item.href}
+                  download={item.download ? true : undefined}
+                  target={item.target ? item.target : undefined}
+                  rel={item.target ? 'noopener noreferrer' : undefined}
+                  class="cmd-item group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-mute transition-all hover:bg-accent/10 hover:text-ink focus:bg-accent/10 focus:text-ink outline-none"
+                  data-keywords={item.label.toLowerCase()}
+                >
+                  <div class="flex items-center gap-3">
+                    <IconComp class="size-4 text-dim group-hover:text-accent group-focus:text-accent transition-colors" />
+                    <span>{item.label}</span>
+                  </div>
+                  <span class="rounded-full border border-line bg-base px-2.5 py-0.5 text-xs font-mono text-accent">{item.badge}</span>
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+
+      <!-- No Results State -->
+      <div id="cmd-no-results" class="hidden py-12 text-center text-sm text-dim">
+        {t.cmdPalette.noResults}
+      </div>
+    </div>
+
+    <!-- Footer Hint -->
+    <div class="border-t border-line bg-base/50 px-5 py-3 text-xs text-dim flex items-center justify-between">
+      <span>{t.cmdPalette.kbdHint}</span>
+      <span class="font-mono text-[10px] uppercase tracking-wider text-accent">Julius Hunold OS</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const palette = document.getElementById('cmd-palette');
+  const card = document.getElementById('cmd-palette-card');
+  const trigger = document.getElementById('cmd-palette-trigger');
+  const closeBtn = document.getElementById('cmd-close-btn');
+  const searchInput = document.getElementById('cmd-search-input') as HTMLInputElement | null;
+  const items = document.querySelectorAll<HTMLElement>('.cmd-item');
+  const noResults = document.getElementById('cmd-no-results');
+
+  function openPalette() {
+    if (!palette || !card) return;
+    palette.classList.remove('hidden', 'pointer-events-none');
+    requestAnimationFrame(() => {
+      palette.classList.remove('opacity-0');
+      palette.classList.add('opacity-100');
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+      searchInput?.focus();
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePalette() {
+    if (!palette || !card) return;
+    palette.classList.remove('opacity-100');
+    palette.classList.add('opacity-0');
+    card.classList.remove('scale-100');
+    card.classList.add('scale-95');
+    setTimeout(() => {
+      palette.classList.add('hidden', 'pointer-events-none');
+      document.body.style.overflow = '';
+      if (searchInput) searchInput.value = '';
+      filterItems('');
+    }, 200);
+  }
+
+  function filterItems(query: string) {
+    const q = query.toLowerCase().trim();
+    let visibleCount = 0;
+
+    items.forEach((item) => {
+      const text = (item.textContent || '').toLowerCase();
+      const keywords = (item.dataset.keywords || '').toLowerCase();
+      const isMatch = !q || text.includes(q) || keywords.includes(q);
+
+      if (isMatch) {
+        item.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+
+    if (noResults) {
+      if (visibleCount === 0 && q.length > 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+  }
+
+  // Hotkey Trigger (Cmd + K / Ctrl + K)
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (palette?.classList.contains('opacity-100')) {
+        closePalette();
+      } else {
+        openPalette();
+      }
+    } else if (e.key === 'Escape' && palette?.classList.contains('opacity-100')) {
+      closePalette();
+    }
+  });
+
+  trigger?.addEventListener('click', openPalette);
+  closeBtn?.addEventListener('click', closePalette);
+
+  palette?.addEventListener('click', (e) => {
+    if (e.target === palette) closePalette();
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    filterItems((e.target as HTMLInputElement).value);
+  });
+
+  items.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      if (item.id === 'cmd-copy-email') return;
+      closePalette();
+    });
+  });
+
+  // Copy Email action inside Palette
+  const copyCmdBtn = document.getElementById('cmd-copy-email');
+  const copyCmdLabel = document.getElementById('cmd-copy-label');
+
+  copyCmdBtn?.addEventListener('click', () => {
+    const email = 'info@julius-hunold.de';
+    const copiedMsg = copyCmdBtn.dataset.copiedMsg || 'In Zwischenablage kopiert! ✓';
+
+    navigator.clipboard.writeText(email).then(() => {
+      if (copyCmdLabel) {
+        const originalText = copyCmdLabel.textContent;
+        copyCmdLabel.textContent = copiedMsg;
+        copyCmdBtn.classList.add('text-emerald-400');
+        setTimeout(() => {
+          copyCmdLabel.textContent = originalText;
+          copyCmdBtn.classList.remove('text-emerald-400');
+          closePalette();
+        }, 1500);
+      }
+    });
+  });
+</script>
