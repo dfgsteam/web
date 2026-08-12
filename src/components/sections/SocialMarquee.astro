@@ -1,5 +1,4 @@
 ---
-import { ExternalLink, Globe, Mail, Download, Leaf, Cpu, Sparkles, UserCheck } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -9,161 +8,105 @@ interface Props {
 
 const { t } = Astro.props;
 
-const profiles = [
+const brandLogos = [
   {
     name: 'LinkedIn',
-    handle: 'Julius Hunold',
     url: 'https://www.linkedin.com/in/julius-hunold/',
-    icon: ExternalLink,
-    badge: 'Netzwerk',
-    color: 'from-blue-500/20 to-sky-500/20 text-sky-400 border-sky-500/30',
-    dot: 'bg-sky-400',
+    hoverColor: 'hover:text-[#0A66C2]',
+    svg: `<svg class="h-7 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>`,
   },
   {
     name: 'GitHub',
-    handle: '@juliushunold',
     url: 'https://github.com/juliushunold',
-    icon: Globe,
-    badge: 'Code Repository',
-    color: 'from-emerald-500/20 to-teal-500/20 text-emerald-400 border-emerald-500/30',
-    dot: 'bg-emerald-400',
+    hoverColor: 'hover:text-[#2DBA4E]',
+    svg: `<svg class="h-7 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>`,
   },
   {
     name: 'XING',
-    handle: 'Julius Hunold',
     url: 'https://www.xing.com/profile/Julius_Hunold',
-    icon: UserCheck,
-    badge: 'Business Profil',
-    color: 'from-teal-600/20 to-emerald-600/20 text-teal-400 border-teal-500/30',
-    dot: 'bg-teal-400',
+    hoverColor: 'hover:text-[#006567]',
+    svg: `<svg class="h-7 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.188 0c-.517 0-.741.325-.927.663l-6.45 11.462 4.11 7.425c.174.325.42.663.927.663h3.513c.427 0 .618-.288.441-.613l-3.86-6.95 6.07-10.787c.177-.325-.014-.613-.441-.613h-3.386zm-11.83 4.887c-.427 0-.645.288-.469.613l2.298 4.103-3.666 6.462c-.177.325.014.613.441.613h3.407c.517 0 .741-.325.927-.663l3.86-6.8-2.52-4.513c-.174-.325-.42-.613-.927-.613h-3.352z"/></svg>`,
   },
   {
     name: 'hnld.de',
-    handle: 'Webdesign Studio',
     url: 'https://hnld.de',
-    icon: Globe,
-    badge: 'Studio',
-    color: 'from-cyan-500/20 to-blue-500/20 text-cyan-400 border-cyan-500/30',
-    dot: 'bg-cyan-400',
+    hoverColor: 'hover:text-cyan-400',
+    customLogo: 'hnld.de',
   },
   {
     name: 'hunold24.de',
-    handle: 'Custom Web-Apps',
     url: 'https://hunold24.de',
-    icon: Cpu,
-    badge: 'Web & Tech',
-    color: 'from-blue-600/20 to-indigo-600/20 text-blue-400 border-blue-500/30',
-    dot: 'bg-blue-400',
+    hoverColor: 'hover:text-blue-400',
+    customLogo: 'hunold24.de',
   },
   {
     name: 'ennery',
-    handle: 'Energy Software',
     url: 'https://ennery.de',
-    icon: Leaf,
-    badge: 'CleanTech',
-    color: 'from-emerald-500/20 to-green-500/20 text-emerald-400 border-emerald-500/30',
-    dot: 'bg-emerald-400',
+    hoverColor: 'hover:text-emerald-400',
+    customLogo: 'ennery',
   },
   {
-    name: 'E-Mail',
-    handle: 'info@julius-hunold.de',
-    url: 'mailto:info@julius-hunold.de',
-    icon: Mail,
-    badge: 'Direktkontakt',
-    color: 'from-violet-500/20 to-purple-500/20 text-violet-400 border-violet-500/30',
-    dot: 'bg-violet-400',
-  },
-  {
-    name: 'vCard',
-    handle: 'Download .vcf',
-    url: '/julius-hunold.vcf',
-    download: true,
-    icon: Download,
-    badge: 'Recruiter Card',
-    color: 'from-amber-500/20 to-orange-500/20 text-amber-400 border-amber-500/30',
-    dot: 'bg-amber-400',
+    name: 'X (Twitter)',
+    url: 'https://x.com',
+    hoverColor: 'hover:text-white',
+    svg: `<svg class="h-6 w-auto fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
   },
 ];
 ---
 
-<section class="relative isolate overflow-hidden border-t border-line py-12 bg-base/50">
-  <!-- Subtle Ambient Header -->
-  <div class="container-page mb-6 text-center">
-    <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3.5 py-1 text-xs font-mono uppercase tracking-widest text-dim backdrop-blur-md">
-      <Sparkles class="size-3.5 text-accent" />
-      <span>{t.socialMarquee?.label ?? 'Profile & Netzwerke'}</span>
-    </div>
-  </div>
-
-  <!-- Marquee Container with Pausing Hover -->
-  <div class="marquee relative overflow-hidden py-3" data-reveal="up">
-    <div class="marquee-track flex items-center hover:[animation-play-state:paused]" style="animation-duration: 32s;">
+<section class="relative isolate overflow-hidden border-y border-line bg-surface/40 py-8 backdrop-blur-md">
+  <div class="marquee relative overflow-hidden" data-reveal="up">
+    <div class="marquee-track flex items-center gap-16 hover:[animation-play-state:paused]" style="animation-duration: 25s;">
       <!-- Track 1 -->
-      <div class="flex items-center gap-4 pr-4">
+      <div class="flex items-center gap-16 pr-16">
         {
-          profiles.map((profile) => {
-            const Icon = profile.icon;
-            return (
-              <a
-                href={profile.url}
-                target={profile.download ? '_self' : '_blank'}
-                rel={profile.download ? undefined : 'noopener noreferrer'}
-                download={profile.download ? true : undefined}
-                class="group flex items-center gap-3.5 rounded-2xl border border-line bg-surface/90 px-4 py-3 backdrop-blur-md transition-all duration-300 hover:border-accent/60 hover:bg-surface hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-0.5 shrink-0"
-              >
-                <div class={`flex size-9 items-center justify-center rounded-xl bg-gradient-to-br ${profile.color} border transition-transform duration-300 group-hover:scale-110`}>
-                  <Icon class="size-4 shrink-0" stroke-width={1.75} />
-                </div>
-                <div class="flex flex-col">
-                  <div class="flex items-center gap-2">
-                    <span class="text-xs font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
-                      {profile.name}
-                    </span>
-                    <span class={`size-1.5 rounded-full ${profile.dot}`} aria-hidden="true"></span>
-                  </div>
-                  <span class="text-[11px] text-mute font-mono">
-                    {profile.handle}
-                  </span>
-                </div>
-                <ExternalLink class="size-3.5 text-dim group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 ml-1" />
-              </a>
-            );
-          })
+          brandLogos.map((brand) => (
+            <a
+              href={brand.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`group flex items-center gap-3 text-mute transition-all duration-300 ${brand.hoverColor} hover:scale-110 shrink-0 opacity-70 hover:opacity-100`}
+              title={brand.name}
+            >
+              {brand.svg ? (
+                <Fragment set:html={brand.svg} />
+              ) : (
+                <span class="font-mono text-xl font-bold tracking-tight">
+                  {brand.customLogo}
+                </span>
+              )}
+              <span class="text-xs font-medium tracking-wider uppercase text-dim group-hover:text-ink transition-colors">
+                {brand.name}
+              </span>
+            </a>
+          ))
         }
       </div>
 
-      <!-- Track 2 (Duplicate for Seamless Infinite Loop) -->
-      <div class="flex items-center gap-4 pr-4" aria-hidden="true">
+      <!-- Track 2 (Duplicate for Infinite Loop) -->
+      <div class="flex items-center gap-16 pr-16" aria-hidden="true">
         {
-          profiles.map((profile) => {
-            const Icon = profile.icon;
-            return (
-              <a
-                href={profile.url}
-                target={profile.download ? '_self' : '_blank'}
-                rel={profile.download ? undefined : 'noopener noreferrer'}
-                download={profile.download ? true : undefined}
-                tabindex="-1"
-                class="group flex items-center gap-3.5 rounded-2xl border border-line bg-surface/90 px-4 py-3 backdrop-blur-md transition-all duration-300 hover:border-accent/60 hover:bg-surface hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-0.5 shrink-0"
-              >
-                <div class={`flex size-9 items-center justify-center rounded-xl bg-gradient-to-br ${profile.color} border transition-transform duration-300 group-hover:scale-110`}>
-                  <Icon class="size-4 shrink-0" stroke-width={1.75} />
-                </div>
-                <div class="flex flex-col">
-                  <div class="flex items-center gap-2">
-                    <span class="text-xs font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">
-                      {profile.name}
-                    </span>
-                    <span class={`size-1.5 rounded-full ${profile.dot}`} aria-hidden="true"></span>
-                  </div>
-                  <span class="text-[11px] text-mute font-mono">
-                    {profile.handle}
-                  </span>
-                </div>
-                <ExternalLink class="size-3.5 text-dim group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 ml-1" />
-              </a>
-            );
-          })
+          brandLogos.map((brand) => (
+            <a
+              href={brand.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabindex="-1"
+              class={`group flex items-center gap-3 text-mute transition-all duration-300 ${brand.hoverColor} hover:scale-110 shrink-0 opacity-70 hover:opacity-100`}
+              title={brand.name}
+            >
+              {brand.svg ? (
+                <Fragment set:html={brand.svg} />
+              ) : (
+                <span class="font-mono text-xl font-bold tracking-tight">
+                  {brand.customLogo}
+                </span>
+              )}
+              <span class="text-xs font-medium tracking-wider uppercase text-dim group-hover:text-ink transition-colors">
+                {brand.name}
+              </span>
+            </a>
+          ))
         }
       </div>
     </div>
