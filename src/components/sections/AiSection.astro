@@ -1,5 +1,5 @@
 ---
-import { Sparkles, Cpu, ShieldCheck, Layers, Bot, Zap, Code2, Database } from '@lucide/astro';
+import { Sparkles, ShieldCheck, Layers, Bot, Zap, Code2, Database } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -10,14 +10,15 @@ interface Props {
 const { t } = Astro.props;
 ---
 
-<section id="ai-engineering" class="section-spacing relative isolate overflow-hidden border-t border-line bg-surface/30">
+<section id="ai-engineering" class="relative isolate border-t border-line bg-surface/30 md:min-h-[160vh]">
   <!-- Ambient Glow Orbs -->
   <div class="glow glow--sky glow--float -left-32 top-10 h-[420px] w-[420px]" aria-hidden="true"></div>
   <div class="glow glow--violet glow--float-slow -right-32 bottom-0 h-[380px] w-[380px]" aria-hidden="true"></div>
 
-  <div class="container-page relative">
+  <!-- Sticky Content Container -->
+  <div class="container-page relative section-spacing md:sticky md:top-20 md:py-16">
     <!-- Header -->
-    <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <div class="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div class="max-w-2xl">
         <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-mono text-accent mb-3" data-reveal="up">
           <Sparkles class="size-3.5 text-accent animate-pulse" />
@@ -31,26 +32,30 @@ const { t } = Astro.props;
         </p>
       </div>
 
-      <!-- Tech Badge -->
-      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0" data-reveal="up" data-reveal-delay="0.15">
+      <!-- Scroll Phase Indicator Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-line bg-surface/90 px-4 py-2 text-xs font-mono text-dim backdrop-blur-md shrink-0 shadow-md" data-reveal="up" data-reveal-delay="0.15">
         <Bot class="size-4 text-accent" />
-        <span>LLM APIs & Local Models</span>
+        <span id="ai-step-indicator" class="text-ink font-semibold">Phase 1: Prompting & Copilot</span>
       </div>
     </div>
 
-    <!-- 3 Large Bento Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- 3 Bento Cards Grid with Sequential Scroll Highlight -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="ai-cards-grid">
 
       <!-- CARD 1: Prompt Engineering & Copilots -->
       <div
-        class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-accent/5"
+        id="ai-card-0"
+        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-accent bg-gradient-to-br from-surface via-surface to-accent/10 p-7 shadow-2xl transition-all duration-500 scale-[1.02]"
         data-reveal="up"
       >
-        <div class="absolute -right-10 -top-10 size-40 rounded-full bg-accent/10 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+        <div class="absolute -right-10 -top-10 size-40 rounded-full bg-accent/20 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
 
         <div>
-          <div class="flex size-12 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-accent mb-6 group-hover:scale-110 transition-transform">
-            <Code2 class="size-6" stroke-width={1.75} />
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex size-12 items-center justify-center rounded-2xl border border-accent/40 bg-accent/10 text-accent group-hover:scale-110 transition-transform">
+              <Code2 class="size-6" stroke-width={1.75} />
+            </div>
+            <span class="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-[10px] font-mono text-accent">Phase 1</span>
           </div>
 
           <h3 class="text-xl font-bold tracking-tight text-ink">
@@ -84,15 +89,19 @@ const { t } = Astro.props;
 
       <!-- CARD 2: LLM API Integration & RAG -->
       <div
-        class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-accent/40 bg-gradient-to-br from-surface via-surface to-accent/10 p-7 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-accent hover:shadow-accent/10"
+        id="ai-card-1"
+        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 opacity-80"
         data-reveal="up"
         data-reveal-delay="0.1"
       >
-        <div class="absolute -left-10 -bottom-10 size-40 rounded-full bg-accent/20 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+        <div class="absolute -left-10 -bottom-10 size-40 rounded-full bg-cyan-500/10 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
 
         <div>
-          <div class="flex size-12 items-center justify-center rounded-2xl border border-accent/40 bg-accent/10 text-accent mb-6 group-hover:scale-110 transition-transform">
-            <Layers class="size-6" stroke-width={1.75} />
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex size-12 items-center justify-center rounded-2xl border border-line bg-base text-cyan-400 group-hover:scale-110 transition-transform">
+              <Layers class="size-6" stroke-width={1.75} />
+            </div>
+            <span class="rounded-full border border-line bg-elevated px-2.5 py-0.5 text-[10px] font-mono text-dim">Phase 2</span>
           </div>
 
           <h3 class="text-xl font-bold tracking-tight text-ink">
@@ -126,15 +135,19 @@ const { t } = Astro.props;
 
       <!-- CARD 3: DSGVO & Local Models (Ollama) -->
       <div
-        class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-accent/5"
+        id="ai-card-2"
+        class="ai-step-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-lg transition-all duration-500 opacity-80"
         data-reveal="up"
         data-reveal-delay="0.2"
       >
         <div class="absolute -right-10 -bottom-10 size-40 rounded-full bg-emerald-500/10 blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
 
         <div>
-          <div class="flex size-12 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
-            <ShieldCheck class="size-6" stroke-width={1.75} />
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex size-12 items-center justify-center rounded-2xl border border-line bg-base text-emerald-400 group-hover:scale-110 transition-transform">
+              <ShieldCheck class="size-6" stroke-width={1.75} />
+            </div>
+            <span class="rounded-full border border-line bg-elevated px-2.5 py-0.5 text-[10px] font-mono text-dim">Phase 3</span>
           </div>
 
           <h3 class="text-xl font-bold tracking-tight text-ink">
@@ -169,3 +182,94 @@ const { t } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  function initAiScrollPinning() {
+    const section = document.querySelector<HTMLElement>('#ai-engineering');
+    const cards = [
+      document.querySelector<HTMLElement>('#ai-card-0'),
+      document.querySelector<HTMLElement>('#ai-card-1'),
+      document.querySelector<HTMLElement>('#ai-card-2'),
+    ];
+    const indicator = document.querySelector<HTMLElement>('#ai-step-indicator');
+
+    if (!section || !cards[0] || !cards[1] || !cards[2]) return;
+
+    const stepTitles = [
+      'Phase 1: Prompting & Copilot',
+      'Phase 2: LLM APIs & Integration',
+      'Phase 3: Lokale KI & Datenschutz',
+    ];
+
+    function updateAiScrollPhase() {
+      if (!section) return;
+
+      // Only run sticky highlight logic on desktop screens (md+)
+      if (window.innerWidth < 768) {
+        cards.forEach((card) => {
+          if (!card) return;
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+        });
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const totalScrollableHeight = rect.height - window.innerHeight;
+
+      if (totalScrollableHeight <= 0) return;
+
+      // Progress from 0 to 1
+      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
+
+      let activeIndex = 0;
+      if (progress > 0.66) {
+        activeIndex = 2;
+      } else if (progress > 0.33) {
+        activeIndex = 1;
+      } else {
+        activeIndex = 0;
+      }
+
+      if (indicator) {
+        indicator.textContent = stepTitles[activeIndex];
+      }
+
+      cards.forEach((card, idx) => {
+        if (!card) return;
+
+        if (idx === activeIndex) {
+          card.classList.remove('border-line', 'bg-surface', 'opacity-80');
+          card.classList.add(
+            'border-accent',
+            'bg-gradient-to-br',
+            'from-surface',
+            'via-surface',
+            'to-accent/10',
+            'shadow-2xl',
+            'scale-[1.02]',
+            'opacity-100'
+          );
+        } else {
+          card.classList.remove(
+            'border-accent',
+            'bg-gradient-to-br',
+            'from-surface',
+            'via-surface',
+            'to-accent/10',
+            'shadow-2xl',
+            'scale-[1.02]',
+            'opacity-100'
+          );
+          card.classList.add('border-line', 'bg-surface', 'opacity-70');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateAiScrollPhase, { passive: true });
+    updateAiScrollPhase();
+  }
+
+  initAiScrollPinning();
+  document.addEventListener('astro:page-load', initAiScrollPinning);
+</script>
