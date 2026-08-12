@@ -46,7 +46,7 @@ export const en: Dict = {
     subheading:
       'From client work, freelance and university – a few key figures at a glance.',
     imageAlt: 'Portrait of Julius Hunold',
-    imageChip: 'Julius Hunold · Web Developer',
+    imageChip: 'Julius Hunold · Software Developer',
     kpiProjects: 'Projects delivered',
     kpiExperience: 'Years of experience',
     kpiTechnologies: 'Technologies in stack',

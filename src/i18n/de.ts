@@ -44,7 +44,7 @@ export const de = {
     subheading:
       'Aus Projektarbeit, Freelance und Studium – ein paar Kennzahlen in der Übersicht.',
     imageAlt: 'Porträt von Julius Hunold',
-    imageChip: 'Julius Hunold · Web-Developer',
+    imageChip: 'Julius Hunold · Softwareentwickler',
     kpiProjects: 'Projekte umgesetzt',
     kpiExperience: 'Jahre Erfahrung',
     kpiTechnologies: 'Technologien im Stack',
