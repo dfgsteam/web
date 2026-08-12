@@ -1,5 +1,5 @@
 ---
-import { Box, GitBranch, ShieldCheck, RefreshCw, Server, Zap, Terminal, Check, Globe, Radio, Cpu } from '@lucide/astro';
+import { Box, GitBranch, ShieldCheck, RefreshCw, Server, Zap, Terminal, Check, Globe, Radio, Cpu, Database } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 
 interface Props {
@@ -12,44 +12,44 @@ const { t } = Astro.props;
 const featureIcons = [Box, GitBranch, ShieldCheck, RefreshCw, Server, Zap];
 
 const nodes = [
-  { name: 'docker3.infra', role: 'Nginx Proxy Manager & TLS Gateway', ip: '10.0.4.3', status: t.infra.status.online, load: '12%' },
-  { name: 'docker4.infra', role: 'GHCR Auto-Deploy & Watchtower Host', ip: '10.0.4.4', status: t.infra.status.online, load: '18%' },
+  { name: 'docker3.infra', role: 'Nginx Proxy Manager, Symfony App & Redis Broker', ip: '10.0.4.3', status: t.infra.status.online, load: '16%' },
+  { name: 'docker4.infra', role: 'PostgreSQL DB Cluster & MinIO S3 Object Storage', ip: '10.0.4.4', status: t.infra.status.online, load: '22%' },
 ];
 
 const flowNodes = [
   {
     tag: 'NODE_01',
-    name: 'Browser Client',
-    type: 'USER REQUEST',
-    sub: 'GET https://julius-hunold.de',
+    name: 'Browser / Client',
+    type: 'HTTPS REQUEST',
+    sub: 'GET /api/v1/checkout • User Call',
     icon: Globe,
     accent: 'border-amber-500/40 text-amber-400 bg-amber-500/10',
     glow: 'shadow-amber-500/20',
   },
   {
     tag: 'NODE_02',
-    name: 'Nginx Proxy Manager',
-    type: 'REVERSE PROXY & TLS',
-    sub: 'docker3.infra:443 (SSL)',
-    icon: ShieldCheck,
+    name: 'Symfony 7 App Container',
+    type: 'PHP 8.3 FPM + NGINX',
+    sub: 'AppKernel & Controller Dispatch',
+    icon: Server,
     accent: 'border-sky-500/40 text-sky-400 bg-sky-500/10',
     glow: 'shadow-sky-500/20',
   },
   {
     tag: 'NODE_03',
-    name: 'Docker App Runtime',
-    type: 'CONTAINER :4180',
-    sub: 'Isolated Alpine Engine',
-    icon: Box,
+    name: 'Redis & Messenger Worker',
+    type: 'CACHE & ASYNC QUEUE',
+    sub: 'messenger:consume async-worker',
+    icon: RefreshCw,
     accent: 'border-violet-500/40 text-violet-400 bg-violet-500/10',
     glow: 'shadow-violet-500/20',
   },
   {
     tag: 'NODE_04',
-    name: 'Astro SSG Edge',
-    type: '200 OK PAYLOAD',
-    sub: 'Static HTML (14ms)',
-    icon: Zap,
+    name: 'PostgreSQL & MinIO S3',
+    type: 'DATABASE & OBJECT STORAGE',
+    sub: 'Doctrine ORM & Asset Bucket',
+    icon: Database,
     accent: 'border-emerald-500/40 text-emerald-400 bg-emerald-500/10',
     glow: 'shadow-emerald-500/20',
   },
@@ -104,7 +104,7 @@ const flowNodes = [
       }
     </div>
 
-    <!-- CYBER-BOARD WITH NEON LASER PATHS & LIVE PACKET INSPECTOR -->
+    <!-- CYBER-BOARD WITH NEON LASER PATHS & LIVE PACKET INSPECTOR (SYMFONY MULTI-CONTAINER STACK) -->
     <div
       data-infra-flow-section
       class="mt-12 overflow-hidden rounded-3xl border border-white/10 bg-[#090a10] p-6 md:p-10 shadow-2xl relative isolate"
@@ -119,24 +119,24 @@ const flowNodes = [
         <div>
           <span class="inline-flex items-center gap-2 rounded-full border border-violet-500/40 bg-violet-500/10 px-3.5 py-1 text-xs font-mono font-semibold text-violet-400">
             <Radio class="size-3.5 animate-pulse text-violet-400" />
-            CYBER-BOARD // LIVE PACKET INSPECTOR
+            SYMFONY MULTI-CONTAINER STACK // PACKET INSPECTOR
           </span>
           <h3 class="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-            Request Routing Blueprint
+            Symfony App & Microservice Topology
           </h3>
           <p class="mt-1 text-xs font-mono text-zinc-400">
-            Beim Scrollen bewegt sich das Datenpaket in Echtzeit durch Proxy, SSL-Zertifikat und Docker-Container.
+            Beim Scrollen wandert der Request durch Symfony Web, Messenger, Redis, Postgres DB & S3 Storage.
           </p>
         </div>
 
         <div class="flex items-center gap-3 font-mono text-xs text-zinc-400 bg-white/5 px-4 py-2.5 rounded-xl border border-white/10 shrink-0">
           <Cpu class="size-4 text-emerald-400 animate-pulse" />
-          <span>Roundtrip:</span>
+          <span>Execution Latency:</span>
           <span data-infra-latency-text class="font-bold text-emerald-400 text-sm">0ms</span>
         </div>
       </div>
 
-      <!-- Main Split Grid: Nodes Topology (Left/Top) + Live Packet Inspector Terminal (Right/Bottom) -->
+      <!-- Main Split Grid: Nodes Topology (Left) + Live Packet Inspector Terminal (Right) -->
       <div class="relative z-10 mt-8 grid gap-8 lg:grid-cols-12 lg:items-stretch">
 
         <!-- Topology Nodes (7 Cols) -->
@@ -184,19 +184,19 @@ const flowNodes = [
             <div class="flex items-center justify-between border-b border-white/10 pb-3 font-mono text-xs text-zinc-400">
               <span class="flex items-center gap-2 text-zinc-300 font-semibold">
                 <Terminal class="size-3.5 text-accent" />
-                PACKET_INSPECTOR.LOG
+                SYMFONY_PROFILER.LOG
               </span>
-              <span class="text-[10px] text-emerald-400 font-bold">STREAMING</span>
+              <span class="text-[10px] text-emerald-400 font-bold">LIVE STACK</span>
             </div>
 
             <!-- Terminal Output Feed -->
             <div class="mt-4 font-mono text-xs leading-relaxed text-zinc-300 space-y-2">
-              <p class="text-zinc-500 font-bold text-[11px]">// Live Header Trace</p>
+              <p class="text-zinc-500 font-bold text-[11px]">// Symfony Request Lifecycle</p>
               <div data-infra-packet-inspector class="space-y-1.5 min-h-[160px] text-zinc-300">
-                <p><span class="text-amber-400 font-bold">&gt; GET</span> / HTTP/2</p>
-                <p><span class="text-zinc-500">Host:</span> julius-hunold.de</p>
-                <p><span class="text-zinc-500">User-Agent:</span> Mozilla/5.0 (Macintosh)</p>
-                <p><span class="text-zinc-500">Accept:</span> text/html,application/xhtml+xml</p>
+                <p><span class="text-amber-400 font-bold">&gt; GET</span> /api/v1/checkout HTTP/2</p>
+                <p><span class="text-zinc-500">Host:</span> app.julius-hunold.de</p>
+                <p><span class="text-zinc-500">Authorization:</span> Bearer jwt.token.val</p>
+                <p><span class="text-zinc-500">Client IP:</span> 185.220.101.5</p>
               </div>
             </div>
           </div>
@@ -205,7 +205,7 @@ const flowNodes = [
           <div class="mt-6 pt-4 border-t border-white/10 font-mono text-xs text-zinc-400">
             <div class="flex justify-between mb-2 text-[11px]">
               <span data-infra-step-label class="text-zinc-300">1. Client Request initiiert</span>
-              <span class="text-emerald-400 font-bold">14ms Max</span>
+              <span class="text-emerald-400 font-bold">18ms Total</span>
             </div>
             <div class="h-2 w-full overflow-hidden rounded-full bg-white/10">
               <div data-infra-laser-bar class="h-full w-0 rounded-full bg-gradient-to-r from-amber-500 via-sky-500 via-violet-500 to-emerald-500 shadow-lg shadow-emerald-500/50"></div>
@@ -247,7 +247,7 @@ const flowNodes = [
       }
     </div>
 
-    <!-- Interactive Terminal Window -->
+    <!-- Interactive Terminal Window (Symfony & Docker Stack) -->
     <div class="mt-14 overflow-hidden rounded-3xl border border-line bg-[#0d0d12] shadow-2xl shadow-black/40" data-reveal="up" data-reveal-delay="0.2">
       <!-- Terminal Header -->
       <div class="flex items-center justify-between border-b border-white/10 bg-[#16161e] px-5 py-3.5">
@@ -257,14 +257,14 @@ const flowNodes = [
           <span class="size-3 rounded-full bg-emerald-500/80 inline-block"></span>
           <span class="ml-3 font-mono text-xs text-zinc-400 flex items-center gap-2">
             <Terminal class="size-3.5 text-accent" />
-            infra.julius-hunold.de — bash
+            symfony.infra.julius-hunold.de — bash
           </span>
         </div>
         <div class="flex items-center gap-3 text-xs font-mono text-zinc-500">
-          <span class="hidden sm:inline">bash 5.2.21</span>
+          <span class="hidden sm:inline">Symfony 7.1 • PHP 8.3 FPM</span>
           <span class="flex items-center gap-1.5 text-emerald-400">
             <Check class="size-3.5" />
-            Connected
+            5 Containers Healthy
           </span>
         </div>
       </div>
@@ -273,39 +273,40 @@ const flowNodes = [
       <div class="p-6 font-mono text-xs leading-relaxed text-zinc-300 overflow-x-auto space-y-4">
         <div>
           <div class="flex items-center gap-2 text-zinc-400">
-            <span class="text-emerald-400 font-bold">julius@docker3</span>:<span class="text-accent">~</span>$ <span class="text-zinc-100 font-semibold">docker ps --format "table &#123;&#123;.Names&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;"</span>
+            <span class="text-emerald-400 font-bold">julius@docker3</span>:<span class="text-accent">~</span>$ <span class="text-zinc-100 font-semibold">docker compose ps</span>
           </div>
           <div class="mt-2 pl-4 text-zinc-400 space-y-1">
-            <p class="text-zinc-500 font-bold">NAMES                     STATUS                  PORTS</p>
-            <p><span class="text-emerald-400 font-semibold">julius-hunold-de-app</span>     Up 14 days (healthy)    0.0.0.0:4180->80/tcp</p>
-            <p><span class="text-sky-400 font-semibold">nginx-proxy-manager</span>      Up 32 days (healthy)    0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp</p>
-            <p><span class="text-violet-400 font-semibold">watchtower-autoupdate</span>    Up 32 days              (daemon)</p>
+            <p class="text-zinc-500 font-bold">NAME                        IMAGE                   STATUS                  PORTS</p>
+            <p><span class="text-emerald-400 font-semibold">symfony-web-app</span>             php:8.3-fpm-alpine      Up 18 days (healthy)    0.0.0.0:4180->80/tcp</p>
+            <p><span class="text-sky-400 font-semibold">symfony-messenger-worker</span>    php:8.3-fpm-alpine      Up 18 days (healthy)    messenger:consume async</p>
+            <p><span class="text-red-400 font-semibold">redis-cache-broker</span>        redis:7-alpine          Up 30 days (healthy)    0.0.0.0:6379->6379/tcp</p>
+            <p><span class="text-indigo-400 font-semibold">postgres-database</span>         postgres:16-alpine      Up 30 days (healthy)    0.0.0.0:5432->5432/tcp</p>
+            <p><span class="text-amber-400 font-semibold">minio-s3-storage</span>          minio/minio:RELEASE     Up 30 days (healthy)    0.0.0.0:9000->9000/tcp</p>
           </div>
         </div>
 
         <div class="pt-3 border-t border-white/5">
           <div class="flex items-center gap-2 text-zinc-400">
-            <span class="text-emerald-400 font-bold">julius@docker3</span>:<span class="text-accent">~</span>$ <span class="text-zinc-100 font-semibold">curl -I https://julius-hunold.de</span>
+            <span class="text-emerald-400 font-bold">julius@docker3</span>:<span class="text-accent">~</span>$ <span class="text-zinc-100 font-semibold">php bin/console messenger:consume async -vv</span>
           </div>
           <div class="mt-2 pl-4 text-zinc-400 space-y-0.5">
-            <p><span class="text-emerald-400 font-semibold">HTTP/2 200 OK</span></p>
-            <p><span class="text-zinc-500">server:</span> nginx/1.26.2 (alpine)</p>
-            <p><span class="text-zinc-500">content-type:</span> text/html; charset=utf-8</p>
-            <p><span class="text-zinc-500">content-encoding:</span> br</p>
-            <p><span class="text-zinc-500">strict-transport-security:</span> max-age=31536000; includeSubDomains; preload</p>
-            <p><span class="text-zinc-500">x-frame-options:</span> SAMEORIGIN</p>
+            <p><span class="text-emerald-400 font-semibold">[OK] Consuming messages from transport "async" (Redis DSN redis://redis-cache-broker:6379).</span></p>
+            <p><span class="text-zinc-500">[15:54:02]</span> Received message <span class="text-sky-300">App\Message\SendOrderConfirmationMessage</span></p>
+            <p><span class="text-zinc-500">[15:54:02]</span> Handling message with <span class="text-violet-300">App\MessageHandler\SendOrderConfirmationHandler</span></p>
+            <p><span class="text-emerald-400">[15:54:02] Message processed successfully in 2.4ms.</span></p>
           </div>
         </div>
 
         <div class="pt-3 border-t border-white/5">
           <div class="flex items-center gap-2 text-zinc-400">
-            <span class="text-emerald-400 font-bold">julius@dev</span>:<span class="text-accent">~/web</span>$ <span class="text-amber-400 font-semibold">git push origin prod</span>
+            <span class="text-emerald-400 font-bold">julius@dev</span>:<span class="text-accent">~/symfony-app</span>$ <span class="text-amber-400 font-semibold">git push origin prod</span>
           </div>
           <div class="mt-2 pl-4 text-zinc-400 space-y-1">
-            <p class="text-emerald-400">[✓] GitHub Actions CI triggered (#142)</p>
-            <p class="text-emerald-400">[✓] astro check & build: 0 errors (static output)</p>
-            <p class="text-emerald-400">[✓] Docker image built & pushed to ghcr.io/dfgsteam/web:latest</p>
-            <p class="text-sky-400">[✓] Watchtower detected new image on docker3 -> Zero-Downtime Rollout Complete 🚀</p>
+            <p class="text-emerald-400">[✓] GitHub Actions CI triggered (#204)</p>
+            <p class="text-emerald-400">[✓] phpstan analyse (level 9) & phpunit: 0 errors</p>
+            <p class="text-emerald-400">[✓] Docker multi-stage image built & pushed to ghcr.io/dfgsteam/symfony-app:latest</p>
+            <p class="text-sky-400">[✓] Zero-Downtime Migration: php bin/console doctrine:migrations:migrate --no-interaction</p>
+            <p class="text-emerald-400">[✓] Watchtower rollout completed across web, messenger, redis, postgres & minio S3 🚀</p>
           </div>
         </div>
       </div>
