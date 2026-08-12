@@ -265,12 +265,12 @@ function setupSkillBars() {
       { scaleX: 0 },
       {
         scaleX: level,
-        duration: 1.2,
-        ease: 'power2.out',
+        ease: 'none',
         scrollTrigger: {
           trigger: card ?? bar,
           start: 'top 85%',
-          once: true,
+          end: 'bottom 65%',
+          scrub: 0.4,
         },
       },
     );
