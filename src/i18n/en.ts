@@ -4,10 +4,10 @@ export const en: Dict = {
   lang: 'en',
   htmlLang: 'en-GB',
   meta: {
-    title: 'Julius Hunold – Software Developer & Tech Project Manager',
+    title: 'Julius Hunold – Software Developer & Process Automation',
     description:
-      'Bespoke web apps with PHP & Python, from concept to live system. Software developer and technical project manager based in Sarstedt, Germany.',
-    keywords: 'Julius Hunold, Software Developer, Web Developer, PHP, Python, Web Apps, Portfolio, Project Management',
+      'Bespoke web apps, process automation and digitalization with PHP & Python – from concept to live system. Software developer and technical project manager based in Sarstedt, Germany.',
+    keywords: 'Julius Hunold, Software Developer, Process Automation, Digitalization, PHP, Python, Web Apps, Portfolio, Project Management',
   },
   nav: {
     about: 'About',
@@ -26,11 +26,11 @@ export const en: Dict = {
       { label: 'Webdesign', url: 'https://hnld.de' },
       { label: 'Custom Apps', url: 'https://hunold24.de' },
     ],
-    titleA: 'I build software',
-    titleB: 'that actually delivers.',
-    titleHighlight: 'software',
+    titleA: 'I automate,',
+    titleB: 'digitalize & develop.',
+    titleHighlight: 'automate,',
     subtitle:
-      'Software developer focused on bespoke web apps with PHP & Python – from concept to live system. 8+ years working at the intersection of engineering and technical project management.',
+      'Software developer focused on bespoke web apps, process automation and digitalization – with PHP & Python, from concept to live system. 8+ years at the intersection of engineering, automation and technical project management.',
     primaryCta: 'View projects',
     secondaryCta: 'Get in touch',
     scrollHint: 'Scroll',
@@ -55,8 +55,8 @@ export const en: Dict = {
     label: 'About',
     heading: 'Code is the bridge between idea and reality.',
     paragraphs: [
-      'I am a software developer specialising in bespoke web applications built with PHP & Python – from planning and development through to live operation. Alongside that, I lead the technical rollout of FTTH fibre-optic infrastructure as project manager.',
-      'With 8+ years of hands-on development experience, I bring a combination of technical depth, process thinking and a commercial perspective – pragmatic, solution-driven, and results-focused.',
+      'I am a software developer specialising in web applications, process automation and digitalization – built with PHP & Python, from requirements analysis through implementation to live operation. Alongside that, I lead the technical rollout of FTTH fibre-optic infrastructure as project manager.',
+      'With 8+ years of hands-on experience I have automated workflows, replaced manual processes with smart software and guided businesses through digital transformation – pragmatic, solution-driven, and results-focused.',
       'Outside of work I volunteer as a group leader and in the media team of Schönstatt Mannesjugend, where I have also been responsible for the finances for years.',
     ],
     facts: [
@@ -97,7 +97,7 @@ export const en: Dict = {
   skills: {
     label: 'Skills & Tech Stack',
     heading: 'Technologies, Tools & Expertise.',
-    subheading: 'My continuously expanding ecosystem for modern software development, e-commerce, and IT infrastructure.',
+    subheading: 'My technology ecosystem for software development, process automation, e-commerce and IT infrastructure.',
     categories: {
       all: 'All Skills',
       dev: 'Languages & Dev',
@@ -315,31 +315,31 @@ export const en: Dict = {
   },
   services: {
     label: 'Services & Inquiry',
-    heading: 'From concept to production-ready software.',
+    heading: 'Development, Automation & Digitalization.',
     subheading:
-      'Choose your scope and send a direct project inquiry – I will get back to you within 24 hours.',
+      'From web apps to full process automation – choose your scope and send a direct inquiry.',
     cards: [
       {
-        tag: '01 // CUSTOM APPS',
-        title: 'Custom Web Apps & APIs',
+        tag: '01 // CUSTOM SOFTWARE',
+        title: 'Web Apps & Process Automation',
         description:
-          'High-performance software with PHP (Laravel/TYPO3) & Python – from complex business logic to scalable REST APIs.',
-        highlights: ['Laravel & Python Backend', 'Scalable Databases', 'REST / GraphQL APIs', 'Clean Code & Type Safety'],
-        badge: 'High Performance',
+          'Bespoke software with PHP & Python – from complex business logic and REST APIs to fully automated workflows and digital processes.',
+        highlights: ['Laravel & Python Backend', 'Workflow Automation', 'REST / GraphQL APIs', 'Process Digitalization'],
+        badge: 'Automation-First',
       },
       {
-        tag: '02 // E-COMMERCE',
-        title: 'E-Commerce & Shop Systems',
+        tag: '02 // E-COMMERCE & ERP',
+        title: 'Shop Systems & Digital Inventory',
         description:
-          'Professional WooCommerce shops with custom payment gateways, ERP synchronization, and automated inventory sync.',
-        highlights: ['WooCommerce Customization', 'ERP & Inventory Sync', 'Payment Gateway Integration', 'Conversion Focus'],
-        badge: 'Conversion Focused',
+          'WooCommerce shops with automated ERP integrations, digital inventory management and smart payment workflows – less manual work, more throughput.',
+        highlights: ['WooCommerce Customization', 'ERP & Inventory Automation', 'Payment Gateway Integration', 'Conversion Focus'],
+        badge: 'Fully Automated',
       },
       {
         tag: '03 // DEVOPS & INFRA',
         title: 'IT Infrastructure & Cloud Hosting',
         description:
-          'Secure Linux servers, Docker environments, CI/CD pipelines and automated backup & monitoring systems.',
+          'Secure Linux servers, Docker environments, automated CI/CD pipelines and continuous monitoring – infrastructure that runs itself.',
         highlights: ['Docker & Linux Server Setup', 'GitHub Actions CI/CD', 'SSL, Security & Nginx', 'Managed Hosting & IT'],
         badge: 'Self-Hosted',
       },
@@ -347,7 +347,7 @@ export const en: Dict = {
         tag: '04 // START A PROJECT',
         title: 'Ready for your next project?',
         description:
-          'Select your scope and send me a direct message – I will get back to you within 24 hours.',
+          'Whether it’s new software, an automated workflow or digital infrastructure – send me a message and I’ll get back to you within 24 hours.',
         cta: 'Send Inquiry →',
         badge: 'Direct & Fast',
       },

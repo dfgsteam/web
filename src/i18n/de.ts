@@ -2,10 +2,10 @@ export const de = {
   lang: 'de',
   htmlLang: 'de-DE',
   meta: {
-    title: 'Julius Hunold – Softwareentwickler & Tech-Projektmanager',
+    title: 'Julius Hunold – Softwareentwickler & Prozessautomatisierung',
     description:
-      'Maßgeschneiderte Web-Apps mit PHP & Python – von der ersten Idee bis zum Live-System. Softwareentwickler und technischer Projektmanager aus Sarstedt, Deutschland.',
-    keywords: 'Julius Hunold, Softwareentwickler, Web-Entwickler, PHP, Python, Web-Apps, Portfolio, Projektmanagement',
+      'Maßgeschneiderte Web-Apps, Prozessautomatisierung und Digitalisierung mit PHP & Python – vom Konzept bis zum produktiven System. Softwareentwickler und technischer Projektmanager aus Sarstedt, Deutschland.',
+    keywords: 'Julius Hunold, Softwareentwickler, Prozessautomatisierung, Digitalisierung, PHP, Python, Web-Apps, Portfolio, Projektmanagement',
   },
   nav: {
     about: 'Über mich',
@@ -24,11 +24,11 @@ export const de = {
       { label: 'Webdesign', url: 'https://hnld.de' },
       { label: 'Custom Apps', url: 'https://hunold24.de' },
     ],
-    titleA: 'Ich baue Software,',
-    titleB: 'die wirklich liefert.',
-    titleHighlight: 'Software,',
+    titleA: 'Ich automatisiere,',
+    titleB: 'digitalisiere & entwickle.',
+    titleHighlight: 'automatisiere,',
     subtitle:
-      'Softwareentwickler mit Fokus auf maßgeschneiderte Web-Apps mit PHP & Python – vom Konzept bis zum produktiven System. Seit über 8 Jahren an der Schnittstelle von Entwicklung und technischem Projektmanagement.',
+      'Softwareentwickler mit Fokus auf maßgeschneiderte Web-Apps, Prozessautomatisierung und Digitalisierung – mit PHP & Python, vom Konzept bis zum Live-System. Seit über 8 Jahren an der Schnittstelle von Entwicklung, Automatisierung und technischem Projektmanagement.',
     primaryCta: 'Projekte ansehen',
     secondaryCta: 'Kontakt aufnehmen',
     scrollHint: 'Scrollen',
@@ -53,8 +53,8 @@ export const de = {
     label: 'Über mich',
     heading: 'Code ist die Brücke zwischen Idee und Realität.',
     paragraphs: [
-      'Ich bin Softwareentwickler mit Fokus auf maßgeschneiderte Web-Applikationen in PHP & Python – von der Planung über die Umsetzung bis zum produktiven Betrieb. Parallel dazu verantworte ich als Projektleiter den technischen Glasfaser-NE4-Ausbau.',
-      'Mit über 8 Jahren praktischer Erfahrung in der Softwareentwicklung bringe ich den Mix aus technischer Tiefe, Prozessdenken und wirtschaftlichem Weitblick mit – pragmatisch, lösungsorientiert, konsequent.',
+      'Ich bin Softwareentwickler mit Schwerpunkt auf Web-Applikationen, Prozessautomatisierung und Digitalisierung – in PHP & Python, von der Anforderungsanalyse über die Implementierung bis zum produktiven Betrieb. Parallel verantworte ich als Projektleiter den technischen Glasfaser-NE4-Ausbau.',
+      'Mit über 8 Jahren Praxiserfahrung habe ich Workflows automatisiert, manuelle Prozesse durch smarte Software ersetzt und Unternehmen bei der digitalen Transformation begleitet – pragmatisch, lösungsorientiert, konsequent.',
       'Ehrenamtlich engagiere ich mich als Gruppenleiter und im Media-Team der Schönstatt Mannesjugend, wo ich seit Jahren auch die Finanzverwaltung verantworte.',
     ],
     facts: [
@@ -95,7 +95,7 @@ export const de = {
   skills: {
     label: 'Fähigkeiten & Tech-Stack',
     heading: 'Technologien, Tools & Expertise.',
-    subheading: 'Mein kontinuierlich wachsendes Ökosystem für moderne Softwareentwicklung, E-Commerce und IT-Infrastruktur.',
+    subheading: 'Mein Technologie-Ökosystem für Softwareentwicklung, Prozessautomatisierung, E-Commerce und IT-Infrastruktur.',
     categories: {
       all: 'Alle Skills',
       dev: 'Sprachen & Dev',
@@ -313,31 +313,31 @@ export const de = {
   },
   services: {
     label: 'Leistungen & Anfrage',
-    heading: 'Von der Idee zur fertigen Software.',
+    heading: 'Entwicklung, Automatisierung & Digitalisierung.',
     subheading:
-      'Wähle deinen Bereich und starte direkt eine unverbindliche Anfrage – ich melde mich innerhalb von 24 Stunden.',
+      'Von der Web-App bis zur vollständigen Prozessautomatisierung – wähle deinen Bereich und starte direkt eine unverbindliche Anfrage.',
     cards: [
       {
-        tag: '01 // CUSTOM APPS',
-        title: 'Maßgeschneiderte Web-Apps & APIs',
+        tag: '01 // CUSTOM SOFTWARE',
+        title: 'Web-Apps & Prozessautomatisierung',
         description:
-          'Hochperformante Softwarelösungen mit PHP (Laravel/TYPO3) & Python – von komplexer Geschäftslogik bis zu skalierbaren REST-APIs.',
-        highlights: ['Laravel & Python Backend', 'Skalierbare Datenbanken', 'REST / GraphQL APIs', 'Clean Code & Typsicherheit'],
-        badge: 'High Performance',
+          'Maßgeschneiderte Softwarelösungen mit PHP & Python – von komplexer Geschäftslogik und REST-APIs bis zu vollständig automatisierten Workflows und digitalen Prozessen.',
+        highlights: ['Laravel & Python Backend', 'Workflow-Automatisierung', 'REST / GraphQL APIs', 'Digitalisierung von Prozessen'],
+        badge: 'Automation-First',
       },
       {
-        tag: '02 // E-COMMERCE',
-        title: 'Shop-Systeme & E-Commerce',
+        tag: '02 // E-COMMERCE & ERP',
+        title: 'Shop-Systeme & digitale Warenwirtschaft',
         description:
-          'Professionelle WooCommerce-Shops mit maßgeschneiderten Zahlungsanbindungen, ERP-Synchronisation und automatisierter Warenwirtschaft.',
-        highlights: ['WooCommerce Customizing', 'ERP & WaWi-Anbindungen', 'Payment-Gateway Integration', 'Conversion-Optimierung'],
-        badge: 'Conversion-Fokus',
+          'WooCommerce-Shops mit automatisierten ERP-Anbindungen, digitaler Warenwirtschaft und intelligenten Zahlungsworkflows – weniger Handarbeit, mehr Durchsatz.',
+        highlights: ['WooCommerce Customizing', 'ERP & WaWi-Automatisierung', 'Payment-Gateway Integration', 'Conversion-Optimierung'],
+        badge: 'Voll automatisiert',
       },
       {
         tag: '03 // DEVOPS & INFRA',
         title: 'IT-Infrastruktur & Cloud-Hosting',
         description:
-          'Aufbau sicherer Linux-Server, Docker-Umgebungen, CI/CD-Pipelines und automatisierter Backup- & Monitoring-Systeme.',
+          'Sichere Linux-Server, Docker-Umgebungen, automatisierte CI/CD-Pipelines und kontinuierliches Monitoring – deine Infrastruktur läuft, ohne dass du daran denken musst.',
         highlights: ['Docker & Linux Server-Setup', 'GitHub Actions CI/CD', 'SSL, Security & Nginx', 'Managed Hosting & IT-Services'],
         badge: 'Self-Hosted',
       },
@@ -345,7 +345,7 @@ export const de = {
         tag: '04 // PROJEKT STARTEN',
         title: 'Bereit für dein nächstes Projekt?',
         description:
-          'Wähle dein Thema und schreib mir direkt – ich melde mich innerhalb von 24 Stunden bei dir.',
+          'Ob neue Software, automatisierter Workflow oder digitale Infrastruktur – schreib mir direkt und ich melde mich innerhalb von 24 Stunden.',
         cta: 'Anfrage senden →',
         badge: 'Unverbindlich & schnell',
       },
