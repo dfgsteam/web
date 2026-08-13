@@ -13,6 +13,7 @@ const projects = defineCollection({
     year: z.string(),
     tech: z.array(z.string()),
     summary: z.string(),
+    result: z.string(),
     accentFrom: z.string(),
     accentTo: z.string(),
     liveUrl: z.string().optional(),

@@ -1,5 +1,5 @@
 ---
-import { Rocket, Calendar, Layers } from '@lucide/astro';
+import { Rocket, Calendar, Layers, Zap, Server, Users } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { skills } from '../../data/skills';
 import { PORTFOLIO_IMAGE } from '../../lib/site';
@@ -15,6 +15,9 @@ const stats = [
   { value: 50, suffix: '+', label: t.portfolio.kpiProjects, Icon: Rocket },
   { value: 8, suffix: '+', label: t.portfolio.kpiExperience, Icon: Calendar },
   { value: skills.length, suffix: '+', label: t.portfolio.kpiTechnologies, Icon: Layers },
+  { value: 500, suffix: 'h+', label: t.portfolio.kpiAutomation, Icon: Zap },
+  { value: 15, suffix: '+', label: t.portfolio.kpiServers, Icon: Server },
+  { value: 120, suffix: '+', label: t.portfolio.kpiCoordination, Icon: Users },
 ];
 ---
 
@@ -53,7 +56,7 @@ const stats = [
         {t.portfolio.subheading}
       </p>
 
-      <dl class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+      <dl class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {
           stats.map((stat, i) => (
             <div

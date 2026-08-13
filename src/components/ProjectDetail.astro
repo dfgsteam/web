@@ -17,7 +17,7 @@ interface Props {
 const { project, t, lang, related } = Astro.props;
 const { Content } = await render(project);
 const homeHref = lang === 'de' ? '/' : '/en';
-const { title, tagline, client, category, status, year, tech, summary, accentFrom, accentTo, liveUrl } = project.data;
+const { title, tagline, client, category, status, year, tech, summary, result, accentFrom, accentTo, liveUrl } = project.data;
 
 const relatedHref = (p: CollectionEntry<'projects'>) => {
   const slug = p.id.split('/').slice(1).join('/');
@@ -62,6 +62,16 @@ const relatedHref = (p: CollectionEntry<'projects'>) => {
           {t.projects.overview}
         </h2>
         <Content />
+
+        <div class="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6 md:p-8" data-reveal="up">
+          <h3 class="flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-accent">
+            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5"></path>
+            </svg>
+            {t.projects.result}
+          </h3>
+          <p class="mt-4 text-base leading-relaxed text-ink">{result}</p>
+        </div>
       </div>
 
       <aside class="lg:sticky lg:top-32 lg:self-start" data-reveal="up" data-reveal-delay="0.1">

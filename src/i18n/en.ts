@@ -30,7 +30,7 @@ export const en: Dict = {
     titleB: 'digitalize & develop.',
     titleHighlight: 'automate,',
     subtitle:
-      'Software developer focused on bespoke web apps, process automation and digitalization – with PHP & Python, from concept to live system. 8+ years at the intersection of engineering, automation and technical project management.',
+      'Software developer & technical project manager: I automate, digitalize and build web apps with PHP & Python – from concept to live system. 8+ years at the intersection of engineering and technical project management. That is exactly what I bring to your team.',
     primaryCta: 'View projects',
     secondaryCta: 'Get in touch',
     scrollHint: 'Scroll',
@@ -50,6 +50,9 @@ export const en: Dict = {
     kpiProjects: 'Projects contributed to',
     kpiExperience: 'Years of experience',
     kpiTechnologies: 'Technologies in stack',
+    kpiAutomation: 'Hours of manual work automated',
+    kpiServers: 'Servers & services operated',
+    kpiCoordination: 'Technicians coordinated daily',
   },
   about: {
     label: 'About',
@@ -69,8 +72,8 @@ export const en: Dict = {
   },
   workstyle: {
     label: 'AECdisc® Behavioral Analysis & AI Workflows',
-    heading: 'Strengths at a glance.',
-    subheading: 'Behavioral potential analysis combined with AI-assisted engineering processes.',
+    heading: 'How I work in a team.',
+    subheading: 'My working principles from behavioral analysis and practice – and what they mean for your team.',
     strengths: [
       { icon: 'zap', title: 'Motivator', text: 'Energy and enthusiasm for the team and the goal.' },
       { icon: 'layout-list', title: 'Organiser', text: 'Structured workflows, clear priorities.' },
@@ -95,6 +98,7 @@ export const en: Dict = {
     year: 'Year',
     tech: 'Technologies',
     overview: 'Overview',
+    result: 'The result & my role',
     category: {
       client: 'Clients & Business',
       work: 'Professional Work',
@@ -250,11 +254,11 @@ export const en: Dict = {
     label: 'Contact',
     heading: 'Let’s talk.',
     subheading:
-      'Got a project in mind or a question? Drop me a line – I usually reply within a day.',
+      'Looking for a software developer or technical project manager who takes ownership – or have an interesting idea? Reach out, I usually reply within a day.',
     emailCta: 'Send an email',
     phoneCta: 'Schedule a call',
     location: 'Sarstedt, Germany',
-    availability: 'Available for freelance projects',
+    availability: 'Open to new challenges',
     form: {
       name: 'Your name',
       email: 'Your email',
@@ -330,10 +334,11 @@ export const en: Dict = {
     ],
   },
   services: {
-    label: 'Services & Inquiry',
-    heading: 'Development, Automation & Digitalization.',
+    label: 'How I work',
+    heading: 'From concept to live operation.',
     subheading:
-      'From web apps to full process automation – choose your scope and send a direct inquiry.',
+      'Structured, pragmatic and results-driven – this is how I set up software projects and keep them running stably. From the first conversation to handover.',
+    ctaContact: 'Get in touch',
     cards: [
       {
         tag: '01 // CUSTOM SOFTWARE',
@@ -360,11 +365,11 @@ export const en: Dict = {
         badge: 'Self-Hosted',
       },
       {
-        tag: '04 // START A PROJECT',
-        title: 'Ready for your next project?',
+        tag: '04 // NEXT STEP',
+        title: 'Ready for responsibility in your team?',
         description:
-          'Whether it’s new software, an automated workflow or digital infrastructure – send me a message and I’ll get back to you within 24 hours.',
-        cta: 'Send Inquiry →',
+          'Whether as a software developer or technical project manager – if you are looking for someone who takes ownership and delivers, reach out directly.',
+        cta: 'Get in touch →',
         badge: 'Direct & Fast',
       },
     ],

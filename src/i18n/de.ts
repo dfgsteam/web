@@ -28,7 +28,7 @@ export const de = {
     titleB: 'digitalisiere & entwickle.',
     titleHighlight: 'automatisiere,',
     subtitle:
-      'Softwareentwickler mit Fokus auf maßgeschneiderte Web-Apps, Prozessautomatisierung und Digitalisierung – mit PHP & Python, vom Konzept bis zum Live-System. Seit über 8 Jahren an der Schnittstelle von Entwicklung, Automatisierung und technischem Projektmanagement.',
+      'Softwareentwickler & Tech-Projektmanager: Ich automatisiere, digitalisiere und entwickle Web-Apps mit PHP & Python – vom Konzept bis zum Live-System. Seit über 8 Jahren an der Schnittstelle von Entwicklung und technischem Projektmanagement. Genau das bringe ich deinem Team mit.',
     primaryCta: 'Projekte ansehen',
     secondaryCta: 'Kontakt aufnehmen',
     scrollHint: 'Scrollen',
@@ -48,6 +48,9 @@ export const de = {
     kpiProjects: 'Projekte mitgewirkt',
     kpiExperience: 'Jahre Erfahrung',
     kpiTechnologies: 'Technologien im Stack',
+    kpiAutomation: 'Stunden Handarbeit automatisiert',
+    kpiServers: 'Server & Dienste betreut',
+    kpiCoordination: 'Techniker täglich koordiniert',
   },
   about: {
     label: 'Über mich',
@@ -67,8 +70,8 @@ export const de = {
   },
   workstyle: {
     label: 'AECdisc® Potenzialanalyse & KI-Workflows',
-    heading: 'Stärken auf einen Blick.',
-    subheading: 'Verhaltens- und Potenzialanalyse kombiniert mit KI-gestützten Entwicklungsprozessen.',
+    heading: 'So arbeite ich im Team.',
+    subheading: 'Meine Arbeitsprinzipien aus Verhaltensanalyse und Praxis – und was sie für dein Team bedeuten.',
     strengths: [
       { icon: 'zap', title: 'Motivator', text: 'Energie und Enthusiasmus für Team und Ziel.' },
       { icon: 'layout-list', title: 'Organisator', text: 'Strukturierte Abläufe, klare Prioritäten.' },
@@ -93,6 +96,7 @@ export const de = {
     year: 'Jahr',
     tech: 'Technologien',
     overview: 'Überblick',
+    result: 'Das Ergebnis & meine Rolle',
     category: {
       client: 'Kunden & Selbstständigkeit',
       work: 'Berufliche Arbeit',
@@ -248,11 +252,11 @@ export const de = {
     label: 'Kontakt',
     heading: 'Lass uns reden.',
     subheading:
-      'Hast du ein Projekt im Kopf oder eine Frage? Schreib mir – ich antworte in der Regel innerhalb von 24 Stunden.',
+      'Du suchst einen Softwareentwickler oder Tech-Projektmanager, der Verantwortung übernimmt – oder hast eine spannende Idee? Sprich mich an, ich antworte in der Regel innerhalb von 24 Stunden.',
     emailCta: 'E-Mail schreiben',
     phoneCta: 'Telefonat vereinbaren',
     location: 'Sarstedt, Deutschland',
-    availability: 'Verfügbar für Freelance-Projekte',
+    availability: 'Offen für neue Herausforderungen',
     form: {
       name: 'Dein Name',
       email: 'Deine E-Mail-Adresse',
@@ -328,10 +332,11 @@ export const de = {
     ],
   },
   services: {
-    label: 'Leistungen & Anfrage',
-    heading: 'Entwicklung, Automatisierung & Digitalisierung.',
+    label: 'So arbeite ich',
+    heading: 'Vom Konzept bis zum produktiven Betrieb.',
     subheading:
-      'Von der Web-App bis zur vollständigen Prozessautomatisierung – wähle deinen Bereich und starte direkt eine unverbindliche Anfrage.',
+      'Strukturiert, pragmatisch und ergebnisorientiert – so setze ich Softwareprojekte auf und halte sie stabil am Laufen. Vom ersten Gespräch bis zur Übergabe.',
+    ctaContact: 'Kontakt aufnehmen',
     cards: [
       {
         tag: '01 // CUSTOM SOFTWARE',
@@ -358,11 +363,11 @@ export const de = {
         badge: 'Self-Hosted',
       },
       {
-        tag: '04 // PROJEKT STARTEN',
-        title: 'Bereit für dein nächstes Projekt?',
+        tag: '04 // NÄCHSTER SCHRITT',
+        title: 'Bereit für Verantwortung in deinem Team?',
         description:
-          'Ob neue Software, automatisierter Workflow oder digitale Infrastruktur – schreib mir direkt und ich melde mich innerhalb von 24 Stunden.',
-        cta: 'Anfrage senden →',
+          'Ob als Softwareentwickler oder Tech-Projektmanager – wenn du jemanden suchst, der Verantwortung übernimmt und liefert, sprich mich direkt an.',
+        cta: 'Kontakt aufnehmen →',
         badge: 'Unverbindlich & schnell',
       },
     ],

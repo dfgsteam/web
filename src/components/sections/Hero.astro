@@ -1,6 +1,7 @@
 ---
 import { ExternalLink, ChevronDown } from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
+import { skills } from '../../data/skills';
 import Button from '../ui/Button.astro';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const { t } = Astro.props;
+const stats = t.hero.stats.map((stat, i) => (i === 2 ? { ...stat, value: skills.length } : stat));
 ---
 
 <section id="top" class="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-24 pt-32">
@@ -91,7 +93,7 @@ const { t } = Astro.props;
       data-reveal-delay="0.8"
     >
       {
-        t.hero.stats.map((stat) => (
+        stats.map((stat) => (
           <div>
             <dt class="order-2 mt-1 block text-sm text-mute">{stat.label}</dt>
             <dd class="order-1 text-4xl font-semibold tracking-tight text-ink">
