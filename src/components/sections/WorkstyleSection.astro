@@ -1,4 +1,16 @@
 ---
+import {
+  Zap,
+  LayoutList,
+  Users,
+  Target,
+  Rocket,
+  Lightbulb,
+  BookOpen,
+  Kanban,
+  CheckCircle,
+  Sparkles,
+} from '@lucide/astro';
 import type { Dict, Locale } from '../../lib/i18n';
 import { PORTFOLIO_IMAGE } from '../../lib/site';
 
@@ -8,10 +20,22 @@ interface Props {
 }
 
 const { t } = Astro.props;
+
+const iconMap: Record<string, any> = {
+  zap: Zap,
+  'layout-list': LayoutList,
+  users: Users,
+  target: Target,
+  rocket: Rocket,
+  lightbulb: Lightbulb,
+  'book-open': BookOpen,
+  kanban: Kanban,
+  'check-circle': CheckCircle,
+  sparkles: Sparkles,
+};
 ---
 
-<section id="workstyle" class="relative isolate border-t border-line md:min-h-[160vh]">
-  <!-- Full-Width Parallax Scroll Background Image Overlay -->
+<section id="workstyle" class="relative isolate border-t border-line">
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <img
       src={PORTFOLIO_IMAGE}
@@ -22,257 +46,38 @@ const { t } = Astro.props;
     <div class="absolute inset-0 bg-gradient-to-b from-base via-base/90 to-base"></div>
   </div>
 
-  <!-- Ambient Central Cloud Glow Orb -->
-  <div class="glow glow--violet glow--float left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[650px] w-[650px] opacity-40 pointer-events-none" aria-hidden="true"></div>
+  <div class="glow glow--violet glow--float left-1/2 top-1/3 -translate-x-1/2 h-[500px] w-[500px] opacity-40 pointer-events-none" aria-hidden="true"></div>
 
-  <!-- Sticky Content Wrapper (Expansive max-w-7xl layout for wide screens) -->
-  <div class="container-page max-w-7xl relative z-10 section-spacing md:sticky md:top-16 md:py-10">
-    <div class="mb-4 max-w-3xl">
+  <div class="container-page max-w-7xl relative z-10 section-spacing">
+    <div class="mb-12 max-w-3xl">
+      <p class="mb-4 text-xs uppercase tracking-widest text-dim" data-reveal="up">
+        {t.workstyle.label}
+      </p>
       <h2 class="text-balance text-4xl font-semibold tracking-tight md:text-6xl" data-reveal="up">
-        Stärken auf einen Blick.
+        {t.workstyle.heading}
       </h2>
-      <p class="mt-2 text-base text-mute leading-relaxed md:text-lg" data-reveal="up" data-reveal-delay="0.1">
-        Verhaltens- und Potenzialanalyse – meine persönlichen Kompetenzen auf einen Blick.
+      <p class="mt-5 text-base leading-relaxed text-mute md:text-lg" data-reveal="up" data-reveal-delay="0.1">
+        {t.workstyle.subheading}
       </p>
     </div>
 
-    <!-- HIGH-DENSITY WORDCLOUD2 DOM CONTAINER (Clean static layout + pure opacity reveal) -->
-    <div class="relative mx-auto w-full py-2 select-none text-center flex flex-col items-center justify-center min-h-[540px]" id="wordcloud-wrapper">
-      <div id="wordcloud-container" class="relative w-full max-w-7xl h-[540px] rounded-2xl pointer-events-auto overflow-hidden"></div>
-
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {
+        t.workstyle.strengths.map((strength, i) => {
+          const Icon = iconMap[strength.icon] ?? Sparkles;
+          return (
+            <div
+              class="group rounded-2xl border border-line bg-surface p-5 transition-colors duration-300 hover:border-accent/50 hover:bg-accent/5"
+              data-reveal="up"
+              data-reveal-delay={(i % 5) * 0.06 + Math.floor(i / 5) * 0.06}
+            >
+              <Icon class="size-6 text-accent" stroke-width={1.75} />
+              <h3 class="mt-4 font-medium tracking-tight text-ink">{strength.title}</h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-mute">{strength.text}</p>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </section>
-
-<script>
-  import WordCloud from 'wordcloud';
-
-  // Curated Strengths, Traits & Technology Terms
-  const fullWordList: [string, number][] = [
-    // Core Hero Terms
-    ['MOTIVATOR', 90],
-    ['ORGANISATOR', 82],
-    ['FÜHRUNGSSTÄRKE', 72],
-    ['TATKRAFT', 68],
-    ['EIGENINITIATIVE', 62],
-    ['ENTSCHLUSSFREUDE', 60],
-    ['Autodidaktik', 54],
-    ['Pragmatische Lösungen', 50],
-    ['Kreative Originalität', 48],
-    ['Kognitiver Wissensdurst', 50],
-    ['Ergebnisorientiert', 56],
-    ['Intuitive Herangehensweise', 45],
-    ['Hohe Zielsetzungen', 45],
-    ['Gespür für Dringlichkeiten', 42],
-    ['Enthusiasmus & Dynamik', 42],
-    ['Autonomie & Unabhängigkeit', 40],
-    ['Daten & Fakten', 40],
-    ['Innovationsdrang', 45],
-    ['Analytische Präzision', 42],
-
-    // Medium Attributes & Workstyle Principles
-    ['Projektkoordination', 36],
-    ['Abwechslungsreiche Aufgaben', 34],
-    ['Verlässlichkeit', 32],
-    ['Objektive Wahrheit', 28],
-    ['Prozessoptimierung', 32],
-    ['Web-Engineering', 34],
-    ['Systemarchitektur', 32],
-    ['Lösungsorientierung', 36],
-    ['Veränderungsbereitschaft', 28],
-    ['Extrovertierter Drive', 32],
-    ['Optimismus & Charisma', 34],
-    ['Fachwissen aufbauen', 28],
-    ['Flexibilität', 32],
-    ['Unabhängiges Arbeiten', 28],
-    ['Systematisches Denken', 28],
-    ['Zielstrebigkeit', 34],
-    ['Handlungsstärke', 32],
-    ['Strategischer Weitblick', 32],
-    ['Ressourceneffizienz', 26],
-    ['Schnelle Auffassungsgabe', 32],
-    ['Durchsetzungsvermögen', 28],
-    ['Strukturierte Abläufe', 28],
-    ['Entschlusskraft', 32],
-    ['Anpassungsfähigkeit', 26],
-
-    // Technical & Domain Terms
-    ['Python', 32],
-    ['TypeScript', 32],
-    ['Astro.js', 30],
-    ['Docker', 30],
-    ['Linux', 26],
-    ['Hetzner Servers', 26],
-    ['PostgreSQL', 26],
-    ['TailwindCSS', 26],
-    ['REST APIs', 26],
-    ['OpenAI API', 30],
-    ['Ollama', 26],
-    ['DevOps', 26],
-    ['Git & GitHub', 26],
-    ['CI/CD Pipelines', 26],
-    ['Glasfaserausbau', 30],
-    ['Netzplanung', 26],
-    ['PHP', 26],
-    ['Node.js', 26],
-    ['FastAPI', 26],
-    ['Automatisierung', 30],
-    ['Code Quality', 26],
-
-    // Micro / Accent Terms
-    ['Kein Leerlauf', 24],
-    ['Veränderung treiben', 24],
-    ['Hohe Dynamik', 24],
-    ['Komplexität meistern', 24],
-    ['Neue Wege gehen', 24],
-    ['Kommunikation', 26],
-    ['Keine Monotonie', 22],
-    ['Projekte parallel', 24],
-    ['Zielstrebigkeit', 24],
-    ['Objektive Fakten', 22],
-    ['Konkrete Ergebnisse', 24],
-    ['Führungsanspruch', 24],
-    ['Direktes Handeln', 24],
-    ['Unternehmensgeist', 24],
-    ['Hoher Anspruch', 22],
-    ['Wissenschaftlich', 22],
-    ['Keine Grenzen', 20],
-    ['Mut zum Risiko', 22],
-    ['Humor & Freude', 22],
-    ['Wert auf Leistung', 22],
-    ['Faktenbasiert', 22],
-    ['Verantwortung', 22],
-    ['Praktischer Nutzen', 22],
-    ['Kreative Impulse', 22],
-    ['Tatkräftig', 24],
-    ['Weitblick', 22],
-    ['Performance-Fokus', 22],
-    ['Clean Code', 24],
-    ['User Experience', 22],
-    ['Agile Methoden', 22],
-    ['Selbstständigkeit', 24],
-    ['Datenanalyse', 22],
-    ['Problemlösungs-Drive', 24],
-    ['Entschlossenheit', 24],
-    ['Weiterentwicklung', 22],
-    ['Hands-on', 24],
-    ['Visionär', 24],
-    ['Effizienz steigern', 22],
-    ['Starke Intuition', 24],
-    ['Zukunftsorientiert', 24],
-    ['Verlässlicher Partner', 22],
-    ['Expertise', 22],
-    ['System-Optimierung', 22],
-  ];
-
-  const colors = [
-    '#ef4444', // Red
-    '#f59e0b', // Amber
-    '#10b981', // Emerald
-    '#06b6d4', // Cyan
-    '#818cf8', // Indigo
-    '#c084fc', // Purple
-    '#f43f5e', // Rose
-    '#38bdf8', // Sky
-    '#22d3ee', // Cyan light
-  ];
-
-  function initInsideOutScrollWordCloud() {
-    const container = document.querySelector<HTMLElement>('#wordcloud-container');
-    const section = document.querySelector<HTMLElement>('#workstyle');
-    if (!container || !section) return;
-
-    // Clear existing DOM contents
-    container.innerHTML = '';
-
-    const width = Math.min(1280, container.clientWidth || window.innerWidth - 32);
-    const height = 540;
-
-    container.style.width = `${width}px`;
-    container.style.height = `${height}px`;
-
-    let sortedSpans: HTMLElement[] = [];
-
-    // Render wordcloud ONCE into DOM elements without touching layout transforms
-    WordCloud(container, {
-      list: fullWordList,
-      shape: 'circle',
-      gridSize: Math.round(10 * width / 1024),
-      weightFactor: function (size) {
-        return Math.pow(size, 1.1) * (width / 1200);
-      },
-      fontFamily: '"Inter Variable", Inter, system-ui, -apple-system, sans-serif',
-      color: function () {
-        return colors[Math.floor(Math.random() * colors.length)];
-      },
-      rotateRatio: 0.35,
-      rotationSteps: 2,
-      minRotation: -Math.PI / 2,
-      maxRotation: 0,
-      backgroundColor: 'transparent',
-      drawOutOfBound: false,
-      shrinkToFit: true,
-    });
-
-    // Listen for completion event when wordcloud DOM elements are rendered
-    container.addEventListener('wordcloudstop', () => {
-      const centerX = width / 2;
-      const centerY = height / 2;
-
-      const spans = Array.from(container.querySelectorAll<HTMLElement>('span'));
-      
-      // Calculate distance from center for each word element WITHOUT mutating transform
-      spans.forEach((span) => {
-        const left = parseFloat(span.style.left) || (span.offsetLeft + span.offsetWidth / 2);
-        const top = parseFloat(span.style.top) || (span.offsetTop + span.offsetHeight / 2);
-        const dx = left - centerX;
-        const dy = top - centerY;
-        const dist = Math.hypot(dx, dy);
-
-        span.dataset.distance = dist.toString();
-        // ONLY transition opacity - NEVER mutate transform or scale to prevent displacement!
-        span.style.transition = 'opacity 0.35s ease-out';
-        span.style.opacity = '0';
-      });
-
-      // Sort spans by distance from center ascending (center words first, outer words last)
-      sortedSpans = spans.sort((a, b) => parseFloat(a.dataset.distance || '0') - parseFloat(b.dataset.distance || '0'));
-
-      updateScrollProgress();
-    });
-
-    function updateScrollProgress() {
-      if (!section || !sortedSpans.length) return;
-
-      const rect = section.getBoundingClientRect();
-      const totalScrollableHeight = rect.height - window.innerHeight;
-
-      // Mobile or fallback: reveal all immediately
-      if (window.innerWidth < 768 || totalScrollableHeight <= 0) {
-        sortedSpans.forEach((span) => {
-          span.style.opacity = '1';
-        });
-        return;
-      }
-
-      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollableHeight));
-      const activeCount = Math.floor(progress * (sortedSpans.length + 1));
-
-      sortedSpans.forEach((span, idx) => {
-        if (idx < activeCount) {
-          span.style.opacity = '1';
-        } else {
-          span.style.opacity = '0';
-        }
-      });
-    }
-
-    window.addEventListener('scroll', updateScrollProgress, { passive: true });
-    window.addEventListener('resize', () => {
-      initInsideOutScrollWordCloud();
-    }, { passive: true });
-  }
-
-  initInsideOutScrollWordCloud();
-  document.addEventListener('astro:page-load', initInsideOutScrollWordCloud);
-</script>

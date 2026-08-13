@@ -114,5 +114,25 @@ const cardGradients = [
         })
       }
     </div>
+
+    <!-- Interactive Step Navigation -->
+    <div class="mt-8 flex flex-wrap items-center gap-2" data-reveal="up" data-stack-steps>
+      {
+        t.services.cards.map((card, i) => {
+          const label = card.tag.split('//').pop()?.trim() ?? card.title;
+          return (
+            <button
+              type="button"
+              data-stack-step
+              data-step-index={i}
+              class="flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-xs font-medium text-mute transition-all duration-300 hover:border-accent/60 hover:text-ink"
+            >
+              <span class="step-num font-mono text-accent">{String(i + 1).padStart(2, '0')}</span>
+              <span class="hidden sm:inline">{label}</span>
+            </button>
+          );
+        })
+      }
+    </div>
   </div>
 </section>

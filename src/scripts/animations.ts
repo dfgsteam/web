@@ -381,7 +381,13 @@ function setupServiceStack() {
   const cards = gsap.utils.toArray<HTMLElement>(section.querySelectorAll('[data-stack-card]'));
   if (!cards.length) return;
 
+  const steps = Array.from(section.querySelectorAll<HTMLElement>('[data-stack-step]'));
+  const activateStep = (idx: number) => {
+    steps.forEach((s, si) => s.classList.toggle('is-active', si === idx));
+  };
+
   const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+  let trigger: ScrollTrigger | undefined;
 
   if (isDesktop && !reduceMotion) {
     cards.forEach((card, i) => {
@@ -399,8 +405,14 @@ function setupServiceStack() {
         scrub: 0.6,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const p = Math.max(0, Math.min(1, self.progress));
+          const idx = Math.min(steps.length - 1, Math.round(p * (steps.length - 1)));
+          activateStep(idx);
+        },
       },
     });
+    trigger = tl.scrollTrigger;
 
     cards.forEach((card, index) => {
       if (index === 0) return;
@@ -434,6 +446,20 @@ function setupServiceStack() {
       if (i > 0) card.style.marginTop = '1.5rem';
     });
   }
+
+  const jumpToStep = (idx: number) => {
+    if (trigger) {
+      const frac = steps.length > 1 ? idx / (steps.length - 1) : 0;
+      const y = trigger.start + frac * (trigger.end - trigger.start);
+      if (lenis) lenis.scrollTo(y, { duration: 1.2 });
+      else window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      cards[idx]?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  steps.forEach((btn, i) => btn.addEventListener('click', () => jumpToStep(i)));
+  activateStep(0);
 }
 
 function setupInfraFlowAnimation() {

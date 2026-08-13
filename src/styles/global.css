@@ -203,6 +203,19 @@ section {
   display: block;
 }
 
+/* Service stack steps */
+[data-stack-card] {
+  scroll-margin-top: 7rem;
+}
+[data-stack-step].is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+[data-stack-step].is-active .step-num {
+  color: #fff;
+}
+
 /* Colorful background glows */
 .glow {
   position: absolute;
