@@ -17,6 +17,7 @@ const projects = defineCollection({
     accentFrom: z.string(),
     accentTo: z.string(),
     liveUrl: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 

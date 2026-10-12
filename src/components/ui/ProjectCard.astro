@@ -13,9 +13,10 @@ interface Props {
 }
 
 const { project, t, lang, index } = Astro.props;
-const { title, tagline, summary, tech, status, category, client, accentFrom, accentTo } = project.data;
+const { title, tagline, summary, tech, status, category, client, accentFrom, accentTo, image, liveUrl } = project.data;
 const slug = project.id.split('/').slice(1).join('/');
 const href = `${lang === 'de' ? '/projekte' : '/en/projekte'}/${slug}`;
+const displayUrl = liveUrl ? liveUrl.replace(/^https?:\/\//, '') : 'julius-hunold.de';
 ---
 
 <a
@@ -26,7 +27,7 @@ const href = `${lang === 'de' ? '/projekte' : '/en/projekte'}/${slug}`;
 >
   <div class="mx-auto w-full max-w-sm overflow-hidden rounded-xl">
     <div class="transition-transform duration-500 group-hover:scale-[1.03]">
-      <BrowserMockup accentFrom={accentFrom} accentTo={accentTo} title={tagline} />
+      <BrowserMockup accentFrom={accentFrom} accentTo={accentTo} title={tagline} image={image} alt={title} url={displayUrl} />
     </div>
   </div>
 

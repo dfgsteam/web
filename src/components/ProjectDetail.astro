@@ -17,7 +17,8 @@ interface Props {
 const { project, t, lang, related } = Astro.props;
 const { Content } = await render(project);
 const homeHref = lang === 'de' ? '/' : '/en';
-const { title, tagline, client, category, status, year, tech, summary, result, accentFrom, accentTo, liveUrl } = project.data;
+const { title, tagline, client, category, status, year, tech, summary, result, accentFrom, accentTo, liveUrl, image } = project.data;
+const displayUrl = liveUrl ? liveUrl.replace(/^https?:\/\//, '') : 'julius-hunold.de';
 
 const relatedHref = (p: CollectionEntry<'projects'>) => {
   const slug = p.id.split('/').slice(1).join('/');
@@ -53,7 +54,7 @@ const relatedHref = (p: CollectionEntry<'projects'>) => {
     </p>
 
     <div class="mx-auto mt-12 w-full max-w-4xl" data-reveal="up" data-reveal-delay="0.25">
-      <BrowserMockup accentFrom={accentFrom} accentTo={accentTo} title={tagline} />
+      <BrowserMockup accentFrom={accentFrom} accentTo={accentTo} title={tagline} image={image} alt={title} url={displayUrl} />
     </div>
 
     <div class="mt-16 grid gap-16 lg:grid-cols-[1.6fr_1fr]">
