@@ -25,21 +25,68 @@ const personJsonLd = {
   '@type': 'Person',
   name: 'Julius Hunold',
   url: 'https://julius-hunold.de/',
+  image: 'https://julius-hunold.de/portfolio.jpg',
   email: 'mailto:info@julius-hunold.de',
-  jobTitle: 'Web Developer & Tech Project Manager',
+  jobTitle: 'Softwareentwickler & Prozessautomatisierung',
+  worksFor: [
+    {
+      '@type': 'Organization',
+      name: 'sgalinski Internetagentur',
+    },
+    {
+      '@type': 'Organization',
+      name: 'MD Telekom',
+    },
+  ],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Sarstedt',
+    addressRegion: 'Niedersachsen',
     addressCountry: 'DE',
   },
-  knowsAbout: ['PHP', 'Python', 'Web Development', 'SQL', 'Linux'],
+  knowsAbout: [
+    'Softwareentwicklung',
+    'Prozessautomatisierung',
+    'Digitalisierung',
+    'PHP',
+    'Python',
+    'Symfony',
+    'Laravel',
+    'Flask',
+    'FastAPI',
+    'TYPO3',
+    'Docker',
+    'Linux',
+    'SQL',
+  ],
   alumniOf: {
     '@type': 'CollegeOrUniversity',
-    name: 'University of Göttingen',
+    name: 'Georg-August-Universität Göttingen',
+  },
+  sameAs: [
+    'https://github.com/dfgsteam',
+    'https://www.linkedin.com/in/julius-hunold/',
+    'https://www.xing.com/profile/Julius_Hunold',
+    'https://www.instagram.com/julius.hunold/',
+    'https://hnld.de',
+    'https://hunold24.de',
+    'https://ennery.de',
+  ],
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Julius Hunold',
+  url: 'https://julius-hunold.de/',
+  inLanguage: 'de-DE',
+  author: {
+    '@type': 'Person',
+    name: 'Julius Hunold',
   },
 };
 ---
 
-<Layout t={t} lang="de" jsonLd={[personJsonLd]}>
+<Layout t={t} lang="de" jsonLd={[personJsonLd, websiteJsonLd]}>
   <HomePage t={t} lang="de" projects={projects} blogPosts={blogPosts} />
 </Layout>

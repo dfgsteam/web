@@ -20,17 +20,47 @@ const allProjects = (await getCollection('projects', ({ id }) => id.startsWith('
   .sort((a, b) => a.data.order - b.data.order);
 const related = allProjects.filter((p) => p.id !== project.id).slice(0, 3);
 
+const ogImg = project.data.image ?? `/og/${slug}.jpg`;
+
 const softwareJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CreativeWork',
   name: project.data.title,
   description: project.data.summary,
+  url: `https://julius-hunold.de/en/projekte/${slug}`,
+  image: `https://julius-hunold.de${ogImg}`,
   creator: {
     '@type': 'Person',
     name: 'Julius Hunold',
+    url: 'https://julius-hunold.de/en/',
   },
   datePublished: `${project.data.year}-01-01`,
   keywords: project.data.tech.join(', '),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://julius-hunold.de/en/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Projects',
+      item: 'https://julius-hunold.de/en/#projekte',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: project.data.title,
+      item: `https://julius-hunold.de/en/projekte/${slug}`,
+    },
+  ],
 };
 ---
 
@@ -40,8 +70,8 @@ const softwareJsonLd = {
   title={`${project.data.title} – ${t.meta.title}`}
   description={project.data.summary}
   path={Astro.url.pathname}
-  ogImage={`/og/${slug}.jpg`}
-  jsonLd={[softwareJsonLd]}
+  ogImage={ogImg}
+  jsonLd={[softwareJsonLd, breadcrumbJsonLd]}
 >
   <ProjectDetail project={project} t={t} lang="en" related={related} />
 </Layout>

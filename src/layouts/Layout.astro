@@ -12,11 +12,13 @@ interface Props {
   title?: string;
   description?: string;
   path?: string;
+  ogType?: 'website' | 'article';
   ogImage?: string;
+  publishedTime?: string;
   jsonLd?: Record<string, unknown>[];
 }
 
-const { t, lang, ogImage, jsonLd = [] } = Astro.props;
+const { t, lang, ogType, ogImage, publishedTime, jsonLd = [] } = Astro.props;
 const pageTitle = Astro.props.title ?? t.meta.title;
 const pageDescription = Astro.props.description ?? t.meta.description;
 const pagePath = Astro.props.path ?? Astro.url.pathname;
@@ -52,9 +54,12 @@ const pagePath = Astro.props.path ?? Astro.url.pathname;
     <Seo
       title={pageTitle}
       description={pageDescription}
+      keywords={t.meta.keywords}
       lang={lang}
       path={pagePath}
+      ogType={ogType}
       ogImage={ogImage}
+      publishedTime={publishedTime}
       jsonLd={jsonLd}
     />
     <ClientRouter />

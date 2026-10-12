@@ -14,6 +14,56 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const t = getDict('en');
+const slug = post.id.split('/').slice(1).join('/');
+const isoDate = post.data.date.toISOString();
+
+const blogPostingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.excerpt,
+  datePublished: isoDate,
+  dateModified: isoDate,
+  inLanguage: 'en-GB',
+  url: `https://julius-hunold.de/en/blog/${slug}`,
+  image: 'https://julius-hunold.de/og-default.jpg',
+  keywords: post.data.tags.join(', '),
+  author: {
+    '@type': 'Person',
+    name: 'Julius Hunold',
+    url: 'https://julius-hunold.de/en/',
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Julius Hunold',
+    url: 'https://julius-hunold.de/en/',
+  },
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://julius-hunold.de/en/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: 'https://julius-hunold.de/en/blog',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: post.data.title,
+      item: `https://julius-hunold.de/en/blog/${slug}`,
+    },
+  ],
+};
 ---
 
 <Layout
@@ -22,6 +72,9 @@ const t = getDict('en');
   title={`${post.data.title} – Blog – ${t.meta.title}`}
   description={post.data.excerpt}
   path={Astro.url.pathname}
+  ogType="article"
+  publishedTime={isoDate}
+  jsonLd={[blogPostingJsonLd, breadcrumbJsonLd]}
 >
   <BlogPost t={t} lang="en" post={post} />
 </Layout>
