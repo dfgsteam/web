@@ -72,6 +72,16 @@ const { t, lang } = Astro.props;
                   </div>
                   <p class="mt-1 text-xs uppercase tracking-wider text-dim font-mono">{entry.period}</p>
                   <p class="mt-3 text-sm leading-relaxed text-mute">{entry.description}</p>
+                  {entry.bullets && entry.bullets.length > 0 && (
+                    <ul class="mt-2.5 space-y-1.5 text-xs leading-relaxed text-mute">
+                      {entry.bullets.map((bullet) => (
+                        <li class="flex items-start gap-2">
+                          <span class="mt-1.5 size-1 shrink-0 rounded-full bg-accent/70" aria-hidden="true"></span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))
             }

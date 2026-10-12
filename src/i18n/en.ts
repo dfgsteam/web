@@ -146,6 +146,28 @@ export const en: Dict = {
     website: 'www.julius-hunold.de',
     workItems: [
       {
+        role: 'Intern – Financial Analysis, Client & Process Management',
+        company: 'Till Schmidt-Kleen – tecis FDL AG, Hanover',
+        period: '03.08.2026 – 30.09.2026',
+        description:
+          'Internship (160 hrs) in holistic financial analysis, market and product analysis, sales organization, and digital process management.',
+        bullets: [
+          'Financial Analysis, Planning & Product Analysis: Structured preparation of financial baselines as well as economic market and product comparisons of financial, insurance, and pension concepts.',
+          'Client Management, Sales Organization & Digitalization: Preparation and follow-up of client appointments as well as analysis and optimization of digital client management and documentation processes.',
+        ],
+      },
+      {
+        role: 'Intern – Digitalization, E-Commerce & Procurement',
+        company: 'CNC-Concept (Dipl.-Ing. Markus Freund), Leinefelde-Worbis',
+        period: '02.03.2026 – 28.04.2026',
+        description:
+          'Internship (160 hrs) in process digitalization, e-commerce, supplier procurement, inventory management, and customer support in CNC mechanical engineering.',
+        bullets: [
+          'Digitalization, Process Automation & Online Shop: Analysis of operational workflows and implementation of automated workflows (linking inventory levels with ordering processes) as well as online shop management.',
+          'Procurement, Inventory Management & Customer Support: Participation in supplier meetings, quote comparisons, order coordination, digital inventory overview, and consulting on customer inquiries.',
+        ],
+      },
+      {
         role: 'Project Manager',
         company: 'MD Telekom',
         period: '2022 – present',

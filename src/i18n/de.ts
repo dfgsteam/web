@@ -144,6 +144,28 @@ export const de = {
     website: 'www.julius-hunold.de',
     workItems: [
       {
+        role: 'Praktikant Finanzanalyse, Kunden- & Prozessmanagement',
+        company: 'Till Schmidt-Kleen – tecis FDL AG, Hannover',
+        period: '03.08.2026 – 30.09.2026',
+        description:
+          'Praktikum (160 Std.) in der ganzheitlichen Finanzanalyse, Markt- und Produktanalyse sowie in der Vertriebsorganisation und im digitalen Prozessmanagement.',
+        bullets: [
+          'Finanzanalyse, Finanzplanung & Produktanalyse: Strukturierte Aufbereitung finanzieller Ausgangssituationen sowie wirtschaftlicher Markt- und Produktvergleich von Finanz-, Versicherungs- und Vorsorgekonzepten.',
+          'Kundenmanagement, Vertriebsorganisation & Digitalisierung: Vor- und Nachbereitung von Kundenterminen sowie Analyse und Optimierung digitaler Kundenverwaltungs- und Dokumentationsprozesse.',
+        ],
+      },
+      {
+        role: 'Praktikant Digitalisierung, E-Commerce & Beschaffung',
+        company: 'CNC-Concept (Dipl.-Ing. Markus Freund), Leinefelde-Worbis',
+        period: '02.03.2026 – 28.04.2026',
+        description:
+          'Praktikum (160 Std.) in den Bereichen Prozessdigitalisierung, E-Commerce, Lieferantenbeschaffung, Bestandsmanagement und Kundenbetreuung im CNC-Maschinenbau.',
+        bullets: [
+          'Digitalisierung, Prozessautomatisierung & Onlineshop: Analyse betrieblicher Abläufe und Umsetzung automatisierter Workflows (Verknüpfung von Lagerbeständen mit Bestellprozessen) sowie Betreuung des Onlineshops.',
+          'Beschaffung, Bestandsmanagement & Kundenbetreuung: Teilnahme an Lieferantengesprächen, Angebotsvergleich, Bestellabstimmung, digitale Bestandsübersicht und Beratung zu Kundenanfragen.',
+        ],
+      },
+      {
         role: 'Projektleiter',
         company: 'MD Telekom',
         period: '2022 – heute',
