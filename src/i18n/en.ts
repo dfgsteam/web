@@ -168,6 +168,17 @@ export const en: Dict = {
         ],
       },
       {
+        role: 'Web Developer',
+        company: 'sgalinski Internetagentur · Gernrode',
+        period: '05/2024 – present',
+        description:
+          'Implementation, continuous development, and planning of modern web applications, websites, and CMS extensions (including TYPO3). Team development and conception of workflow and time-tracking tools.',
+        bullets: [
+          'Implementation, continuous development, and planning of modern web applications, websites, and CMS extensions (including TYPO3)',
+          'Team development and conception of workflow and time-tracking tools',
+        ],
+      },
+      {
         role: 'Project Manager',
         company: 'MD Telekom',
         period: '2022 – present',

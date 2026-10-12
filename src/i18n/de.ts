@@ -166,6 +166,17 @@ export const de = {
         ],
       },
       {
+        role: 'Webentwickler',
+        company: 'sgalinski Internetagentur · Gernrode',
+        period: '05/2024 – heute',
+        description:
+          'Realisierung, Weiterentwicklung und Planung von modernen Web-Applikationen, Websites und CMS-Erweiterungen (u.a. TYPO3). Entwicklung im Team, Konzeption von Workflow- und Zeiterfassungs-Tools.',
+        bullets: [
+          'Realisierung, Weiterentwicklung und Planung von modernen Web-Applikationen, Websites und CMS-Erweiterungen (u.a. TYPO3)',
+          'Entwicklung im Team sowie Konzeption von Workflow- und Zeiterfassungs-Tools',
+        ],
+      },
+      {
         role: 'Projektleiter',
         company: 'MD Telekom',
         period: '2022 – heute',
