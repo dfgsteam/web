@@ -203,13 +203,6 @@ export const en: Dict = {
         description: 'Cleaning and maintenance of industrial equipment.',
         bullets: [],
       },
-      {
-        role: 'Group Supervisor / Deputy PR Representative',
-        company: 'Regio Wegweiser',
-        period: '2020 – present',
-        description: 'Preparation and execution of group sessions, PR representation, website maintenance, audio/visual event support.',
-        bullets: [],
-      },
     ],
     educationItems: [
       {
@@ -242,16 +235,16 @@ export const en: Dict = {
         org: 'Regio Wegweiser',
         period: '2020 – present',
       },
-      {
-        role: 'Youth Group Leader Training (JuLeiCa)',
-        org: 'Schönstadt Mannesjugend',
-        period: '2021',
-      },
     ],
     certificateItems: [
       {
+        name: 'Prevention of Sexualized Violence in Work with Children, Youth and Vulnerable Adults',
+        issuer: 'Schönstatt Mannesjugend | Regio Wegweiser',
+        year: '2024',
+      },
+      {
         name: 'Youth Group Leader Certification (JuLeiCa)',
-        issuer: 'Schönstadt Mannesjugend | Regio Wegweiser',
+        issuer: 'Schönstatt Mannesjugend | Regio Wegweiser',
         year: '2021',
       },
       {

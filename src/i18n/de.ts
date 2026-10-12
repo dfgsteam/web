@@ -201,13 +201,6 @@ export const de = {
         description: 'Reinigung und Instandsetzung von Industrieanlagen.',
         bullets: [],
       },
-      {
-        role: 'Gruppenbetreuer / stellv. Öffentlichkeitsarbeitsbeauftragter',
-        company: 'Regio Wegweiser',
-        period: '2020 – heute',
-        description: 'Ausarbeitung und Durchführung von Gruppenstunden mit aktuellen Themen, Repräsentation der Organisation nach außen, Pflegen der Webseite, Audio-/Visuelle Begleitung von Veranstaltungen.',
-        bullets: [],
-      },
     ],
     educationItems: [
       {
@@ -240,16 +233,16 @@ export const de = {
         org: 'Regio Wegweiser',
         period: '2020 – heute',
       },
-      {
-        role: 'Gruppenleiter Schulung (JuLeiCa)',
-        org: 'Schönstadt Mannesjugend',
-        period: '2021',
-      },
     ],
     certificateItems: [
       {
+        name: 'Prävention sexualisierter Gewalt in der Arbeit mit Kindern, Jugendlichen und schutz- oder hilfebedürftigen Erwachsenen',
+        issuer: 'Schönstatt Mannesjugend | Regio Wegweiser',
+        year: '2024',
+      },
+      {
         name: 'Gruppenleiter Schulung (JuLeiCa)',
-        issuer: 'Schönstadt Mannesjugend | Regio Wegweiser',
+        issuer: 'Schönstatt Mannesjugend | Regio Wegweiser',
         year: '2021',
       },
       {
