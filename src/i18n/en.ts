@@ -173,79 +173,62 @@ export const en: Dict = {
         period: '05/2024 – present',
         description:
           'Implementation, continuous development, and planning of modern web applications, websites, and CMS extensions (including TYPO3). Team development and conception of workflow and time-tracking tools.',
-        bullets: [
-          'Implementation, continuous development, and planning of modern web applications, websites, and CMS extensions (including TYPO3)',
-          'Team development and conception of workflow and time-tracking tools',
-        ],
+        bullets: [],
       },
       {
         role: 'Project Manager',
         company: 'MD Telekom',
         period: '2022 – present',
         description: 'Planning, organization, and management of fiber optic expansion. Development of industry-specific software. Delegation and supervision of employee tasks.',
-        bullets: [
-          'Planning, organization, and management of fiber optic expansion',
-          'Development of industry-specific software',
-          'Delegation and supervision of employee tasks',
-        ],
+        bullets: [],
       },
       {
         role: 'E-Commerce Manager',
         company: 'MD Landmaschinen',
         period: '2022 – 2022',
         description: 'E-Commerce Administration, Amazon, WooCommerce.',
-        bullets: [
-          'E-Commerce Administration',
-          'Amazon, WooCommerce',
-        ],
+        bullets: [],
       },
       {
         role: 'Julius Hunold IT Services',
         company: 'Self-employed',
         period: '2021 – present',
         description: 'ERP & online shop setup, web hosting, IT consulting & training.',
-        bullets: [
-          'ERP & online shop setup',
-          'Websites with hosting',
-          'IT consulting & training',
-        ],
+        bullets: [],
       },
       {
         role: 'Assistant',
         company: 'Andreas Riesmeier Industrieservice',
         period: '2021',
         description: 'Cleaning and maintenance of industrial equipment.',
-        bullets: [
-          'Cleaning and maintenance of industrial equipment',
-        ],
+        bullets: [],
       },
       {
         role: 'Group Supervisor / Deputy PR Representative',
         company: 'Regio Wegweiser',
         period: '2020 – present',
         description: 'Preparation and execution of group sessions, PR representation, website maintenance, audio/visual event support.',
-        bullets: [
-          'Preparation and execution of youth group sessions on current topics',
-          'Public relations representation and website maintenance',
-          'Audio/visual support for events',
-        ],
+        bullets: [],
       },
     ],
     educationItems: [
       {
         degree: 'Georg-August-University Göttingen',
-        school: 'Expected B.Sc. in Applied Computer Science 2025',
+        school: 'B.Sc. in Applied Computer Science',
         period: '2022 – present',
+        description: 'Focus areas: Software Engineering, Algorithms & Data Structures, with minor specializations in Business Administration and Physics.',
       },
       {
         degree: 'Werner von Siemens School Hildesheim',
-        school: 'General Higher Education Entrance Qualification (Abitur 2022)',
+        school: 'General Higher Education Entrance Qualification (Abitur)',
         period: '2019 – 2022',
+        description: 'Technical Grammar School specializing in Information Technology & Systems Engineering.',
       },
       {
         degree: 'Schiller High School Sarstedt',
-        school: 'Secondary School Certificate I',
+        school: 'Extended Secondary School Certificate I',
         period: '2018 – 2019',
+        description: 'Secondary school graduation qualifying for advanced technical grammar school.',
       },
     ],
     volunteerItems: [

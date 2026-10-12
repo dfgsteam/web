@@ -6,7 +6,7 @@ interface Props {
   lang: Locale;
 }
 
-const { t, lang } = Astro.props;
+const { t } = Astro.props;
 ---
 
 <section id="cv" class="section-spacing relative isolate overflow-hidden border-t border-line">
@@ -42,9 +42,9 @@ const { t, lang } = Astro.props;
       </div>
     </div>
 
-    <!-- Timeline Grid (Work & Education) -->
-    <div class="grid gap-16 lg:grid-cols-2">
-      <!-- Berufserfahrung -->
+    <!-- Balanced 2-Column Layout: Left = Work Timeline, Right = Education + Volunteer + Certificates -->
+    <div class="grid gap-16 lg:grid-cols-2 lg:items-start">
+      <!-- Left Column: Berufserfahrung -->
       <div>
         <h3 class="mb-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-ink" data-reveal="up">
           <span class="size-2 rounded-full bg-accent animate-pulse" aria-hidden="true"></span>
@@ -56,11 +56,10 @@ const { t, lang } = Astro.props;
             <div data-cv-timeline class="h-full w-full bg-accent origin-top scale-y-0 shadow-sm shadow-accent/50"></div>
           </div>
 
-          <ol class="space-y-10">
+          <ol class="space-y-9">
             {
-              t.cv.workItems.map((entry, i) => (
+              t.cv.workItems.map((entry) => (
                 <li class="relative group opacity-35 transition-all duration-500" data-cv-item>
-                  <!-- Animated Timeline Node Dot (Inaktiv Grau -> Aktiv Akzent) -->
                   <span
                     data-cv-dot
                     class="absolute -left-[37px] top-1.5 size-3 rounded-full border-2 border-line bg-surface opacity-40 transition-all duration-500 group-hover:scale-125"
@@ -71,7 +70,7 @@ const { t, lang } = Astro.props;
                     <span class="text-sm font-semibold text-accent">{entry.company}</span>
                   </div>
                   <p class="mt-1 text-xs uppercase tracking-wider text-dim font-mono">{entry.period}</p>
-                  <p class="mt-3 text-sm leading-relaxed text-mute">{entry.description}</p>
+                  <p class="mt-2.5 text-sm leading-relaxed text-mute">{entry.description}</p>
                   {entry.bullets && entry.bullets.length > 0 && (
                     <ul class="mt-2.5 space-y-1.5 text-xs leading-relaxed text-mute">
                       {entry.bullets.map((bullet) => (
@@ -89,87 +88,90 @@ const { t, lang } = Astro.props;
         </div>
       </div>
 
-      <!-- Ausbildung -->
-      <div>
-        <h3 class="mb-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-ink" data-reveal="up" data-reveal-delay="0.1">
-          <span class="size-2 rounded-full bg-accent animate-pulse" aria-hidden="true"></span>
-          {t.cv.education}
-        </h3>
-        <div class="relative pl-8">
-          <!-- Animated Vertical Timeline Axis -->
-          <div class="absolute left-0 top-2.5 h-[calc(100%-1rem)] w-px bg-line">
-            <div data-cv-timeline class="h-full w-full bg-accent origin-top scale-y-0 shadow-sm shadow-accent/50"></div>
-          </div>
+      <!-- Right Column: Education + Volunteer + Certificates stacked seamlessly -->
+      <div class="space-y-16 lg:sticky lg:top-28">
+        <!-- 1. Ausbildung / Studium -->
+        <div>
+          <h3 class="mb-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-ink" data-reveal="up" data-reveal-delay="0.1">
+            <span class="size-2 rounded-full bg-accent animate-pulse" aria-hidden="true"></span>
+            {t.cv.education}
+          </h3>
+          <div class="relative pl-8">
+            <div class="absolute left-0 top-2.5 h-[calc(100%-1rem)] w-px bg-line">
+              <div data-cv-timeline class="h-full w-full bg-accent origin-top scale-y-0 shadow-sm shadow-accent/50"></div>
+            </div>
 
-          <ol class="space-y-10">
+            <ol class="space-y-9">
+              {
+                t.cv.educationItems.map((entry) => (
+                  <li class="relative group opacity-35 transition-all duration-500" data-cv-item>
+                    <span
+                      data-cv-dot
+                      class="absolute -left-[37px] top-1.5 size-3 rounded-full border-2 border-line bg-surface opacity-40 transition-all duration-500 group-hover:scale-125"
+                      aria-hidden="true"
+                    ></span>
+                    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <h4 class="text-lg font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.degree}</h4>
+                      <span class="text-sm font-semibold text-accent">{entry.school}</span>
+                    </div>
+                    <p class="mt-1 text-xs uppercase tracking-wider text-dim font-mono">{entry.period}</p>
+                    {'description' in entry && entry.description && (
+                      <p class="mt-2.5 text-sm leading-relaxed text-mute">{entry.description}</p>
+                    )}
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </div>
+
+        <!-- 2. Ehrenamt & Engagement -->
+        <div>
+          <h3 class="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-ink" data-reveal="up">
+            <span class="size-2 rounded-full bg-accent" aria-hidden="true"></span>
+            {t.cv.volunteer}
+          </h3>
+          <ul class="space-y-3.5">
             {
-              t.cv.educationItems.map((entry, i) => (
-                <li class="relative group opacity-35 transition-all duration-500" data-cv-item>
-                  <!-- Animated Timeline Node Dot -->
-                  <span
-                    data-cv-dot
-                    class="absolute -left-[37px] top-1.5 size-3 rounded-full border-2 border-line bg-surface opacity-40 transition-all duration-500 group-hover:scale-125"
-                    aria-hidden="true"
-                  ></span>
-                  <h4 class="text-lg font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.degree}</h4>
-                  <p class="mt-1 text-sm font-semibold text-accent">{entry.school}</p>
-                  <p class="mt-1 text-xs uppercase tracking-wider text-dim font-mono">{entry.period}</p>
+              t.cv.volunteerItems.map((entry) => (
+                <li
+                  class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 opacity-40 transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+                  data-cv-card
+                >
+                  <div>
+                    <h4 class="font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.role}</h4>
+                    <p class="text-sm text-mute mt-0.5">{entry.org}</p>
+                  </div>
+                  <span class="shrink-0 text-xs font-mono tracking-wider text-dim">{entry.period}</span>
                 </li>
               ))
             }
-          </ol>
+          </ul>
         </div>
-      </div>
-    </div>
 
-    <!-- Cards Grid (Volunteer & Certificates) -->
-    <div class="mt-20 grid gap-16 lg:grid-cols-2">
-      <!-- Ehrenamt -->
-      <div>
-        <h3 class="mb-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-ink" data-reveal="up">
-          <span class="size-2 rounded-full bg-accent" aria-hidden="true"></span>
-          {t.cv.volunteer}
-        </h3>
-        <ul class="space-y-4">
-          {
-            t.cv.volunteerItems.map((entry, i) => (
-              <li
-                class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 opacity-40 transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
-                data-cv-card
-              >
-                <div>
-                  <h4 class="font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.role}</h4>
-                  <p class="text-sm text-mute mt-0.5">{entry.org}</p>
-                </div>
-                <span class="shrink-0 text-xs font-mono tracking-wider text-dim">{entry.period}</span>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-
-      <!-- Zertifikate -->
-      <div>
-        <h3 class="mb-8 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-ink" data-reveal="up">
-          <span class="size-2 rounded-full bg-accent" aria-hidden="true"></span>
-          {t.cv.certificates}
-        </h3>
-        <ul class="space-y-4">
-          {
-            t.cv.certificateItems.map((entry, i) => (
-              <li
-                class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 opacity-40 transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
-                data-cv-card
-              >
-                <div>
-                  <h4 class="font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.name}</h4>
-                  <p class="text-sm text-mute mt-0.5">{entry.issuer}</p>
-                </div>
-                <span class="shrink-0 text-xs font-mono tracking-wider text-dim">{entry.year}</span>
-              </li>
-            ))
-          }
-        </ul>
+        <!-- 3. Weiterbildungen & Zertifikate -->
+        <div>
+          <h3 class="mb-6 flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-ink" data-reveal="up">
+            <span class="size-2 rounded-full bg-accent" aria-hidden="true"></span>
+            {t.cv.certificates}
+          </h3>
+          <ul class="space-y-3.5">
+            {
+              t.cv.certificateItems.map((entry) => (
+                <li
+                  class="group flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 opacity-40 transition-all duration-500 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5"
+                  data-cv-card
+                >
+                  <div>
+                    <h4 class="font-medium tracking-tight text-ink group-hover:text-accent transition-colors">{entry.name}</h4>
+                    <p class="text-sm text-mute mt-0.5">{entry.issuer}</p>
+                  </div>
+                  <span class="shrink-0 text-xs font-mono tracking-wider text-dim">{entry.year}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </div>
     </div>
   </div>

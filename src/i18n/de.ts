@@ -171,79 +171,62 @@ export const de = {
         period: '05/2024 – heute',
         description:
           'Realisierung, Weiterentwicklung und Planung von modernen Web-Applikationen, Websites und CMS-Erweiterungen (u.a. TYPO3). Entwicklung im Team, Konzeption von Workflow- und Zeiterfassungs-Tools.',
-        bullets: [
-          'Realisierung, Weiterentwicklung und Planung von modernen Web-Applikationen, Websites und CMS-Erweiterungen (u.a. TYPO3)',
-          'Entwicklung im Team sowie Konzeption von Workflow- und Zeiterfassungs-Tools',
-        ],
+        bullets: [],
       },
       {
         role: 'Projektleiter',
         company: 'MD Telekom',
         period: '2022 – heute',
         description: 'Planung, Organisation und Leiten von Glasfaserarbeiten. Entwicklung von branchenspezifischer Software. Delegation und Überwachung von Aufgaben an Mitarbeiter.',
-        bullets: [
-          'Planung, Organisation und Leiten von Glasfaserarbeiten',
-          'Entwicklung von branchenspezifischer Software',
-          'Delegation und Überwachung von Aufgaben an Mitarbeiter',
-        ],
+        bullets: [],
       },
       {
         role: 'E-Commerce Manager',
         company: 'MD Landmaschinen',
         period: '2022 – 2022',
         description: 'E-Commerce Administration, Amazon, WooCommerce.',
-        bullets: [
-          'E-Commerce Administration',
-          'Amazon, WooCommerce',
-        ],
+        bullets: [],
       },
       {
         role: 'Julius Hunold IT-Dienstleistungen',
         company: 'Selbstständig',
         period: '2021 – heute',
         description: 'WaWi-/Onlineshop Einrichtung, Webseiten mit Hosting, IT-Beratung/Schulungen.',
-        bullets: [
-          'WaWi-/Onlineshop Einrichtung',
-          'Webseiten mit Hosting',
-          'IT-Beratung/Schulungen',
-        ],
+        bullets: [],
       },
       {
         role: 'Aushilfe',
         company: 'Andreas Riesmeier Industrieservice',
         period: '2021',
         description: 'Reinigung und Instandsetzung von Industrieanlagen.',
-        bullets: [
-          'Reinigung und Instandsetzung von Industrieanlagen',
-        ],
+        bullets: [],
       },
       {
         role: 'Gruppenbetreuer / stellv. Öffentlichkeitsarbeitsbeauftragter',
         company: 'Regio Wegweiser',
         period: '2020 – heute',
         description: 'Ausarbeitung und Durchführung von Gruppenstunden mit aktuellen Themen, Repräsentation der Organisation nach außen, Pflegen der Webseite, Audio-/Visuelle Begleitung von Veranstaltungen.',
-        bullets: [
-          'Ausarbeitung und Durchführung von Gruppenstunden mit aktuellen Themen',
-          'Repräsentation der Organisation nach außen, Pflegen der Webseite',
-          'Audio-/Visuelle Begleitung von Veranstaltungen',
-        ],
+        bullets: [],
       },
     ],
     educationItems: [
       {
         degree: 'Georg-August-Universität Göttingen',
-        school: 'Erwarteter Bachelor of Science in Angewandte Informatik 2025',
+        school: 'B.Sc. Angewandte Informatik',
         period: '2022 – heute',
+        description: 'Schwerpunkte: Software Engineering, Algorithmen & Datenstrukturen sowie Vertiefung in Betriebswirtschaftslehre und Physik.',
       },
       {
         degree: 'Werner von Siemens Schule Hildesheim',
-        school: 'Allgemeinbildende Hochschulreife 2022',
+        school: 'Allgemeine Hochschulreife (Abitur)',
         period: '2019 – 2022',
+        description: 'Berufliches Gymnasium Technik mit Schwerpunkt Informationstechnik & Systementwicklung.',
       },
       {
         degree: 'Schiller Oberschule Sarstedt',
         school: 'Erweiterter Sekundarabschluss I',
         period: '2018 – 2019',
+        description: 'Allgemeinbildender Abschluss mit Auszeichnung für den Übergang an das berufliche Gymnasium.',
       },
     ],
     volunteerItems: [
