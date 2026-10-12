@@ -250,6 +250,11 @@ export const en: Dict = {
     ],
     volunteerItems: [
       {
+        role: 'Deputy Treasurer',
+        org: 'Regio Wegweiser',
+        period: '2026 – present',
+      },
+      {
         role: 'Group Leader / PR Representative',
         org: 'Regio Wegweiser',
         period: '2020 – present',

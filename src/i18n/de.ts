@@ -248,6 +248,11 @@ export const de = {
     ],
     volunteerItems: [
       {
+        role: 'Stellv. Finanzer',
+        org: 'Regio Wegweiser',
+        period: '2026 – heute',
+      },
+      {
         role: 'Gruppenbetreuer / stellv. Öffentlichkeitsarbeitsbeauftragter',
         org: 'Regio Wegweiser',
         period: '2020 – heute',
