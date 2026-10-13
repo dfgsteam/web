@@ -77,8 +77,8 @@ const datenschutzDe: LegalDoc = {
       body: 'Für den Hell-/Dunkel-Modus-Umschalter wird Ihre Auswahl lokal in Ihrem Browser gespeichert (localStorage). Diese Angabe verlässt Ihren Browser nicht und wird nicht an Dritte übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch Nutzung der Funktion).',
     },
     {
-      heading: '5. Cookies & Analyse',
-      body: 'Diese Website verwendet keine Tracking-Cookies, kein Analyse-Tool und keine Werbenetzwerke. Schriftarten und Bilder werden lokal von dieser Website geladen; es erfolgt keine Verbindung zu externen Diensten wie Google Fonts. Einwilligungs-Banner für Tracking sind daher nicht erforderlich.',
+      heading: '5. Webanalyse mit Matomo (ohne Cookies)',
+      body: 'Diese Website nutzt den Open-Source-Webanalysedienst Matomo auf einem eigenen Server (tracking.hunold24.de). Die Analyse erfolgt vollständig ohne Cookies (disableCookies).\n\nBei Ihrem Besuch werden technische Daten (z. B. aufgerufene Seite, Referrer-URL, Browsertyp, Bildschirmauflösung) sowie Ihre gekürzte und damit anonymisierte IP-Adresse erfasst. Ein Rückschluss auf Ihre Person ist ausgeschlossen. Die Daten werden ausschließlich auf eigenen Servern gespeichert und niemals an Dritte weitergegeben.\n\nDie Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der statistischen Analyse und Optimierung des Webangebots). Ein Cookie-Banner ist nicht erforderlich, da keine Informationen auf Ihrem Endgerät gespeichert oder ausgelesen werden (TTDSG/TDDDG-konform).',
     },
     {
       heading: '6. Ihre Rechte',
@@ -112,8 +112,8 @@ const datenschutzEn: LegalDoc = {
       body: 'For the light/dark mode toggle, your selection is stored locally in your browser (localStorage). This information never leaves your browser and is not transmitted to third parties. Legal basis is Art. 6(1)(a) GDPR (consent by using the feature).',
     },
     {
-      heading: '5. Cookies & analytics',
-      body: 'This website does not use tracking cookies, no analytics tool and no advertising networks. Fonts and images are loaded locally from this website; there is no connection to external services such as Google Fonts. Consent banners for tracking are therefore not required.',
+      heading: '5. Web analytics with Matomo (cookieless)',
+      body: 'This website uses the open-source web analytics service Matomo hosted on our own server (tracking.hunold24.de). Tracking operates completely without cookies (disableCookies).\n\nDuring your visit, technical data (such as page visited, referrer URL, browser type, screen resolution) as well as your truncated and thus anonymised IP address are recorded. It is not possible to draw any conclusions about your person. Data is stored solely on our own servers and is never shared with third parties.\n\nProcessing is based on Art. 6(1)(f) GDPR (legitimate interest in statistical analysis and optimisation of our website). A cookie consent banner is not required as no information is stored or retrieved on your device.',
     },
     {
       heading: '6. Your rights',
