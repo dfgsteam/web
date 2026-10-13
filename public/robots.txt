@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# LLM & AI Search context (https://llmstxt.org)
+# Explicitly allowing AI Crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.)
+Allow: /llms.txt
+
 Sitemap: https://julius-hunold.de/sitemap-index.xml

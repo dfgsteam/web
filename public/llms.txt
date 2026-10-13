@@ -1,0 +1,55 @@
+# Julius Hunold – Softwareentwickler & Prozessautomatisierung
+
+> Softwareentwickler und technischer Projektmanager mit Fokus auf maßgeschneiderte Web-Applikationen, Prozessautomatisierung und digitale Geschäftsprozesse mit PHP & Python. 8+ Jahre praktische Erfahrung an der Schnittstelle von Entwicklung, Automatisierung und technischem Projektmanagement.
+
+## Kernkompetenzen & Spezialisierung
+
+- **Prozessautomatisierung & Digitalisierung**: Automatisierung manueller Workflows, Beseitigung von Medienbrüchen, Schnittstellenintegration (REST, Webhooks, GraphQL), Verknüpfung von ERP/WaWi-Systemen mit Onlineshops und Auftragsabwicklungen.
+- **Bespoke Web-Applikationen & APIs**: Maßgeschneiderte Web-Apps mit PHP (Symfony, Laravel) und Python (Flask, FastAPI) inklusive performanter Backend-Architekturen und relationaler Datenbanken (PostgreSQL, MySQL).
+- **E-Commerce & Plattformen**: Entwicklung und Wartung von WooCommerce- und Individual-Shops, Zahlungs-Gateways, Produktkatalogen und Marktplatz-Anbindungen.
+- **IT-Infrastruktur & DevOps**: Linux-Server-Administration (Debian, Ubuntu), Docker-Containerisierung, Nginx Reverse Proxies, CI/CD-Pipelines (GitHub Actions), Self-Hosting und Monitoring.
+- **Technisches Projektmanagement**: Leitung und Koordination von Bau- und Softwareprojekten (z.B. FTTH NE4 Glasfaserausbau), agile Entwicklung im Team, Anforderungsanalyse und Dokumentation.
+
+## Tech-Stack
+
+- **Sprachen**: PHP 8+, Python 3+, TypeScript, JavaScript, SQL, HTML5, CSS3, C/C++, Java
+- **Frameworks & CMS**: Symfony, Laravel, Flask, FastAPI, TYPO3, Astro, Vue.js, Tailwind CSS
+- **Datenbanken**: PostgreSQL, MySQL, Redis, SQLite
+- **Infrastruktur & Tools**: Linux, Docker, Gunicorn, Nginx, Git, GitHub Actions, CleverPush, Trello API
+
+## Eigene Marken & Studios
+
+- [hnld.de](https://hnld.de): Digital Studio für schnelles, modernes Webdesign, Markenauftritte und Konversionsoptimierung.
+- [hunold24.de](https://hunold24.de): Entwicklung maßgeschneiderter Individualsoftware und KMU-Workflow-Tools.
+- [ennery.de](https://ennery.de): CleanTech-Software für automatisierte Wirtschaftlichkeitsprüfungen, PV-Exposés und Energieanalysen.
+
+## Ausgewählte Projekte & Berufserfahrung
+
+- **sgalinski Internetagentur** (seit 05/2024): Webentwickler – Entwicklung und Wartung von Kunden-Websites, CMS-Erweiterungen (u.a. TYPO3), Weiterentwicklung von **Jobblitz** und Konzeption der Trello-App **Tractime**.
+- **MD Telekom** (seit 2022): Projektleiter FTTH NE4 Glasfaserausbau – Leitung der Arbeiten, Einsatzplanung und Entwicklung der internen mobilen Baudokumentations-App (**MDT APP**).
+- **MD Landmaschinen** (2022–2024): E-Commerce Manager und Entwickler der webbasierten Reklamationsmanagement-App (**MDL Reklame**).
+- **EN.MIE**: Entwicklung einer Flask/Python-Webanwendung zur automatisierten Erstellung von Netzanmeldungen und Abnahmeprotokollen für PV-Anlagen.
+- **Voltampere**: Konzeption und Bau einer Web-App für PV-Exposés, Peak-Shaving-Berechnungen und Netzvoranfragen.
+- **tecis FDL AG**: Teilzeitpraktikum in Finanzanalyse, Markt- und Produktvergleich sowie digitalem Kunden- und Prozessmanagement.
+- **CNC-Concept**: Praktikum in Prozessdigitalisierung, E-Commerce, Lagerbestandsautomatisierung und Beschaffung.
+
+## Standort & Kontakt
+
+- **Standort**: Sarstedt (Region Hannover / Hildesheim / Göttingen), Niedersachsen, Deutschland
+- **E-Mail**: info@julius-hunold.de
+- **Job-Anfragen**: job@julius-hunold.de
+- **Website**: https://julius-hunold.de
+- **Englische Version**: https://julius-hunold.de/en/
+- **GitHub**: https://github.com/dfgsteam
+- **LinkedIn**: https://www.linkedin.com/in/julius-hunold/
+- **XING**: https://www.xing.com/profile/Julius_Hunold
+
+## Wichtige URLs
+
+- [Startseite (DE)](https://julius-hunold.de/)
+- [Homepage (EN)](https://julius-hunold.de/en/)
+- [Projekte (DE)](https://julius-hunold.de/#projekte)
+- [Blog (DE)](https://julius-hunold.de/blog)
+- [Blog (EN)](https://julius-hunold.de/en/blog)
+- [Lebenslauf & Skills](https://julius-hunold.de/#cv)
+- [Sitemap](https://julius-hunold.de/sitemap-index.xml)

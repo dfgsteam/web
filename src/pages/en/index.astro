@@ -20,9 +20,9 @@ const blogPosts = (await getCollection('blog', ({ id }) => id.startsWith('en/'))
     tags: p.data.tags,
   }));
 
-const personJsonLd = {
-  '@context': 'https://schema.org',
+const personData = {
   '@type': 'Person',
+  '@id': 'https://julius-hunold.de/en/#person',
   name: 'Julius Hunold',
   url: 'https://julius-hunold.de/en/',
   image: 'https://julius-hunold.de/portfolio.jpg',
@@ -42,6 +42,7 @@ const personJsonLd = {
     '@type': 'PostalAddress',
     addressLocality: 'Sarstedt',
     addressRegion: 'Lower Saxony',
+    postalCode: '31157',
     addressCountry: 'DE',
   },
   knowsAbout: [
@@ -58,6 +59,8 @@ const personJsonLd = {
     'Docker',
     'Linux',
     'SQL',
+    'Web Applications',
+    'E-Commerce',
   ],
   alumniOf: {
     '@type': 'CollegeOrUniversity',
@@ -74,19 +77,63 @@ const personJsonLd = {
   ],
 };
 
+const profilePageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: 'https://julius-hunold.de/en/',
+  name: 'Julius Hunold – Software Developer & Process Automation',
+  description: t.meta.description,
+  inLanguage: 'en-GB',
+  mainEntity: personData,
+};
+
+const professionalServiceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Julius Hunold – Software Development & Process Automation',
+  url: 'https://julius-hunold.de/en/',
+  image: 'https://julius-hunold.de/portfolio.jpg',
+  email: 'info@julius-hunold.de',
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Sarstedt',
+    addressRegion: 'Lower Saxony',
+    postalCode: '31157',
+    addressCountry: 'DE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 52.2389,
+    longitude: 9.8553,
+  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Hanover Region' },
+    { '@type': 'AdministrativeArea', name: 'Hildesheim' },
+    { '@type': 'AdministrativeArea', name: 'Göttingen' },
+    { '@type': 'Country', name: 'Germany' },
+  ],
+  serviceType: [
+    'Software Development',
+    'Process Automation',
+    'Custom Web Applications',
+    'Digitalization of Business Processes',
+    'E-Commerce & Shop Systems',
+    'IT Infrastructure & Cloud Hosting',
+  ],
+  founder: { '@id': 'https://julius-hunold.de/en/#person' },
+};
+
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Julius Hunold',
   url: 'https://julius-hunold.de/en/',
   inLanguage: 'en-GB',
-  author: {
-    '@type': 'Person',
-    name: 'Julius Hunold',
-  },
+  author: { '@id': 'https://julius-hunold.de/en/#person' },
 };
 ---
 
-<Layout t={t} lang="en" jsonLd={[personJsonLd, websiteJsonLd]}>
+<Layout t={t} lang="en" jsonLd={[profilePageJsonLd, professionalServiceJsonLd, websiteJsonLd]}>
   <HomePage t={t} lang="en" projects={projects} blogPosts={blogPosts} />
 </Layout>

@@ -16,6 +16,46 @@ const posts = (await getCollection('blog', ({ id }) => id.startsWith('en/')))
     excerpt: p.data.excerpt,
     tags: p.data.tags,
   }));
+
+const blogIndexJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: `Blog – ${t.meta.title}`,
+  description: t.blog.subheading,
+  url: 'https://julius-hunold.de/en/blog',
+  inLanguage: 'en-GB',
+  author: {
+    '@type': 'Person',
+    name: 'Julius Hunold',
+    url: 'https://julius-hunold.de/en/',
+  },
+  blogPost: posts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date.toISOString(),
+    url: `https://julius-hunold.de/en/blog/${post.slug}`,
+  })),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://julius-hunold.de/en/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Blog',
+      item: 'https://julius-hunold.de/en/blog',
+    },
+  ],
+};
 ---
 
 <Layout
@@ -24,6 +64,7 @@ const posts = (await getCollection('blog', ({ id }) => id.startsWith('en/')))
   title={`Blog – ${t.meta.title}`}
   description={t.blog.subheading}
   path={Astro.url.pathname}
+  jsonLd={[blogIndexJsonLd, breadcrumbJsonLd]}
 >
   <BlogIndex t={t} lang="en" posts={posts} />
 </Layout>

@@ -28,6 +28,7 @@ const {
 const site = SITE_URL;
 const canonical = `${site}${path}`;
 const imageUrl = ogImage.startsWith('http') ? ogImage : `${site}${ogImage}`;
+const imageMimeType = imageUrl.endsWith('.png') ? 'image/png' : 'image/jpeg';
 const { pathname } = Astro.url;
 const dePath = pathname.startsWith('/en') ? pathname.replace(/^\/en/, '') || '/' : pathname;
 const enPath = pathname.startsWith('/en') ? pathname : `/en${pathname === '/' ? '' : pathname}`;
@@ -38,10 +39,21 @@ const enPath = pathname.startsWith('/en') ? pathname : `/en${pathname === '/' ? 
 <meta name="keywords" content={keywords} />
 <meta name="author" content="Julius Hunold" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+<!-- Geo / Local SEO (Sarstedt, Region Hannover, Niedersachsen) -->
+<meta name="geo.region" content="DE-NI" />
+<meta name="geo.placename" content="Sarstedt" />
+<meta name="geo.position" content="52.2389;9.8553" />
+<meta name="ICBM" content="52.2389, 9.8553" />
+
+<!-- Canonical & Multilingual Alternates -->
 <link rel="canonical" href={canonical} />
 <link rel="alternate" hreflang="de" href={`${site}${dePath}`} />
 <link rel="alternate" hreflang="en" href={`${site}${enPath}`} />
 <link rel="alternate" hreflang="x-default" href={`${site}${dePath}`} />
+
+<!-- LLM / AI Search discovery (https://llmstxt.org/) -->
+<link rel="alternate" type="text/markdown" title="LLM Context" href={`${site}/llms.txt`} />
 
 <!-- OpenGraph -->
 <meta property="og:title" content={title} />
@@ -52,14 +64,18 @@ const enPath = pathname.startsWith('/en') ? pathname : `/en${pathname === '/' ? 
 <meta property="og:locale:alternate" content={lang === 'en' ? 'de_DE' : 'en_GB'} />
 <meta property="og:site_name" content="Julius Hunold" />
 <meta property="og:image" content={imageUrl} />
+<meta property="og:image:type" content={imageMimeType} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={title} />
 {publishedTime && <meta property="article:published_time" content={publishedTime} />}
 {ogType === 'article' && <meta property="article:author" content="Julius Hunold" />}
 
-<!-- Twitter -->
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={imageUrl} />
 
+<!-- Structured Data (JSON-LD) for Search Engines & LLMs -->
 {jsonLd.map((obj) => <script type="application/ld+json" set:html={JSON.stringify(obj)} />)}
