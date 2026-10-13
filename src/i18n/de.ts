@@ -146,9 +146,9 @@ export const de = {
       {
         role: 'Praktikant Finanzanalyse, Kunden- & Prozessmanagement',
         company: 'Till Schmidt-Kleen – tecis FDL AG, Hannover',
-        period: '03.08.2026 – 30.09.2026',
+        period: '08.06.2026 – 25.09.2026',
         description:
-          'Praktikum (160 Std.) in der ganzheitlichen Finanzanalyse, Markt- und Produktanalyse sowie in der Vertriebsorganisation und im digitalen Prozessmanagement.',
+          'Teilzeitpraktikum (160 Std.) in der ganzheitlichen Finanzanalyse, Markt- und Produktanalyse sowie in der Vertriebsorganisation und im digitalen Prozessmanagement.',
         bullets: [
           'Finanzanalyse, Finanzplanung & Produktanalyse: Strukturierte Aufbereitung finanzieller Ausgangssituationen sowie wirtschaftlicher Markt- und Produktvergleich von Finanz-, Versicherungs- und Vorsorgekonzepten.',
           'Kundenmanagement, Vertriebsorganisation & Digitalisierung: Vor- und Nachbereitung von Kundenterminen sowie Analyse und Optimierung digitaler Kundenverwaltungs- und Dokumentationsprozesse.',
